@@ -1,7 +1,13 @@
 <?php
 
+// Start session
 session_start();
-include 'dbconfig.php';
+
+// include database log in details
+$path = $_SERVER['DOCUMENT_ROOT'];
+$path .= '/test/dbconfig.php';
+include $path;
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // username and password received from loginform
@@ -23,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // If successful, attach username to session
         $_SESSION['username'] = $username;
-        header('Location: /Login/welcome.php');
+        header('Location: welcome.php');
     } else {
         $invalidLogin = true;
     }

@@ -10,7 +10,7 @@ function getVehicleInfo() {
 
     $("#response").show();
 
-    $.get(getVehicleDataPhpFile + "?inputVrn=" + vrn + "&inputMake=" + make, function (result) {
+    $.get(getVehicleDataPhpFile + "?inputVrn=" + vrn + "&inputMake=" + make, function(result) {
         if (result === "Vehicle does not exist.") {
             $("#apiResponseField").val(result);
         } else {
@@ -25,11 +25,11 @@ function loadTab1() {
 
     $("#response").hide();
 
-    $("#getVehicle").click(function () {
+    $("#getVehicle").click(function() {
         getVehicleInfo();
     });
 
-    $("#copy-to-clipboard").click(function () {
+    $("#copy-to-clipboard").click(function() {
         var text2Copy = $("#apiResponseField").val();
         $("#apiResponseField").select();
     });
@@ -41,7 +41,7 @@ function submitVehicle() {
 
 function loadTab2() {
 
-    $.get(getVehicleDataPhpFile, function (result) {
+    $.get(getVehicleDataPhpFile, function(result) {
         var json = JSON.parse(result);
         for (var x = 0; x < json.length; x++) {
             $("#submit-vehicle-form").append(
@@ -52,17 +52,17 @@ function loadTab2() {
                 "<label class='mdl-textfield__label'>" + json[x] + "</label></div></div>"
             );
         }
-        
+
         // Update material design dynamically
         componentHandler.upgradeDom();
     });
 
-    $("#submit-vehicle-button").click(function () {
+    $("#submit-vehicle-button").click(function() {
         submitVehicle();
     });
 }
 
-$(function () {
+$(function() {
 
     loadTab1();
 

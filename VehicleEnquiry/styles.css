@@ -1,42 +1,33 @@
 .enterText {
     text-transform: uppercase;
 }
-
 h4 {
     opacity: 0.87;
 }
-
 .toogle {
     width: 0px;
     margin-left: auto;
     margin-right: auto;
 }
-
 .tab-content {
     padding: 2em;
     margin: auto;
     width: 30em;
 }
-
 #responseTitle {
     font-size: 25px;
 }
-
 #copyIcon {
     float: right;
 }
-
 #apiResponseField {
     resize: none;
     width: 25em;
     height: 23em;
 }
-
-#divGetVehicle,
-#response {
+#divGetVehicle, #response {
     padding-top: 3em;
 }
-
 #submit-vehicle-div {
     padding: 3em;
 }

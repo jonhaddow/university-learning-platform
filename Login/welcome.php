@@ -3,7 +3,7 @@
 session_start();
 if (!isset($_SESSION['username'])) {
     session_destroy();
-    header('Location: /Login');
+    header('Location: ../Login');
 }
 
 ?>
@@ -17,6 +17,6 @@ if (!isset($_SESSION['username'])) {
     <title><?php echo $_SESSION['username']; ?></title>
 </head>
 <body>
-    <a href="/Login/logoff.php">Log Off</a>
+    <a href="logoff.php">Log Off</a>
 </body>
 </html>

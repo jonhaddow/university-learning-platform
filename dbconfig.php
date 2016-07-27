@@ -2,6 +2,6 @@
 
 $server = 'localhost';
 $user = 'root';
-$pass = 'testpassword';
-$dbname = 'serversync';
+$pass = '';
+$dbname = 'test';
 $dbconfig = mysqli_connect($server, $user, $pass, $dbname);
