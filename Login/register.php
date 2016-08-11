@@ -19,9 +19,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Initialise prepared statement
     $stmt = mysqli_stmt_init($dbconfig);
-    // Write statement
+    // Write statement to check if user exists
     mysqli_stmt_prepare($stmt, 'SELECT * FROM users WHERE Username = ?');
-    // Add POST parameters
+    // Add username parameter
     mysqli_stmt_bind_param($stmt, 's', $username);
     // Excute statement
     mysqli_stmt_execute($stmt);
@@ -31,11 +31,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (mysqli_fetch_array($result)) {
 
         // If username already exists, notify user
-        $invalidLogin = true;
+        $invalidUser = true;
+
+    } else if (strlen($password) < 6) {
+
+        // Validate password length
+        $invalidInput = true;
 
     } else {
 
-    // SQL STATEMENT TO ADD USER TO DATABASE.
+        // Initialise prepared statement
+        $stmt = mysqli_stmt_init($dbconfig);
+        // Write statement a enter new user into database
+        mysqli_stmt_prepare($stmt, 'INSERT INTO users(Username, HashedPassword) VALUES (?, ?)');
+        // Add POST parameters
+        mysqli_stmt_bind_param($stmt, 'ss', $username, password_hash($password, PASSWORD_DEFAULT));
+        // Excute statement
+        if ( mysqli_stmt_execute($stmt) ) {
+            header("Location: index.php");
+        }
 
     }
 }
@@ -48,25 +62,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <title>Registration</title>
     </head>
     <body>
-        <form action="#" method="post">
+        <form method="post">
             <label>Enter account details</label>
             <table>
                 <tr>
                     <td>Username</td>
                     <td>
-                        <input type="text" name="user">
+                        <input type="text" name="user" required>
                     </td>
                 </tr>
                 <tr>
                     <td>Password</td>
                     <td>
-                        <input type="text" name="pass">
+                        <input type="text" name="pass" required>
                     </td>
                 </tr>
             </table>
             <?php
-                if (isset($invalidLogin)) {
+                if (isset($invalidUser)) {
                     echo "<div style='color:red;'>Username Taken!</div>";
+                } else if (isset($invalidInput)) {
+                    echo "<div style='color:red;'>Username and password need to be at least 6 characters</div>";
                 }
              ?>
             <button type="submit" name="button">Register</button>

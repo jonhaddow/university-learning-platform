@@ -2,6 +2,9 @@
 
 // Start session
 session_start();
+if (isset($_SESSION['username'])) {
+    header('Location: welcome.php');
+}
 
 // include database log in details
 $path = $_SERVER['DOCUMENT_ROOT'];
@@ -17,19 +20,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Initialise prepared statement
     $stmt = mysqli_stmt_init($dbconfig);
     // Write statement
-    mysqli_stmt_prepare($stmt, 'SELECT * FROM users WHERE Username = ? AND HashedPassword = ?');
+    mysqli_stmt_prepare($stmt, 'SELECT * FROM users WHERE Username = ?');
     // Add POST parameters
-    mysqli_stmt_bind_param($stmt, 'ss', $username, $password);
+    mysqli_stmt_bind_param($stmt, 's', $username);
     // Excute statement
     mysqli_stmt_execute($stmt);
     // Get result
     $result = mysqli_stmt_get_result($stmt);
 
-    if (mysqli_fetch_array($result)) {
+    if ($row = mysqli_fetch_assoc($result)) {
 
-        // If successful, attach username to session
-        $_SESSION['username'] = $username;
-        header('Location: welcome.php');
+        // Get hashed password from DB
+        $hashed_password = $row["HashedPassword"];
+
+        // Verify user-entered password
+        if (password_verify($password, $hashed_password)) {
+
+            // If successful, attach username to session
+            $_SESSION['username'] = $username;
+            header('Location: welcome.php');
+
+        } else {
+            $invalidLogin = true;
+        }
+
     } else {
         $invalidLogin = true;
     }
@@ -54,7 +68,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
-    <form action="#" method="post">
+    <form method="post">
         <table>
             <tr>
                 <td>Username</td>
