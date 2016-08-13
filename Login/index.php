@@ -14,27 +14,21 @@ include $path;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // username and password received from loginform
-    $username = mysqli_real_escape_string($dbconfig, $_POST['user']);
-    $password = mysqli_real_escape_string($dbconfig, $_POST['pass']);
+    $username = $_POST["user"];
+    $password = $_POST["pass"];
 
-    // Initialise prepared statement
-    $stmt = mysqli_stmt_init($dbconfig);
-    // Write statement
-    mysqli_stmt_prepare($stmt, 'SELECT * FROM users WHERE Username = ?');
-    // Add POST parameters
-    mysqli_stmt_bind_param($stmt, 's', $username);
-    // Excute statement
-    mysqli_stmt_execute($stmt);
+    // Make query to find a matching username
+    $stmt = $db_conn->prepare('SELECT * FROM users WHERE Username = :username');
+    $stmt->bindParam(':username', $username);
+    $stmt->execute();
+
     // Get result
-    $result = mysqli_stmt_get_result($stmt);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if ($row = mysqli_fetch_assoc($result)) {
-
-        // Get hashed password from DB
-        $hashed_password = $row["HashedPassword"];
+    if ($row) {
 
         // Verify user-entered password
-        if (password_verify($password, $hashed_password)) {
+        if (password_verify($password, $row["HashedPassword"])) {
 
             // If successful, attach username to session
             $_SESSION['username'] = $username;
@@ -47,11 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     } else {
         $invalidLogin = true;
     }
-
-    // Close connection
-    mysqli_stmt_close($stmt);
 }
-
 ?>
 
 <!DOCTYPE html>

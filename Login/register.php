@@ -13,22 +13,19 @@ include $path;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    // username and password received from loginform
-    $username = mysqli_real_escape_string($dbconfig, $_POST['user']);
-    $password = mysqli_real_escape_string($dbconfig, $_POST['pass']);
+    // Get username and password
+    $username = $_POST["user"];
+    $password = $_POST["pass"];
 
-    // Initialise prepared statement
-    $stmt = mysqli_stmt_init($dbconfig);
-    // Write statement to check if user exists
-    mysqli_stmt_prepare($stmt, 'SELECT * FROM users WHERE Username = ?');
-    // Add username parameter
-    mysqli_stmt_bind_param($stmt, 's', $username);
-    // Excute statement
-    mysqli_stmt_execute($stmt);
+    // Make query to find if username exists
+    $stmt = $db_conn->prepare('SELECT * FROM users WHERE Username = :username');
+    $stmt->bindParam(':username', $username);
+    $stmt->execute();
+
     // Get result
-    $result = mysqli_stmt_get_result($stmt);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if (mysqli_fetch_array($result)) {
+    if ($row) {
 
         // If username already exists, notify user
         $invalidUser = true;
@@ -40,20 +37,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     } else {
 
-        // Initialise prepared statement
-        $stmt = mysqli_stmt_init($dbconfig);
-        // Write statement a enter new user into database
-        mysqli_stmt_prepare($stmt, 'INSERT INTO users(Username, HashedPassword) VALUES (?, ?)');
-        // Add POST parameters
-        mysqli_stmt_bind_param($stmt, 'ss', $username, password_hash($password, PASSWORD_DEFAULT));
-        // Excute statement
-        if ( mysqli_stmt_execute($stmt) ) {
+        // Enter new user into database
+        $stmt = $db_conn->prepare('INSERT INTO users(Username, HashedPassword) VALUES (:username, :password)');
+        $stmt->bindParam(':username', $username);
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        $stmt->bindParam(':password', $hashed_password);
+        if ($stmt->execute()){
+            // Go to login page
             header("Location: index.php");
         }
-
     }
 }
-
 ?>
 
 <html>
