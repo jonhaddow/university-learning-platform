@@ -5,6 +5,8 @@ $path = $_SERVER['DOCUMENT_ROOT'];
 $path .= '/dbconfig.php';
 include $path;
 
+$json_response = array("Successful" => TRUE);
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // username and password received from loginform
@@ -18,23 +20,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Get result
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
+    
     if ($row) {
 
         // Verify user-entered password
-        if (password_verify($password, $row["HashedPassword"])) {
-
-            // If successful, attach username to session
-            echo "Successful Login";
-
-        } else {
-            $invalidLogin = true;
+        if (!password_verify($password, $row["HashedPassword"])) {
+            $json_response["Successful"] = FALSE;
         }
 
     } else {
-        $invalidLogin = true;
+        $json_response["Successful"] = FALSE;
     }
-    if (isset($invalidLogin)) {
-        echo "Unsuccessful Login";
-    }
+    echo json_encode($json_response);
 }
