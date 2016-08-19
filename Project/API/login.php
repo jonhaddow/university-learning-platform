@@ -1,11 +1,11 @@
 <?php
 
 // include database log in details
-$path = $_SERVER['DOCUMENT_ROOT'];
-$path .= '/dbconfig.php';
-include $path;
+require_once $_SERVER["DOCUMENT_ROOT"] . "/dbconfig.php";
 
-$json_response = array("Successful" => TRUE);
+$json_response = array(
+    "Successful" => TRUE
+);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Get result
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    
+
     if ($row) {
 
         // Verify user-entered password

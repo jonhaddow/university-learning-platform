@@ -1,11 +1,13 @@
 <?php
 
 // include database log in details
-$path = $_SERVER['DOCUMENT_ROOT'];
-$path .= '/dbconfig.php';
-include $path;
+require_once $_SERVER["DOCUMENT_ROOT"] . "/dbconfig.php";
 
-$json_response = array("Successful" => TRUE);
+$json_response = array(
+    "Successful" => TRUE,
+    "UsernameAvailable" => TRUE,
+    "PasswordValid" => TRUE,
+);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -24,12 +26,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($row) {
 
         // If username already exists, notify user
-        $json_response["Successful"] = FALSE;
+        $json_response["UsernameAvailable"] = FALSE;
 
     } else if (strlen($password) < 6) {
 
         // Validate password length
-        $json_response["Successful"] = FALSE;
+        $json_response["PasswordValid"] = FALSE;
 
     } else {
 
