@@ -1,0 +1,12 @@
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto Condensed';
+}
+p, div {
+    font-family: 'Roboto';
+}
+.error {
+    color: red;
+}
+body {
+    padding-top: 70px;
+}

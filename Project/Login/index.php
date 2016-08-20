@@ -1,39 +1,7 @@
 <?php
 
 require_once $_SERVER["DOCUMENT_ROOT"] . "/config.php";
-
-session_start();
-if (isset($_SESSION['username'])) {
-    // Redirect to Welcome page
-    header("Location: " . $domain_name . "Project");
-    die();
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $url = $domain_name . "Project/API/Login.php";
-    $post_fields = array('user' => $_POST["user"], 'pass' => $_POST["pass"]);
-
-    // Send post data to login API via Curl
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $post_fields);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $response = curl_exec($ch);
-    curl_close($ch);
-
-    // Decode response
-    $jObject = json_decode($response,true);
-    $isSuccessful = $jObject["Successful"];
-    if ( $isSuccessful ) {
-        // If login Successful, set Session username and go to welcome page
-        $_SESSION["username"] = $_POST["user"];
-        header("Location: " . $domain_name . "Project");
-        die();
-    } else {
-        $invalidLogin = true;
-    }
-}
+require_once "manage-post.php";
 
 ?>
 
@@ -46,35 +14,47 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
 
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Roboto Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed:300" rel="stylesheet">
+    <!-- My style -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- My Script -->
     <script src="script.js"></script>
 </head>
 
 <body>
-    <form id="loginform" method="post">
-        <table>
-            <tr>
-                <td>Username</td>
-                <td>
-                    <input type="text" name="user">
-                </td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td>
-                    <input type="text" name="pass">
-                </td>
-            </tr>
-        </table>
-        <?php
-            if (isset($invalidLogin)) {
-                echo "<div style='color:red;'>Invalid Login</div>";
-            }
-         ?>
-        <button type="submit">Login</button>
-    </form>
-    <br>
-    <button id="register">Register</button>
+    <div class="container">
+        <div class="col-md-4 col-md-offset-4">
+            <form method="post" id="formLogin">
+                <h3>Enter Account Details</h3>
+                <div id="formGroupUsername" class="form-group">
+                    <label for="inputUsername">Username</label>
+                    <input type="text" name="user" class="form-control" id="inputUsername" placeholder="Username">
+                </div>
+                <div id="formGroupPassword" class="form-group">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" name="pass" class="form-control" id="inputPassword" placeholder="Password">
+                </div>
+                <?php if (isset($invalid_input)) {
+                    echo '
+                    <div class="error">Login details are incorrect</div>
+                    ';
+                } ?>
+                <button class="btn btn-default" type="submit" id="btnLogin">Sign in</button>
+                or <a id="register" href="<?php echo $domain_name ?>Project/Register">Register</a>
+            </form>
+
+        </div>
+    </div>
 </body>
 
 </html>

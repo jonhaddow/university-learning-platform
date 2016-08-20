@@ -1,75 +1,65 @@
 <?php
 
 require_once $_SERVER["DOCUMENT_ROOT"] . "/config.php";
+require_once "manage-post.php";
 
-// If in session, redirect to welcome page.
-session_start();
-if (isset($_SESSION['username'])) {
-    header("Location: " . $domain_name . "Project");
-    die();
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-    $url = $domain_name . "Project/API/Register.php";
-    $post_fields = array('user' => $_POST["user"], 'pass' => $_POST["pass"]);
-
-    // Send post data to login API via Curl
-    $ch = curl_init($url);
-    curl_setopt($ch, CURLOPT_POST, true);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $post_fields);
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    $response = curl_exec($ch);
-    curl_close($ch);
-
-    // Decode response
-    $jObject = json_decode($response,true);
-
-    // Get response values
-    $is_successful = $jObject["Successful"];
-    $username_available = $jObject["UsernameAvailable"];
-    $password_valid = $jObject["PasswordValid"];
-
-    if ($is_successful && $username_available && $password_valid) {
-        // If login Successful, go to login
-        header("Location: " . $domain_name . "Project/Login");
-        die();
-    }
-}
 ?>
 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Registration</title>
-    </head>
-    <body>
-        <form method="post">
-            <label>Enter account details</label>
-            <table>
-                <tr>
-                    <td>Username</td>
-                    <td>
-                        <input type="text" name="user" required>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Password</td>
-                    <td>
-                        <input type="text" name="pass" required>
-                    </td>
-                </tr>
-            </table>
-            <?php
-                if (isset($username_available) && !$username_available) {
-                    echo "<div style='color:red;'>Username Taken!</div>";
-                } else if (isset($password_valid) && !$password_valid) {
-                    echo "<div style='color:red;'>Password needs to be at least 6 characters</div>";
-                } else if (isset($is_successful) && !$is_successful) {
-                    echo "<div style='color:red;'>Connection error!</div>";
-                }
-             ?>
-            <button type="submit" name="button">Register</button>
-        </form>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registration</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Roboto Font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed:300" rel="stylesheet">
+    <!-- My style -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!-- Jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- My Script -->
+    <script src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="col-md-4 col-md-offset-4">
+            <form id="formRegister" method="post">
+                <h3>Enter Account Details</h3>
+                <div id="formGroupUsername" class="form-group">
+                    <label for="inputUsername">Username</label>
+                    <input type="text" name="user" class="form-control" id="inputUsername" placeholder="Username">
+                </div>
+                <div id="formGroupPassword" class="form-group">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" name="pass" class="form-control" id="inputPassword" placeholder="Password">
+                </div>
+                <div id="formGroupPasswordVerify" class="form-group">
+                    <label for="inputPassword">Please re-enter password</label>
+                    <input type="password" name="pass" class="form-control" id="inputPasswordVerify" placeholder="Password">
+                </div>
+                <div class="error">
+                    <?php
+                    if (!$username_available) {
+                        echo "Username Taken!";
+                    } else if (!$is_successful) {
+                        echo "Connection error!";
+                    }
+                    ?>
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+                Already registered? <a href="<?php echo $domain_name ?>Project/Login">Sign in.</a>
+            </form>
+        </div>
+    </div>
+</body>
 </html>
