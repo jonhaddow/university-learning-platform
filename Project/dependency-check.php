@@ -4,7 +4,11 @@
 require_once $_SERVER["DOCUMENT_ROOT"] . "/dbconfig.php";
 
 if (!isset($_GET['child'])) {
-    echo "no";
+
+    // If no child topic is given, then return error response
+    $json_response["status"] = "failed";
+    $json_response["data"]["title"] = "No child dependency given.";
+    echo json_encode($json_response);
     die;
 }
 
@@ -12,34 +16,39 @@ if (!isset($_GET['child'])) {
 $child = $_GET['child'];
 
 // Send SQL query to find Parents of Topic
-$sql =
-"SELECT PName FROM
-    (SELECT dependencies.ParentId, topics.Name AS 'PName'
-    FROM dependencies
+$sql = "
+    SELECT topics.Name
+    FROM
+        (SELECT dependencies.ParentId
+        FROM
+            (SELECT topics.TopicId FROM topics WHERE Name = :child) AS T1
+        INNER JOIN dependencies
+        ON T1.TopicId = dependencies.ChildId) AS T2
     INNER JOIN topics
-    ON topics.TopicId = dependencies.ParentId)
-AS parents
-INNER JOIN
-    (SELECT *
-    FROM dependencies
-    INNER JOIN topics
-    ON topics.TopicId = dependencies.ChildId
-    WHERE topics.Name=:child)
-AS childDependants
-ON parents.ParentId = childDependants.ParentId";
+    ON T2.ParentId = topics.TopicId
+";
 
 $stmt = $db_conn->prepare($sql);
 $stmt->bindParam(':child', $child);
-$stmt->execute();
+if ($stmt->execute()) {
+    $json_response["status"] = "success";
+} else {
+    $json_response["status"] = "error";
+    $json_response["message"] = "Unable to communicate with the database";
+}
 
-// Get result
+// Get result as array
 $parents = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
 
 if (count($parents) == 0){
-    echo "No dependencies exist";
+    $json_response["status"] = "success";
+    $json_response["data"] = "No parents exist for the child dependency given.";
+    echo json_encode($json_response);
 } else {
-    foreach ($parents as $parent) {
-        echo $parent . "<br>";
+    $json_response["status"] = "success";
+    foreach ($parents as $key => $parent) {
+        $json_response["data"]["parents"][] = $parent;
     }
+    echo json_encode($json_response);
 }
 ?>
