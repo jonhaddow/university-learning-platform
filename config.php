@@ -1,4 +1,4 @@
 <?php
 
-$domain_name = "http://localhost/website/";
+$domain_name = "http://localhost/";
  ?>
