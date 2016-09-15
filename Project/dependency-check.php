@@ -3,33 +3,33 @@
 // include database log in details
 require_once $_SERVER["DOCUMENT_ROOT"] . "/dbconfig.php";
 
-if (!isset($_GET['child'])) {
+if (!isset($_GET['parent'])) {
 
-    // If no child topic is given, then return error response
+    // If no parent topic is given, then return error response
     $json_response["status"] = "failed";
-    $json_response["data"]["title"] = "No child dependency given.";
+    $json_response["data"]["title"] = "No parent dependency entered.";
     echo json_encode($json_response);
     die;
 }
 
-// Get child topic
-$child = $_GET['child'];
+// Get parent topic
+$parent = $_GET['parent'];
 
-// Send SQL query to find Parents of Topic
+// Send SQL query to find children of Topic
 $sql = "
     SELECT topics.Name
     FROM
-        (SELECT dependencies.ParentId
+        (SELECT dependencies.ChildId
         FROM
-            (SELECT topics.TopicId FROM topics WHERE Name = :child) AS T1
+            (SELECT topics.TopicId FROM topics WHERE Name = :parent) AS T1
         INNER JOIN dependencies
-        ON T1.TopicId = dependencies.ChildId) AS T2
+        ON T1.TopicId = dependencies.ParentId) AS T2
     INNER JOIN topics
-    ON T2.ParentId = topics.TopicId
+    ON T2.ChildId = topics.TopicId
 ";
 
 $stmt = $db_conn->prepare($sql);
-$stmt->bindParam(':child', $child);
+$stmt->bindParam(':parent', $parent);
 if ($stmt->execute()) {
     $json_response["status"] = "success";
 } else {
@@ -38,16 +38,14 @@ if ($stmt->execute()) {
 }
 
 // Get result as array
-$parents = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+$children = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
 
-if (count($parents) == 0){
-    $json_response["status"] = "success";
-    $json_response["data"] = "No parents exist for the child dependency given.";
+if (count($children) == 0){
+    $json_response["data"] = "No children exist for the child dependency given.";
     echo json_encode($json_response);
 } else {
-    $json_response["status"] = "success";
-    foreach ($parents as $key => $parent) {
-        $json_response["data"]["parents"][] = $parent;
+    foreach ($children as $child) {
+        $json_response["data"]["children"][] = $child;
     }
     echo json_encode($json_response);
 }
