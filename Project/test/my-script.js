@@ -1,6 +1,6 @@
 $("document").ready(function() {
 
-    // create an array with nodes
+    // create an array of nodes from database
     var nodes = new vis.DataSet([
         { id: 1, label: 'Variables' },
         { id: 2, label: 'Booleans' },
@@ -12,7 +12,7 @@ $("document").ready(function() {
         { id: 8, label: 'Switch Statement' }
     ]);
 
-    // create an array with edges
+    // create an array with edges (dependencies)
     var edges = new vis.DataSet([
         { from: 1, to: 2 },
         { from: 1, to: 3 },
@@ -24,15 +24,16 @@ $("document").ready(function() {
         { from: 7, to: 8 }
     ]);
 
-    // create a network
-    var container = document.getElementById('myholder');
+    // get the container div
+    var container = document.getElementById("myholder");
 
     // provide the data in the vis format
     var data = {
-        nodes: nodes,
+        nodes,
         edges: edges
     };
 
+    // customise the options
     var options = {
         layout: {
             hierarchical: {
@@ -42,14 +43,17 @@ $("document").ready(function() {
             }
         },
         nodes: {
-            fixed: {
-                x: true,
-                y: true
-            },
             shadow: {
                 enabled: true
             },
-            shape: "box"
+            shape: "box",
+            labelHighlightBold: false,
+            borderWidthSelected: 3,
+            color: {
+                highlight: {
+                    background: '#FFA5A2'
+                }
+            }
         },
         edges: {
             arrows: {
@@ -57,10 +61,47 @@ $("document").ready(function() {
                     enabled: true
                 }
             },
+            hoverWidth: 0,
+            selectionWidth: 0
+        },
+        interaction: {
+            dragNodes: false,
+            dragView: false,
+            zoomView: false,
+            hover: true,
+            hoverConnectedEdges: false,
+            selectConnectedEdges: false,
         }
     }
 
-    // initialize your network!
+    // initialize the network!
     var network = new vis.Network(container, data, options);
 
+    // listener when node is selected
+    network.on("selectNode", function(selectedNode) {
+
+        // get node label
+        var nodeIds = selectedNode.nodes;
+        var nodeObj = nodes.get(nodeIds[0]);
+        $("#response").text(nodeObj.label);
+
+        // focus on selected node
+        network.focus(nodeIds[0], {
+            scale: 1.5,
+            animation: true
+        });
+    })
+
+    // listener when node is deselected
+    network.on("deselectNode", function(selectedNode) {
+
+        // if no other node has been selected, zoom out.
+        var nodeIds = selectedNode.nodes;
+        if (nodeIds.length === 0) {
+            $("#response").empty();
+            network.fit({
+                animation: true
+            });
+        }
+    });
 });
