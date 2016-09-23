@@ -1,28 +1,46 @@
 $("document").ready(function() {
 
-    // create an array of nodes from database
-    var nodes = new vis.DataSet([
-        { id: 1, label: 'Variables' },
-        { id: 2, label: 'Booleans' },
-        { id: 3, label: 'Strings' },
-        { id: 4, label: 'Integers' },
-        { id: 5, label: 'Process user input' },
-        { id: 6, label: 'Understand Comparisons' },
-        { id: 7, label: 'If/Else Statements' },
-        { id: 8, label: 'Switch Statement' }
-    ]);
+    // get all topic data as an jsonObj using php script
+    var topics;
+    $.ajax({
+        url: "find-all-nodes.php",
+        async: false
+    }).done(function(data) {
+        var jsonObj = JSON.parse(data);
+        topics = jsonObj.data;
+    });
+
+    // add topics to dataset
+    var topicDataset = [];
+    for (var i = 0; i < topics.length; i++) {
+        topicDataset.push({
+            id: topics[i].TopicId,
+            label: topics[i].Name
+        });
+    }
+
+    // create an array of nodes from dataset
+    var nodes = new vis.DataSet(topicDataset);
+
+    var dependencies;
+    $.ajax({
+        url: "find-all-dependencies.php",
+        async: false
+    }).done( function(data) {
+        var jsonObj = JSON.parse(data);
+        dependencies = jsonObj.data;
+    });
+
+    var dependencyDataset = [];
+    for (var i = 0; i < dependencies.length; i++) {
+        dependencyDataset.push({
+            from: dependencies[i].ParentId,
+            to: dependencies[i].ChildId
+        })
+    }
 
     // create an array with edges (dependencies)
-    var edges = new vis.DataSet([
-        { from: 1, to: 2 },
-        { from: 1, to: 3 },
-        { from: 1, to: 4 },
-        { from: 4, to: 5 },
-        { from: 2, to: 6 },
-        { from: 3, to: 6 },
-        { from: 6, to: 7 },
-        { from: 7, to: 8 }
-    ]);
+    var edges = new vis.DataSet(dependencyDataset);
 
     // get the container div
     var container = document.getElementById("myholder");
