@@ -9,11 +9,15 @@
 
     <!-- Vis.js CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.min.css">
-    <!-- My Style -->
+    <!-- bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- My Style CSS -->
     <link rel="stylesheet" href="my-style.css">
 
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- bootstrap JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- Vis.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.min.js"></script>
     <!-- My Script -->
@@ -21,9 +25,46 @@
 </head>
 
 <body>
-    <div id="myholder" class="col-md-8"></div>
-    <div id="response"></div>
-
+    <div class="container">
+        <div class="row" id="titleBar">
+            <div class="col-md-offset-2 col-md-8">
+                <h1><b>Programming 1:</b>  Module Topics</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div id="myholder" class="col-md-8"></div>
+            <div id="sideBar" class="col-md-4">
+                <div id="currentTopic">
+                    <h3>Highlighted Topic:</h3>
+                    <b id="response"></b>
+                </div>
+                <hr>
+                <div id="controls">
+                    <form id="newTopicForm">
+                        <div class="form-header"> ADD A TOPIC </div>
+                        <div class="form-group">
+                            <label for="inputNewTopic">New topic:</label>
+                            <input id="inputNewTopic" class="form-control" type="text">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                    <hr>
+                    <form id="newDependencyForm">
+                        <div class="form-header"> ADD A NEW DEPENDENCY </div>
+                        <div class="form-group">
+                            <label for="inputParent">Parent:</label>
+                            <input id="inputParent" class="form-control" type="text">
+                        </div>
+                        <div class="form-group">
+                            <label for="inputChild">Child:</label>
+                            <input id="inputChild" class="form-control" type="text">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

@@ -1,3 +1,17 @@
+// This function wraps a long string around a set character limit.
+function stringDivider(str, width, spaceReplacer) {
+    if (str.length > width) {
+        var p = width;
+        for (; p > 0 && str[p] != ' '; p--) {}
+        if (p > 0) {
+            var left = str.substring(0, p);
+            var right = str.substring(p + 1);
+            return left + spaceReplacer + stringDivider(right, width, spaceReplacer);
+        }
+    }
+    return str;
+}
+
 $("document").ready(function() {
 
     // get all topic data as an jsonObj using php script
@@ -13,24 +27,29 @@ $("document").ready(function() {
     // add topics to dataset
     var topicDataset = [];
     for (var i = 0; i < topics.length; i++) {
+        var id = topics[i].TopicId;
+        var label = topics[i].Name;
+        label = stringDivider(label, 18, "\n");
         topicDataset.push({
-            id: topics[i].TopicId,
-            label: topics[i].Name
+            id: id,
+            label: label
         });
     }
 
     // create an array of nodes from dataset
     var nodes = new vis.DataSet(topicDataset);
 
+    // get all dependencies
     var dependencies;
     $.ajax({
         url: "find-all-dependencies.php",
         async: false
-    }).done( function(data) {
+    }).done(function(data) {
         var jsonObj = JSON.parse(data);
         dependencies = jsonObj.data;
     });
 
+    // push dependencies into dataset
     var dependencyDataset = [];
     for (var i = 0; i < dependencies.length; i++) {
         dependencyDataset.push({
@@ -93,11 +112,11 @@ $("document").ready(function() {
     }
 
     // initialize the network!
-    var network = new vis.Network(container, data, options);
+    network = new vis.Network(container, data, options);
 
     // listener when node is selected
     network.on("selectNode", function(selectedNode) {
-
+        
         // get node label
         var nodeIds = selectedNode.nodes;
         var nodeObj = nodes.get(nodeIds[0]);
@@ -121,5 +140,10 @@ $("document").ready(function() {
                 animation: true
             });
         }
+    });
+
+    // listener when canvas is resized
+    network.on("resize", function() {
+        network.redraw();
     });
 });

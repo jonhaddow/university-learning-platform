@@ -1,5 +1,32 @@
+:root {
+    --primary-colour: lightblue;
+}
+
+#titleBar {
+    background-color: var(--primary-colour);
+}
+
 #myholder {
-    border: 1px solid lightgray;
-    width: 100%;
-    height: 800px;
+    border: 8px solid var(--primary-colour);
+    height: 90vh;
+}
+
+#sideBar {
+    background-color: var(--primary-colour);
+    height: 90vh;
+}
+
+#currentTopic {
+    height: 40%;
+}
+
+#response {
+    color: red;
+    font-size: 20px;
+}
+
+.form-header {
+    color: grey;
+    font-size: 20px;
+    padding-bottom: 10px;
 }
