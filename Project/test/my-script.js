@@ -18,7 +18,7 @@ $("document").ready(function() {
                 if ("duplicate" in jsonObj.data){
                     alert(jsonObj.data.duplicate);
                 } else if ("length" in jsonObj.data) {
-                    alert(jsonObj.data.length);    
+                    alert(jsonObj.data.length);
                 }
             }
         })
@@ -29,6 +29,25 @@ $("document").ready(function() {
         // clear textbox
         $("#inputNewTopic").val("");
 
+    });
+
+    $("#newDependencyForm").submit(function(e){
+        alert("start");
+        e.preventDefault();
+        $.ajax({
+            type: "POST",
+            url: "add-dependency.php",
+            data: {
+                parent: $("#inputParent").val(),
+                child: $("#inputChild").val()
+            }
+        });
+
+        // re-initializeNetwork();
+        initializeNetwork();
+
+        $("#inputParent").val("");
+        $("#inputChild").val("");
     });
 });
 
