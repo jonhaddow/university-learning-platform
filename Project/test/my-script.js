@@ -1,18 +1,39 @@
-// This function wraps a long string around a set character limit.
-function stringDivider(str, width, spaceReplacer) {
-    if (str.length > width) {
-        var p = width;
-        for (; p > 0 && str[p] != ' '; p--) {}
-        if (p > 0) {
-            var left = str.substring(0, p);
-            var right = str.substring(p + 1);
-            return left + spaceReplacer + stringDivider(right, width, spaceReplacer);
-        }
-    }
-    return str;
-}
-
 $("document").ready(function() {
+
+    initializeNetwork();
+
+    $("#newTopicForm").submit(function(e) {
+
+        // prevent submission
+        e.preventDefault();
+
+        // send request to add topic to database
+        $.ajax({
+            type: "POST",
+            url: "add-node.php",
+            data: { topicName: $("#inputNewTopic").val() }
+        }).done(function(data) {
+            var jsonObj = JSON.parse(data);
+            if (jsonObj.status === "fail") {
+                if ("duplicate" in jsonObj.data){
+                    alert(jsonObj.data.duplicate);
+                } else if ("length" in jsonObj.data) {
+                    alert(jsonObj.data.length);    
+                }
+            }
+        })
+
+        // re-initializeNetwork();
+        initializeNetwork();
+
+        // clear textbox
+        $("#inputNewTopic").val("");
+
+    });
+});
+
+// This function initializes the network and sets interaction listeners
+function initializeNetwork() {
 
     // get all topic data as an jsonObj using php script
     var topics;
@@ -116,7 +137,7 @@ $("document").ready(function() {
 
     // listener when node is selected
     network.on("selectNode", function(selectedNode) {
-        
+
         // get node label
         var nodeIds = selectedNode.nodes;
         var nodeObj = nodes.get(nodeIds[0]);
@@ -146,4 +167,18 @@ $("document").ready(function() {
     network.on("resize", function() {
         network.redraw();
     });
-});
+}
+
+// This function wraps a long string around a set character limit.
+function stringDivider(str, width, spaceReplacer) {
+    if (str.length > width) {
+        var p = width;
+        for (; p > 0 && str[p] != ' '; p--) {}
+        if (p > 0) {
+            var left = str.substring(0, p);
+            var right = str.substring(p + 1);
+            return left + spaceReplacer + stringDivider(right, width, spaceReplacer);
+        }
+    }
+    return str;
+}
