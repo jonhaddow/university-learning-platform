@@ -66,6 +66,21 @@ $("document").ready(function() {
 
         });
     });
+
+    $("#deleteEdgeButton").click(function() {
+
+        var connectedEdges = $("#selectedEdge").text().split(" ---> ");
+        var fromNode = connectedEdges[0];
+        var toNode = connectedEdges[1];
+
+        $.ajax({
+            url: "delete-dependency.php?from=" + fromNode + "&to=" + toNode,
+            type: "DELETE",
+        }).done(function(){
+            
+        });
+
+    });
 });
 
 // This function initializes the network and sets interaction listeners
@@ -161,7 +176,7 @@ function initializeNetwork() {
                 }
             },
             hoverWidth: 0,
-            selectionWidth: 0
+            selectionWidth: 3
         },
         interaction: {
             dragNodes: false,
@@ -192,6 +207,19 @@ function initializeNetwork() {
         });
     })
 
+    // listener when edge is selected
+    network.on("selectEdge", function(selectedEdge) {
+
+        // get node label
+        var edgeIds = selectedEdge.edges;
+        var edgeObj = edges.get(edgeIds[0]);
+        var fromValue = nodes.get(edgeObj.from).label;
+        var toValue = nodes.get(edgeObj.to).label;
+        $("#selectedEdge").text(fromValue + " ---> " + toValue);
+        $("#selectedEdgeInfo").show();
+
+    })
+
     // listener when node is deselected
     network.on("deselectNode", function(selectedNode) {
 
@@ -205,6 +233,18 @@ function initializeNetwork() {
             });
         }
     });
+
+    // listener when edge is selected
+    network.on("deselectEdge", function(selectedEdge) {
+
+        // get node label
+        var edgeIds = selectedEdge.edges;
+        if (edgeIds.length === 0) {
+            $("#selectedEdge").text("Please select a edge.");
+            $("#selectedEdgeInfo").hide();
+        }
+
+    })
 
     // listener when canvas is resized
     network.on("resize", function() {

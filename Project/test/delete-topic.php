@@ -91,13 +91,7 @@ $sql = "
 ";
 $stmt = $db_conn->prepare($sql);
 $stmt->bindParam(":topicName", $topicName);
-$stmt->execute();
 
-die();
-
-$stmt = $db_conn->prepare($sql);
-$stmt->bindParam(":parentId", $dependencyIds[0]);
-$stmt->bindParam(":childId", $dependencyIds[1]);
 if ($stmt->execute()) {
     $json_response["status"] = "success";
     $json_response["data"] = "null";
@@ -106,5 +100,4 @@ if ($stmt->execute()) {
     $json_response["message"] = "Unable to communicate with the database";
 }
 
-// Output Json
 echo json_encode($json_response);
