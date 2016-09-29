@@ -20,16 +20,11 @@ if ($stmt->execute()) {
 
 // Fetch all of the values of the topics
 $topics = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-if (count($topics) == 0){
-    $json_response["data"] = "No topics exist";
-} else {
-    foreach ($topics as $topic) {
-        $json_response["data"][] = [
-            "TopicId" => $topic["TopicId"],
-            "Name" => $topic["Name"]
-        ];
-    }
+foreach ($topics as $topic) {
+    $json_response["data"][] = [
+        "TopicId" => $topic["TopicId"],
+        "Name" => $topic["Name"]
+    ];
 }
 
 // Output Json

@@ -15,24 +15,22 @@ $("document").ready(function() {
         }).done(function(data) {
             var jsonObj = JSON.parse(data);
             if (jsonObj.status === "fail") {
-                if ("duplicate" in jsonObj.data){
+                if ("duplicate" in jsonObj.data) {
                     alert(jsonObj.data.duplicate);
                 } else if ("length" in jsonObj.data) {
                     alert(jsonObj.data.length);
                 }
             }
+            // re-initializeNetwork();
+            initializeNetwork();
+
+            // clear textbox
+            $("#inputNewTopic").val("");
         })
-
-        // re-initializeNetwork();
-        initializeNetwork();
-
-        // clear textbox
-        $("#inputNewTopic").val("");
 
     });
 
-    $("#newDependencyForm").submit(function(e){
-        alert("start");
+    $("#newDependencyForm").submit(function(e) {
         e.preventDefault();
         $.ajax({
             type: "POST",
@@ -41,13 +39,32 @@ $("document").ready(function() {
                 parent: $("#inputParent").val(),
                 child: $("#inputChild").val()
             }
+        }).done(function() {
+
+            // re-initializeNetwork();
+            initializeNetwork();
+
+            $("#inputParent").val("");
+            $("#inputChild").val("");
         });
 
-        // re-initializeNetwork();
-        initializeNetwork();
 
-        $("#inputParent").val("");
-        $("#inputChild").val("");
+    });
+
+    $("#deleteTopicButton").click(function() {
+
+        $.ajax({
+            url: "delete-topic.php?topic=" + $("#selectedTopic").text(),
+            type: "DELETE",
+        }).done(function() {
+
+            // re-initializeNetwork();
+            initializeNetwork();
+
+            $("#selectedTopic").text("Please select a topic.");
+            $("#selectedTopicInfo").hide();
+
+        });
     });
 });
 
@@ -64,16 +81,21 @@ function initializeNetwork() {
         topics = jsonObj.data;
     });
 
-    // add topics to dataset
     var topicDataset = [];
-    for (var i = 0; i < topics.length; i++) {
-        var id = topics[i].TopicId;
-        var label = topics[i].Name;
-        label = stringDivider(label, 18, "\n");
-        topicDataset.push({
-            id: id,
-            label: label
-        });
+
+    // Check if any topics exist
+    if (typeof topics !== "undefined") {
+
+        // add topics to dataset
+        for (var i = 0; i < topics.length; i++) {
+            var id = topics[i].TopicId;
+            var label = topics[i].Name;
+            label = stringDivider(label, 18, "\n");
+            topicDataset.push({
+                id: id,
+                label: label
+            });
+        }
     }
 
     // create an array of nodes from dataset
@@ -160,7 +182,8 @@ function initializeNetwork() {
         // get node label
         var nodeIds = selectedNode.nodes;
         var nodeObj = nodes.get(nodeIds[0]);
-        $("#response").text(nodeObj.label);
+        $("#selectedTopic").text(nodeObj.label);
+        $("#selectedTopicInfo").show();
 
         // focus on selected node
         network.focus(nodeIds[0], {
@@ -175,7 +198,8 @@ function initializeNetwork() {
         // if no other node has been selected, zoom out.
         var nodeIds = selectedNode.nodes;
         if (nodeIds.length === 0) {
-            $("#response").empty();
+            $("#selectedTopic").text("Please select a topic.");
+            $("#selectedTopicInfo").hide();
             network.fit({
                 animation: true
             });

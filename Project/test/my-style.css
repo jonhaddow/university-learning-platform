@@ -20,9 +20,11 @@
     height: 40%;
 }
 
-#response {
+#selectedTopic {
     color: red;
     font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 20px;
 }
 
 .form-header {
