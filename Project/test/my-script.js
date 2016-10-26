@@ -77,7 +77,7 @@ $("document").ready(function() {
             url: "delete-dependency.php?from=" + fromNode + "&to=" + toNode,
             type: "DELETE",
         }).done(function(){
-            
+
         });
 
     });
@@ -89,7 +89,7 @@ function initializeNetwork() {
     // get all topic data as an jsonObj using php script
     var topics;
     $.ajax({
-        url: "find-all-nodes.php",
+        url: "../API/find-all-nodes.php",
         async: false
     }).done(function(data) {
         var jsonObj = JSON.parse(data);
@@ -119,7 +119,7 @@ function initializeNetwork() {
     // get all dependencies
     var dependencies;
     $.ajax({
-        url: "find-all-dependencies.php",
+        url: "../API/find-all-dependencies.php",
         async: false
     }).done(function(data) {
         var jsonObj = JSON.parse(data);

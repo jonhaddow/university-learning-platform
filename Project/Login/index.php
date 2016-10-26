@@ -50,7 +50,7 @@ require_once "manage-post.php";
                     ';
                 } ?>
                 <button class="btn btn-default" type="submit" id="btnLogin">Sign in</button>
-                or <a id="register" href="<?php echo $domain_name ?>Project/Register">Register</a>
+                or <a id="register" href="<?php echo $register_page ?>">Register</a>
             </form>
 
         </div>

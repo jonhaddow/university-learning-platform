@@ -3,7 +3,7 @@
 // If in session, redirect to welcome page.
 session_start();
 if (isset($_SESSION['username'])) {
-    header("Location: " . $domain_name . "Project");
+    header("Location: " . $domain_name);
     die();
 }
 
@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($is_successful && $username_available && $password_valid) {
         // If login Successful, go to login
-        header("Location: " . $domain_name . "Project/Login");
+        header("Location: " . $login_page);
         die();
     }
 }

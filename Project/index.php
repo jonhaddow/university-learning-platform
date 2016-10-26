@@ -7,7 +7,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/config.php";
 session_start();
 if (!isset($_SESSION['username'])) {
     session_destroy();
-    header("Location: " . $domain_name . "Project/Login");
+    header("Location: " . $login_page);
     die();
 }
 
@@ -43,7 +43,7 @@ if (!isset($_SESSION['username'])) {
                 <a class="navbar-brand" href="#">Dashboard</a>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="<?php echo $domain_name ?>Project/logoff.php">Log Off</a></li>
+                <li><a href="<?php echo $logoff ?>">Log Off</a></li>
             </ul>
         </div>
     </nav>

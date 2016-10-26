@@ -1,8 +1,9 @@
 <?php
 session_start();
+
 if (isset($_SESSION['username'])) {
     // Redirect to Welcome page
-    header("Location: " . $domain_name . "Project");
+    header("Location: " . $domain_name);
     die();
 }
 
@@ -26,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($row && password_verify($password, $row["HashedPassword"])) {
         // If login Successful, set Session username and go to welcome page
         $_SESSION["username"] = $_POST["user"];
-        header("Location: " . $domain_name . "Project");
+        header("Location: " . $domain_name);
         die();
     } else {
         $invalid_input = true;

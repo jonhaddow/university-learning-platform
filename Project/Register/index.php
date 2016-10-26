@@ -57,7 +57,7 @@ require_once "manage-post.php";
                     ?>
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
-                Already registered? <a href="<?php echo $domain_name ?>Project/Login">Sign in.</a>
+                Already registered? <a href="<?php echo $login_page ?>">Sign in.</a>
             </form>
         </div>
     </div>
