@@ -1,3 +1,5 @@
+var API_LOCATION = "../API/";
+
 $("document").ready(function() {
 
     initializeNetwork();
@@ -10,22 +12,31 @@ $("document").ready(function() {
         // send request to add topic to database
         $.ajax({
             type: "POST",
-            url: "add-node.php",
+            url: API_LOCATION + "add-node.php",
             data: { topicName: $("#inputNewTopic").val() }
         }).done(function(data) {
-            var jsonObj = JSON.parse(data);
-            if (jsonObj.status === "fail") {
-                if ("duplicate" in jsonObj.data) {
-                    alert(jsonObj.data.duplicate);
-                } else if ("length" in jsonObj.data) {
-                    alert(jsonObj.data.length);
-                }
+
+            var jsonResponse = JSON.parse(data);
+            // check response
+            switch (jsonResponse.status) {
+                case "success":
+                    initializeNetwork();
+                    break;
+                case "fail":
+                    // check if failed due to length or duplication
+                    if ("duplicate" in jsonResponse.data) {
+                        alert(jsonResponse.data.duplicate);
+                    } else if ("length" in jsonResponse.data) {
+                        alert(jsonResponse.data.length);
+                    }
+                    break;
+                default:
+                    alert(jsonResponse.message);
             }
-            // re-initializeNetwork();
-            initializeNetwork();
 
             // clear textbox
             $("#inputNewTopic").val("");
+
         })
 
     });
@@ -34,18 +45,30 @@ $("document").ready(function() {
         e.preventDefault();
         $.ajax({
             type: "POST",
-            url: "add-dependency.php",
+            url: API_LOCATION + "add-dependency.php",
             data: {
                 parent: $("#inputParent").val(),
                 child: $("#inputChild").val()
             }
-        }).done(function() {
+        }).done(function(data) {
 
-            // re-initializeNetwork();
-            initializeNetwork();
+            jsonResponse = JSON.parse(data);
+            // check response
+            switch (jsonResponse.status) {
+                case "success":
+                    // re-initializeNetwork();
+                    initializeNetwork();
 
-            $("#inputParent").val("");
-            $("#inputChild").val("");
+                    $("#inputParent").val("");
+                    $("#inputChild").val("");
+                    break;
+                case "fail":
+                    alert(jsonResponse.data);
+                    break;
+                default:
+                    alert(jsonResponse.message);
+            }
+
         });
 
 
@@ -54,7 +77,7 @@ $("document").ready(function() {
     $("#deleteTopicButton").click(function() {
 
         $.ajax({
-            url: "delete-topic.php?topic=" + $("#selectedTopic").text(),
+            url: API_LOCATION + "delete-topic.php?topic=" + $("#selectedTopic").text(),
             type: "DELETE",
         }).done(function() {
 
@@ -74,9 +97,9 @@ $("document").ready(function() {
         var toNode = connectedEdges[1];
 
         $.ajax({
-            url: "delete-dependency.php?from=" + fromNode + "&to=" + toNode,
+            url: API_LOCATION + "delete-dependency.php?parent=" + fromNode + "&child=" + toNode,
             type: "DELETE",
-        }).done(function(){
+        }).done(function() {
 
         });
 
@@ -89,10 +112,13 @@ function initializeNetwork() {
     // get all topic data as an jsonObj using php script
     var topics;
     $.ajax({
-        url: "../API/find-all-nodes.php",
+        url: API_LOCATION + "find-all-nodes.php",
         async: false
     }).done(function(data) {
         var jsonObj = JSON.parse(data);
+        if (jsonObj.status === "error") {
+            alert(jsonObj.message);
+        }
         topics = jsonObj.data;
     });
 
@@ -119,10 +145,13 @@ function initializeNetwork() {
     // get all dependencies
     var dependencies;
     $.ajax({
-        url: "../API/find-all-dependencies.php",
+        url: API_LOCATION + "find-all-dependencies.php",
         async: false
     }).done(function(data) {
         var jsonObj = JSON.parse(data);
+        if (jsonObj.status === "error") {
+            alert(jsonObj.message);
+        }
         dependencies = jsonObj.data;
     });
 

@@ -3,12 +3,6 @@
 // include database log in details
 require_once $_SERVER["DOCUMENT_ROOT"] . "/dbconfig.php";
 
-$json_response = array(
-    "Successful" => TRUE,
-    "UsernameAvailable" => TRUE,
-    "PasswordValid" => TRUE,
-);
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Get username and password
@@ -26,12 +20,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($row) {
 
         // If username already exists, notify user
-        $json_response["UsernameAvailable"] = FALSE;
+        $json_response["status"] = "fail";
+        $json_response["data"] = "Username unavailable";
 
     } else if (strlen($password) < 6) {
 
         // Validate password length
-        $json_response["PasswordValid"] = FALSE;
+        $json_response["status"] = "fail";
+        $json_response["data"] = "Password should be at least 6 characters";
 
     } else {
 
@@ -40,8 +36,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $stmt->bindParam(':username', $username);
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
         $stmt->bindParam(':password', $hashed_password);
-        if (!($stmt->execute())) {
-            $json_response["Successful"] = FALSE;
+        if ($stmt->execute()) {
+            $json_response["status"] = "success";
+        } else {
+            $json_response["status"] = "error";
+            $json_response["message"] = "Cannot connect to database";
         }
     }
 

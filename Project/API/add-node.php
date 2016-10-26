@@ -4,10 +4,10 @@
 require_once $_SERVER["DOCUMENT_ROOT"] . "/dbconfig.php";
 
 // get name of topic
-$topicName = $_POST["topicName"];
+$topic_name = $_POST["topicName"];
 
 // check the length of topicName
-if (strlen($topicName) > 30) {
+if (strlen($topic_name) > 30) {
     $json_response["status"] = "fail";
     $json_response["data"]["length"] = "Topic name is too long.";
     echo json_encode($json_response);
@@ -21,7 +21,7 @@ $sql = "
 
 // Execute statement
 $stmt = $db_conn->prepare($sql);
-$stmt->bindParam(":topicName", $topicName);
+$stmt->bindParam(":topicName", $topic_name);
 try {
     if ($stmt->execute()) {
         $json_response["status"] = "success";
@@ -33,7 +33,7 @@ try {
 } catch (Exception $e) {
     // if duplicate detected, handle response
     $json_response["status"] = "fail";
-    $json_response["data"]["duplicate"] = "Topic name '".$topicName."' already exists.";
+    $json_response["data"]["duplicate"] = "Topic name '".$topic_name."' already exists.";
 }
 
 // Output Json

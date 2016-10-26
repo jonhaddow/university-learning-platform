@@ -4,7 +4,7 @@
 require_once $_SERVER["DOCUMENT_ROOT"] . "/dbconfig.php";
 
 // get parent and child names
-$dependencyNames = array($_POST["parent"], $_POST["child"]);
+$dependency_names = array($_POST["parent"], $_POST["child"]);
 
 for ($i=0; $i < 2; $i++) {
 
@@ -17,12 +17,20 @@ for ($i=0; $i < 2; $i++) {
 
     // Execute statement
     $stmt = $db_conn->prepare($sql);
-    $stmt->bindParam(":name", $dependencyNames[$i]);
+    $stmt->bindParam(":name", $dependency_names[$i]);
     $stmt->execute();
 
     // Fetch id
     $response = $stmt->fetch(PDO::FETCH_ASSOC);
-    $dependencyIds[] = $response["TopicId"];
+    $dependency_ids[] = $response["TopicId"];
+}
+
+// If dependency names given don't exist
+if ($dependency_ids[0] == null || $dependency_ids[1] == null) {
+    $json_response["status"] = "fail";
+    $json_response["data"] = "One or more dependencies given do not exist.";
+    echo json_encode($json_response);
+    die();
 }
 
 $sql = "
@@ -31,8 +39,8 @@ $sql = "
 ";
 
 $stmt = $db_conn->prepare($sql);
-$stmt->bindParam(":parentId", $dependencyIds[0]);
-$stmt->bindParam(":childId", $dependencyIds[1]);
+$stmt->bindParam(":parentId", $dependency_ids[0]);
+$stmt->bindParam(":childId", $dependency_ids[1]);
 if ($stmt->execute()) {
     $json_response["status"] = "success";
     $json_response["data"] = "null";

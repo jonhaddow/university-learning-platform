@@ -6,6 +6,24 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/dbconfig.php";
 // get topic name
 $topicName = $_GET["topic"];
 
+// Check that topic exists
+$sql = "
+    SELECT TopicId
+    FROM topics
+    WHERE  Name = :topic
+";
+$stmt = $db_conn->prepare($sql);
+$stmt->bindParam(":topic", $topicName);
+$stmt->execute();
+$response = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$exists = $stmt->rowCount();
+if ($exists == 0) {
+    $json_response["status"] = "fail";
+    $json_response["data"] = "The topic given does not exist";
+    echo json_encode($json_response);
+    die();
+}
+
 // find any parent dependencies
 $sql = "
     SELECT ParentId

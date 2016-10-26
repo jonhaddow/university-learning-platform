@@ -1,11 +1,9 @@
 <?php
 
+session_start();
+
 // include database log in details
 require_once $_SERVER["DOCUMENT_ROOT"] . "/dbconfig.php";
-
-$json_response = array(
-    "Successful" => TRUE
-);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -25,11 +23,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         // Verify user-entered password
         if (!password_verify($password, $row["HashedPassword"])) {
-            $json_response["Successful"] = FALSE;
+            $json_response["status"] = "success";
+            $_SESSION["username"] = $username;
         }
 
     } else {
-        $json_response["Successful"] = FALSE;
+        $json_response["status"] = "fail";
     }
     echo json_encode($json_response);
 }
