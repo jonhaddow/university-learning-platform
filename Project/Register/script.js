@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+    
     $("#formRegister").submit(function() {
 
         // Remove previous warnings
