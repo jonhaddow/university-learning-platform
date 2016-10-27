@@ -1,7 +1,13 @@
 <?php
 
 require_once $_SERVER["DOCUMENT_ROOT"] . "/config.php";
-require_once "manage-post.php";
+
+// If in session, redirect to welcome page.
+session_start();
+if (isset($_SESSION['username'])) {
+    header("Location: " . $domain_name);
+    die();
+}
 
 ?>
 
@@ -23,10 +29,10 @@ require_once "manage-post.php";
     <!-- My style -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- Jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <!-- My Script -->
     <script src="script.js"></script>
 </head>
@@ -47,15 +53,7 @@ require_once "manage-post.php";
                     <label for="inputPassword">Please re-enter password</label>
                     <input type="password" name="pass" class="form-control" id="inputPasswordVerify" placeholder="Password">
                 </div>
-                <div class="error">
-                    <?php
-                    if (!$username_available) {
-                        echo "Username Taken!";
-                    } else if (!$is_successful) {
-                        echo "Connection error!";
-                    }
-                    ?>
-                </div>
+                <div class="error"></div>
                 <button type="submit" class="btn btn-default">Submit</button>
                 Already registered? <a href="<?php echo $login_page ?>">Sign in.</a>
             </form>

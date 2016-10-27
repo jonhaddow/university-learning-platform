@@ -1,7 +1,14 @@
 <?php
 
 require_once $_SERVER["DOCUMENT_ROOT"] . "/config.php";
-require_once "manage-post.php";
+
+session_start();
+
+if (isset($_SESSION['username'])) {
+    // Redirect to Welcome page
+    header("Location: " . $domain_name);
+    die();
+}
 
 ?>
 

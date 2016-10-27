@@ -1,18 +1,20 @@
 $(function() {
     $("#formLogin").submit(function() {
+
+        // remove errors
+        $("#formGroupUsername").removeClass("has-error has-feedback");
+        $("#formGroupPassword").removeClass("has-error has-feedback");
+
+        // get input fields
         var username = $("#inputUsername").val();
         var password = $("#inputPassword").val();
 
-        // If username or password fields are empty, don't submit. Send error.
+        // If username or password fields are empty, send error.
         if (username === "") {
             $("#formGroupUsername").addClass("has-error has-feedback");
-        } else {
-            $("#formGroupUsername").removeClass("has-error has-feedback");
         }
         if (password === "") {
             $("#formGroupPassword").addClass("has-error has-feedback");
-        } else {
-            $("#formGroupPassword").removeClass("has-error has-feedback");
         }
 
         var refreshPage = false;
@@ -43,7 +45,6 @@ $(function() {
                 }
             });
         }
-
 
         return refreshPage;
     });
