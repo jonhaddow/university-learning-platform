@@ -38,20 +38,24 @@ $(document).ready(function() {
             validinput = false;
         }
 
+        // If all inputs are valid...
         if (validinput) {
+            // Send username and password to server to be registered.
             $.ajax({
                 type: "POST",
                 async: false,
-                url: "../API/register.php",
+                url: API_LOCATION + "register.php",
                 data: { user: username, pass: password }
             }).done(function(data) {
                 var jsonObj = JSON.parse(data);
                 switch (jsonObj.status) {
                     case "success":
+                        // If successful, redirect to login page.
                         alert("Successfully Registered");
-                        window.location.replace("../Login");
+                        window.location.replace(LOGIN);
                         break;
                     case "fail":
+                        // If unsuccessful, check what the cause is and give error message
                         if (jsonObj.data === "Username unavailable") {
                             $("#formGroupUsername").addClass("has-error has-feedback");
                             $(".error").append("Username is unavailable");
@@ -68,6 +72,7 @@ $(document).ready(function() {
             });
         }
 
+        // Stop html handling submission.
         return false;;
     });
 });

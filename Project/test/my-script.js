@@ -1,5 +1,3 @@
-var API_LOCATION = "../API/";
-
 $("document").ready(function() {
 
     initializeNetwork();

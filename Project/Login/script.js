@@ -24,7 +24,7 @@ $(function() {
             $.ajax({
                 type: "POST",
                 async: false,
-                url: "../API/login.php",
+                url: API_LOCATION + "login.php",
                 data: { user: username, pass: password }
             }).done(function(data) {
                 var jsonObj = JSON.parse(data);
