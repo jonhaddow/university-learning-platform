@@ -47,7 +47,7 @@ if (isset($_SESSION['username'])) {
                     <input type="text" name="user" class="form-control" id="inputUsername" placeholder="Username">
                 </div>
                 <div id="formGroupPassword" class="form-group">
-                    <label for="inputPassword">Password</label>
+                    <label for="inputPassword">Password</label> 
                     <input type="password" name="pass" class="form-control" id="inputPassword" placeholder="Password">
                 </div>
                 <div id="formGroupPasswordVerify" class="form-group">

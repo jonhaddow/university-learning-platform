@@ -2,10 +2,9 @@ $("document").ready(function() {
 
     initializeNetwork();
 
-    $("#newTopicForm").submit(function(e) {
+    populateDependencyMenu();
 
-        // prevent submission
-        e.preventDefault();
+    $("#newTopicForm").submit(function(e) {
 
         // send request to add topic to database
         $.ajax({
@@ -19,6 +18,7 @@ $("document").ready(function() {
             switch (jsonResponse.status) {
                 case "success":
                     initializeNetwork();
+                    populateDependencyMenu();
                     break;
                 case "fail":
                     // check if failed due to length or duplication
@@ -36,17 +36,21 @@ $("document").ready(function() {
             $("#inputNewTopic").val("");
 
         })
+        return false;
 
     });
 
     $("#newDependencyForm").submit(function(e) {
-        e.preventDefault();
+
+        var parent = $('#parentDropdownMenuSelect').find(":selected").text();
+        var child = $('#childDropdownMenuSelect').find(":selected").text();
+
         $.ajax({
             type: "POST",
             url: API_LOCATION + "add-dependency.php",
             data: {
-                parent: $("#inputParent").val(),
-                child: $("#inputChild").val()
+                parent: parent,
+                child: child
             }
         }).done(function(data) {
 
@@ -56,6 +60,7 @@ $("document").ready(function() {
                 case "success":
                     // re-initializeNetwork();
                     initializeNetwork();
+                    populateDependencyMenu();
 
                     $("#inputParent").val("");
                     $("#inputChild").val("");
@@ -68,8 +73,7 @@ $("document").ready(function() {
             }
 
         });
-
-
+        return false;
     });
 
     $("#deleteTopicButton").click(function() {
@@ -81,6 +85,7 @@ $("document").ready(function() {
 
             // re-initializeNetwork();
             initializeNetwork();
+            populateDependencyMenu();
 
             $("#selectedTopic").text("Please select a topic.");
             $("#selectedTopicInfo").hide();
@@ -98,7 +103,11 @@ $("document").ready(function() {
             url: API_LOCATION + "delete-dependency.php?parent=" + fromNode + "&child=" + toNode,
             type: "DELETE",
         }).done(function() {
+            initializeNetwork();
+            populateDependencyMenu();
 
+            $("#selectedEdge").text("Please select a edge.");
+            $("#selectedEdgeInfo").hide();
         });
 
     });
@@ -108,7 +117,6 @@ $("document").ready(function() {
 function initializeNetwork() {
 
     // get all topic data as an jsonObj using php script
-    var topics;
     $.ajax({
         url: API_LOCATION + "find-all-nodes.php",
         async: false
@@ -277,6 +285,21 @@ function initializeNetwork() {
     network.on("resize", function() {
         network.redraw();
     });
+
+}
+
+function populateDependencyMenu() {
+
+    // Clear current items in menus
+    $('#parentDropdownMenuSelect').children().remove();
+    $('#childDropdownMenuSelect').children().remove();
+
+    // populate with topic names
+    for (i = 0; i < topics.length; i++) {
+        $("#parentDropdownMenuSelect").append("<option value='" + topics[i].TopicId + "'>" + topics[i].Name + "</option>");
+        $("#childDropdownMenuSelect").append("<option value='" + topics[i].TopicId + "'>" + topics[i].Name + "</option>");
+    }
+
 }
 
 // This function wraps a long string around a set character limit.
