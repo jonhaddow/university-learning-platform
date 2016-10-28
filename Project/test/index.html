@@ -71,18 +71,17 @@
                     <form id="newDependencyForm">
                         <div class="form-header"> ADD A NEW DEPENDENCY </div>
                         <div class="form-group">
-                            <select id="parentDropdownMenuSelect" class="form-control"></select>
+                            <label for="parentDropdownMenuSelect">Parent Dependency</label><select id="parentDropdownMenuSelect" class="form-control dropdown"></select>
                         </div>
                         <div class="form-group">
-                            <select id="childDropdownMenuSelect" class="form-control"></select>
+                            <label for="childDropdownMenuSelect">Child Dependency</label><select id="childDropdownMenuSelect" class="form-control dropdown"></select>
                         </div>
-
+                        <button type="submit" class="btn btn-default">Submit</button>
+                        <div hidden id="dependencyError">A topic cannot be dependent on itself</div>
+                    </form>
                 </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-                </form>
             </div>
         </div>
-    </div>
     </div>
 </body>
 

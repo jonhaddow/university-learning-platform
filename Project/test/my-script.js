@@ -1,10 +1,48 @@
+var topics;
+
 $("document").ready(function() {
 
     initializeNetwork();
 
     populateDependencyMenu();
 
-    $("#newTopicForm").submit(function(e) {
+    $("#deleteTopicButton").click(function() {
+
+        $.ajax({
+            url: API_LOCATION + "delete-topic.php?topic=" + $("#selectedTopic").text(),
+            type: "DELETE"
+        }).done(function() {
+
+            // re-initializeNetwork();
+            initializeNetwork();
+            populateDependencyMenu();
+
+            $("#selectedTopic").text("Please select a topic.");
+            $("#selectedTopicInfo").hide();
+
+        });
+    });
+
+    $("#deleteEdgeButton").click(function() {
+
+        var connectedEdges = $("#selectedEdge").text().split(" ---> ");
+        var fromNode = connectedEdges[0];
+        var toNode = connectedEdges[1];
+
+        $.ajax({
+            url: API_LOCATION + "delete-dependency.php?parent=" + fromNode + "&child=" + toNode,
+            type: "DELETE"
+        }).done(function() {
+            initializeNetwork();
+            populateDependencyMenu();
+
+            $("#selectedEdge").text("Please select a edge.");
+            $("#selectedEdgeInfo").hide();
+        });
+
+    });
+
+    $("#newTopicForm").submit(function() {
 
         // send request to add topic to database
         $.ajax({
@@ -35,15 +73,22 @@ $("document").ready(function() {
             // clear textbox
             $("#inputNewTopic").val("");
 
-        })
+        });
         return false;
 
     });
 
-    $("#newDependencyForm").submit(function(e) {
+    $("#newDependencyForm").submit(function() {
 
         var parent = $('#parentDropdownMenuSelect').find(":selected").text();
         var child = $('#childDropdownMenuSelect').find(":selected").text();
+
+        if (parent === child) {
+            $("#dependencyError").show();
+            return false;
+        } else {
+            $("#dependencyError").hide();
+        }
 
         $.ajax({
             type: "POST",
@@ -54,7 +99,7 @@ $("document").ready(function() {
             }
         }).done(function(data) {
 
-            jsonResponse = JSON.parse(data);
+            var jsonResponse = JSON.parse(data);
             // check response
             switch (jsonResponse.status) {
                 case "success":
@@ -74,42 +119,6 @@ $("document").ready(function() {
 
         });
         return false;
-    });
-
-    $("#deleteTopicButton").click(function() {
-
-        $.ajax({
-            url: API_LOCATION + "delete-topic.php?topic=" + $("#selectedTopic").text(),
-            type: "DELETE",
-        }).done(function() {
-
-            // re-initializeNetwork();
-            initializeNetwork();
-            populateDependencyMenu();
-
-            $("#selectedTopic").text("Please select a topic.");
-            $("#selectedTopicInfo").hide();
-
-        });
-    });
-
-    $("#deleteEdgeButton").click(function() {
-
-        var connectedEdges = $("#selectedEdge").text().split(" ---> ");
-        var fromNode = connectedEdges[0];
-        var toNode = connectedEdges[1];
-
-        $.ajax({
-            url: API_LOCATION + "delete-dependency.php?parent=" + fromNode + "&child=" + toNode,
-            type: "DELETE",
-        }).done(function() {
-            initializeNetwork();
-            populateDependencyMenu();
-
-            $("#selectedEdge").text("Please select a edge.");
-            $("#selectedEdgeInfo").hide();
-        });
-
     });
 });
 
@@ -134,7 +143,7 @@ function initializeNetwork() {
     if (typeof topics !== "undefined") {
 
         // add topics to dataset
-        for (var i = 0; i < topics.length; i++) {
+        for (i = 0; i < topics.length; i++) {
             var id = topics[i].TopicId;
             var label = topics[i].Name;
             label = stringDivider(label, 18, "\n");
@@ -149,7 +158,7 @@ function initializeNetwork() {
     var nodes = new vis.DataSet(topicDataset);
 
     // get all dependencies
-    var dependencies;
+    var dependencies = null;
     $.ajax({
         url: API_LOCATION + "find-all-dependencies.php",
         async: false
@@ -221,7 +230,7 @@ function initializeNetwork() {
             hoverConnectedEdges: false,
             selectConnectedEdges: false,
         }
-    }
+    };
 
     // initialize the network!
     network = new vis.Network(container, data, options);
@@ -240,7 +249,7 @@ function initializeNetwork() {
             scale: 1.5,
             animation: true
         });
-    })
+    });
 
     // listener when edge is selected
     network.on("selectEdge", function(selectedEdge) {
@@ -253,7 +262,7 @@ function initializeNetwork() {
         $("#selectedEdge").text(fromValue + " ---> " + toValue);
         $("#selectedEdgeInfo").show();
 
-    })
+    });
 
     // listener when node is deselected
     network.on("deselectNode", function(selectedNode) {
@@ -279,7 +288,7 @@ function initializeNetwork() {
             $("#selectedEdgeInfo").hide();
         }
 
-    })
+    });
 
     // listener when canvas is resized
     network.on("resize", function() {
@@ -291,15 +300,14 @@ function initializeNetwork() {
 function populateDependencyMenu() {
 
     // Clear current items in menus
-    $('#parentDropdownMenuSelect').children().remove();
-    $('#childDropdownMenuSelect').children().remove();
+    $('.dropdown').children().remove();
+    // $('#childDropdownMenuSelect').children().remove();
 
     // populate with topic names
     for (i = 0; i < topics.length; i++) {
         $("#parentDropdownMenuSelect").append("<option value='" + topics[i].TopicId + "'>" + topics[i].Name + "</option>");
         $("#childDropdownMenuSelect").append("<option value='" + topics[i].TopicId + "'>" + topics[i].Name + "</option>");
     }
-
 }
 
 // This function wraps a long string around a set character limit.
