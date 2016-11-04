@@ -5,6 +5,7 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/dbconfig.php";
 
 // get parent and child names
 $dependency_names = array($_GET["parent"], $_GET["child"]);
+$dependency_ids = array();
 
 for ($i=0; $i < 2; $i++) {
 

@@ -38,6 +38,7 @@ $stmt = $db_conn->prepare($sql);
 $stmt->bindParam(":topicName", $topicName);
 $stmt->execute();
 $response = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$parents = array();
 foreach ($response as $parent) {
     $parents[] = $parent["ParentId"];
 }
@@ -70,6 +71,7 @@ $stmt = $db_conn->prepare($sql);
 $stmt->bindParam(":topicName", $topicName);
 $stmt->execute();
 $response = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$children = array();
 foreach ($response as $child) {
     $children[] = $child["ChildId"];
 }

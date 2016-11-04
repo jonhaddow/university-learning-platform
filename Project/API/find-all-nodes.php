@@ -29,4 +29,3 @@ foreach ($topics as $topic) {
 
 // Output Json
 echo json_encode($json_response);
-?>

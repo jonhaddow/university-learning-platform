@@ -5,7 +5,9 @@ require_once $_SERVER["DOCUMENT_ROOT"] . "/dbconfig.php";
 
 // get parent and child names
 $dependency_names = array($_POST["parent"], $_POST["child"]);
+$dependency_ids = array();
 
+// find ids for both child and parent name given
 for ($i=0; $i < 2; $i++) {
 
     // Send SQL query to get id
@@ -22,7 +24,7 @@ for ($i=0; $i < 2; $i++) {
 
     // Fetch id
     $response = $stmt->fetch(PDO::FETCH_ASSOC);
-    $dependency_ids[] = $response["TopicId"];
+    $dependency_ids[$i] = $response["TopicId"];
 }
 
 // If dependency names given don't exist

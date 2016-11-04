@@ -21,7 +21,7 @@ if ($stmt->execute()) {
 // Fetch all of the values of the parent and child dependencies
 $dependencies = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-if (count($dependencies) == 0){
+if (count($dependencies) == 0) {
     $json_response["data"] = "No dependencies exist";
 } else {
     foreach ($dependencies as $dependency) {
@@ -34,4 +34,3 @@ if (count($dependencies) == 0){
 
 // Output Json
 echo json_encode($json_response);
-?>

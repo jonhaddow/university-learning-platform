@@ -183,7 +183,7 @@ function initializeNetwork() {
     var edges = new vis.DataSet(dependencyDataset);
 
     // get the container div
-    var container = document.getElementById("myholder");
+    var container = document.getElementById("visHolder");
 
     // provide the data in the vis format
     var data = {
