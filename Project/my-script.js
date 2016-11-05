@@ -47,7 +47,7 @@ $("document").ready(function() {
         // send request to add topic to database
         $.ajax({
             type: "POST",
-            url: API_LOCATION + "add-node.php",
+            url: API_LOCATION + "add-topic.php",
             data: { topicName: $("#inputNewTopic").val() }
         }).done(function(data) {
 
@@ -84,7 +84,7 @@ $("document").ready(function() {
         var child = $('#childDropdownMenuSelect').find(":selected").text();
 
         if (parent === child) {
-            $("#dependencyError").show();
+            $("#dependencyError").show().text("A topic cannot be dependent on itself.");
             return false;
         } else {
             $("#dependencyError").hide();
@@ -111,7 +111,7 @@ $("document").ready(function() {
                     $("#inputChild").val("");
                     break;
                 case "fail":
-                    alert(jsonResponse.data);
+                    $("#dependencyError").show().text(jsonResponse.data);
                     break;
                 default:
                     alert(jsonResponse.message);
@@ -127,7 +127,7 @@ function initializeNetwork() {
 
     // get all topic data as an jsonObj using php script
     $.ajax({
-        url: API_LOCATION + "find-all-nodes.php",
+        url: API_LOCATION + "find-all-topics.php",
         async: false
     }).done(function(data) {
         var jsonObj = JSON.parse(data);

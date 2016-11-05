@@ -108,7 +108,7 @@ if (!isset($_SESSION['username'])) {
                             id="childDropdownMenuSelect" class="form-control dropdown"></select>
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
-                    <div hidden id="dependencyError">A topic cannot be dependent on itself</div>
+                    <div hidden id="dependencyError"></div>
                 </form>
             </div>
         </div>

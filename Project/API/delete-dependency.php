@@ -1,5 +1,16 @@
 <?php
 
+// Get root config file
+require_once $_SERVER["DOCUMENT_ROOT"] . "/config.php";
+
+// Check that session exists
+session_start();
+if (!isset($_SESSION['username'])) {
+	session_destroy();
+	header("Location: " . $login_page);
+	die();
+}
+
 // include database log in details
 require_once $_SERVER["DOCUMENT_ROOT"] . "/dbconfig.php";
 
