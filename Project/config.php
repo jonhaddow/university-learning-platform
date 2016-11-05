@@ -3,5 +3,5 @@
 $domain_name = "http://localhost/Project";
 $login_page = $domain_name . "/Login";
 $register_page = $domain_name . "/Register";
-$logoff = $domain_name . "/logoff.php"
- ?>
+$logoff = $domain_name . "/logoff.php";
+$dbConfig = $domain_name . "/dbconfig.php";

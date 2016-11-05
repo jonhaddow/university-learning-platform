@@ -1,0 +1,61 @@
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Roboto Condensed', serif;
+}
+
+p, div {
+    font-family: 'Roboto', sans-serif;
+}
+
+.error {
+    color: red;
+    padding-top: 15px;
+}
+
+body {
+    padding-top: 70px;
+}
+
+:root {
+    --primary-colour: white;
+}
+
+#titleBar {
+    background-color: var(--primary-colour);
+}
+
+#visHolder {
+    border: 8px solid var(--primary-colour);
+    height: 80vh;
+}
+
+#sideNav {
+    background-color: var(--primary-colour);
+}
+
+#currentTopic {
+    height: 15%;
+}
+
+#currentEdge {
+    height: 15%;
+}
+
+#selectedTopic {
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+#selectedEdge {
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 20px;
+}
+
+.form-header {
+    color: grey;
+    font-size: 20px;
+    padding-bottom: 10px;
+}
