@@ -95,6 +95,7 @@ if (!isset($_SESSION['username'])) {
                         <input id="inputNewTopic" class="form-control" type="text">
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
+                    <div hidden id="topicError" class="error"></div>
                 </form>
                 <hr>
                 <form id="newDependencyForm">
@@ -108,7 +109,7 @@ if (!isset($_SESSION['username'])) {
                             id="childDropdownMenuSelect" class="form-control dropdown"></select>
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
-                    <div hidden id="dependencyError"></div>
+                    <div hidden id="dependencyError" class="error"></div>
                 </form>
             </div>
         </div>

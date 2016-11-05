@@ -8,6 +8,7 @@ p, div {
 
 .error {
     color: red;
+    padding-top: 15px;
 }
 
 body {
@@ -57,9 +58,4 @@ body {
     color: grey;
     font-size: 20px;
     padding-bottom: 10px;
-}
-
-#dependencyError {
-    color: red;
-    padding-top: 20px;
 }

@@ -44,6 +44,9 @@ $("document").ready(function() {
 
     $("#newTopicForm").submit(function() {
 
+        var errorDiv = $("#topicError");
+        errorDiv.hide();
+
         // send request to add topic to database
         $.ajax({
             type: "POST",
@@ -61,9 +64,9 @@ $("document").ready(function() {
                 case "fail":
                     // check if failed due to length or duplication
                     if ("duplicate" in jsonResponse.data) {
-                        alert(jsonResponse.data.duplicate);
+                        errorDiv.show().text(jsonResponse.data.duplicate);
                     } else if ("length" in jsonResponse.data) {
-                        alert(jsonResponse.data.length);
+                        errorDiv.show().text(jsonResponse.data.length);
                     }
                     break;
                 default:
