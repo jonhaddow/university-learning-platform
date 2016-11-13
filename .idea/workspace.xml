@@ -2,15 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23a5a197-9e22-4376-b93d-58598c5ede59" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Project/API/add-node.php" afterPath="$PROJECT_DIR$/Project/API/add-topic.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/Project/API/find-all-nodes.php" afterPath="$PROJECT_DIR$/Project/API/find-all-topics.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/API/add-dependency.php" afterPath="$PROJECT_DIR$/Project/API/add-dependency.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/API/delete-dependency.php" afterPath="$PROJECT_DIR$/Project/API/delete-dependency.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/API/delete-topic.php" afterPath="$PROJECT_DIR$/Project/API/delete-topic.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/API/find-all-dependencies.php" afterPath="$PROJECT_DIR$/Project/API/find-all-dependencies.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/index.php" afterPath="$PROJECT_DIR$/Project/index.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/my-script.js" afterPath="$PROJECT_DIR$/Project/my-script.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/API/register.php" afterPath="$PROJECT_DIR$/Project/API/register.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/Register/index.php" afterPath="$PROJECT_DIR$/Project/Register/index.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/Register/script.js" afterPath="$PROJECT_DIR$/Project/Register/script.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Project/jsConfig.js" afterPath="$PROJECT_DIR$/Project/jsConfig.js" />
     </list>
     <ignored path=".idea/" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -38,27 +34,100 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="add-dependency.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Project/API/add-dependency.php">
+      <file leaf-file-name="find-all-topics.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Project/API/find-all-topics.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+            <state relative-caret-position="210">
+              <caret line="14" column="24" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
               <folding>
-                <marker date="1478338251172" expanded="true" signature="579:640" ph="SELECT Topic... topics" />
-                <marker date="1478338251172" expanded="true" signature="1510:1573" ph="SELECT Paren... dependencies" />
+                <marker date="1478350823148" expanded="true" signature="331:367" ph="SELECT Topic... topics" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="find-all-topics.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Project/API/find-all-topics.php">
+      <file leaf-file-name="register.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Project/API/register.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+            <state relative-caret-position="405">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
               <folding>
-                <marker date="1478338251180" expanded="true" signature="383:419" ph="SELECT Topic... topics" />
+                <marker date="1479070827586" expanded="true" signature="292:338" ph="SELECT * FRO... users" />
+                <marker date="1479070827586" expanded="true" signature="860:946" ph="INSERT INTO users... " />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Project/Register/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="674">
+              <caret line="58" column="22" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="script.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Project/Register/script.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="593">
+              <caret line="48" column="31" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="jsConfig.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Project/jsConfig.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="26" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dbconfig.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Project/dbconfig.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="add-dependency.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Project/API/add-dependency.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="735">
+              <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+              <folding>
+                <marker date="1478350880547" expanded="true" signature="527:588" ph="SELECT Topic... topics" />
+                <marker date="1478350880547" expanded="true" signature="1458:1521" ph="SELECT Paren... dependencies" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Project/Login/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="480">
+              <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="script.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Project/Login/script.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -66,99 +135,10 @@
       <file leaf-file-name="login.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Project/API/login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1477556544130" expanded="true" signature="359:405" ph="SELECT * FRO... users" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Project/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="logoff.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Project/logoff.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="delete-dependency.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Project/API/delete-dependency.php">
-          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="165">
-              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+              <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
               <folding>
-                <marker date="1478338251124" expanded="true" signature="532:593" ph="SELECT Topic... topics" />
-                <marker date="1478338251124" expanded="true" signature="1172:1254" ph="DELETE FROM " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="delete-topic.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Project/API/delete-topic.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-              <folding>
-                <marker date="1478338251160" expanded="true" signature="421:476" ph="SELECT Topic... topics" />
-                <marker date="1478338251160" expanded="true" signature="866:1006" ph="SELECT Paren... dependencies" />
-                <marker date="1478338251160" expanded="true" signature="934:1000" ph="SELECT Topic... topics" />
-                <marker date="1478338251160" expanded="true" signature="1293:1420" ph="DELETE FROM " />
-                <marker date="1478338251160" expanded="true" signature="1352:1414" ph="SELECT Topic... topics" />
-                <marker date="1478338251160" expanded="true" signature="1560:1700" ph="SELECT Child... dependencies" />
-                <marker date="1478338251160" expanded="true" signature="1628:1694" ph="SELECT Topic... topics" />
-                <marker date="1478338251160" expanded="true" signature="1985:2113" ph="DELETE FROM " />
-                <marker date="1478338251160" expanded="true" signature="2045:2107" ph="SELECT Topic... topics" />
-                <marker date="1478338251160" expanded="true" signature="2370:2454" ph="INSERT INTO dependencies... " />
-                <marker date="1478338251160" expanded="true" signature="2665:2711" ph="DELETE FROM " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="add-topic.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Project/API/add-topic.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-              <folding>
-                <marker date="1478338251192" expanded="true" signature="662:706" ph="INSERT INTO topics... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="find-all-dependencies.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Project/API/find-all-dependencies.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-              <folding>
-                <marker date="1478338251148" expanded="true" signature="389:435" ph="SELECT Paren... dependencies" />
+                <marker date="1478349949944" expanded="true" signature="333:379" ph="SELECT * FRO... users" />
               </folding>
             </state>
           </provider>
@@ -175,17 +155,26 @@
         <option value="$PROJECT_DIR$/Project/test/index.html" />
         <option value="$PROJECT_DIR$/Project/test/my-script.js" />
         <option value="$PROJECT_DIR$/Project/my-style.css" />
-        <option value="$PROJECT_DIR$/Project/style.css" />
         <option value="$PROJECT_DIR$/Project/API/find-all-nodes.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/4c38f947-024e-45ea-a2d7-3a1c7e95b94e/console.sql" />
-        <option value="$PROJECT_DIR$/Project/index.php" />
         <option value="$PROJECT_DIR$/Project/my-script.js" />
+        <option value="$PROJECT_DIR$/Project/style.css" />
+        <option value="$PROJECT_DIR$/Project/index.php" />
+        <option value="$PROJECT_DIR$/Project/logoff.php" />
+        <option value="$PROJECT_DIR$/Project/config.php" />
+        <option value="$PROJECT_DIR$/Project/API/find-all-topics.php" />
         <option value="$PROJECT_DIR$/Project/API/add-dependency.php" />
         <option value="$PROJECT_DIR$/Project/API/add-topic.php" />
         <option value="$PROJECT_DIR$/Project/API/delete-dependency.php" />
         <option value="$PROJECT_DIR$/Project/API/delete-topic.php" />
         <option value="$PROJECT_DIR$/Project/API/find-all-dependencies.php" />
-        <option value="$PROJECT_DIR$/Project/API/find-all-topics.php" />
+        <option value="$PROJECT_DIR$/Project/Login/index.php" />
+        <option value="$PROJECT_DIR$/Project/dbconfig.php" />
+        <option value="$PROJECT_DIR$/Project/jsConfig.js" />
+        <option value="$PROJECT_DIR$/Project/Register/index.php" />
+        <option value="$PROJECT_DIR$/Project/Register/script.js" />
+        <option value="$PROJECT_DIR$/Project/API/login.php" />
+        <option value="$PROJECT_DIR$/Project/API/register.php" />
       </list>
     </option>
   </component>
@@ -194,6 +183,9 @@
   <component name="JsGulpfileManager">
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="PhpServers">
+    <servers />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
@@ -245,8 +237,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -335,6 +325,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -427,37 +419,39 @@
       <workItem from="1477674288658" duration="249000" />
       <workItem from="1478252208311" duration="6460000" />
       <workItem from="1478266869680" duration="8770000" />
-      <workItem from="1478335269219" duration="3037000" />
+      <workItem from="1478335269219" duration="9632000" />
+      <workItem from="1478372052661" duration="1657000" />
+      <workItem from="1479025695341" duration="6404000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20552000" />
+    <option name="totallyTimeSpent" value="35208000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="30" width="1920" height="1050" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11145833" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32983193" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32983193" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32983193" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32983193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32983193" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -476,13 +470,43 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/Project/API/delete-topic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <marker date="1478350880531" expanded="true" signature="369:424" ph="SELECT Topic... topics" />
+            <marker date="1478350880531" expanded="true" signature="814:954" ph="SELECT Paren... dependencies" />
+            <marker date="1478350880531" expanded="true" signature="882:948" ph="SELECT Topic... topics" />
+            <marker date="1478350880531" expanded="true" signature="1241:1368" ph="DELETE FROM " />
+            <marker date="1478350880531" expanded="true" signature="1300:1362" ph="SELECT Topic... topics" />
+            <marker date="1478350880531" expanded="true" signature="1508:1648" ph="SELECT Child... dependencies" />
+            <marker date="1478350880531" expanded="true" signature="1576:1642" ph="SELECT Topic... topics" />
+            <marker date="1478350880531" expanded="true" signature="1933:2061" ph="DELETE FROM " />
+            <marker date="1478350880531" expanded="true" signature="1993:2055" ph="SELECT Topic... topics" />
+            <marker date="1478350880531" expanded="true" signature="2318:2402" ph="INSERT INTO dependencies... " />
+            <marker date="1478350880531" expanded="true" signature="2613:2659" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/API/find-all-dependencies.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <marker date="1478350880511" expanded="true" signature="337:383" ph="SELECT Paren... dependencies" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Project/API/add-dependency.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="645">
           <caret line="43" column="55" selection-start-line="43" selection-start-column="55" selection-end-line="43" selection-end-column="55" />
           <folding>
-            <marker date="1478338251172" expanded="true" signature="579:640" ph="SELECT Topic... topics" />
-            <marker date="1478338251172" expanded="true" signature="1510:1573" ph="SELECT Paren... dependencies" />
+            <marker date="1478350880547" expanded="true" signature="527:588" ph="SELECT Topic... topics" />
+            <marker date="1478350880547" expanded="true" signature="1458:1521" ph="SELECT Paren... dependencies" />
           </folding>
         </state>
       </provider>
@@ -492,7 +516,7 @@
         <state relative-caret-position="225">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <marker date="1478338251192" expanded="true" signature="662:706" ph="INSERT INTO topics... " />
+            <marker date="1478350880555" expanded="true" signature="610:654" ph="INSERT INTO topics... " />
           </folding>
         </state>
       </provider>
@@ -502,7 +526,7 @@
         <state relative-caret-position="450">
           <caret line="30" column="33" selection-start-line="30" selection-start-column="33" selection-end-line="30" selection-end-column="33" />
           <folding>
-            <marker date="1478338251180" expanded="true" signature="383:419" ph="SELECT Topic... topics" />
+            <marker date="1478350823148" expanded="true" signature="331:367" ph="SELECT Topic... topics" />
           </folding>
         </state>
       </provider>
@@ -512,8 +536,8 @@
         <state relative-caret-position="570">
           <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
           <folding>
-            <marker date="1477492867039" expanded="true" signature="320:366" ph="SELECT * FRO... users" />
-            <marker date="1477492867039" expanded="true" signature="957:1030" ph="INSERT INTO users... " />
+            <marker date="1479070827586" expanded="true" signature="292:338" ph="SELECT * FRO... users" />
+            <marker date="1479070827586" expanded="true" signature="860:946" ph="INSERT INTO users... " />
           </folding>
         </state>
       </provider>
@@ -523,7 +547,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1477556544130" expanded="true" signature="359:405" ph="SELECT * FRO... users" />
+            <marker date="1478349949944" expanded="true" signature="333:379" ph="SELECT * FRO... users" />
           </folding>
         </state>
       </provider>
@@ -533,8 +557,8 @@
         <state relative-caret-position="585">
           <caret line="39" column="21" selection-start-line="39" selection-start-column="21" selection-end-line="39" selection-end-column="21" />
           <folding>
-            <marker date="1478338251124" expanded="true" signature="532:593" ph="SELECT Topic... topics" />
-            <marker date="1478338251124" expanded="true" signature="1172:1254" ph="DELETE FROM " />
+            <marker date="1478350880499" expanded="true" signature="480:541" ph="SELECT Topic... topics" />
+            <marker date="1478350880499" expanded="true" signature="1120:1202" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -544,17 +568,17 @@
         <state relative-caret-position="1395">
           <caret line="93" column="31" selection-start-line="93" selection-start-column="31" selection-end-line="93" selection-end-column="31" />
           <folding>
-            <marker date="1478338251160" expanded="true" signature="421:476" ph="SELECT Topic... topics" />
-            <marker date="1478338251160" expanded="true" signature="866:1006" ph="SELECT Paren... dependencies" />
-            <marker date="1478338251160" expanded="true" signature="934:1000" ph="SELECT Topic... topics" />
-            <marker date="1478338251160" expanded="true" signature="1293:1420" ph="DELETE FROM " />
-            <marker date="1478338251160" expanded="true" signature="1352:1414" ph="SELECT Topic... topics" />
-            <marker date="1478338251160" expanded="true" signature="1560:1700" ph="SELECT Child... dependencies" />
-            <marker date="1478338251160" expanded="true" signature="1628:1694" ph="SELECT Topic... topics" />
-            <marker date="1478338251160" expanded="true" signature="1985:2113" ph="DELETE FROM " />
-            <marker date="1478338251160" expanded="true" signature="2045:2107" ph="SELECT Topic... topics" />
-            <marker date="1478338251160" expanded="true" signature="2370:2454" ph="INSERT INTO dependencies... " />
-            <marker date="1478338251160" expanded="true" signature="2665:2711" ph="DELETE FROM " />
+            <marker date="1478350880531" expanded="true" signature="369:424" ph="SELECT Topic... topics" />
+            <marker date="1478350880531" expanded="true" signature="814:954" ph="SELECT Paren... dependencies" />
+            <marker date="1478350880531" expanded="true" signature="882:948" ph="SELECT Topic... topics" />
+            <marker date="1478350880531" expanded="true" signature="1241:1368" ph="DELETE FROM " />
+            <marker date="1478350880531" expanded="true" signature="1300:1362" ph="SELECT Topic... topics" />
+            <marker date="1478350880531" expanded="true" signature="1508:1648" ph="SELECT Child... dependencies" />
+            <marker date="1478350880531" expanded="true" signature="1576:1642" ph="SELECT Topic... topics" />
+            <marker date="1478350880531" expanded="true" signature="1933:2061" ph="DELETE FROM " />
+            <marker date="1478350880531" expanded="true" signature="1993:2055" ph="SELECT Topic... topics" />
+            <marker date="1478350880531" expanded="true" signature="2318:2402" ph="INSERT INTO dependencies... " />
+            <marker date="1478350880531" expanded="true" signature="2613:2659" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
@@ -564,7 +588,7 @@
         <state relative-caret-position="525">
           <caret line="35" column="33" selection-start-line="35" selection-start-column="33" selection-end-line="35" selection-end-column="33" />
           <folding>
-            <marker date="1478338251148" expanded="true" signature="389:435" ph="SELECT Paren... dependencies" />
+            <marker date="1478350880511" expanded="true" signature="337:383" ph="SELECT Paren... dependencies" />
           </folding>
         </state>
       </provider>
@@ -573,7 +597,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -589,7 +612,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1350">
           <caret line="90" column="9" selection-start-line="90" selection-start-column="9" selection-end-line="90" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -598,13 +620,13 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1478338251172" expanded="true" signature="579:640" ph="SELECT Topic... topics" />
-            <marker date="1478338251172" expanded="true" signature="1510:1573" ph="SELECT Paren... dependencies" />
+            <marker date="1478350880547" expanded="true" signature="527:588" ph="SELECT Topic... topics" />
+            <marker date="1478350880547" expanded="true" signature="1458:1521" ph="SELECT Paren... dependencies" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.php">
+    <entry file="file://$PROJECT_DIR$/Project/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -612,7 +634,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dbconfig.php">
+    <entry file="file://$PROJECT_DIR$/Project/dbconfig.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -620,7 +642,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jsConfig.js">
+    <entry file="file://$PROJECT_DIR$/Project/jsConfig.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -647,7 +669,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -664,14 +685,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project/Login/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
         </state>
       </provider>
     </entry>
@@ -684,18 +697,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Project/test/index.html" />
     <entry file="file://$PROJECT_DIR$/Project/my-style.css" />
-    <entry file="file://$PROJECT_DIR$/Project/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/web-forms.rnc">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="307">
           <caret line="491" column="22" selection-start-line="491" selection-start-column="22" selection-end-line="491" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -793,153 +798,190 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dbconfig.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbview:/b02ae164/4c38f947-024e-45ea-a2d7-3a1c7e95b94e/information_schema.TABLES" />
-    <entry file="file://$PROJECT_DIR$/Project/API/register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
-          <folding>
-            <marker date="1477492867039" expanded="true" signature="320:366" ph="SELECT * FRO... users" />
-            <marker date="1477492867039" expanded="true" signature="957:1030" ph="INSERT INTO users... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/4c38f947-024e-45ea-a2d7-3a1c7e95b94e/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/logoff.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="26" selection-start-line="2" selection-start-column="26" selection-end-line="2" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/jsConfig.js">
+    <entry file="file://$PROJECT_DIR$/Project/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="195">
+          <caret line="37" column="26" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Project/my-script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1050">
-          <caret line="70" column="13" selection-start-line="70" selection-start-column="13" selection-end-line="70" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="870">
+          <caret line="58" column="42" selection-start-line="58" selection-start-column="42" selection-end-line="58" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config.php">
+    <entry file="file://$PROJECT_DIR$/Project/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="90">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project/API/add-dependency.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
-          <folding>
-            <marker date="1478338251172" expanded="true" signature="579:640" ph="SELECT Topic... topics" />
-            <marker date="1478338251172" expanded="true" signature="1510:1573" ph="SELECT Paren... dependencies" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Project/API/add-topic.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        <state relative-caret-position="225">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <marker date="1478338251192" expanded="true" signature="662:706" ph="INSERT INTO topics... " />
+            <marker date="1478350880555" expanded="true" signature="610:654" ph="INSERT INTO topics... " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Project/API/delete-dependency.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        <state relative-caret-position="225">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <marker date="1478338251124" expanded="true" signature="532:593" ph="SELECT Topic... topics" />
-            <marker date="1478338251124" expanded="true" signature="1172:1254" ph="DELETE FROM " />
+            <marker date="1478350880499" expanded="true" signature="480:541" ph="SELECT Topic... topics" />
+            <marker date="1478350880499" expanded="true" signature="1120:1202" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Project/API/delete-topic.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        <state relative-caret-position="225">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <marker date="1478338251160" expanded="true" signature="421:476" ph="SELECT Topic... topics" />
-            <marker date="1478338251160" expanded="true" signature="866:1006" ph="SELECT Paren... dependencies" />
-            <marker date="1478338251160" expanded="true" signature="934:1000" ph="SELECT Topic... topics" />
-            <marker date="1478338251160" expanded="true" signature="1293:1420" ph="DELETE FROM " />
-            <marker date="1478338251160" expanded="true" signature="1352:1414" ph="SELECT Topic... topics" />
-            <marker date="1478338251160" expanded="true" signature="1560:1700" ph="SELECT Child... dependencies" />
-            <marker date="1478338251160" expanded="true" signature="1628:1694" ph="SELECT Topic... topics" />
-            <marker date="1478338251160" expanded="true" signature="1985:2113" ph="DELETE FROM " />
-            <marker date="1478338251160" expanded="true" signature="2045:2107" ph="SELECT Topic... topics" />
-            <marker date="1478338251160" expanded="true" signature="2370:2454" ph="INSERT INTO dependencies... " />
-            <marker date="1478338251160" expanded="true" signature="2665:2711" ph="DELETE FROM " />
+            <marker date="1478350880531" expanded="true" signature="369:424" ph="SELECT Topic... topics" />
+            <marker date="1478350880531" expanded="true" signature="814:954" ph="SELECT Paren... dependencies" />
+            <marker date="1478350880531" expanded="true" signature="882:948" ph="SELECT Topic... topics" />
+            <marker date="1478350880531" expanded="true" signature="1241:1368" ph="DELETE FROM " />
+            <marker date="1478350880531" expanded="true" signature="1300:1362" ph="SELECT Topic... topics" />
+            <marker date="1478350880531" expanded="true" signature="1508:1648" ph="SELECT Child... dependencies" />
+            <marker date="1478350880531" expanded="true" signature="1576:1642" ph="SELECT Topic... topics" />
+            <marker date="1478350880531" expanded="true" signature="1933:2061" ph="DELETE FROM " />
+            <marker date="1478350880531" expanded="true" signature="1993:2055" ph="SELECT Topic... topics" />
+            <marker date="1478350880531" expanded="true" signature="2318:2402" ph="INSERT INTO dependencies... " />
+            <marker date="1478350880531" expanded="true" signature="2613:2659" ph="DELETE FROM " />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Project/API/find-all-dependencies.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        <state relative-caret-position="225">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <marker date="1478338251148" expanded="true" signature="389:435" ph="SELECT Paren... dependencies" />
+            <marker date="1478350880511" expanded="true" signature="337:383" ph="SELECT Paren... dependencies" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Project/API/find-all-topics.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        <state relative-caret-position="210">
+          <caret line="14" column="24" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <marker date="1478338251180" expanded="true" signature="383:419" ph="SELECT Topic... topics" />
+            <marker date="1478350823148" expanded="true" signature="331:367" ph="SELECT Topic... topics" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/dbconfig.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/API/add-dependency.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="735">
+          <caret line="52" column="9" selection-start-line="52" selection-start-column="9" selection-end-line="52" selection-end-column="9" />
+          <folding>
+            <marker date="1478350880547" expanded="true" signature="527:588" ph="SELECT Topic... topics" />
+            <marker date="1478350880547" expanded="true" signature="1458:1521" ph="SELECT Paren... dependencies" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/Login/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="32" column="20" selection-start-line="32" selection-start-column="20" selection-end-line="32" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/Login/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="8" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/jsConfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="26" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Project/Register/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="674">
+          <caret line="58" column="22" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Project/API/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="165">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="31" selection-end-line="11" selection-end-column="31" />
           <folding>
-            <marker date="1477556544130" expanded="true" signature="359:405" ph="SELECT * FRO... users" />
+            <marker date="1478349949944" expanded="true" signature="333:379" ph="SELECT * FRO... users" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Project/index.php">
+    <entry file="file://$PROJECT_DIR$/Project/Register/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="39" selection-start-line="9" selection-start-column="39" selection-end-line="9" selection-end-column="39" />
+        <state relative-caret-position="593">
+          <caret line="48" column="31" selection-start-line="48" selection-start-column="31" selection-end-line="48" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Project/logoff.php">
+    <entry file="file://$PROJECT_DIR$/Project/API/register.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="405">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding>
+            <marker date="1479070827586" expanded="true" signature="292:338" ph="SELECT * FRO... users" />
+            <marker date="1479070827586" expanded="true" signature="860:946" ph="INSERT INTO users... " />
+          </folding>
         </state>
       </provider>
     </entry>

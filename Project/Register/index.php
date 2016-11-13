@@ -54,6 +54,9 @@ if (isset($_SESSION['username'])) {
                     <label for="inputPassword">Please re-enter password</label>
                     <input type="password" name="pass" class="form-control" id="inputPasswordVerify" placeholder="Password">
                 </div>
+                <div class="checkbox">
+                    <label><input id="formLecturer" type="checkbox" value="">Lecturer</label>
+                </div>
                 <div class="error"></div>
                 <button type="submit" class="btn btn-default">Submit</button>
                 Already registered? <a href="<?php echo $login_page ?>">Sign in.</a>

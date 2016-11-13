@@ -1,40 +1,51 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
-    $("#formRegister").submit(function() {
+    $("#formRegister").submit(function () {
+
+        var error = $(".error");
+        var usernameFormGroup = $("#formGroupUsername");
+        var passwordFormGroup = $("#formGroupPassword");
+        var passwordFormGroup2 = $("#formGroupPasswordVerify");
 
         // Remove previous warnings
-        $(".error").empty();
-        $("#formGroupUsername").removeClass("has-error has-feedback");
-        $("#formGroupPassword").removeClass("has-error has-feedback");
-        $("#formGroupPasswordVerify").removeClass("has-error has-feedback");
+        error.empty();
+        usernameFormGroup.removeClass("has-error has-feedback");
+        passwordFormGroup.removeClass("has-error has-feedback");
+        passwordFormGroup2.removeClass("has-error has-feedback");
 
         // Get input data
         var username = $("#inputUsername").val();
         var password = $("#inputPassword").val();
         var passwordVerify = $("#inputPasswordVerify").val();
+        var role;
+        if ($("#formLecturer").is(":checked")) {
+            role = 1; // role of lecturer
+        } else {
+            role = 0; // role of student
+        }
 
         // boolean to check for valid inputs
         var validinput = true;
 
         // If any input fields are empty, show error.
         if (username == "") {
-            $("#formGroupUsername").addClass("has-error has-feedback");
+            usernameFormGroup.addClass("has-error has-feedback");
             validinput = false;
         }
         if (password == "") {
-            $("#formGroupPassword").addClass("has-error has-feedback");
+            passwordFormGroup.addClass("has-error has-feedback");
             validinput = false;
         }
         if (passwordVerify == "") {
-            $("#formGroupPasswordVerify").addClass("has-error has-feedback");
+            passwordFormGroup2.addClass("has-error has-feedback");
             validinput = false;
         }
 
         // Check password's match.
         if (!(password == passwordVerify)) {
-            $("#formGroupPasswordVerify").addClass("has-error has-feedback");
-            $("#formGroupPassword").addClass("has-error has-feedback");
-            $(".error").append("Password's don't match!");
+            passwordFormGroup2.addClass("has-error has-feedback");
+            passwordFormGroup.addClass("has-error has-feedback");
+            error.append("Password's don't match!");
             validinput = false;
         }
 
@@ -45,8 +56,8 @@ $(document).ready(function() {
                 type: "POST",
                 async: false,
                 url: API_LOCATION + "register.php",
-                data: { user: username, pass: password }
-            }).done(function(data) {
+                data: {user: username, pass: password, role: role}
+            }).done(function (data) {
                 var jsonObj = JSON.parse(data);
                 switch (jsonObj.status) {
                     case "success":
@@ -73,6 +84,6 @@ $(document).ready(function() {
         }
 
         // Stop html handling submission.
-        return false;;
+        return false;
     });
 });
