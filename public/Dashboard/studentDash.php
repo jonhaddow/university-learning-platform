@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Lecturer Dashboard</title>
+	<title>Student Dashboard</title>
 
 	<!-- My style -->
 	<link rel="stylesheet" href="style.css">
@@ -20,7 +20,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed:300" rel="stylesheet">
 
 	<!--    Javascript Configuration file-->
-	<script src="/Project/jsConfig.js"></script>
+	<script src="<?php echo $jsConfig;?>"></script>
 	<!-- Jquery -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 	<!-- bootstrap JavaScript -->
@@ -30,7 +30,7 @@
 	<!-- Vis.js -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.min.js"></script>
 	<!-- My Script -->
-	<script type="text/javascript" src="lecturerScript.js"></script>
+	<script type="text/javascript" src="studentScript.js"></script>
 
 </head>
 <body>
@@ -58,44 +58,8 @@
 				<div id="selectedTopic">
 					Please select a topic.
 				</div>
-				<div id="selectedTopicInfo" hidden>
-					<button id="deleteTopicButton">Delete Topic</button>
+				<div id="topicInfo">
 				</div>
-			</div>
-			<div id="currentEdge">
-				<h3>Highlighted Edge:</h3>
-				<div id="selectedEdge">
-					Please select a edge.
-				</div>
-				<div id="selectedEdgeInfo" hidden>
-					<button id="deleteEdgeButton">Delete Edge</button>
-				</div>
-			</div>
-			<hr>
-			<div id="controls">
-				<form id="newTopicForm">
-					<div class="form-header"> ADD A TOPIC</div>
-					<div class="form-group">
-						<label for="inputNewTopic">New topic:</label>
-						<input id="inputNewTopic" class="form-control" type="text">
-					</div>
-					<button type="submit" class="btn btn-default">Submit</button>
-					<div hidden id="topicError" class="error"></div>
-				</form>
-				<hr>
-				<form id="newDependencyForm">
-					<div class="form-header"> ADD A NEW DEPENDENCY</div>
-					<div class="form-group">
-						<label for="parentDropdownMenuSelect">Parent Dependency</label><select
-							id="parentDropdownMenuSelect" class="form-control dropdown"></select>
-					</div>
-					<div class="form-group">
-						<label for="childDropdownMenuSelect">Child Dependency</label><select
-							id="childDropdownMenuSelect" class="form-control dropdown"></select>
-					</div>
-					<button type="submit" class="btn btn-default">Submit</button>
-					<div hidden id="dependencyError" class="error"></div>
-				</form>
 			</div>
 		</div>
 	</div>

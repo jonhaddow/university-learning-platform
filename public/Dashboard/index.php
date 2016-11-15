@@ -23,6 +23,5 @@ if ($role == 0) { // If role is student...
 
 }
 
-require_once "../../../resources/test.html"
 ?>
 
