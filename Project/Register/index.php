@@ -5,7 +5,7 @@ require_once "../config.php";
 // If in session, redirect to welcome page.
 session_start();
 if (isset($_SESSION['username'])) {
-    header("Location: " . $domain_name);
+    header("Location: " . $dashboard);
     die();
 }
 

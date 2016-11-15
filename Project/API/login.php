@@ -30,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $json_response["status"] = "success";
             // set session username
             $_SESSION["username"] = $username;
+	        $_SESSION["role"] = $row["Role"];
         } else {
             $json_response["status"] = "fail";
             $json_response["data"] = "Incorrect password";

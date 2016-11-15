@@ -6,123 +6,6 @@ $("document").ready(function() {
 
     populateDependencyMenu();
 
-    $("#deleteTopicButton").click(function() {
-
-        $.ajax({
-            url: API_LOCATION + "delete-topic.php?topic=" + $("#selectedTopic").text(),
-            type: "DELETE"
-        }).done(function() {
-
-            // re-initializeNetwork();
-            initializeNetwork();
-            populateDependencyMenu();
-
-            $("#selectedTopic").text("Please select a topic.");
-            $("#selectedTopicInfo").hide();
-
-        });
-    });
-
-    $("#deleteEdgeButton").click(function() {
-
-        var connectedEdges = $("#selectedEdge").text().split(" ---> ");
-        var fromNode = connectedEdges[0];
-        var toNode = connectedEdges[1];
-
-        $.ajax({
-            url: API_LOCATION + "delete-dependency.php?parent=" + fromNode + "&child=" + toNode,
-            type: "DELETE"
-        }).done(function() {
-            initializeNetwork();
-            populateDependencyMenu();
-
-            $("#selectedEdge").text("Please select a edge.");
-            $("#selectedEdgeInfo").hide();
-        });
-
-    });
-
-    $("#newTopicForm").submit(function() {
-
-        var errorDiv = $("#topicError");
-        errorDiv.hide();
-
-        // send request to add topic to database
-        $.ajax({
-            type: "POST",
-            url: API_LOCATION + "add-topic.php",
-            data: { topicName: $("#inputNewTopic").val() }
-        }).done(function(data) {
-
-            var jsonResponse = JSON.parse(data);
-            // check response
-            switch (jsonResponse.status) {
-                case "success":
-                    initializeNetwork();
-                    populateDependencyMenu();
-                    break;
-                case "fail":
-                    // check if failed due to length or duplication
-                    if ("duplicate" in jsonResponse.data) {
-                        errorDiv.show().text(jsonResponse.data.duplicate);
-                    } else if ("length" in jsonResponse.data) {
-                        errorDiv.show().text(jsonResponse.data.length);
-                    }
-                    break;
-                default:
-                    alert(jsonResponse.message);
-            }
-
-            // clear textbox
-            $("#inputNewTopic").val("");
-
-        });
-        return false;
-
-    });
-
-    $("#newDependencyForm").submit(function() {
-
-        var parent = $('#parentDropdownMenuSelect').find(":selected").text();
-        var child = $('#childDropdownMenuSelect').find(":selected").text();
-
-        if (parent === child) {
-            $("#dependencyError").show().text("A topic cannot be dependent on itself.");
-            return false;
-        } else {
-            $("#dependencyError").hide();
-        }
-
-        $.ajax({
-            type: "POST",
-            url: API_LOCATION + "add-dependency.php",
-            data: {
-                parent: parent,
-                child: child
-            }
-        }).done(function(data) {
-
-            var jsonResponse = JSON.parse(data);
-            // check response
-            switch (jsonResponse.status) {
-                case "success":
-                    // re-initializeNetwork();
-                    initializeNetwork();
-                    populateDependencyMenu();
-
-                    $("#inputParent").val("");
-                    $("#inputChild").val("");
-                    break;
-                case "fail":
-                    $("#dependencyError").show().text(jsonResponse.data);
-                    break;
-                default:
-                    alert(jsonResponse.message);
-            }
-
-        });
-        return false;
-    });
 });
 
 // This function initializes the network and sets interaction listeners
@@ -223,7 +106,7 @@ function initializeNetwork() {
                 }
             },
             hoverWidth: 0,
-            selectionWidth: 3
+            selectionWidth: 0
         },
         interaction: {
             dragNodes: false,
