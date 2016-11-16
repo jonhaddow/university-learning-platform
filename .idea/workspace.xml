@@ -2,30 +2,46 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23a5a197-9e22-4376-b93d-58598c5ede59" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/API/add-dependency.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/API/add-topic.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/API/delete-dependency.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/API/delete-topic.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/API/find-all-dependencies.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/API/find-all-topics.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/API/login.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/API/register.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/Dashboard/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/Dashboard/lecturerDash.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/Dashboard/lecturerScript.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/Dashboard/studentDash.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/Dashboard/studentScript.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/Dashboard/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/Login/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/Login/script.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/Login/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/Register/index.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/Register/script.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/Register/style.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/config.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/dbconfig.php" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/jsConfig.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Project/logoff.php" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/api/access-basic.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/api/access-lecturer.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/api/access-student.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/config.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/common/headers.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/dashboard/lecturer/header.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/dashboard/lecturer/layout.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/dashboard/student/content.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/dashboard/student/header.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/dashboard/student/layout.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/login/content.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/login/header.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/register/content.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/views/register/header.php" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/Dashboard/studentDash.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/config.php" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/public/dbconfig.php" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/API/add-dependency.php" afterPath="$PROJECT_DIR$/public/api/add-dependency.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/API/add-topic.php" afterPath="$PROJECT_DIR$/public/api/add-topic.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/API/delete-dependency.php" afterPath="$PROJECT_DIR$/public/api/delete-dependency.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/API/delete-topic.php" afterPath="$PROJECT_DIR$/public/api/delete-topic.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/API/find-all-dependencies.php" afterPath="$PROJECT_DIR$/public/api/find-all-dependencies.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/API/find-all-topics.php" afterPath="$PROJECT_DIR$/public/api/find-all-topics.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/API/login.php" afterPath="$PROJECT_DIR$/public/api/login.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/API/register.php" afterPath="$PROJECT_DIR$/public/api/register.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/Dashboard/index.php" afterPath="$PROJECT_DIR$/public/dashboard/index.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/Dashboard/lecturerDash.php" afterPath="$PROJECT_DIR$/resources/views/dashboard/lecturer/content.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/Dashboard/lecturerScript.js" afterPath="$PROJECT_DIR$/public/js/lecturerScript.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/Dashboard/studentScript.js" afterPath="$PROJECT_DIR$/public/js/studentScript.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/Dashboard/style.css" afterPath="$PROJECT_DIR$/public/css/dashboard.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/Login/index.php" afterPath="$PROJECT_DIR$/public/login/index.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/Login/script.js" afterPath="$PROJECT_DIR$/public/js/login.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/Login/style.css" afterPath="$PROJECT_DIR$/public/css/login.css" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/Register/index.php" afterPath="$PROJECT_DIR$/public/register/index.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/Register/script.js" afterPath="$PROJECT_DIR$/public/js/register.js" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/public/Register/style.css" afterPath="$PROJECT_DIR$/public/css/register.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/website.iml" afterPath="$PROJECT_DIR$/.idea/website.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/jsConfig.js" afterPath="$PROJECT_DIR$/public/jsConfig.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/logoff.php" afterPath="$PROJECT_DIR$/public/logoff.php" />
     </list>
     <ignored path=".idea/" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -53,101 +69,112 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/login/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="26" column="2" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="2" />
+              <folding>
+                <marker date="1479299219654" expanded="true" signature="346:367" ph="..." />
+                <marker date="1479299219654" expanded="true" signature="346:403" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/register/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+              <folding>
+                <marker date="1479299809850" expanded="true" signature="363:384" ph="..." />
+                <marker date="1479299809850" expanded="true" signature="363:401" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="config.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/config.php">
+        <entry file="file://$PROJECT_DIR$/resources/config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
+            <state relative-caret-position="285">
+              <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jsConfig.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/jsConfig.js">
+      <file leaf-file-name="access-lecturer.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/api/access-lecturer.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="18" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
+            <state relative-caret-position="165">
+              <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="studentScript.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/Dashboard/studentScript.js">
+      <file leaf-file-name="access-student.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/api/access-student.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="access-basic.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/api/access-basic.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/dashboard/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="315">
+              <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="layout.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/dashboard/lecturer/layout.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
-              <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-              <folding />
+              <caret line="9" column="52" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
+              <folding>
+                <marker date="1479300020548" expanded="true" signature="173:174" ph="..." />
+                <marker date="1479300020548" expanded="true" signature="173:215" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="studentDash.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/Dashboard/studentDash.php">
+      <file leaf-file-name="layout.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/views/dashboard/student/layout.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="615">
-              <caret line="41" column="48" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
-              <folding />
+            <state relative-caret-position="135">
+              <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+              <folding>
+                <marker date="1479300020512" expanded="true" signature="172:192" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/Dashboard/index.php">
+      <file leaf-file-name="content.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/dashboard/lecturer/content.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lecturerScript.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/Dashboard/lecturerScript.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lecturerDash.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/Dashboard/lecturerDash.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/Login/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="40" selection-start-line="32" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/Register/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="script.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/Login/script.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="809">
+              <caret line="65" column="6" selection-start-line="65" selection-start-column="6" selection-end-line="65" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -161,42 +188,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Project/test/index.html" />
-        <option value="$PROJECT_DIR$/Project/test/my-script.js" />
-        <option value="$PROJECT_DIR$/Project/my-style.css" />
-        <option value="$PROJECT_DIR$/Project/API/find-all-nodes.php" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/4c38f947-024e-45ea-a2d7-3a1c7e95b94e/console.sql" />
-        <option value="$PROJECT_DIR$/Project/my-script.js" />
-        <option value="$PROJECT_DIR$/Project/style.css" />
-        <option value="$PROJECT_DIR$/Project/index.php" />
-        <option value="$PROJECT_DIR$/Project/API/find-all-topics.php" />
-        <option value="$PROJECT_DIR$/Project/API/add-dependency.php" />
-        <option value="$PROJECT_DIR$/Project/API/add-topic.php" />
-        <option value="$PROJECT_DIR$/Project/API/delete-dependency.php" />
-        <option value="$PROJECT_DIR$/Project/API/delete-topic.php" />
-        <option value="$PROJECT_DIR$/Project/API/find-all-dependencies.php" />
-        <option value="$PROJECT_DIR$/Project/dbconfig.php" />
-        <option value="$PROJECT_DIR$/Project/Register/script.js" />
-        <option value="$PROJECT_DIR$/Project/API/register.php" />
-        <option value="$PROJECT_DIR$/Project/logoff.php" />
-        <option value="$PROJECT_DIR$/Project/API/login.php" />
-        <option value="$PROJECT_DIR$/Project/jsConfig.js" />
-        <option value="$PROJECT_DIR$/Production/jsConfig.js" />
-        <option value="$PROJECT_DIR$/Project/config.php" />
-        <option value="$PROJECT_DIR$/Project/Login/index.php" />
-        <option value="$PROJECT_DIR$/Project/Register/index.php" />
-        <option value="$PROJECT_DIR$/Project/Dashboard/test.php" />
-        <option value="$PROJECT_DIR$/Project/Dashboard/lecturerDash.php" />
-        <option value="$PROJECT_DIR$/Project/Dashboard/studentDash.php" />
         <option value="$PROJECT_DIR$/Project/Dashboard/studentScript.js" />
         <option value="$PROJECT_DIR$/Project/Dashboard/index.php" />
-        <option value="$PROJECT_DIR$/public/jsConfig.js" />
-        <option value="$PROJECT_DIR$/public/config.php" />
         <option value="$PROJECT_DIR$/public/Dashboard/studentDash.php" />
         <option value="$PROJECT_DIR$/public/Dashboard/index.php" />
         <option value="$PROJECT_DIR$/public/Dashboard/lecturerDash.php" />
         <option value="$PROJECT_DIR$/public/Login/index.php" />
         <option value="$PROJECT_DIR$/public/Register/index.php" />
+        <option value="$PROJECT_DIR$/public/config.php" />
+        <option value="$PROJECT_DIR$/public/dashboard/studentScript.js" />
+        <option value="$PROJECT_DIR$/public/api/add-dependency.php" />
+        <option value="$PROJECT_DIR$/public/api/add-topic.php" />
+        <option value="$PROJECT_DIR$/public/api/delete-dependency.php" />
+        <option value="$PROJECT_DIR$/public/api/delete-topic.php" />
+        <option value="$PROJECT_DIR$/public/api/apiConfig.php" />
+        <option value="$PROJECT_DIR$/public/api/login.php" />
+        <option value="$PROJECT_DIR$/public/api/register.php" />
+        <option value="$PROJECT_DIR$/public/api/find-all-topics.php" />
+        <option value="$PROJECT_DIR$/public/api/find-all-dependencies.php" />
+        <option value="$PROJECT_DIR$/public/dbconfig.php" />
+        <option value="$PROJECT_DIR$/public/api/access-basic.php" />
+        <option value="$PROJECT_DIR$/public/api/access-student.php" />
+        <option value="$PROJECT_DIR$/public/dashboard/lecturerDash.php" />
+        <option value="$PROJECT_DIR$/public/dashboard/studentDash.php" />
+        <option value="$PROJECT_DIR$/public/logoff.php" />
+        <option value="$PROJECT_DIR$/public/jsConfig.js" />
+        <option value="$PROJECT_DIR$/public/js/studentScript.js" />
+        <option value="$PROJECT_DIR$/public/js/login.js" />
+        <option value="$PROJECT_DIR$/public/js/lecturerScript.js" />
+        <option value="$PROJECT_DIR$/public/js/register.js" />
+        <option value="$PROJECT_DIR$/public/api/access-lecturer.php" />
+        <option value="$PROJECT_DIR$/resources/common-headers.php" />
+        <option value="$PROJECT_DIR$/resources/config.php" />
+        <option value="$PROJECT_DIR$/resources/views/login/content.php" />
+        <option value="$PROJECT_DIR$/resources/views/common/common-headers.php" />
+        <option value="$PROJECT_DIR$/resources/views/login/header.php" />
+        <option value="$PROJECT_DIR$/resources/views/register/header.php" />
+        <option value="$PROJECT_DIR$/resources/views/register/content.php" />
+        <option value="$PROJECT_DIR$/public/dashboard/lecturer-dash.php" />
+        <option value="$PROJECT_DIR$/resources/views/dashboard/header.php" />
+        <option value="$PROJECT_DIR$/resources/views/dashboard/student-dash.php" />
+        <option value="$PROJECT_DIR$/resources/views/dashboard/lecturer-dash.php" />
+        <option value="$PROJECT_DIR$/resources/views/dashboard/content-lecturer.php" />
+        <option value="$PROJECT_DIR$/resources/views/dashboard/header-student.php" />
+        <option value="$PROJECT_DIR$/resources/views/dashboard/layout-student.php" />
+        <option value="$PROJECT_DIR$/resources/views/dashboard/content-student.php" />
+        <option value="$PROJECT_DIR$/resources/views/dashboard/layout-lecturer.php" />
+        <option value="$PROJECT_DIR$/public/login/index.php" />
+        <option value="$PROJECT_DIR$/public/register/index.php" />
+        <option value="$PROJECT_DIR$/public/dashboard/index.php" />
+        <option value="$PROJECT_DIR$/resources/views/dashboard/lecturer/layout.php" />
+        <option value="$PROJECT_DIR$/resources/views/dashboard/student/layout.php" />
       </list>
     </option>
   </component>
@@ -209,7 +251,15 @@
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP 7">
+    <include_path>
+      <path value="$PROJECT_DIR$/resources" />
+      <path value="$PROJECT_DIR$/resources/views/common" />
+      <path value="$PROJECT_DIR$/resources/views/common" />
+      <path value="." />
+      <path value="/usr/share/php" />
+    </include_path>
+  </component>
   <component name="ProjectFrameBounds">
     <option name="y" value="30" />
     <option name="width" value="1920" />
@@ -223,12 +273,21 @@
             <id />
           </State>
           <State>
-            <id>SQL</id>
+            <id>GeneralPHP</id>
+          </State>
+          <State>
+            <id>HTML</id>
+          </State>
+          <State>
+            <id>PHP</id>
+          </State>
+          <State>
+            <id>UndefinedPHP</id>
           </State>
         </expanded-state>
         <selected-state>
           <State>
-            <id>SqlResolveInspection</id>
+            <id>HtmlUnknownTarget</id>
           </State>
         </selected-state>
       </profile-state>
@@ -259,6 +318,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -287,6 +348,138 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="register" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="login" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="student" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lecturer" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="common" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="public" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -305,7 +498,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Register" />
+              <option name="myItemId" value="register" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -323,7 +516,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Login" />
+              <option name="myItemId" value="login" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -341,31 +534,52 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Dashboard" />
+              <option name="myItemId" value="dashboard" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/common" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.PHP" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
     <property name="settings.editor.splitter.proportion" value="0.22526935" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/Project/my-style.css" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/resources/views/dashboard" />
+      <recent name="$PROJECT_DIR$/public/api" />
       <recent name="$PROJECT_DIR$/Project/Dashboard" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Project/Dashboard" />
-      <recent name="$PROJECT_DIR$/Project" />
+      <recent name="$PROJECT_DIR$/resources/views/dashboard/student" />
+      <recent name="$PROJECT_DIR$/resources/views/dashboard/lecturer" />
+      <recent name="$PROJECT_DIR$/resources/views/dashboard" />
+      <recent name="$PROJECT_DIR$/resources/views/common" />
+      <recent name="$PROJECT_DIR$/resources/views" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.index.php">
@@ -449,12 +663,14 @@
       <workItem from="1478372052661" duration="1657000" />
       <workItem from="1479025695341" duration="6404000" />
       <workItem from="1479154053296" duration="6256000" />
-      <workItem from="1479206109529" duration="804000" />
+      <workItem from="1479206109529" duration="1272000" />
+      <workItem from="1479215917997" duration="4168000" />
+      <workItem from="1479221968583" duration="14922000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42268000" />
+    <option name="totallyTimeSpent" value="61826000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="30" width="1920" height="1050" extended-state="6" />
@@ -463,23 +679,23 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14114584" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32983193" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32983193" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32983193" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32983193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32983193" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3296875" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -498,133 +714,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Project/jsConfig.js" />
-    <entry file="file://$PROJECT_DIR$/Project/Login/script.js" />
-    <entry file="file://$PROJECT_DIR$/Project/Dashboard/style.css" />
-    <entry file="file://$PROJECT_DIR$/Project/test/index.html" />
-    <entry file="file://$PROJECT_DIR$/Project/Dashboard/lecturerScript.js" />
-    <entry file="file://$PROJECT_DIR$/Project/Login/script.js" />
-    <entry file="file://$PROJECT_DIR$/Project/test/index.html" />
-    <entry file="file://$PROJECT_DIR$/Project/test/index.html" />
-    <entry file="file://$PROJECT_DIR$/Project/Dashboard/lecturerScript.js" />
-    <entry file="file://$PROJECT_DIR$/Project/Login/script.js" />
-    <entry file="file://$PROJECT_DIR$/Project/test/index.html" />
-    <entry file="file://$PROJECT_DIR$/Project/my-style.css" />
-    <entry file="jar://$APPLICATION_HOME_DIR$/lib/phpstorm.jar!/resources/html5-schema/html5/web-forms.rnc">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="491" column="22" selection-start-line="491" selection-start-column="22" selection-end-line="491" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="uml://DATABASE/4c38f947-024e-45ea-a2d7-3a1c7e95b94e">
-      <provider selected="true" editor-type-id="UmlEditorProvider">
-        <state>
-          <ID />
-          <OriginalElement>4c38f947-024e-45ea-a2d7-3a1c7e95b94e</OriginalElement>
-          <nodes>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_FT_INDEX_TABLE</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.USER_PRIVILEGES</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.SYSTEM_VARIABLES</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.GLOBAL_STATUS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_CMP_PER_INDEX</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.STATISTICS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_CHANGED_PAGES</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_BUFFER_PAGE</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.ROUTINES</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.TABLE_STATISTICS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_SYS_FIELDS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.REFERENTIAL_CONSTRAINTS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.SPATIAL_REF_SYS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.CLIENT_STATISTICS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_TABLESPACES_ENCRYPTION</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_TABLESPACES_SCRUBBING</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_SYS_FOREIGN</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.APPLICABLE_ROLES</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.EVENTS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.KEY_CACHES</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.SCHEMA_PRIVILEGES</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.PARTITIONS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_CMPMEM</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.ENGINES</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.GEOMETRY_COLUMNS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.VIEWS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.COLUMNS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_SYS_FOREIGN_COLS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_FT_CONFIG</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.XTRADB_READ_VIEW</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_CMP_RESET</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.USER_STATISTICS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_BUFFER_POOL_STATS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_CMP_PER_INDEX_RESET</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_SYS_INDEXES</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_FT_DEFAULT_STOPWORD</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_LOCK_WAITS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_SYS_SEMAPHORE_WAITS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.PLUGINS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_FT_BEING_DELETED</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_MUTEXES</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.ALL_PLUGINS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.GLOBAL_VARIABLES</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INDEX_STATISTICS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.COLUMN_PRIVILEGES</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.TABLES</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_BUFFER_PAGE_LRU</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_SYS_TABLESTATS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_CMPMEM_RESET</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.PARAMETERS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.ENABLED_ROLES</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_METRICS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.TABLE_PRIVILEGES</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_LOCKS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.TRIGGERS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_SYS_COLUMNS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.CHARACTER_SETS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.PROFILING</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.KEY_COLUMN_USAGE</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_FT_DELETED</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_FT_INDEX_CACHE</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_TRX</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.PROCESSLIST</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.TABLESPACES</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.XTRADB_RSEG</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_CMP</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.SESSION_VARIABLES</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.FILES</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.TABLE_CONSTRAINTS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.SESSION_STATUS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.XTRADB_INTERNAL_HASH_TABLES</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.COLLATION_CHARACTER_SET_APPLICABILITY</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_SYS_TABLESPACES</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_SYS_TABLES</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.CHANGED_PAGE_BITMAPS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.COLLATIONS</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.SCHEMATA</node>
-            <node x="" y="">4c38f947-024e-45ea-a2d7-3a1c7e95b94e.VIEW:information_schema.INNODB_SYS_DATAFILES</node>
-          </nodes>
-          <notes />
-          <edges />
-          <settings layout="Hierarchic Group" zoom="0.21253621279957863" x="2514.0" y="2219.0" />
-          <SelectedNodes />
-          <Categories />
-          <SCOPE>All</SCOPE>
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbview:/b02ae164/4c38f947-024e-45ea-a2d7-3a1c7e95b94e/information_schema.TABLES" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/4c38f947-024e-45ea-a2d7-3a1c7e95b94e/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Project/Dashboard/style.css" />
-    <entry file="file://$PROJECT_DIR$/Project/API/add-topic.php" />
-    <entry file="file://$PROJECT_DIR$/Project/API/delete-topic.php" />
-    <entry file="file://$PROJECT_DIR$/Project/API/find-all-dependencies.php" />
-    <entry file="file://$PROJECT_DIR$/Project/dbconfig.php" />
-    <entry file="file://$PROJECT_DIR$/Project/API/add-dependency.php" />
     <entry file="file://$PROJECT_DIR$/Project/Register/script.js" />
     <entry file="file://$PROJECT_DIR$/Project/API/register.php" />
     <entry file="file://$PROJECT_DIR$/Project/Dashboard/lecturerScript.js" />
@@ -642,23 +731,71 @@
     <entry file="file://$PROJECT_DIR$/Project/Dashboard/studentDash.php" />
     <entry file="file://$PROJECT_DIR$/Project/Dashboard/studentScript.js" />
     <entry file="file://$PROJECT_DIR$/Project/Dashboard/index.php" />
-    <entry file="file://$PROJECT_DIR$/public/logoff.php">
+    <entry file="file://$PROJECT_DIR$/public/api/login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="45">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/api/register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/api/find-all-dependencies.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="32" selection-start-line="2" selection-start-column="32" selection-end-line="2" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/api/delete-topic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/api/delete-dependency.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/api/add-dependency.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/dbconfig.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="15">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/Login/script.js">
+    <entry file="file://$PROJECT_DIR$/public/api/find-all-topics.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -668,73 +805,212 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/jsConfig.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="18" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
+        <state relative-caret-position="90">
+          <caret line="6" column="2" selection-start-line="6" selection-start-column="2" selection-end-line="6" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/Dashboard/studentScript.js">
+    <entry file="file://$PROJECT_DIR$/public/logoff.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/register.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="64" column="57" selection-start-line="64" selection-start-column="57" selection-end-line="64" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/lecturerScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1838">
+          <caret line="164" column="12" selection-start-line="164" selection-start-column="12" selection-end-line="164" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/api/add-topic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="29" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="24" column="26" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/lecturer/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/studentScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-135">
+          <caret line="51" column="26" selection-start-line="51" selection-start-column="26" selection-end-line="51" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/common/headers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/student/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="69" selection-start-line="10" selection-start-column="69" selection-end-line="10" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/student/content.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="29" column="6" selection-start-line="29" selection-start-column="6" selection-end-line="29" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/login/content.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/login/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/register/header.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/register/content.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/api/access-basic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/api/access-student.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/api/access-lecturer.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/login/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="2" selection-start-line="26" selection-start-column="2" selection-end-line="26" selection-end-column="2" />
+          <folding>
+            <marker date="1479299219654" expanded="true" signature="346:367" ph="..." />
+            <marker date="1479299219654" expanded="true" signature="346:403" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/register/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding>
+            <marker date="1479299809850" expanded="true" signature="363:384" ph="..." />
+            <marker date="1479299809850" expanded="true" signature="363:401" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/lecturer/content.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="809">
+          <caret line="65" column="6" selection-start-line="65" selection-start-column="6" selection-end-line="65" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/dashboard/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="49" selection-start-line="21" selection-start-column="49" selection-end-line="21" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/lecturer/layout.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-          <folding />
+          <caret line="9" column="52" selection-start-line="9" selection-start-column="52" selection-end-line="9" selection-end-column="52" />
+          <folding>
+            <marker date="1479300020548" expanded="true" signature="173:174" ph="..." />
+            <marker date="1479300020548" expanded="true" signature="173:215" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/config.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/student/layout.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="42" selection-start-line="8" selection-start-column="42" selection-end-line="8" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Dashboard/studentDash.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="48" selection-start-line="41" selection-start-column="48" selection-end-line="41" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Dashboard/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Dashboard/lecturerScript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Dashboard/lecturerDash.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" column="19" selection-start-line="23" selection-start-column="19" selection-end-line="23" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Login/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="40" selection-start-line="32" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/Register/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="19" selection-start-line="32" selection-start-column="19" selection-end-line="32" selection-end-column="19" />
-          <folding />
+        <state relative-caret-position="135">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+          <folding>
+            <marker date="1479300020512" expanded="true" signature="172:192" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
