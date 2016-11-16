@@ -1,6 +1,6 @@
 <?php
 
-require_once "access-basic.php";
+require_once "../permissions/access-basic.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -29,6 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	        session_start();
 
 	        // set session properties
+	        $_SESSION["userId"] = $row["UserId"];
             $_SESSION["username"] = $username;
 	        $_SESSION["role"] = $row["Role"];
         } else {

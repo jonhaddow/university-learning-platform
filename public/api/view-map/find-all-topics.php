@@ -1,6 +1,6 @@
 <?php
 
-require_once "access-student.php";
+require_once "../permissions/access-student.php";
 
 // Send SQL query to find all topics
 $sql = "

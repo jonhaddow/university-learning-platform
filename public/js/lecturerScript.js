@@ -9,7 +9,7 @@ $("document").ready(function() {
     $("#deleteTopicButton").click(function() {
 
         $.ajax({
-            url: config.API_LOCATION + "delete-topic.php?topic=" + $("#selectedTopic").text(),
+            url: config.API_LOCATION + "modify-map/delete-topic.php?topic=" + $("#selectedTopic").text(),
             type: "DELETE"
         }).done(function() {
 
@@ -30,7 +30,7 @@ $("document").ready(function() {
         var toNode = connectedEdges[1];
 
         $.ajax({
-            url: config.API_LOCATION + "delete-dependency.php?parent=" + fromNode + "&child=" + toNode,
+            url: config.API_LOCATION + "modify-map/delete-dependency.php?parent=" + fromNode + "&child=" + toNode,
             type: "DELETE"
         }).done(function() {
             initializeNetwork();
@@ -50,7 +50,7 @@ $("document").ready(function() {
         // send request to add topic to database
         $.ajax({
             type: "POST",
-            url: config.API_LOCATION + "add-topic.php",
+            url: config.API_LOCATION + "modify-map/add-topic.php",
             data: { topicName: $("#inputNewTopic").val() }
         }).done(function(data) {
 
@@ -95,7 +95,7 @@ $("document").ready(function() {
 
         $.ajax({
             type: "POST",
-            url: config.API_LOCATION + "add-dependency.php",
+            url: config.API_LOCATION + "modify-map/add-dependency.php",
             data: {
                 parent: parent,
                 child: child
@@ -130,7 +130,7 @@ function initializeNetwork() {
 
     // get all topic data as an jsonObj using php script
     $.ajax({
-        url: config.API_LOCATION + "find-all-topics.php",
+        url: config.API_LOCATION + "view-map/find-all-topics.php",
         async: false
     }).done(function(data) {
         var jsonObj = JSON.parse(data);
@@ -163,7 +163,7 @@ function initializeNetwork() {
     // get all dependencies
     var dependencies = null;
     $.ajax({
-        url: config.API_LOCATION + "find-all-dependencies.php",
+        url: config.API_LOCATION + "view-map/find-all-dependencies.php",
         async: false
     }).done(function(data) {
         var jsonObj = JSON.parse(data);

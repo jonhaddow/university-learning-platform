@@ -24,6 +24,10 @@
 				</div>
 				<div id="topicInfo">
 				</div>
+				<div id="feedback">
+					<label for="feedbackSlider">Feedback:</label>
+					<div id="slider"><div id="custom-handle" class="ui-slider-handle"></div></div>
+				</div>
 			</div>
 		</div>
 	</div>

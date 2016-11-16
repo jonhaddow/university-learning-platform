@@ -55,7 +55,7 @@ $(document).ready(function () {
             $.ajax({
                 type: "POST",
                 async: false,
-                url: config.API_LOCATION + "register.php",
+                url: config.API_LOCATION + "register/register.php",
                 data: {user: username, pass: password, role: role}
             }).done(function (data) {
                 var jsonObj = JSON.parse(data);

@@ -6,7 +6,7 @@ $login_page = $domain_name . "/login";
 $register_page = $domain_name . "/register";
 $dashboard = $domain_name . "/dashboard";
 $logoff = $domain_name . "/logoff.php";
-$jsConfig = $domain_name . "/jsConfig.js";
+$jsConfig = $domain_name . "/js/jsConfig.js";
 
 // Path to resources
 $resources = dirname(__FILE__);

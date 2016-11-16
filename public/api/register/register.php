@@ -1,6 +1,6 @@
 <?php
 
-require_once "access-basic.php";
+require_once "../permissions/access-basic.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 

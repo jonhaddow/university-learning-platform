@@ -1,6 +1,6 @@
 <?php
 
-require_once "access-lecturer.php";
+require_once "../permissions/access-lecturer.php";
 
 // get parent and child names
 $dependency_names = array($_GET["parent"], $_GET["child"]);

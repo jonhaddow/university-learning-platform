@@ -1,6 +1,6 @@
 <?php
 
-require_once "access-lecturer.php";
+require_once "../permissions/access-lecturer.php";
 
 // get topic name
 $topicName = $_GET["topic"];

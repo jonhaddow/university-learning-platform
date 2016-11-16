@@ -1,21 +1,46 @@
 var topics;
 
-$("document").ready(function() {
+
+$("document").ready(function () {
 
     initializeNetwork();
 
     populateDependencyMenu();
 
+    var handle = $("#custom-handle");
+    $("#slider").slider({
+        create: function () {
+            handle.text($(this).slider("value"));
+        },
+        slide: function (event, ui) {
+            handle.text(ui.value);
+        },
+        stop: function(event,ui) {
+            sendMark($(this).slider("value"));
+        },
+        max: 5,
+        min: 1
+    });
 });
+
+function sendMark(mark) {
+    $.ajax({
+        url: config.API_LOCATION + "feedback/add-mark.php",
+        type: "POST",
+        data: {"mark": mark, "topicId": 79},
+        async: false
+    }).done(function (data) {
+    });
+}
 
 // This function initializes the network and sets interaction listeners
 function initializeNetwork() {
 
     // get all topic data as an jsonObj using php script
     $.ajax({
-        url: config.API_LOCATION + "find-all-topics.php",
+        url: config.API_LOCATION + "view-map/find-all-topics.php",
         async: false
-    }).done(function(data) {
+    }).done(function (data) {
         var jsonObj = JSON.parse(data);
         if (jsonObj.status === "error") {
             alert(jsonObj.message);
@@ -46,9 +71,9 @@ function initializeNetwork() {
     // get all dependencies
     var dependencies = null;
     $.ajax({
-        url: config.API_LOCATION + "find-all-dependencies.php",
+        url: config.API_LOCATION + "view-map/find-all-dependencies.php",
         async: false
-    }).done(function(data) {
+    }).done(function (data) {
         var jsonObj = JSON.parse(data);
         if (jsonObj.status === "error") {
             alert(jsonObj.message);
@@ -122,7 +147,7 @@ function initializeNetwork() {
     network = new vis.Network(container, data, options);
 
     // listener when node is selected
-    network.on("selectNode", function(selectedNode) {
+    network.on("selectNode", function (selectedNode) {
 
         // get node label
         var nodeIds = selectedNode.nodes;
@@ -138,7 +163,7 @@ function initializeNetwork() {
     });
 
     // listener when edge is selected
-    network.on("selectEdge", function(selectedEdge) {
+    network.on("selectEdge", function (selectedEdge) {
 
         // get node label
         var edgeIds = selectedEdge.edges;
@@ -151,7 +176,7 @@ function initializeNetwork() {
     });
 
     // listener when node is deselected
-    network.on("deselectNode", function(selectedNode) {
+    network.on("deselectNode", function (selectedNode) {
 
         // if no other node has been selected, zoom out.
         var nodeIds = selectedNode.nodes;
@@ -165,7 +190,7 @@ function initializeNetwork() {
     });
 
     // listener when edge is selected
-    network.on("deselectEdge", function(selectedEdge) {
+    network.on("deselectEdge", function (selectedEdge) {
 
         // get node label
         var edgeIds = selectedEdge.edges;
@@ -177,7 +202,7 @@ function initializeNetwork() {
     });
 
     // listener when canvas is resized
-    network.on("resize", function() {
+    network.on("resize", function () {
         network.redraw();
     });
 
@@ -200,7 +225,8 @@ function populateDependencyMenu() {
 function stringDivider(str, width, spaceReplacer) {
     if (str.length > width) {
         var p = width;
-        for (; p > 0 && str[p] != ' '; p--) {}
+        for (; p > 0 && str[p] != ' '; p--) {
+        }
         if (p > 0) {
             var left = str.substring(0, p);
             var right = str.substring(p + 1);
