@@ -7,7 +7,7 @@
 	<!-- My style -->
 	<link rel="stylesheet" href="../css/login.css">
 	<!-- My Script -->
-	<script src="../js/login.js"></script>
+	<script src="<?php echo $domain_name ?>/js/login.js"></script>
 </head>
 
 <body>

@@ -5,17 +5,12 @@
 	<title>Student Dashboard</title>
 
 	<!-- My style -->
-	<link rel="stylesheet" href="../css/dashboard.css">
+	<link rel="stylesheet" href="css/dashboard.css">
 	<!-- Vis.js CSS -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.min.css">
-	<!--Jquery UI-->
-	<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-
 
 	<!-- Vis.js -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.min.js"></script>
-	<!--Jquery UI-->
-	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 	<!-- My Script -->
 	<script type="text/javascript" src="../js/studentScript.js"></script>
 </head>
@@ -44,13 +39,27 @@
 				<div id="selectedTopic">
 					Please select a topic.
 				</div>
-				<div id="topicInfo">
-				</div>
-				<div id="feedback">
-					<label for="feedbackSlider">Feedback:</label>
-					<div id="slider">
-						<div id="custom-handle" class="ui-slider-handle"></div>
+				<div id="selectedTopicControls" hidden>
+					<div id="topicInfo">
 					</div>
+					<div id="feedback">
+						<label for="feedbackStars">Feedback:</label>
+						<div id="feedbackStars" class="acidjs-rating-stars">
+							<form>
+								<input type="radio" name="rating" id="rating-1" value="1" onclick="ratingClick(this)"/>
+								<label for="rating-1">1</label>
+								<input type="radio" name="rating" id="rating-2" value="2" onclick="ratingClick(this)"/>
+								<label for="rating-2">2</label>
+								<input type="radio" name="rating" id="rating-3" value="3" onclick="ratingClick(this)"/>
+								<label for="rating-3">3</label>
+								<input type="radio" name="rating" id="rating-4" value="4" onclick="ratingClick(this)"/>
+								<label for="rating-4">4</label>
+								<input type="radio" name="rating" id="rating-5" value="5" onclick="ratingClick(this)"   />
+								<label for="rating-5">5</label>
+							</form>
+						</div>
+					</div>
+					<div id="completed">Feedback Sent!</div>
 				</div>
 			</div>
 		</div>

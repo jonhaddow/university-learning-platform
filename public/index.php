@@ -63,8 +63,8 @@ if ($routes[0] == "api") {
 // If nothing matches, take user to launch pages.
 if ($redirect) {
 	if ($authenticated) {
-		require_once CONTROLLERS . "/dashboardController.php";
+		header("location: " . $dashboard);
 	} else {
-		require_once CONTROLLERS . "/loginController.php";
+		header("location: " . $login_page);
 	}
 }

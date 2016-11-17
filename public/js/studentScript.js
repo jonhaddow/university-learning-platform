@@ -1,4 +1,5 @@
 var topics;
+var currentTopicId;
 
 
 $("document").ready(function () {
@@ -7,29 +8,21 @@ $("document").ready(function () {
 
     populateDependencyMenu();
 
-    var handle = $("#custom-handle");
-    $("#slider").slider({
-        create: function () {
-            handle.text($(this).slider("value"));
-        },
-        slide: function (event, ui) {
-            handle.text(ui.value);
-        },
-        stop: function(event,ui) {
-            sendMark($(this).slider("value"));
-        },
-        max: 5,
-        min: 1
-    });
 });
+
+function ratingClick(radio) {
+    sendMark(radio.value);
+}
 
 function sendMark(mark) {
     $.ajax({
         url: config.API_LOCATION + "feedback/add-mark.php",
         type: "POST",
-        data: {"mark": mark, "topicId": 79},
+        data: {"mark": mark, "topicId": currentTopicId},
         async: false
     }).done(function (data) {
+        // Show "completed" message
+        $("#completed").show();
     });
 }
 
@@ -152,27 +145,19 @@ function initializeNetwork() {
         // get node label
         var nodeIds = selectedNode.nodes;
         var nodeObj = nodes.get(nodeIds[0]);
+        currentTopicId = nodeObj.id;
         $("#selectedTopic").text(nodeObj.label);
-        $("#selectedTopicInfo").show();
+        $("#selectedTopicControls").show();
+        $("#completed").hide();
+
+        getFeedback();
+
 
         // focus on selected node
         network.focus(nodeIds[0], {
             scale: 1.5,
             animation: true
         });
-    });
-
-    // listener when edge is selected
-    network.on("selectEdge", function (selectedEdge) {
-
-        // get node label
-        var edgeIds = selectedEdge.edges;
-        var edgeObj = edges.get(edgeIds[0]);
-        var fromValue = nodes.get(edgeObj.from).label;
-        var toValue = nodes.get(edgeObj.to).label;
-        $("#selectedEdge").text(fromValue + " ---> " + toValue);
-        $("#selectedEdgeInfo").show();
-
     });
 
     // listener when node is deselected
@@ -182,23 +167,11 @@ function initializeNetwork() {
         var nodeIds = selectedNode.nodes;
         if (nodeIds.length === 0) {
             $("#selectedTopic").text("Please select a topic.");
-            $("#selectedTopicInfo").hide();
+            $("#selectedTopicControls").hide();
             network.fit({
                 animation: true
             });
         }
-    });
-
-    // listener when edge is selected
-    network.on("deselectEdge", function (selectedEdge) {
-
-        // get node label
-        var edgeIds = selectedEdge.edges;
-        if (edgeIds.length === 0) {
-            $("#selectedEdge").text("Please select a edge.");
-            $("#selectedEdgeInfo").hide();
-        }
-
     });
 
     // listener when canvas is resized
@@ -206,6 +179,20 @@ function initializeNetwork() {
         network.redraw();
     });
 
+}
+
+function getFeedback() {
+    $.ajax({
+        url: config.API_LOCATION + "feedback/get-mark.php?topicId=" + currentTopicId,
+        async: false,
+    }).done(function(data) {
+        var json = JSON.parse(data);
+        var returnValue = json.data.mark;
+        $("input").prop("checked",false);
+        if (returnValue !== 0) {
+            $("#rating-" + returnValue).prop('checked',true);
+        }
+    });
 }
 
 function populateDependencyMenu() {

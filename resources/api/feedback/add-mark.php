@@ -64,7 +64,3 @@ if ($stmt->rowCount() == 0) {
 }
 
 echo json_encode($json_response);
-
-//if so, replace it
-
-//else, add mark
