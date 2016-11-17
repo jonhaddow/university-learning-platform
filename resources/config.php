@@ -5,16 +5,15 @@ $domain_name = "http://localhost";
 $login_page = $domain_name . "/login";
 $register_page = $domain_name . "/register";
 $dashboard = $domain_name . "/dashboard";
-$logoff = $domain_name . "/logoff.php";
+$logoff = $domain_name . "/logoff";
 $jsConfig = $domain_name . "/js/jsConfig.js";
 
 // Path to resources
-$resources = dirname(__FILE__);
-$views = $resources . "/views";
-defined("COMMON_RESOURCES") or define("COMMON_RESOURCES", $views . "/common");
-defined("LOGIN_RESOURCES") or define("LOGIN_RESOURCES", $views . "/login");
-defined("REGISTER_RESOURCES") or define("REGISTER_RESOURCES", $views . "/register");
-defined("DASHBOARD_RESOURCES") or define("DASHBOARD_RESOURCES", $views . "/dashboard");
+define("RESOURCES", dirname(__FILE__));
+define("VIEWS", RESOURCES . "/views");
+define("CONTROLLERS", RESOURCES . "/controllers");
+define("COMMON_RESOURCES", VIEWS . "/common");
+define("API", RESOURCES . "/api");
 
 // Db config
 $server = 'localhost';
