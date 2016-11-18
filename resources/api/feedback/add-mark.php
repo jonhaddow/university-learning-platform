@@ -4,6 +4,14 @@ $userId = $_SESSION["userId"];
 $mark = $_POST["mark"];
 $topicId = $_POST["topicId"];
 
+
+// Validate input
+$valid = true;
+if ($mark < 1 || $mark > 5) {
+	$valid = false;
+	die();
+}
+
 // Send SQL query to check if mark already exists.
 $sql = "
 	SELECT FeedbackId

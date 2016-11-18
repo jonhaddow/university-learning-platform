@@ -43,9 +43,12 @@
 					<div id="topicInfo">
 					</div>
 					<div id="feedback">
-						<label for="feedbackStars">Feedback:</label>
-						<div id="feedbackStars" class="acidjs-rating-stars">
+						<label for="feedbackRatings">Feedback:</label>
+						<div id="feedbackRatings">
 							<form>
+								<input type="radio" name="rating" id="rating-na" value="0" onclick="ratingClick(this)"   />
+								<label for="rating-na">No feedback</label>
+								<br>
 								<input type="radio" name="rating" id="rating-1" value="1" onclick="ratingClick(this)"/>
 								<label for="rating-1">1</label>
 								<input type="radio" name="rating" id="rating-2" value="2" onclick="ratingClick(this)"/>

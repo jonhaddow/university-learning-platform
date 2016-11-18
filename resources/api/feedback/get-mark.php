@@ -26,12 +26,12 @@ $response = $stmt->fetch(PDO::FETCH_ASSOC);
 // If row exists...
 if ($stmt->rowCount() == 1) {
 
-		$json_response["data"]["mark"] = $response["Mark"];
+	$json_response["data"]["mark"] = $response["Mark"];
 
 } else {
 
 	// If no mark exists...
-		$json_response["data"]["mark"] = 0;
+	$json_response["data"]["mark"] = 0;
 }
 
 echo json_encode($json_response);

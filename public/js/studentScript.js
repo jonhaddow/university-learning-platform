@@ -15,15 +15,27 @@ function ratingClick(radio) {
 }
 
 function sendMark(mark) {
-    $.ajax({
-        url: config.API_LOCATION + "feedback/add-mark.php",
-        type: "POST",
-        data: {"mark": mark, "topicId": currentTopicId},
-        async: false
-    }).done(function (data) {
-        // Show "completed" message
-        $("#completed").show();
-    });
+
+    if (mark == 0) {
+        $.ajax({
+            url: config.API_LOCATION + "feedback/delete-mark.php",
+            type: "POST",
+            data: {"topicId": currentTopicId},
+            async: false
+        }).done(function (data) {
+            $("#completed").hide();
+        })
+    } else {
+        $.ajax({
+            url: config.API_LOCATION + "feedback/add-mark.php",
+            type: "POST",
+            data: {"mark": mark, "topicId": currentTopicId},
+            async: false
+        }).done(function (data) {
+            // Show "completed" message
+            $("#completed").show();
+        });
+    }
 }
 
 // This function initializes the network and sets interaction listeners
@@ -188,9 +200,10 @@ function getFeedback() {
     }).done(function(data) {
         var json = JSON.parse(data);
         var returnValue = json.data.mark;
-        $("input").prop("checked",false);
         if (returnValue !== 0) {
             $("#rating-" + returnValue).prop('checked',true);
+        } else {
+            $("#rating-na").prop("checked", true);
         }
     });
 }
