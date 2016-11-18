@@ -5,6 +5,7 @@ $domain_name = "http://localhost";
 $login_page = $domain_name . "/login";
 $register_page = $domain_name . "/register";
 $dashboard = $domain_name . "/dashboard";
+$modify_map = $domain_name . "/dashboard/modify-map";
 $logoff = $domain_name . "/logoff";
 $jsConfig = $domain_name . "/js/jsConfig.js";
 
@@ -12,7 +13,7 @@ $jsConfig = $domain_name . "/js/jsConfig.js";
 define("RESOURCES", dirname(__FILE__));
 define("VIEWS", RESOURCES . "/views");
 define("CONTROLLERS", RESOURCES . "/controllers");
-define("COMMON_RESOURCES", VIEWS . "/common");
+define("COMMON_RESOURCES", RESOURCES . "/common");
 define("API", RESOURCES . "/api");
 
 // Db config

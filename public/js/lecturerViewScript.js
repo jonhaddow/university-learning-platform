@@ -1,50 +1,19 @@
 var currentTopicId;
 
-
-$("document").ready(function () {
+$("document").ready(function() {
 
     initializeNetwork();
 
 });
 
-function ratingClick(radio) {
-    sendMark(radio.value);
-}
-
-function sendMark(mark) {
-
-    if (mark == 0) {
-        $.ajax({
-            url: config.API_LOCATION + "feedback/delete-mark.php",
-            type: "POST",
-            data: {"topicId": currentTopicId},
-            async: false
-        }).done(function (data) {
-            $("#completed").hide();
-        })
-    } else {
-        $.ajax({
-            url: config.API_LOCATION + "feedback/add-mark.php",
-            type: "POST",
-            data: {"mark": mark, "topicId": currentTopicId},
-            async: false
-        }).done(function (data) {
-            // Show "completed" message
-            $("#completed").show();
-        });
-    }
-}
-
 // This function initializes the network and sets interaction listeners
 function initializeNetwork() {
-
-    var topics = null;
 
     // get all topic data as an jsonObj using php script
     $.ajax({
         url: config.API_LOCATION + "view-map/find-all-topics.php",
         async: false
-    }).done(function (data) {
+    }).done(function(data) {
         var jsonObj = JSON.parse(data);
         if (jsonObj.status === "error") {
             alert(jsonObj.message);
@@ -77,7 +46,7 @@ function initializeNetwork() {
     $.ajax({
         url: config.API_LOCATION + "view-map/find-all-dependencies.php",
         async: false
-    }).done(function (data) {
+    }).done(function(data) {
         var jsonObj = JSON.parse(data);
         if (jsonObj.status === "error") {
             alert(jsonObj.message);
@@ -151,17 +120,22 @@ function initializeNetwork() {
     network = new vis.Network(container, data, options);
 
     // listener when node is selected
-    network.on("selectNode", function (selectedNode) {
+    network.on("selectNode", function(selectedNode) {
 
         // get node label
         var nodeIds = selectedNode.nodes;
         var nodeObj = nodes.get(nodeIds[0]);
         currentTopicId = nodeObj.id;
         $("#selectedTopic").text(nodeObj.label);
-        $("#selectedTopicControls").show();
-        $("#completed").hide();
+        $("#selectedTopicInfo").show();
 
-        getFeedback();
+        $.ajax({
+            url: config.API_LOCATION + "feedback/get-score.php?topicId=" + currentTopicId,
+            async: false
+        }).done(function (data) {
+            var jsonObj = JSON.parse(data);
+            $("#selectedTopicScore").text("Score: " + data );
+        });
 
 
         // focus on selected node
@@ -172,13 +146,13 @@ function initializeNetwork() {
     });
 
     // listener when node is deselected
-    network.on("deselectNode", function (selectedNode) {
+    network.on("deselectNode", function(selectedNode) {
 
         // if no other node has been selected, zoom out.
         var nodeIds = selectedNode.nodes;
         if (nodeIds.length === 0) {
             $("#selectedTopic").text("Please select a topic.");
-            $("#selectedTopicControls").hide();
+            $("#selectedTopicInfo").hide();
             network.fit({
                 animation: true
             });
@@ -186,33 +160,17 @@ function initializeNetwork() {
     });
 
     // listener when canvas is resized
-    network.on("resize", function () {
+    network.on("resize", function() {
         network.redraw();
     });
 
-}
-
-function getFeedback() {
-    $.ajax({
-        url: config.API_LOCATION + "feedback/get-mark.php?topicId=" + currentTopicId,
-        async: false,
-    }).done(function(data) {
-        var json = JSON.parse(data);
-        var returnValue = json.data.mark;
-        if (returnValue !== 0) {
-            $("#rating-" + returnValue).prop('checked',true);
-        } else {
-            $("#rating-na").prop("checked", true);
-        }
-    });
 }
 
 // This function wraps a long string around a set character limit.
 function stringDivider(str, width, spaceReplacer) {
     if (str.length > width) {
         var p = width;
-        for (; p > 0 && str[p] != ' '; p--) {
-        }
+        for (; p > 0 && str[p] != ' '; p--) {}
         if (p > 0) {
             var left = str.substring(0, p);
             var right = str.substring(p + 1);

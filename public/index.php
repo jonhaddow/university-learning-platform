@@ -15,7 +15,7 @@ $authenticated = isset($_SESSION["username"]);
 $redirect = false;
 
 // Redirect user to correct place dependant on URL path.
-if (count($routes) == 1) {
+if (count($routes) > 0) {
 	switch ($routes[0]) {
 		case "register":
 			if (!$authenticated) {

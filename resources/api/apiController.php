@@ -19,8 +19,8 @@ switch ($routes[1]) {
 	case "feedback":
 		if ($role == 0) {
 			require_once $url;
-		} else {
-			echo $no_access;
+		} elseif ($role == 1 && $routes[2] == "get-score.php") {
+			require_once $url;
 		}
 		break;
 	case "modify-map":
