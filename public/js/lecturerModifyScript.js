@@ -1,17 +1,17 @@
 var topics;
 
-$("document").ready(function() {
+$("document").ready(function () {
 
     initializeNetwork();
 
     populateDependencyMenu();
 
-    $("#deleteTopicButton").click(function() {
+    $("#deleteTopicButton").click(function () {
 
         $.ajax({
             url: config.API_LOCATION + "modify-map/delete-topic.php?topic=" + $("#selectedTopic").text(),
             type: "DELETE"
-        }).done(function() {
+        }).done(function () {
 
             // re-initializeNetwork();
             initializeNetwork();
@@ -23,7 +23,7 @@ $("document").ready(function() {
         });
     });
 
-    $("#deleteEdgeButton").click(function() {
+    $("#deleteEdgeButton").click(function () {
 
         var connectedEdges = $("#selectedEdge").text().split(" ---> ");
         var fromNode = connectedEdges[0];
@@ -32,7 +32,7 @@ $("document").ready(function() {
         $.ajax({
             url: config.API_LOCATION + "modify-map/delete-dependency.php?parent=" + fromNode + "&child=" + toNode,
             type: "DELETE"
-        }).done(function() {
+        }).done(function () {
             initializeNetwork();
             populateDependencyMenu();
 
@@ -42,7 +42,7 @@ $("document").ready(function() {
 
     });
 
-    $("#newTopicForm").submit(function() {
+    $("#newTopicForm").submit(function () {
 
         var errorDiv = $("#topicError");
         errorDiv.hide();
@@ -51,8 +51,8 @@ $("document").ready(function() {
         $.ajax({
             type: "POST",
             url: config.API_LOCATION + "modify-map/add-topic.php",
-            data: { topicName: $("#inputNewTopic").val() }
-        }).done(function(data) {
+            data: {topicName: $("#inputNewTopic").val()}
+        }).done(function (data) {
 
             var jsonResponse = JSON.parse(data);
             // check response
@@ -81,7 +81,7 @@ $("document").ready(function() {
 
     });
 
-    $("#newDependencyForm").submit(function() {
+    $("#newDependencyForm").submit(function () {
 
         var parent = $('#parentDropdownMenuSelect').find(":selected").text();
         var child = $('#childDropdownMenuSelect').find(":selected").text();
@@ -100,7 +100,7 @@ $("document").ready(function() {
                 parent: parent,
                 child: child
             }
-        }).done(function(data) {
+        }).done(function (data) {
 
             var jsonResponse = JSON.parse(data);
             // check response
@@ -132,7 +132,7 @@ function initializeNetwork() {
     $.ajax({
         url: config.API_LOCATION + "view-map/find-all-topics.php",
         async: false
-    }).done(function(data) {
+    }).done(function (data) {
         var jsonObj = JSON.parse(data);
         if (jsonObj.status === "error") {
             alert(jsonObj.message);
@@ -165,7 +165,7 @@ function initializeNetwork() {
     $.ajax({
         url: config.API_LOCATION + "view-map/find-all-dependencies.php",
         async: false
-    }).done(function(data) {
+    }).done(function (data) {
         var jsonObj = JSON.parse(data);
         if (jsonObj.status === "error") {
             alert(jsonObj.message);
@@ -179,7 +179,7 @@ function initializeNetwork() {
         dependencyDataset.push({
             from: dependencies[i].ParentId,
             to: dependencies[i].ChildId
-        })
+        });
     }
 
     // create an array with edges (dependencies)
@@ -194,52 +194,13 @@ function initializeNetwork() {
         edges: edges
     };
 
-    // customise the options
-    var options = {
-        layout: {
-            hierarchical: {
-                enabled: true,
-                nodeSpacing: 150,
-                sortMethod: 'directed',
-            }
-        },
-        nodes: {
-            shadow: {
-                enabled: true
-            },
-            shape: "box",
-            labelHighlightBold: false,
-            borderWidthSelected: 3,
-            color: {
-                highlight: {
-                    background: '#FFA5A2'
-                }
-            }
-        },
-        edges: {
-            arrows: {
-                to: {
-                    enabled: true
-                }
-            },
-            hoverWidth: 0,
-            selectionWidth: 3
-        },
-        interaction: {
-            dragNodes: false,
-            dragView: false,
-            zoomView: false,
-            hover: true,
-            hoverConnectedEdges: false,
-            selectConnectedEdges: false,
-        }
-    };
+    networkOptions.edges.selectionWidth = 3;
 
     // initialize the network!
-    network = new vis.Network(container, data, options);
+    network = new vis.Network(container, data, networkOptions);
 
     // listener when node is selected
-    network.on("selectNode", function(selectedNode) {
+    network.on("selectNode", function (selectedNode) {
 
         // get node label
         var nodeIds = selectedNode.nodes;
@@ -255,7 +216,7 @@ function initializeNetwork() {
     });
 
     // listener when edge is selected
-    network.on("selectEdge", function(selectedEdge) {
+    network.on("selectEdge", function (selectedEdge) {
 
         // get node label
         var edgeIds = selectedEdge.edges;
@@ -268,7 +229,7 @@ function initializeNetwork() {
     });
 
     // listener when node is deselected
-    network.on("deselectNode", function(selectedNode) {
+    network.on("deselectNode", function (selectedNode) {
 
         // if no other node has been selected, zoom out.
         var nodeIds = selectedNode.nodes;
@@ -282,7 +243,7 @@ function initializeNetwork() {
     });
 
     // listener when edge is selected
-    network.on("deselectEdge", function(selectedEdge) {
+    network.on("deselectEdge", function (selectedEdge) {
 
         // get node label
         var edgeIds = selectedEdge.edges;
@@ -294,7 +255,7 @@ function initializeNetwork() {
     });
 
     // listener when canvas is resized
-    network.on("resize", function() {
+    network.on("resize", function () {
         network.redraw();
     });
 
@@ -317,7 +278,8 @@ function populateDependencyMenu() {
 function stringDivider(str, width, spaceReplacer) {
     if (str.length > width) {
         var p = width;
-        for (; p > 0 && str[p] != ' '; p--) {}
+        for (; p > 0 && str[p] != ' '; p--) {
+        }
         if (p > 0) {
             var left = str.substring(0, p);
             var right = str.substring(p + 1);

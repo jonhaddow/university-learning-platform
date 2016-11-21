@@ -106,49 +106,8 @@ function initializeNetwork() {
         edges: edges
     };
 
-    // customise the options
-    var options = {
-        layout: {
-            hierarchical: {
-                enabled: true,
-                nodeSpacing: 150,
-                sortMethod: 'directed',
-            }
-        },
-        nodes: {
-            shadow: {
-                enabled: true
-            },
-            shape: "box",
-            labelHighlightBold: false,
-            borderWidthSelected: 3,
-            color: {
-                highlight: {
-                    background: '#FFA5A2'
-                }
-            }
-        },
-        edges: {
-            arrows: {
-                to: {
-                    enabled: true
-                }
-            },
-            hoverWidth: 0,
-            selectionWidth: 0
-        },
-        interaction: {
-            dragNodes: false,
-            dragView: false,
-            zoomView: false,
-            hover: true,
-            hoverConnectedEdges: false,
-            selectConnectedEdges: false,
-        }
-    };
-
     // initialize the network!
-    network = new vis.Network(container, data, options);
+    network = new vis.Network(container, data, networkOptions);
 
     // listener when node is selected
     network.on("selectNode", function (selectedNode) {

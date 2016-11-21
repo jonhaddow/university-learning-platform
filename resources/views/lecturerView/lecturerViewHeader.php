@@ -4,3 +4,6 @@
 
 <!-- Vis.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.16.1/vis.min.js"></script>
+
+<!--Default network config-->
+<script src="/js/networkConfig.js"></script>

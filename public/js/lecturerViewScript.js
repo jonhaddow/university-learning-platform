@@ -1,6 +1,6 @@
 var currentTopicId;
 
-$("document").ready(function() {
+$("document").ready(function () {
 
     initializeNetwork();
 
@@ -8,12 +8,11 @@ $("document").ready(function() {
 
 // This function initializes the network and sets interaction listeners
 function initializeNetwork() {
-
     // get all topic data as an jsonObj using php script
     $.ajax({
         url: config.API_LOCATION + "view-map/find-all-topics.php",
         async: false
-    }).done(function(data) {
+    }).done(function (data) {
         var jsonObj = JSON.parse(data);
         if (jsonObj.status === "error") {
             alert(jsonObj.message);
@@ -28,13 +27,33 @@ function initializeNetwork() {
 
         // add topics to dataset
         for (i = 0; i < topics.length; i++) {
-            var id = topics[i].TopicId;
-            var label = topics[i].Name;
-            label = stringDivider(label, 18, "\n");
-            topicDataset.push({
-                id: id,
-                label: label
-            });
+            (function () {
+                var id = topics[i].TopicId;
+                var label = topics[i].Name;
+                // Colour node based on feedback score
+                $.ajax({
+                    url: config.API_LOCATION + "feedback/get-average.php?topicId=" + id,
+                    async: false
+                }).done(function (data) {
+                    var colour;
+                    if (data >= 4) {
+                        colour = "#6C9A33";
+                    } else if (data >= 2) {
+                        colour = "#AA9739";
+                    } else if (data >= 0) {
+                        colour = "#AA6239";
+                    } else {
+                        colour = "#6C9A33";
+                    }
+                    label = stringDivider(label, 18, "\n");
+                    topicDataset.push({
+                        id: id,
+                        label: label,
+                        color: colour,
+                        font: "20px arial white"
+                    });
+                });
+            })();
         }
     }
 
@@ -46,7 +65,7 @@ function initializeNetwork() {
     $.ajax({
         url: config.API_LOCATION + "view-map/find-all-dependencies.php",
         async: false
-    }).done(function(data) {
+    }).done(function (data) {
         var jsonObj = JSON.parse(data);
         if (jsonObj.status === "error") {
             alert(jsonObj.message);
@@ -75,52 +94,11 @@ function initializeNetwork() {
         edges: edges
     };
 
-    // customise the options
-    var options = {
-        layout: {
-            hierarchical: {
-                enabled: true,
-                nodeSpacing: 150,
-                sortMethod: 'directed',
-            }
-        },
-        nodes: {
-            shadow: {
-                enabled: true
-            },
-            shape: "box",
-            labelHighlightBold: false,
-            borderWidthSelected: 3,
-            color: {
-                highlight: {
-                    background: '#FFA5A2'
-                }
-            }
-        },
-        edges: {
-            arrows: {
-                to: {
-                    enabled: true
-                }
-            },
-            hoverWidth: 0,
-            selectionWidth: 0
-        },
-        interaction: {
-            dragNodes: false,
-            dragView: false,
-            zoomView: false,
-            hover: true,
-            hoverConnectedEdges: false,
-            selectConnectedEdges: false,
-        }
-    };
-
     // initialize the network!
-    network = new vis.Network(container, data, options);
+    network = new vis.Network(container, data, networkOptions);
 
     // listener when node is selected
-    network.on("selectNode", function(selectedNode) {
+    network.on("selectNode", function (selectedNode) {
 
         // get node label
         var nodeIds = selectedNode.nodes;
@@ -130,11 +108,10 @@ function initializeNetwork() {
         $("#selectedTopicInfo").show();
 
         $.ajax({
-            url: config.API_LOCATION + "feedback/get-score.php?topicId=" + currentTopicId,
+            url: config.API_LOCATION + "feedback/get-average.php?topicId=" + currentTopicId,
             async: false
         }).done(function (data) {
-            var jsonObj = JSON.parse(data);
-            $("#selectedTopicScore").text("Score: " + data );
+            $("#selectedTopicScore").text("Score: " + data);
         });
 
 
@@ -146,7 +123,7 @@ function initializeNetwork() {
     });
 
     // listener when node is deselected
-    network.on("deselectNode", function(selectedNode) {
+    network.on("deselectNode", function (selectedNode) {
 
         // if no other node has been selected, zoom out.
         var nodeIds = selectedNode.nodes;
@@ -160,7 +137,7 @@ function initializeNetwork() {
     });
 
     // listener when canvas is resized
-    network.on("resize", function() {
+    network.on("resize", function () {
         network.redraw();
     });
 
@@ -170,7 +147,8 @@ function initializeNetwork() {
 function stringDivider(str, width, spaceReplacer) {
     if (str.length > width) {
         var p = width;
-        for (; p > 0 && str[p] != ' '; p--) {}
+        for (; p > 0 && str[p] != ' '; p--) {
+        }
         if (p > 0) {
             var left = str.substring(0, p);
             var right = str.substring(p + 1);
