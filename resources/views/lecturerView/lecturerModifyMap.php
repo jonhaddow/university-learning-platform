@@ -31,21 +31,22 @@
 </nav>
 
 <div class="container">
-	<div class="row" id="titleBar">
-		<div class="col-md-offset-2 col-md-8">
-			<h1><b>Programming 1:</b> Module Topics</h1>
-		</div>
-	</div>
 	<div class="row">
-		<div id="visHolder" class="col-md-8"></div>
-		<div id="sideNav" class="col-md-4">
+		<div id="mainContent" class="col-md-9">
+			<div>
+				<h1><b>Programming 1:</b> Module Topics</h1>
+			</div>
+			<div id="visHolder"></div>
+		</div>
+		<div id="sideNav" class="col-md-3">
 			<div id="currentTopic">
 				<h3>Highlighted Topic:</h3>
 				<div id="selectedTopic">
 					Please select a topic.
 				</div>
 				<div id="selectedTopicInfo" hidden>
-					<button id="deleteTopicButton">Delete Topic</button>
+					<button class="btn btn-default" id="editTopicButton">Edit Topic</button>
+					<button id="deleteTopicButton" class="btn btn-danger">Delete Topic</button>
 				</div>
 			</div>
 			<div id="currentEdge">
@@ -54,7 +55,7 @@
 					Please select a edge.
 				</div>
 				<div id="selectedEdgeInfo" hidden>
-					<button id="deleteEdgeButton">Delete Edge</button>
+					<button id="deleteEdgeButton" class="btn btn-danger">Delete Edge</button>
 				</div>
 			</div>
 			<hr>

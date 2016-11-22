@@ -2,14 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23a5a197-9e22-4376-b93d-58598c5ede59" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/js/networkConfig.js" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/resources/api/feedback/get-score.php" afterPath="$PROJECT_DIR$/resources/api/feedback/get-average.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/lecturerModifyScript.js" afterPath="$PROJECT_DIR$/public/js/lecturerModifyScript.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/dashboard.css" afterPath="$PROJECT_DIR$/public/css/dashboard.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/lecturerViewScript.js" afterPath="$PROJECT_DIR$/public/js/lecturerViewScript.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/networkConfig.js" afterPath="$PROJECT_DIR$/public/js/networkConfig.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/js/studentScript.js" afterPath="$PROJECT_DIR$/public/js/studentScript.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/api/apiController.php" afterPath="$PROJECT_DIR$/resources/api/apiController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/lecturerView/lecturerViewHeader.php" afterPath="$PROJECT_DIR$/resources/views/lecturerView/lecturerViewHeader.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/lecturerView/lecturerModifyMap.php" afterPath="$PROJECT_DIR$/resources/views/lecturerView/lecturerModifyMap.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/lecturerView/lecturerView.php" afterPath="$PROJECT_DIR$/resources/views/lecturerView/lecturerView.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/studentView.php" afterPath="$PROJECT_DIR$/resources/views/studentView.php" />
     </list>
     <ignored path=".idea/" />
@@ -41,18 +40,18 @@
       <file leaf-file-name="lecturerView.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/lecturerView/lecturerView.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="26" selection-end-column="6" />
+            <state relative-caret-position="765">
+              <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lecturerViewScript.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="lecturerViewScript.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/js/lecturerViewScript.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="19" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
+            <state relative-caret-position="465">
+              <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -71,8 +70,8 @@
       <file leaf-file-name="networkConfig.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/networkConfig.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+            <state relative-caret-position="210">
+              <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -81,11 +80,21 @@
       <file leaf-file-name="studentView.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/studentView.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
+            <state relative-caret-position="75">
+              <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
               <folding>
-                <marker date="1479761848623" expanded="true" signature="366:367" ph="..." />
+                <marker date="1479846239724" expanded="true" signature="367:368" ph="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/index.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="615">
+              <caret line="41" column="33" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -93,8 +102,8 @@
       <file leaf-file-name="studentScript.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/studentScript.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="109" column="61" selection-start-line="109" selection-start-column="61" selection-end-line="109" selection-end-column="61" />
+            <state relative-caret-position="473">
+              <caret line="130" column="10" selection-start-line="126" selection-start-column="8" selection-end-line="130" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -103,17 +112,27 @@
       <file leaf-file-name="lecturerModifyMap.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/lecturerView/lecturerModifyMap.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
+            <state relative-caret-position="585">
+              <caret line="39" column="14" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lecturerModifyScript.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="dashboard.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/css/dashboard.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="254">
+              <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lecturerModifyScript.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/lecturerModifyScript.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
+            <state relative-caret-position="2955">
               <caret line="197" column="0" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
               <folding />
             </state>
@@ -169,7 +188,6 @@
         <option value="$PROJECT_DIR$/resources/api/feedback/add-mark.php" />
         <option value="$PROJECT_DIR$/resources/api/feedback/get-mark.php" />
         <option value="$PROJECT_DIR$/resources/api/feedback/delete-mark.php" />
-        <option value="$PROJECT_DIR$/public/css/dashboard.css" />
         <option value="$PROJECT_DIR$/resources/views/LecturerViewNavbar.php" />
         <option value="$PROJECT_DIR$/resources/views/LecturerModifyMap.php" />
         <option value="$PROJECT_DIR$/resources/views/lecturerView.php" />
@@ -177,16 +195,17 @@
         <option value="$PROJECT_DIR$/resources/controllers/dashboardController.php" />
         <option value="$PROJECT_DIR$/resources/config.php" />
         <option value="$PROJECT_DIR$/resources/views/lecturerView/LecturerModifyMap.php" />
-        <option value="$PROJECT_DIR$/resources/views/lecturerView/lecturerView.php" />
-        <option value="$PROJECT_DIR$/resources/views/lecturerView/lecturerModifyMap.php" />
         <option value="$PROJECT_DIR$/resources/api/feedback/get-score.php" />
         <option value="$PROJECT_DIR$/resources/api/apiController.php" />
         <option value="$PROJECT_DIR$/resources/views/lecturerView/lecturerViewHeader.php" />
-        <option value="$PROJECT_DIR$/public/js/lecturerViewScript.js" />
-        <option value="$PROJECT_DIR$/public/js/studentScript.js" />
-        <option value="$PROJECT_DIR$/resources/views/studentView.php" />
-        <option value="$PROJECT_DIR$/public/js/networkConfig.js" />
         <option value="$PROJECT_DIR$/public/js/lecturerModifyScript.js" />
+        <option value="$PROJECT_DIR$/public/js/networkConfig.js" />
+        <option value="$PROJECT_DIR$/resources/views/lecturerView/lecturerModifyMap.php" />
+        <option value="$PROJECT_DIR$/public/js/studentScript.js" />
+        <option value="$PROJECT_DIR$/public/css/dashboard.css" />
+        <option value="$PROJECT_DIR$/resources/views/studentView.php" />
+        <option value="$PROJECT_DIR$/resources/views/lecturerView/lecturerView.php" />
+        <option value="$PROJECT_DIR$/public/js/lecturerViewScript.js" />
       </list>
     </option>
   </component>
@@ -266,6 +285,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -427,13 +447,12 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/common" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="settings.editor.splitter.proportion" value="0.22526935" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/Project/my-style.css" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
@@ -542,15 +561,17 @@
       <workItem from="1479472479817" duration="13032000" />
       <workItem from="1479499282606" duration="595000" />
       <workItem from="1479755981368" duration="7640000" />
+      <workItem from="1479806293714" duration="4938000" />
+      <workItem from="1479824170699" duration="9411000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="114865000" />
+    <option name="totallyTimeSpent" value="129214000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="30" width="1920" height="1050" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14114584" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -624,7 +645,7 @@
         <state relative-caret-position="435">
           <caret line="29" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="33" selection-end-column="6" />
           <folding>
-            <marker date="1479761848623" expanded="true" signature="366:367" ph="..." />
+            <marker date="1479846239724" expanded="true" signature="367:368" ph="..." />
           </folding>
         </state>
       </provider>
@@ -675,7 +696,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="15" selection-start-line="10" selection-start-column="15" selection-end-line="10" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -765,14 +785,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/dashboard.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -792,19 +804,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="615">
-          <caret line="41" column="33" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/api/feedback/add-mark.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
           <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -812,7 +815,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="375">
           <caret line="25" column="9" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -820,7 +822,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="23" column="29" selection-start-line="23" selection-start-column="29" selection-end-line="23" selection-end-column="29" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -828,7 +829,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="34" column="1" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -840,60 +840,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/lecturerViewScript.js">
+    <entry file="file://$PROJECT_DIR$/public/js/lecturerModifyScript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="19" selection-start-line="0" selection-start-column="19" selection-end-line="0" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/studentScript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="109" column="61" selection-start-line="109" selection-start-column="61" selection-end-line="109" selection-end-column="61" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/lecturerView/lecturerView.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="26" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/studentView.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="6" selection-start-line="12" selection-start-column="6" selection-end-line="12" selection-end-column="6" />
-          <folding>
-            <marker date="1479761848623" expanded="true" signature="366:367" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/lecturerView/lecturerModifyMap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
+        <state relative-caret-position="2955">
+          <caret line="197" column="0" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/js/networkConfig.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="38" column="12" selection-start-line="38" selection-start-column="12" selection-end-line="38" selection-end-column="12" />
+        <state relative-caret-position="210">
+          <caret line="14" column="36" selection-start-line="14" selection-start-column="36" selection-end-line="14" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/lecturerModifyScript.js">
+    <entry file="file://$PROJECT_DIR$/resources/views/lecturerView/lecturerModifyMap.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="197" column="0" selection-start-line="197" selection-start-column="0" selection-end-line="197" selection-end-column="0" />
+        <state relative-caret-position="585">
+          <caret line="39" column="14" selection-start-line="39" selection-start-column="14" selection-end-line="39" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="615">
+          <caret line="41" column="33" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/dashboard.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="254">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/studentView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="36" selection-start-line="5" selection-start-column="36" selection-end-line="5" selection-end-column="36" />
+          <folding>
+            <marker date="1479846239724" expanded="true" signature="367:368" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/studentScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="473">
+          <caret line="130" column="10" selection-start-line="126" selection-start-column="8" selection-end-line="130" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/lecturerView/lecturerView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="765">
+          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/js/lecturerViewScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="115" column="0" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
           <folding />
         </state>
       </provider>

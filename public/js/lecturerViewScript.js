@@ -1,4 +1,5 @@
 var currentTopicId;
+var averageScore;
 
 $("document").ready(function () {
 
@@ -111,9 +112,17 @@ function initializeNetwork() {
             url: config.API_LOCATION + "feedback/get-average.php?topicId=" + currentTopicId,
             async: false
         }).done(function (data) {
-            $("#selectedTopicScore").text("Score: " + data);
+            averageScore = data;
         });
 
+        var slider = $("#myslider").slider({
+            orientation: "vertical",
+            reversed: true,
+            tooltip: "hide",
+            step: "1.0",
+            enabled: false
+        });
+        slider.slider("setValue", averageScore);
 
         // focus on selected node
         network.focus(nodeIds[0], {

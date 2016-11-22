@@ -10,6 +10,12 @@ var networkOptions = {
         shadow: {
             enabled: true
         },
+        color: {
+            highlight: {
+                background: "#46FF2E",
+                border: "#BF58B0"
+            },
+        },
         shape: "box",
         labelHighlightBold: false,
         borderWidthSelected: 4

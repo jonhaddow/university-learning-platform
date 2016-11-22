@@ -20,5 +20,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="jquery-ui" level="application" />
+    <orderEntry type="library" name="bootstrap-slider" level="application" />
   </component>
 </module>

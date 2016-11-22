@@ -5,6 +5,8 @@ $("document").ready(function () {
 
     initializeNetwork();
 
+
+
 });
 
 function ratingClick(radio) {
@@ -120,8 +122,17 @@ function initializeNetwork() {
         $("#selectedTopicControls").show();
         $("#completed").hide();
 
-        getFeedback();
+        var feedback = parseInt(getFeedback());
 
+        var slider = $("#myslider").slider({
+            reversed: true,
+            orientation: "vertical",
+            tooltip: "hide",
+        }).on("slideStop", function (eventObj) {
+            sendMark(eventObj.value);
+        });
+
+        slider.slider("setValue", feedback);
 
         // focus on selected node
         network.focus(nodeIds[0], {
@@ -152,18 +163,15 @@ function initializeNetwork() {
 }
 
 function getFeedback() {
+    var result;
     $.ajax({
         url: config.API_LOCATION + "feedback/get-mark.php?topicId=" + currentTopicId,
         async: false,
-    }).done(function(data) {
+    }).done(function (data) {
         var json = JSON.parse(data);
-        var returnValue = json.data.mark;
-        if (returnValue !== 0) {
-            $("#rating-" + returnValue).prop('checked',true);
-        } else {
-            $("#rating-na").prop("checked", true);
-        }
+        result = json.data.mark;
     });
+    return result;
 }
 
 // This function wraps a long string around a set character limit.

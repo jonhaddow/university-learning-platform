@@ -16,20 +16,22 @@ body {
 }
 
 :root {
-    --primary-colour: white;
+    --text-colour: green;
 }
 
-#titleBar {
-    background-color: var(--primary-colour);
+#mainContent {
+    border: 8px solid #aaa;
+    height: 90vh;
 }
 
 #visHolder {
-    border: 8px solid var(--primary-colour);
     height: 80vh;
 }
 
 #sideNav {
-    background-color: var(--primary-colour);
+    height: 90vh;
+    border: 8px solid #aaa;
+    border-left: 0;
 }
 
 #currentTopic {
@@ -41,14 +43,38 @@ body {
 }
 
 #selectedTopic {
-    color: red;
+    color: var(--text-colour);
     font-size: 20px;
     font-weight: bold;
     padding-bottom: 20px;
 }
 
+.round.in-selection {
+    background: #cbcbcb;
+}
+
+.slider-selection.tick-slider-selection {
+    background: #cbcbcb;
+}
+
+.slider-track-high {
+    background: #7e99ff;
+}
+
+.round {
+    background: #7e99ff;
+}
+
+.slider-handle {
+    background: lightgreen;
+}
+
+#feedback {
+    padding-bottom: 3em;
+}
+
 #selectedEdge {
-    color: red;
+    color: var(--text-colour);
     font-size: 20px;
     font-weight: bold;
     padding-bottom: 20px;
@@ -77,4 +103,13 @@ body {
 
 #completed {
     color: #09ff28;
+}
+
+#selectedTopicScore {
+    font-size: 20px;
+    background-color: rgba(127, 255, 212, 0.28);
+    padding: 1em;
+    border: solid black;
+    border-radius: 50%;
+    display: inline-block;
 }

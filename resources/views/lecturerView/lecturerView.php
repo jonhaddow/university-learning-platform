@@ -7,6 +7,10 @@
 	?>
 	<title>Lecturer Dashboard</title>
 
+	<link rel="stylesheet"
+	      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.5.0/css/bootstrap-slider.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.5.0/bootstrap-slider.min.js"></script>
+
 	<!-- My style -->
 	<link rel="stylesheet" href="../css/dashboard.css">
 	<!-- My Script -->
@@ -27,20 +31,25 @@
 </nav>
 
 <div class="container">
-	<div class="row" id="titleBar">
-		<div class="col-md-offset-2 col-md-8">
-			<h1><b>Programming 1:</b> Module Topics</h1>
-		</div>
-	</div>
 	<div class="row">
-		<div id="visHolder" class="col-md-8"></div>
-		<div id="currentTopic">
-			<h3>Highlighted Topic:</h3>
-			<div id="selectedTopic">
-				Please select a topic.
+		<div id="mainContent" class="col-md-9">
+			<div>
+				<h1><b>Programming 1:</b> Module Topics</h1>
 			</div>
-			<div id="selectedTopicInfo" hidden>
-				<div id="selectedTopicScore"></div>
+			<div id="visHolder"></div>
+		</div>
+		<div id="sideNav" class="col-md-3">
+			<div id="currentTopic">
+				<h3>Highlighted Topic:</h3>
+				<div id="selectedTopic">
+					Please select a topic.
+				</div>
+				<div id="selectedTopicInfo" hidden>
+					<label for="myslider">Average feedback score:</label><br><br>
+					<input id="myslider" type="text"
+					       data-slider-ticks="[1, 5]"
+					       data-slider-ticks-labels='["Do not understand", "Fully understand"]'/>
+				</div>
 			</div>
 		</div>
 	</div>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<?php require_once COMMON_RESOURCES . "/headers.php";
-	require_once VIEWS . "/lecturerView/lecturerViewHeader.php"?>
+	require_once VIEWS . "/lecturerView/lecturerViewHeader.php" ?>
 	<title>Student Dashboard</title>
 
 	<!-- My style -->
@@ -22,14 +22,14 @@
 	</div>
 </nav>
 <div class="container">
-	<div class="row" id="titleBar">
-		<div class="col-md-offset-2 col-md-8">
-			<h1><b>Programming 1:</b> Module Topics</h1>
-		</div>
-	</div>
 	<div class="row">
-		<div id="visHolder" class="col-md-8"></div>
-		<div id="sideNav" class="col-md-4">
+		<div id="mainContent" class="col-md-9">
+			<div>
+				<h1><b>Programming 1:</b> Module Topics</h1>
+			</div>
+			<div id="visHolder"></div>
+		</div>
+		<div id="sideNav" class="col-md-3">
 			<div id="currentTopic">
 				<h3>Highlighted Topic:</h3>
 				<div id="selectedTopic">
@@ -39,24 +39,10 @@
 					<div id="topicInfo">
 					</div>
 					<div id="feedback">
-						<label for="feedbackRatings">Feedback:</label>
-						<div id="feedbackRatings">
-							<form>
-								<input type="radio" name="rating" id="rating-na" value="0" onclick="ratingClick(this)"   />
-								<label for="rating-na">No feedback</label>
-								<br>
-								<input type="radio" name="rating" id="rating-1" value="1" onclick="ratingClick(this)"/>
-								<label for="rating-1">1</label>
-								<input type="radio" name="rating" id="rating-2" value="2" onclick="ratingClick(this)"/>
-								<label for="rating-2">2</label>
-								<input type="radio" name="rating" id="rating-3" value="3" onclick="ratingClick(this)"/>
-								<label for="rating-3">3</label>
-								<input type="radio" name="rating" id="rating-4" value="4" onclick="ratingClick(this)"/>
-								<label for="rating-4">4</label>
-								<input type="radio" name="rating" id="rating-5" value="5" onclick="ratingClick(this)"   />
-								<label for="rating-5">5</label>
-							</form>
-						</div>
+						<label for="myslider">Feedback:</label><br><br>
+						<input id="myslider" type="text"
+						       data-slider-ticks="[1, 2, 3, 4, 5]"
+						       data-slider-ticks-labels='["Do not understand", "", "", "", "Fully understand"]'/>
 					</div>
 					<div id="completed">Feedback Sent!</div>
 				</div>
