@@ -13,7 +13,7 @@ $jsConfig = $domain_name . "/js/jsConfig.js";
 define("RESOURCES", dirname(__FILE__));
 define("VIEWS", RESOURCES . "/views");
 define("CONTROLLERS", RESOURCES . "/controllers");
-define("COMMON_RESOURCES", RESOURCES . "/common");
+define("COMMON_RESOURCES", VIEWS . "/common");
 define("API", RESOURCES . "/api");
 
 // Db config

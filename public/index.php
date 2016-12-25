@@ -45,19 +45,16 @@ if (count($routes) > 0) {
 				$redirect = true;
 			}
 			break;
+		case "api":
+			$redirect = false;
+			require_once CONTROLLERS . "/apiController.php";
+			break;
 		default:
 			$redirect = true;
 			break;
 	}
 } else {
 	$redirect = true;
-}
-
-// if user is access api, go to api controller
-if ($routes[0] == "api") {
-	$redirect = false;
-	require_once API . "/apiController.php";
-
 }
 
 // If nothing matches, take user to launch pages.

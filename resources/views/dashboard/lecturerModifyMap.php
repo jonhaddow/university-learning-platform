@@ -3,14 +3,12 @@
 <head>
 	<?php
 	require_once COMMON_RESOURCES . "/headers.php";
-	require_once VIEWS . "/lecturerView/lecturerViewHeader.php";
+	require_once VIEWS . "/dashboard/dashboardHeaders.php";
 	?>
-	<title>Lecturer Dashboard</title>
-
 	<!-- My style -->
-	<link rel="stylesheet" href="../css/dashboard.css">
+	<link rel="stylesheet" href="/css/dashboard.css">
 	<!-- My Script -->
-	<script type="text/javascript" src="../js/lecturerModifyScript.js"></script>
+	<script type="text/javascript" src="/js/lecturerModifyScript.js"></script>
 </head>
 <body>
 
@@ -37,7 +35,7 @@
 				<h1><b>Programming 1:</b> Module Topics</h1>
 			</div>
 			<div id="visHolder"></div>
-		</div>
+		</div>e
 		<div id="sideNav" class="col-md-3">
 			<div id="currentTopic">
 				<h3>Highlighted Topic:</h3>

@@ -3,18 +3,15 @@
 <head>
 	<?php
 	require_once COMMON_RESOURCES . "/headers.php";
-	require_once VIEWS . "/lecturerView/lecturerViewHeader.php";
+	require_once VIEWS . "/dashboard/dashboardHeaders.php";
 	?>
-	<title>Lecturer Dashboard</title>
-
 	<link rel="stylesheet"
 	      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.5.0/css/bootstrap-slider.min.css">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.5.0/bootstrap-slider.min.js"></script>
-
 	<!-- My style -->
-	<link rel="stylesheet" href="../css/dashboard.css">
+	<link rel="stylesheet" href="/css/dashboard.css">
 	<!-- My Script -->
-	<script type="text/javascript" src="../js/lecturerViewScript.js"></script>
+	<script type="text/javascript" src="/js/lecturerViewScript.js"></script>
 </head>
 <body>
 

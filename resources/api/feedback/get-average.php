@@ -18,8 +18,8 @@ if ($count != 0) {
 	}
 
 	$score = $score / $count;
-
-	echo $score;
 } else {
-	echo "No feedback given";
+	$score = -1;
 }
+
+echo $score;

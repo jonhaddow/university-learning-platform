@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
 	<?php require_once COMMON_RESOURCES . "/headers.php";
-	require_once VIEWS . "/lecturerView/lecturerViewHeader.php" ?>
-	<title>Student Dashboard</title>
-
+	require_once VIEWS . "/dashboard/dashboardHeaders.php"
+    ?>
+	<link rel="stylesheet"
+	      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.5.0/css/bootstrap-slider.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.5.0/bootstrap-slider.min.js"></script>
 	<!-- My style -->
 	<link rel="stylesheet" href="css/dashboard.css">
 	<!-- My Script -->
-	<script type="text/javascript" src="../js/studentScript.js"></script>
+	<script type="text/javascript" src="/js/studentScript.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
