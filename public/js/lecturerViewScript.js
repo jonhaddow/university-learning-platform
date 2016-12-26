@@ -39,7 +39,7 @@ $(function () {
     });
 
     // listener when node is deselected
-    network.on("deselectNode", function (selectedNode) {
+    network.on("deselectNode", function (slocalelectedNode) {
 
         // if no other node has been selected, zoom out.
         var nodeIds = selectedNode.nodes;

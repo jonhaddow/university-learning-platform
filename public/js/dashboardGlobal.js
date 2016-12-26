@@ -18,6 +18,7 @@ var dependencies = [];
 var network;
 var nodes;
 var edges;
+var selectedNodeId;
 
 // This function initializes the network and sets interaction listeners
 function initializeNetwork() {

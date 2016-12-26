@@ -1,76 +1,62 @@
 $("document").ready(function () {
 
-    initializeNetwork();
+    updateUI();
 
-    networkOptions.edges.selectionWidth = 3;
+    $("#editTopicButton").click(function () {
+        var titleText = $("#selectedTopic").text();
+        swal({
+            titleText: 'Topic Name',
+            inputValue: titleText,
+            input: 'text',
+            showCancelButton: true,
+            confirmButtonText: 'Update',
+            showLoaderOnConfirm: true,
+            preConfirm: function (newTitle) {
+                return new Promise(function (resolve, reject) {
+                    if (newTitle === '') {
+                        reject("Title can't be empty")
+                    } else {
+                        resolve()
+                    }
 
-    // listener when node is selected
-    network.on("selectNode", function (selectedNode) {
-
-        // get node label
-        const nodeIds = selectedNode.nodes;
-        const nodeObj = nodes.get(nodeIds[0]);
-        $("#selectedTopic").text(nodeObj.label);
-        $("#selectedTopicInfo").show();
-
-        // focus on selected node
-        network.focus(nodeIds[0], {
-            scale: 1.5,
-            animation: true
-        });
-    });
-
-    // listener when edge is selected
-    network.on("selectEdge", function (selectedEdge) {
-
-        // get node label
-        const edgeIds = selectedEdge.edges;
-        const edgeObj = edges.get(edgeIds[0]);
-        const fromValue = nodes.get(edgeObj.from).label;
-        const toValue = nodes.get(edgeObj.to).label;
-        $("#selectedEdge").text(fromValue + " ---> " + toValue);
-        $("#selectedEdgeInfo").show();
-
-    });
-
-    // listener when node is deselected
-    network.on("deselectNode", function (selectedNode) {
-
-        // if no other node has been selected, zoom out.
-        const nodeIds = selectedNode.nodes;
-        if (nodeIds.length === 0) {
-            $("#selectedTopic").text("Please select a topic.");
-            $("#selectedTopicInfo").hide();
-            network.fit({
-                animation: true
+                })
+            },
+            allowOutsideClick: false
+        }).then(function (newTitle) {
+            $.ajax({
+                url: config.API_LOCATION + "modify-map/edit-topic.php",
+                data: {
+                    topicId: selectedNodeId,
+                    topicName: newTitle
+                },
+                type: "POST"
+            }).done(function(result) {
+                swal({
+                    type: 'success',
+                    title: 'Title Updated!'
+                });
+                // re-initializeNetwork();
+                updateUI();
             });
-        }
-    });
 
-    // listener when edge is selected
-    network.on("deselectEdge", function (selectedEdge) {
+        });
 
-        // get node label
-        const edgeIds = selectedEdge.edges;
-        if (edgeIds.length === 0) {
-            $("#selectedEdge").text("Please select a edge.");
-            $("#selectedEdgeInfo").hide();
-        }
 
-    });
-
-    populateDependencyMenu();
+    })
+    ;
 
     $("#deleteTopicButton").click(function () {
 
         $.ajax({
-            url: config.API_LOCATION + "modify-map/delete-topic.php?topic=" + $("#selectedTopic").text(),
+            url: config.API_LOCATION + "modify-map/delete-topic.php",
+            data: {
+                topic: $("#selectedTopic").text()
+            },
             type: "DELETE"
         }).done(function () {
 
             // re-initializeNetwork();
-            initializeNetwork();
-            populateDependencyMenu();
+            updateUI();
 
             $("#selectedTopic").text("Please select a topic.");
             $("#selectedTopicInfo").hide();
@@ -88,8 +74,7 @@ $("document").ready(function () {
             url: config.API_LOCATION + "modify-map/delete-dependency.php?parent=" + fromNode + "&child=" + toNode,
             type: "DELETE"
         }).done(function () {
-            initializeNetwork();
-            populateDependencyMenu();
+            updateUI();
 
             $("#selectedEdge").text("Please select a edge.");
             $("#selectedEdgeInfo").hide();
@@ -113,8 +98,7 @@ $("document").ready(function () {
             // check response
             switch (jsonResponse.status) {
                 case "success":
-                    initializeNetwork();
-                    populateDependencyMenu();
+                    updateUI();
                     break;
                 case "fail":
                     // check if failed due to length or duplication
@@ -162,8 +146,7 @@ $("document").ready(function () {
             switch (jsonResponse.status) {
                 case "success":
                     // re-initializeNetwork();
-                    initializeNetwork();
-                    populateDependencyMenu();
+                    updateUI();
 
                     $("#inputParent").val("");
                     $("#inputChild").val("");
@@ -179,6 +162,71 @@ $("document").ready(function () {
         return false;
     });
 });
+
+function updateUI() {
+    initializeNetwork();
+    setOnClickListeners();
+    populateDependencyMenu();
+}
+
+function setOnClickListeners(){
+    networkOptions.edges.selectionWidth = 3;
+
+    // listener when node is selected
+    network.on("selectNode", function (selectedNode) {
+
+        // get node label
+        selectedNodeId = (selectedNode.nodes)[0];
+        const nodeObj = nodes.get(selectedNodeId);
+        $("#selectedTopic").text(nodeObj.label);
+        $("#selectedTopicInfo").show();
+
+        // focus on selected node
+        network.focus(selectedNodeId, {
+            scale: 1.5,
+            animation: true
+        });
+    });
+
+    // listener when edge is selected
+    network.on("selectEdge", function (selectedEdge) {
+
+        // get node label
+        const edgeIds = selectedEdge.edges;
+        const edgeObj = edges.get(edgeIds[0]);
+        const fromValue = nodes.get(edgeObj.from).label;
+        const toValue = nodes.get(edgeObj.to).label;
+        $("#selectedEdge").text(fromValue + " ---> " + toValue);
+        $("#selectedEdgeInfo").show();
+
+    });
+
+    // listener when node is deselected
+    network.on("deselectNode", function (selectedNode) {
+
+        // if no other node has been selected, zoom out.
+        const nodeIds = selectedNode.nodes;
+        if (nodeIds.length === 0) {
+            $("#selectedTopic").text("Please select a topic.");
+            $("#selectedTopicInfo").hide();
+            network.fit({
+                animation: true
+            });
+        }
+    });
+
+    // listener when edge is selected
+    network.on("deselectEdge", function (selectedEdge) {
+
+        // get node label
+        const edgeIds = selectedEdge.edges;
+        if (edgeIds.length === 0) {
+            $("#selectedEdge").text("Please select a edge.");
+            $("#selectedEdgeInfo").hide();
+        }
+
+    });
+}
 
 function populateDependencyMenu() {
 
