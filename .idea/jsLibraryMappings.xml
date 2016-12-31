@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="JavaScriptLibraryMappings">
-    <file url="PROJECT" libraries="{bootstrap, bootstrap-slider, jquery, jquery-ui, sweetalert2, vis}" />
+    <file url="PROJECT" libraries="{bootstrap, bootstrap-slider, chosen.jquery, jquery, jquery-ui, sweetalert2, vis}" />
   </component>
 </project>

@@ -3,56 +3,17 @@ var averageScore;
 
 $(function () {
 
-    initializeNetwork();
+    updateGUI();
 
-    // listener when node is selected
-    network.on("selectNode", function (selectedNode) {
-
-        // get node label
-        var nodeIds = selectedNode.nodes;
-        var nodeObj = nodes.get(nodeIds[0]);
-        currentTopicId = nodeObj.id;
-        $("#selectedTopic").text(nodeObj.label);
-        $("#selectedTopicInfo").show();
-
-        $.ajax({
-            url: config.API_LOCATION + "feedback/get-average.php?topicId=" + currentTopicId,
-            async: false
-        }).done(function (data) {
-            averageScore = data;
-        });
-
-        var slider = $("#myslider").slider({
-            orientation: "vertical",
-            reversed: true,
-            tooltip: "hide",
-            step: "1.0",
-            enabled: false
-        });
-        slider.slider("setValue", averageScore);
-
-        // focus on selected node
-        network.focus(nodeIds[0], {
-            scale: 1.5,
-            animation: true
-        });
+    $("#studentsMenu").chosen({width: "100%"}).change(function () {
+        alert($(this).val());
     });
-
-    // listener when node is deselected
-    network.on("deselectNode", function (slocalelectedNode) {
-
-        // if no other node has been selected, zoom out.
-        var nodeIds = selectedNode.nodes;
-        if (nodeIds.length === 0) {
-            $("#selectedTopic").text("Please select a topic.");
-            $("#selectedTopicInfo").hide();
-            network.fit({
-                animation: true
-            });
-        }
-    });
-
 });
+
+function updateGUI() {
+    initializeNetwork();
+    setOnClickListeners();
+}
 
 // This function initializes the network and sets interaction listeners
 function initializeNetwork() {
@@ -131,4 +92,53 @@ function initializeNetwork() {
         network.redraw();
     });
 
+}
+
+function setOnClickListeners() {
+    // listener when node is selected
+    network.on("selectNode", function (selectedNode) {
+
+        // get node label
+        var nodeIds = selectedNode.nodes;
+        var nodeObj = nodes.get(nodeIds[0]);
+        currentTopicId = nodeObj.id;
+        $("#selectedTopic").text(nodeObj.label);
+        $("#selectedTopicInfo").show();
+
+        $.ajax({
+            url: config.API_LOCATION + "feedback/get-average.php?topicId=" + currentTopicId,
+            async: false
+        }).done(function (data) {
+            averageScore = data;
+        });
+
+        var slider = $("#myslider").slider({
+            orientation: "vertical",
+            reversed: true,
+            tooltip: "hide",
+            step: "1.0",
+            enabled: false
+        });
+        slider.slider("setValue", averageScore);
+
+        // focus on selected node
+        network.focus(nodeIds[0], {
+            scale: 1.5,
+            animation: true
+        });
+    });
+
+    // listener when node is deselected
+    network.on("deselectNode", function (selectedNode) {
+
+        // if no other node has been selected, zoom out.
+        var nodeIds = selectedNode.nodes;
+        if (nodeIds.length === 0) {
+            $("#selectedTopic").text("Please select a topic.");
+            $("#selectedTopicInfo").hide();
+            network.fit({
+                animation: true
+            });
+        }
+    });
 }

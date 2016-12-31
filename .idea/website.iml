@@ -34,5 +34,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="sweetalert2" level="application" />
+    <orderEntry type="library" name="chosen.jquery" level="application" />
   </component>
 </module>
