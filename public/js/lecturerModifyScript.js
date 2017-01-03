@@ -164,13 +164,13 @@ $("document").ready(function () {
 });
 
 function updateUI() {
+    networkOptions.edges.selectionWidth = 3;
     initializeNetwork();
     setOnClickListeners();
     populateDependencyMenu();
 }
 
 function setOnClickListeners(){
-    networkOptions.edges.selectionWidth = 3;
 
     // listener when node is selected
     network.on("selectNode", function (selectedNode) {

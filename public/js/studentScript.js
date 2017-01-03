@@ -61,7 +61,7 @@ function sendMark(mark) {
 
     if (mark == 0) {
         $.ajax({
-            url: config.API_LOCATION + "feedback/delete-mark.php",
+            url: config.API_LOCATION + "send-feedback/delete-mark.php",
             type: "POST",
             data: {"topicId": currentTopicId},
             async: false
@@ -70,7 +70,7 @@ function sendMark(mark) {
         })
     } else {
         $.ajax({
-            url: config.API_LOCATION + "feedback/add-mark.php",
+            url: config.API_LOCATION + "send-feedback/add-mark.php",
             type: "POST",
             data: {"mark": mark, "topicId": currentTopicId},
             async: false
@@ -85,8 +85,8 @@ function sendMark(mark) {
 function getFeedback() {
     var result;
     $.ajax({
-        url: config.API_LOCATION + "feedback/get-mark.php?topicId=" + currentTopicId,
-        async: false,
+        url: config.API_LOCATION + "send-feedback/get-mark.php?topicId=" + currentTopicId,
+        async: false
     }).done(function (data) {
         var json = JSON.parse(data);
         result = json.data.mark;

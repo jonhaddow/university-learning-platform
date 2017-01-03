@@ -16,10 +16,15 @@ switch ($routes[1]) {
 	case "register":
 		require_once $url;
 		break;
-	case "feedback":
-		if ($role == 0) {
+	case "send-feedback":
+		if ($role >= 0) {
 			require_once $url;
-		} elseif ($role == 1 && $routes[2] == "get-average.php") {
+		} else {
+			echo $no_access;
+		}
+		break;
+	case "get-feedback":
+		if ($role == 1) {
 			require_once $url;
 		} else {
 			echo $no_access;

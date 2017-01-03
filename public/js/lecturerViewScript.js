@@ -1,22 +1,31 @@
-var currentTopicId;
 var averageScore;
 
 $(function () {
 
-    updateGUI();
+    updateGUI(null);
 
     $("#studentsMenu").chosen({width: "100%"}).change(function () {
-        alert($(this).val());
+        $("#selectedTopic").text("Please select a topic.");
+        $("#selectedTopicInfo").hide();
+        network.fit({
+            animation: true
+        });
+        var sId = $(this).val();
+        if (sId >= 0) {
+            updateGUI(sId);
+        } else {
+            updateGUI(null);
+        }
     });
 });
 
-function updateGUI() {
-    initializeNetwork();
-    setOnClickListeners();
+function updateGUI(studentId) {
+    initializeNetwork(studentId);
+    setOnClickListeners(studentId);
 }
 
 // This function initializes the network and sets interaction listeners
-function initializeNetwork() {
+function initializeNetwork(studentId) {
 
     // get all topic data as an jsonObj using php script
     $.ajax({
@@ -33,32 +42,46 @@ function initializeNetwork() {
 
     // add topics to dataset
     const topicDataset = [];
+
     // add topics to dataset
     for (i = 0; i < topics.length; i++) {
         (function () {
             var id = topics[i].TopicId;
             var label = topics[i].Name;
-            // Colour node based on feedback score
-            $.ajax({
-                url: config.API_LOCATION + "feedback/get-average.php?topicId=" + id,
-                async: false
-            }).done(function (data) {
+            var ajaxOptions = {};
+            if (studentId) {
+                ajaxOptions = {
+                    url: config.API_LOCATION + "get-feedback/get-students-mark.php",
+                    data: {
+                        "sId": studentId,
+                        "tId": id
+                    },
+                    async: false
+                };
+            } else {
+                ajaxOptions = {
+                    url: config.API_LOCATION + "get-feedback/get-average.php",
+                    data: {"topicId": id},
+                    async: false
+                };
+            }
+            $.ajax(ajaxOptions).done(function (result) {
                 var colour;
-                if (data >= 4) {
+                if (result >= 4) {
                     colour = "#6C9A33";
-                } else if (data >= 2) {
+                } else if (result >= 2) {
                     colour = "#AA9739";
-                } else if (data >= 0) {
+                } else if (result >= 0) {
                     colour = "#AA6239";
                 } else {
                     colour = "#6C9A33";
                 }
-                label = stringDivider(label, 18, "\n");
                 topicDataset.push({
                     id: id,
-                    label: label,
+                    label: stringDivider(label, 18, "\n"),
                     color: colour,
-                    font: "20px arial white"
+                    font: "20px arial white",
+                    mark: result
                 });
             });
         })();
@@ -94,24 +117,16 @@ function initializeNetwork() {
 
 }
 
-function setOnClickListeners() {
+function setOnClickListeners(studentId) {
     // listener when node is selected
     network.on("selectNode", function (selectedNode) {
 
         // get node label
         var nodeIds = selectedNode.nodes;
         var nodeObj = nodes.get(nodeIds[0]);
-        currentTopicId = nodeObj.id;
+        var currentTopicId = nodeObj.id;
         $("#selectedTopic").text(nodeObj.label);
         $("#selectedTopicInfo").show();
-
-        $.ajax({
-            url: config.API_LOCATION + "feedback/get-average.php?topicId=" + currentTopicId,
-            async: false
-        }).done(function (data) {
-            averageScore = data;
-        });
-
         var slider = $("#myslider").slider({
             orientation: "vertical",
             reversed: true,
@@ -119,7 +134,12 @@ function setOnClickListeners() {
             step: "1.0",
             enabled: false
         });
-        slider.slider("setValue", averageScore);
+
+        if (studentId) {
+            slider.slider("setValue", nodeObj.mark);
+        } else {
+            slider.slider("setValue", nodeObj.mark);
+        }
 
         // focus on selected node
         network.focus(nodeIds[0], {

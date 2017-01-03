@@ -45,7 +45,7 @@
                         Select a student from the list
                     </label>
                     <select id="studentsMenu" class="chosen-select">
-                        <option value="785007">All Students</option>
+                        <option value="-1">All Students</option>
 						<?php
 						for ($i = 0; $i < count($students); $i++) {
 							echo "<option value='" . $students[$i]['UserId'] . "'>" . $students[$i]['Username'] .
