@@ -52,7 +52,7 @@ $("document").ready(function () {
             data: {
                 topic: $("#selectedTopic").text()
             },
-            type: "DELETE"
+            type: "POST"
         }).done(function () {
 
             // re-initializeNetwork();
@@ -232,13 +232,16 @@ function populateDependencyMenu() {
 
     // Clear current items in menus
     $('.dropdown').children().remove();
-    // $('#childDropdownMenuSelect').children().remove();
+
 
     // populate with topic names
-    for (var i = 0; i < topics.length; i++) {
-        $("#parentDropdownMenuSelect").append("<option value='" + topics[i].TopicId + "'>" + topics[i].Name + "</option>");
-        $("#childDropdownMenuSelect").append("<option value='" + topics[i].TopicId + "'>" + topics[i].Name + "</option>");
+    if (topics) {
+        for (var i = 0; i < topics.length; i++) {
+            $("#parentDropdownMenuSelect").append("<option value='" + topics[i].TopicId + "'>" + topics[i].Name + "</option>");
+            $("#childDropdownMenuSelect").append("<option value='" + topics[i].TopicId + "'>" + topics[i].Name + "</option>");
+        }
     }
+
 }
 
 // This function wraps a long string around a set character limit.

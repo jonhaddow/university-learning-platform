@@ -38,23 +38,27 @@ function initializeNetwork() {
 
     // add topics to dataset
     const topicDataset = [];
-    for (i = 0; i < topics.length; i++) {
-        var id = topics[i].TopicId;
-        var label = topics[i].Name;
-        label = stringDivider(label, 18, "\n");
-        topicDataset.push({
-            id: id,
-            label: label
-        });
+    if (topics) {
+        for (i = 0; i < topics.length; i++) {
+            var id = topics[i].TopicId;
+            var label = topics[i].Name;
+            label = stringDivider(label, 18, "\n");
+            topicDataset.push({
+                id: id,
+                label: label
+            });
+        }
     }
 
     // add dependencies into dataset
     const dependencyDataset = [];
-    for (var i = 0; i < dependencies.length; i++) {
-        dependencyDataset.push({
-            from: dependencies[i].ParentId,
-            to: dependencies[i].ChildId
-        });
+    if (dependencies) {
+        for (var i = 0; i < dependencies.length; i++) {
+            dependencyDataset.push({
+                from: dependencies[i].ParentId,
+                to: dependencies[i].ChildId
+            });
+        }
     }
 
     nodes = new vis.DataSet(topicDataset);

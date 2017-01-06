@@ -136,7 +136,11 @@ function setOnClickListeners(studentId) {
         });
 
         if (studentId) {
-            slider.slider("setValue", nodeObj.mark);
+            if (nodeObj.mark == 0) {
+                slider.slider("setValue", 1);
+            } else {
+                slider.slider("setValue", nodeObj.mark);
+            }
         } else {
             slider.slider("setValue", nodeObj.mark);
         }

@@ -1,7 +1,7 @@
 <?php
 
 // get topic name
-$topicName = $_GET["topic"];
+$topicName = $_POST["topic"];
 
 // Check that topic exists
 $sql = "
@@ -42,8 +42,7 @@ foreach ($response as $parent) {
 
 // Delete all parent dependencies
 $sql = "
-    DELETE
-    FROM dependencies
+    DELETE FROM dependencies
     WHERE ChildId = (
         SELECT TopicId
         FROM topics
@@ -75,8 +74,7 @@ foreach ($response as $child) {
 
 // Delete all child dependencies
 $sql = "
-    DELETE
-    FROM dependencies
+    DELETE FROM dependencies
     WHERE ParentId = (
         SELECT TopicId
         FROM topics
@@ -101,6 +99,27 @@ foreach ($parents as $parent) {
     }
 }
 
+// Delete all feedback related to topic
+$sql = "
+	DELETE FROM feedback
+	WHERE feedback.TopicId = (
+        SELECT topics.TopicId
+        FROM topics
+        WHERE topics.Name = :topic
+    )
+";
+$stmt = $db_conn->prepare($sql);
+$stmt->bindParam(":topic", $topicName);
+if ($stmt->execute()) {
+	$json_response["status"] = "success";
+	$json_response["data"] = "null";
+} else {
+	$json_response["status"] = "error";
+	$json_response["message"] = "Unable to communicate with the database";
+	echo json_encode($json_response);
+	die();
+}
+
 // Delete topic
 $sql = "
     DELETE FROM topics
@@ -108,13 +127,14 @@ $sql = "
 ";
 $stmt = $db_conn->prepare($sql);
 $stmt->bindParam(":topicName", $topicName);
-
 if ($stmt->execute()) {
     $json_response["status"] = "success";
     $json_response["data"] = "null";
 } else {
     $json_response["status"] = "error";
     $json_response["message"] = "Unable to communicate with the database";
+	echo json_encode($json_response);
+	die();
 }
 
 echo json_encode($json_response);
