@@ -37,29 +37,41 @@
 <div class="container">
     <div class="row">
         <div id="mainContent" class="col-md-9">
-            <div>
-                <h1><b>Programming 1:</b> Module Topics</h1>
+            <div class="row">
+                <div class="col-sm-9">
+                <h1><b>Programming 1:</b><br> Module Topics</h1>
             </div>
-            <div id="visHolder"></div>
+                <div class="col-sm-3" id="selectedEdgeInfo" hidden>
+                    <form id="deleteEdgeForm">
+                        <input type="hidden" id="selectedEdgeTo" name="child">
+                        <input type="hidden" id="selectedEdgeFrom" name="parent">
+                        <button id="deleteEdgeButton" class="btn btn-danger">Delete Edge</button>
+                    </form>
+                </div>
+            </div>
+            <div id="visHolder"class="row"></div>
         </div>
         <div id="sideNav" class="col-md-3">
             <div id="currentTopic">
                 <h3>Highlighted Topic:</h3>
                 <div id="selectedTopic">
-                    Please select a topic.
-                </div>
-                <div id="selectedTopicInfo" hidden>
-                    <button class="btn btn-default" id="editTopicButton">Edit Topic</button>
-                    <button id="deleteTopicButton" class="btn btn-danger">Delete Topic</button>
-                </div>
-            </div>
-            <div id="currentEdge">
-                <h3>Highlighted Edge:</h3>
-                <div id="selectedEdge">
-                    Please select a edge.
-                </div>
-                <div id="selectedEdgeInfo" hidden>
-                    <button id="deleteEdgeButton" class="btn btn-danger">Delete Edge</button>
+                    <div id="noSelectedTopic">
+                        Please select a topic.
+                    </div>
+                    <form id="selectedTopicForm" hidden>
+                        <input type="hidden" id="selectedTopicId" name="id"/>
+                        <div class="form-group">
+                            <label for="selectedTopicName">Topic Name</label>
+                            <input class="form-control" type="text" id="selectedTopicName" name="name" />
+                        </div>
+                        <div class="form-group">
+                            <label for="selectedTopicDescription">Topic Description</label>
+                            <input class="form-control" type="text" id="selectedTopicDescription" name="description"/>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="editTopicButton">Edit Topic</button>
+                        <button type="button" id="deleteTopicButton" class="btn btn-danger">Delete Topic</button>
+                        <div hidden id="selectedTopicError" class="error"></div>
+                    </form>
                 </div>
             </div>
             <hr>

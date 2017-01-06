@@ -2,55 +2,45 @@ $("document").ready(function () {
 
     updateUI();
 
-    $("#editTopicButton").click(function () {
-        var titleText = $("#selectedTopic").text();
-        swal({
-            titleText: 'Topic Name',
-            inputValue: titleText,
-            input: 'text',
-            showCancelButton: true,
-            confirmButtonText: 'Update',
-            showLoaderOnConfirm: true,
-            preConfirm: function (newTitle) {
-                return new Promise(function (resolve, reject) {
-                    if (newTitle === '') {
-                        reject("Title can't be empty")
-                    } else {
-                        resolve()
-                    }
+    $("#selectedTopicForm").submit(function (e) {
+        var errorDiv = $("#selectedTopicError");
+        errorDiv.hide();
 
-                })
-            },
-            allowOutsideClick: false
-        }).then(function (newTitle) {
+        var newName = $("#selectedTopicName").val();
+        if (newName === '') {
+            alert("Title can't be empty");
+        } else {
             $.ajax({
                 url: config.API_LOCATION + "modify-map/edit-topic.php",
-                data: {
-                    topicId: selectedNodeId,
-                    topicName: newTitle
-                },
+                data: $("#selectedTopicForm").serialize(),
                 type: "POST"
-            }).done(function(result) {
-                swal({
-                    type: 'success',
-                    title: 'Title Updated!'
-                });
-                // re-initializeNetwork();
-                updateUI();
+            }).done(function (result) {
+
+                var obj = JSON.parse(result);
+
+                if (obj.status === "fail") {
+                    errorDiv.show();
+                    errorDiv.text(obj.data);
+                } else {
+                    // re-initializeNetwork();
+                    updateUI();
+                    $("#noSelectedTopic").show();
+                    $("#selectedTopicForm").hide();
+                }
+
+
+
             });
-
-        });
-
-
-    })
-    ;
+        }
+        e.preventDefault();
+    });
 
     $("#deleteTopicButton").click(function () {
 
         $.ajax({
             url: config.API_LOCATION + "modify-map/delete-topic.php",
             data: {
-                topic: $("#selectedTopic").text()
+                topic: $("#selectedTopicName").val()
             },
             type: "POST"
         }).done(function () {
@@ -64,27 +54,23 @@ $("document").ready(function () {
         });
     });
 
-    $("#deleteEdgeButton").click(function () {
-
-        var connectedEdges = $("#selectedEdge").text().split(" ---> ");
-        var fromNode = connectedEdges[0];
-        var toNode = connectedEdges[1];
+    $("#deleteEdgeForm").submit(function (e) {
 
         $.ajax({
-            url: config.API_LOCATION + "modify-map/delete-dependency.php?parent=" + fromNode + "&child=" + toNode,
-            type: "DELETE"
+            url: config.API_LOCATION + "modify-map/delete-dependency.php",
+            data: $("#deleteEdgeForm").serialize(),
+            type: "POST"
         }).done(function () {
             updateUI();
-
-            $("#selectedEdge").text("Please select a edge.");
             $("#selectedEdgeInfo").hide();
         });
 
+        e.preventDefault();
     });
 
     $("#newTopicForm").submit(function () {
 
-        const errorDiv = $("#topicError");
+        var errorDiv = $("#topicError");
         errorDiv.hide();
 
         // send request to add topic to database
@@ -102,11 +88,7 @@ $("document").ready(function () {
                     break;
                 case "fail":
                     // check if failed due to length or duplication
-                    if ("duplicate" in jsonResponse.data) {
-                        errorDiv.show().text(jsonResponse.data.duplicate);
-                    } else if ("length" in jsonResponse.data) {
-                        errorDiv.show().text(jsonResponse.data.length);
-                    }
+                    errorDiv.show().text(jsonResponse.data);
                     break;
                 default:
                     alert(jsonResponse.message);
@@ -164,22 +146,29 @@ $("document").ready(function () {
 });
 
 function updateUI() {
-    networkOptions.edges.selectionWidth = 3;
+    networkOptions.edges.selectionWidth = 1;
+    networkOptions.edges.color.highlight = "#ff0007";
     initializeNetwork();
     setOnClickListeners();
     populateDependencyMenu();
 }
 
-function setOnClickListeners(){
+function setOnClickListeners() {
 
     // listener when node is selected
     network.on("selectNode", function (selectedNode) {
 
         // get node label
-        selectedNodeId = (selectedNode.nodes)[0];
+        var selectedNodeId = (selectedNode.nodes)[0];
         const nodeObj = nodes.get(selectedNodeId);
-        $("#selectedTopic").text(nodeObj.label);
-        $("#selectedTopicInfo").show();
+
+        $("#noSelectedTopic").hide();
+
+        // Show form and fill in topic details
+        $("#selectedTopicForm").show();
+        $("#selectedTopicId").val(nodeObj.id);
+        $("#selectedTopicName").val(nodeObj.label);
+        $("#selectedTopicDescription").val(nodeObj.description);
 
         // focus on selected node
         network.focus(selectedNodeId, {
@@ -191,14 +180,16 @@ function setOnClickListeners(){
     // listener when edge is selected
     network.on("selectEdge", function (selectedEdge) {
 
-        // get node label
+        // get node names connected to edge
         const edgeIds = selectedEdge.edges;
         const edgeObj = edges.get(edgeIds[0]);
         const fromValue = nodes.get(edgeObj.from).label;
         const toValue = nodes.get(edgeObj.to).label;
-        $("#selectedEdge").text(fromValue + " ---> " + toValue);
-        $("#selectedEdgeInfo").show();
 
+        $("#selectedEdgeTo").val(toValue);
+        $("#selectedEdgeFrom").val(fromValue);
+
+        $("#selectedEdgeInfo").show();
     });
 
     // listener when node is deselected
@@ -207,8 +198,8 @@ function setOnClickListeners(){
         // if no other node has been selected, zoom out.
         const nodeIds = selectedNode.nodes;
         if (nodeIds.length === 0) {
-            $("#selectedTopic").text("Please select a topic.");
-            $("#selectedTopicInfo").hide();
+            $("#noSelectedTopic").show();
+            $("#selectedTopicForm").hide();
             network.fit({
                 animation: true
             });
@@ -218,10 +209,8 @@ function setOnClickListeners(){
     // listener when edge is selected
     network.on("deselectEdge", function (selectedEdge) {
 
-        // get node label
         const edgeIds = selectedEdge.edges;
         if (edgeIds.length === 0) {
-            $("#selectedEdge").text("Please select a edge.");
             $("#selectedEdgeInfo").hide();
         }
 

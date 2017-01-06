@@ -1,7 +1,7 @@
 <?php
 
 // get parent and child names
-$dependency_names = array($_GET["parent"], $_GET["child"]);
+$dependency_names = array($_POST["parent"], $_POST["child"]);
 $dependency_ids = array();
 
 for ($i=0; $i < 2; $i++) {

@@ -41,11 +41,12 @@ function initializeNetwork() {
     if (topics) {
         for (i = 0; i < topics.length; i++) {
             var id = topics[i].TopicId;
-            var label = topics[i].Name;
-            label = stringDivider(label, 18, "\n");
+            var name = topics[i].Name;
+            name = stringDivider(name, 18, "\n");
             topicDataset.push({
                 id: id,
-                label: label
+                label: name,
+                description: topics[i].Description
             });
         }
     }

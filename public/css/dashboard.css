@@ -39,17 +39,19 @@ body {
 }
 
 #currentTopic {
-    height: 15%;
+    height: 30%;
 }
 
 #currentEdge {
     height: 15%;
 }
 
-#selectedTopic {
+#noSelectedTopic{
+    font-size: large;
     color: var(--text-colour);
-    font-size: 20px;
-    font-weight: bold;
+}
+
+#selectedTopic {
     padding-bottom: 20px;
 }
 
@@ -77,11 +79,9 @@ body {
     padding-bottom: 3em;
 }
 
-#selectedEdge {
-    color: var(--text-colour);
-    font-size: 20px;
-    font-weight: bold;
-    padding-bottom: 20px;
+#deleteEdgeButton {
+    margin: 20px;
+    float:right;
 }
 
 .form-header {

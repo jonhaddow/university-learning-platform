@@ -6,7 +6,7 @@ $topic_name = $_POST["topicName"];
 // check the length of topicName
 if (strlen($topic_name) > 30) {
     $json_response["status"] = "fail";
-    $json_response["data"]["length"] = "Topic name is too long.";
+    $json_response["data"] = "Topic name is too long.";
     echo json_encode($json_response);
     die();
 }
@@ -30,7 +30,7 @@ try {
 } catch (Exception $e) {
     // if duplicate detected, handle response
     $json_response["status"] = "fail";
-    $json_response["data"]["duplicate"] = "Topic name '".$topic_name."' already exists.";
+    $json_response["data"] = "Topic name '".$topic_name."' already exists.";
 }
 
 // Output Json

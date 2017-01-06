@@ -2,7 +2,7 @@
 
 // Send SQL query to find all topics
 $sql = "
-    SELECT TopicId, Name
+    SELECT TopicId, Name, Description
     FROM topics
 ";
 
@@ -19,7 +19,8 @@ if ($stmt->execute()) {
 	foreach ($topics as $topic) {
 		$json_response["topics"][] = [
 			"TopicId" => $topic["TopicId"],
-			"Name" => $topic["Name"]
+			"Name" => $topic["Name"],
+			"Description" => $topic["Description"]
 		];
 	}
 

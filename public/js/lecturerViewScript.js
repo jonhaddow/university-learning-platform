@@ -47,7 +47,7 @@ function initializeNetwork(studentId) {
     for (i = 0; i < topics.length; i++) {
         (function () {
             var id = topics[i].TopicId;
-            var label = topics[i].Name;
+            var name = topics[i].Name;
             var ajaxOptions = {};
             if (studentId) {
                 ajaxOptions = {
@@ -78,7 +78,8 @@ function initializeNetwork(studentId) {
                 }
                 topicDataset.push({
                     id: id,
-                    label: stringDivider(label, 18, "\n"),
+                    label: stringDivider(name, 18, "\n"),
+                    description: topics[i].Description,
                     color: colour,
                     font: "20px arial white",
                     mark: result
