@@ -63,8 +63,8 @@
                 <div id="selectedTopic">
                     Please select a topic.
                 </div>
-                <div id="selectedTopicInfo" hidden>
-                    <label for="myslider">Average feedback score:</label><br><br>
+                <div id="selectedTopicInfo" class="feedback-slider" hidden>
+                    <label for="myslider">Average feedback score:</label>
                     <input id="myslider" type="text"
                            data-slider-ticks="[1, 5]"
                            data-slider-ticks-labels='["Do not understand", "Fully understand"]'/>

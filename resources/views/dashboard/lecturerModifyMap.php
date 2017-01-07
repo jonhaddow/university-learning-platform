@@ -54,7 +54,7 @@
         <div id="sideNav" class="col-md-3">
             <div id="currentTopic">
                 <h3>Highlighted Topic:</h3>
-                <div id="selectedTopic">
+                <div>
                     <div id="noSelectedTopic">
                         Please select a topic.
                     </div>
@@ -66,7 +66,7 @@
                         </div>
                         <div class="form-group">
                             <label for="selectedTopicDescription">Topic Description</label>
-                            <input class="form-control" type="text" id="selectedTopicDescription" name="description"/>
+                            <textarea class="form-control" type="text" id="selectedTopicDescription" name="description"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary" id="editTopicButton">Edit Topic</button>
                         <button type="button" id="deleteTopicButton" class="btn btn-danger">Delete Topic</button>

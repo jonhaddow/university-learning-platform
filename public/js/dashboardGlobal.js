@@ -1,5 +1,7 @@
 // This function wraps a long string around a set character limit.
-function stringDivider(str, width, spaceReplacer) {
+function stringDivider(str) {
+    var width = 18;
+    var spaceReplacer = "\n";
     if (str.length > width) {
         var p = width;
         for (; p > 0 && str[p] != ' '; p--) {
@@ -7,7 +9,7 @@ function stringDivider(str, width, spaceReplacer) {
         if (p > 0) {
             var left = str.substring(0, p);
             var right = str.substring(p + 1);
-            return left + spaceReplacer + stringDivider(right, width, spaceReplacer);
+            return left + spaceReplacer + stringDivider(right);
         }
     }
     return str;
@@ -18,7 +20,6 @@ var dependencies = [];
 var network;
 var nodes;
 var edges;
-var selectedNodeId;
 
 // This function initializes the network and sets interaction listeners
 function initializeNetwork() {
@@ -42,7 +43,7 @@ function initializeNetwork() {
         for (i = 0; i < topics.length; i++) {
             var id = topics[i].TopicId;
             var name = topics[i].Name;
-            name = stringDivider(name, 18, "\n");
+            name = stringDivider(name);
             topicDataset.push({
                 id: id,
                 label: name,

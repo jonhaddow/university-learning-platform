@@ -48,6 +48,7 @@ function initializeNetwork(studentId) {
         (function () {
             var id = topics[i].TopicId;
             var name = topics[i].Name;
+            var description = topics[i].Description;
             var ajaxOptions = {};
             if (studentId) {
                 ajaxOptions = {
@@ -78,8 +79,8 @@ function initializeNetwork(studentId) {
                 }
                 topicDataset.push({
                     id: id,
-                    label: stringDivider(name, 18, "\n"),
-                    description: topics[i].Description,
+                    label: stringDivider(name),
+                    description: description,
                     color: colour,
                     font: "20px arial white",
                     mark: result
@@ -125,7 +126,6 @@ function setOnClickListeners(studentId) {
         // get node label
         var nodeIds = selectedNode.nodes;
         var nodeObj = nodes.get(nodeIds[0]);
-        var currentTopicId = nodeObj.id;
         $("#selectedTopic").text(nodeObj.label);
         $("#selectedTopicInfo").show();
         var slider = $("#myslider").slider({

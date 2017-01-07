@@ -2,7 +2,6 @@ var currentTopicId;
 var topics;
 var dependencies;
 
-
 $("document").ready(function () {
 
     initializeNetwork();
@@ -15,6 +14,7 @@ $("document").ready(function () {
         var nodeObj = nodes.get(nodeIds[0]);
         currentTopicId = nodeObj.id;
         $("#selectedTopic").text(nodeObj.label);
+        $("#selectedTopicDescription").text(nodeObj.description).show();
         $("#selectedTopicControls").show();
         $("#completed").hide();
 
@@ -44,6 +44,7 @@ $("document").ready(function () {
         var nodeIds = selectedNode.nodes;
         if (nodeIds.length === 0) {
             $("#selectedTopic").text("Please select a topic.");
+            $("#selectedTopicDescription").hide();
             $("#selectedTopicControls").hide();
             network.fit({
                 animation: true
@@ -52,10 +53,6 @@ $("document").ready(function () {
     });
 
 });
-
-function ratingClick(radio) {
-    sendMark(radio.value);
-}
 
 function sendMark(mark) {
 
@@ -92,19 +89,4 @@ function getFeedback() {
         result = json.data.mark;
     });
     return result;
-}
-
-// This function wraps a long string around a set character limit.
-function stringDivider(str, width, spaceReplacer) {
-    if (str.length > width) {
-        var p = width;
-        for (; p > 0 && str[p] != ' '; p--) {
-        }
-        if (p > 0) {
-            var left = str.substring(0, p);
-            var right = str.substring(p + 1);
-            return left + spaceReplacer + stringDivider(right, width, spaceReplacer);
-        }
-    }
-    return str;
 }

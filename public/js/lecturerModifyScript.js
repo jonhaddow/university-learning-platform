@@ -27,9 +27,6 @@ $("document").ready(function () {
                     $("#noSelectedTopic").show();
                     $("#selectedTopicForm").hide();
                 }
-
-
-
             });
         }
         e.preventDefault();
@@ -231,19 +228,4 @@ function populateDependencyMenu() {
         }
     }
 
-}
-
-// This function wraps a long string around a set character limit.
-function stringDivider(str, width, spaceReplacer) {
-    if (str.length > width) {
-        var p = width;
-        for (; p > 0 && str[p] != ' '; p--) {
-        }
-        if (p > 0) {
-            const left = str.substring(0, p);
-            const right = str.substring(p + 1);
-            return left + spaceReplacer + stringDivider(right, width, spaceReplacer);
-        }
-    }
-    return str;
 }

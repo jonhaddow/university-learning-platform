@@ -24,10 +24,6 @@ body {
     height: 90vh;
 }
 
-.chosen-select {
-
-}
-
 #visHolder {
     height: 80%;
 }
@@ -42,17 +38,10 @@ body {
     height: 30%;
 }
 
-#currentEdge {
-    height: 15%;
-}
-
-#noSelectedTopic{
+#noSelectedTopic, #selectedTopic {
     font-size: large;
     color: var(--text-colour);
-}
-
-#selectedTopic {
-    padding-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .round.in-selection {
@@ -75,13 +64,18 @@ body {
     background: lightgreen;
 }
 
-#feedback {
+.feedback-slider {
     padding-bottom: 3em;
+}
+
+.feedback-slider > label {
+    margin-bottom: 20px;
+    display: block;
 }
 
 #deleteEdgeButton {
     margin: 20px;
-    float:right;
+    float: right;
 }
 
 .form-header {
@@ -107,13 +101,4 @@ body {
 
 #completed {
     color: #09ff28;
-}
-
-#selectedTopicScore {
-    font-size: 20px;
-    background-color: rgba(127, 255, 212, 0.28);
-    padding: 1em;
-    border: solid black;
-    border-radius: 50%;
-    display: inline-block;
 }
