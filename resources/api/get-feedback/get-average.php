@@ -1,5 +1,7 @@
 <?php
 
+if ($role != 1) {exit();}
+
 $sql = $db_conn->prepare("
 	SELECT Mark
 	FROM feedback

@@ -24,61 +24,60 @@ var edges;
 // This function initializes the network and sets interaction listeners
 function initializeNetwork() {
 
-    // get all topic data as an jsonObj using php script
-    $.ajax({
-        url: config.API_LOCATION + "view-map/get-map-data.php",
-        async: false
-    }).done(function (data) {
-        const jsonObj = JSON.parse(data);
+    $.get(config.API_LOCATION + "view-map/get-map-data.php", function (result) {
+        const jsonObj = JSON.parse(result);
         if (jsonObj.status === "error") {
             alert("Can't connect to database");
         }
         topics = jsonObj.topics;
         dependencies = jsonObj.dependencies;
+
+        // add  topics to dataset
+        const topicDataset = [];
+        if (topics) {
+            for (i = 0; i < topics.length; i++) {
+                var id = topics[i].TopicId;
+                var name = topics[i].Name;
+                name = stringDivider(name);
+                topicDataset.push({
+                    id: id,
+                    label: name,
+                    description: topics[i].Description
+                });
+            }
+        }
+
+        // add dependencies into dataset
+        const dependencyDataset = [];
+        if (dependencies) {
+            for (var i = 0; i < dependencies.length; i++) {
+                dependencyDataset.push({
+                    from: dependencies[i].ParentId,
+                    to: dependencies[i].ChildId
+                });
+            }
+        }
+
+        nodes = new vis.DataSet(topicDataset);
+        edges = new vis.DataSet(dependencyDataset);
+
+        // provide the data in the vis format
+        const data = {
+            nodes: nodes,
+            edges: edges
+        };
+
+        // get the container div
+        const container = document.getElementById("visHolder");
+        // initialize the network!
+        network = new vis.Network(container, data, networkOptions);
+
+        // listener when canvas is resized
+        network.on("resize", function () {
+            network.redraw();
+        });
+
+        setOnClickListeners();
     });
 
-    // add topics to dataset
-    const topicDataset = [];
-    if (topics) {
-        for (i = 0; i < topics.length; i++) {
-            var id = topics[i].TopicId;
-            var name = topics[i].Name;
-            name = stringDivider(name);
-            topicDataset.push({
-                id: id,
-                label: name,
-                description: topics[i].Description
-            });
-        }
-    }
-
-    // add dependencies into dataset
-    const dependencyDataset = [];
-    if (dependencies) {
-        for (var i = 0; i < dependencies.length; i++) {
-            dependencyDataset.push({
-                from: dependencies[i].ParentId,
-                to: dependencies[i].ChildId
-            });
-        }
-    }
-
-    nodes = new vis.DataSet(topicDataset);
-    edges = new vis.DataSet(dependencyDataset);
-
-    // provide the data in the vis format
-    const data = {
-        nodes: nodes,
-        edges: edges
-    };
-
-    // get the container div
-    const container = document.getElementById("visHolder");
-    // initialize the network!
-    network = new vis.Network(container, data, networkOptions);
-
-    // listener when canvas is resized
-    network.on("resize", function () {
-        network.redraw();
-    });
 }

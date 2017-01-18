@@ -1,5 +1,7 @@
 <?php
 
+if ($role != 1) {exit();}
+
 // get name of topic
 $topic_id = $_POST["id"];
 $topic_name = $_POST["name"];

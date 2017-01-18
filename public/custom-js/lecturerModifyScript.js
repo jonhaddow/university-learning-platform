@@ -146,8 +146,6 @@ function updateUI() {
     networkOptions.edges.selectionWidth = 1;
     networkOptions.edges.color.highlight = "#ff0007";
     initializeNetwork();
-    setOnClickListeners();
-    populateDependencyMenu();
 }
 
 function setOnClickListeners() {
@@ -212,6 +210,9 @@ function setOnClickListeners() {
         }
 
     });
+
+
+    populateDependencyMenu();
 }
 
 function populateDependencyMenu() {

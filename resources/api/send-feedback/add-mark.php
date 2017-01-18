@@ -1,5 +1,7 @@
 <?php
 
+if ($role != 0) {exit();}
+
 $userId = $_SESSION["userId"];
 $mark = $_POST["mark"];
 $topicId = $_POST["topicId"];

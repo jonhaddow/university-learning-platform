@@ -27,7 +27,7 @@
             <li><a href="<?php echo MODIFY_MAP ?>">Modify Map</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?php echo LOGIN ?>">Log Off</a></li>
+            <li><a href="<?php echo LOGOFF ?>">Log Off</a></li>
         </ul>
     </div>
 </nav>

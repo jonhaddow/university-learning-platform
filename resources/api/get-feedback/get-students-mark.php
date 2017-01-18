@@ -1,5 +1,7 @@
 <?php
 
+if ($role != 1) {exit();}
+
 $studentId = $_GET["sId"];
 $topicId = $_GET["tId"];
 

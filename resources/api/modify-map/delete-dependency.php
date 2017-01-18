@@ -1,5 +1,7 @@
 <?php
 
+if ($role != 1) {exit();}
+
 // get parent and child names
 $dependency_names = array($_POST["parent"], $_POST["child"]);
 $dependency_ids = array();

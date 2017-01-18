@@ -1,10 +1,14 @@
-var currentTopicId;
 var topics;
 var dependencies;
+var slider;
 
 $("document").ready(function () {
 
     initializeNetwork();
+
+});
+
+function setOnClickListeners() {
 
     // listener when node is selected
     network.on("selectNode", function (selectedNode) {
@@ -12,23 +16,13 @@ $("document").ready(function () {
         // get node label
         var nodeIds = selectedNode.nodes;
         var nodeObj = nodes.get(nodeIds[0]);
-        currentTopicId = nodeObj.id;
+        var topicId = nodeObj.id;
         $("#selectedTopic").text(nodeObj.label);
         $("#selectedTopicDescription").text(nodeObj.description).show();
         $("#selectedTopicControls").show();
         $("#completed").hide();
 
-        var feedback = parseInt(getFeedback());
-
-        var slider = $("#myslider").slider({
-            reversed: true,
-            orientation: "vertical",
-            tooltip: "hide"
-        }).on("slideStop", function (eventObj) {
-            sendMark(eventObj.value);
-        });
-
-        slider.slider("setValue", feedback);
+        var feedback = parseInt(getFeedback(topicId));
 
         // focus on selected node
         network.focus(nodeIds[0], {
@@ -50,28 +44,26 @@ $("document").ready(function () {
                 animation: true
             });
         }
+        slider.off("slideStop");
     });
+}
 
-});
-
-function sendMark(mark) {
+function sendMark(mark, topicId) {
 
     if (mark == 0) {
         $.ajax({
             url: config.API_LOCATION + "send-feedback/delete-mark.php",
             type: "POST",
-            data: {"topicId": currentTopicId},
-            async: false
-        }).done(function (data) {
+            data: {"topicId": topicId}
+        }).done(function () {
             $("#completed").hide();
         })
     } else {
         $.ajax({
             url: config.API_LOCATION + "send-feedback/add-mark.php",
             type: "POST",
-            data: {"mark": mark, "topicId": currentTopicId},
-            async: false
-        }).done(function (data) {
+            data: {"mark": mark, "topicId": topicId}
+        }).done(function () {
             // Show "completed" message
             $("#completed").show();
         });
@@ -79,14 +71,22 @@ function sendMark(mark) {
 }
 
 
-function getFeedback() {
-    var result;
+function getFeedback(topicId) {
     $.ajax({
-        url: config.API_LOCATION + "send-feedback/get-mark.php?topicId=" + currentTopicId,
-        async: false
+        url: config.API_LOCATION + "send-feedback/get-mark.php?topicId=" + topicId
     }).done(function (data) {
         var json = JSON.parse(data);
-        result = json.data.mark;
+        var result = json.data.mark;
+
+        slider = $("#myslider").slider({
+            reversed: true,
+            orientation: "vertical",
+            tooltip: "hide"
+        }).on("slideStop", function (eventObj) {
+            sendMark(eventObj.value, topicId);
+        });
+
+        slider.slider("setValue", result);
+
     });
-    return result;
 }
