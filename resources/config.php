@@ -1,13 +1,12 @@
 <?php
 
 // Paths to public pages
-$domain_name = "http://localhost";
-$login_page = $domain_name . "/login";
-$register_page = $domain_name . "/register";
-$dashboard = $domain_name . "/dashboard";
-$modify_map = $domain_name . "/dashboard/modify-map";
-$logoff = $domain_name . "/logoff";
-$jsConfig = $domain_name . "/js/jsConfig.js";
+define("DOMAIN_NAME", "http://localhost");
+define("LOGIN", DOMAIN_NAME . "/login");
+define("REGISTER", DOMAIN_NAME . "/register");
+define("DASHBOARD", DOMAIN_NAME . "/dashboard");
+define("LOGOFF", DOMAIN_NAME . "/logoff");
+define("MODIFY_MAP", DASHBOARD . "/modify-map");
 
 // Path to resources
 define("RESOURCES", dirname(__FILE__));
@@ -20,8 +19,7 @@ define("API", RESOURCES . "/api");
 $server = 'localhost';
 $user = 'root';
 $pass = '';
-$dbname = 'test';
+$db_name = 'test';
 
-$db_conn = new PDO("mysql:host=$server;dbname=$dbname", $user, $pass);
+$db_conn = new PDO("mysql:host=$server;dbname=$db_name", $user, $pass);
 $db_conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-

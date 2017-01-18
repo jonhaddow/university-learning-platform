@@ -1,5 +1,9 @@
 <?php
 
-require_once VIEWS . "/registerView.php";
-
-?>
+// If user is authenticated then redirect to dashboard
+if ($authenticated) {
+	header("location: " . DASHBOARD);
+	exit();
+} else {
+	require_once VIEWS . "/registerView.php";
+}

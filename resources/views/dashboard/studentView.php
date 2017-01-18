@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/dashboard.css"/>
     <link rel="stylesheet" href="css/student-dashboard.css"/>
     <!-- My Script -->
-    <script type="text/javascript" src="/js/studentScript.js"></script>
+    <script type="text/javascript" src="/custom-js/studentScript.js"></script>
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -20,7 +20,7 @@
             <a class="navbar-brand" href="#">Dashboard</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?php echo $logoff ?>">Log Off</a></li>
+            <li><a href="<?php echo LOGOFF ?>">Log Off</a></li>
         </ul>
     </div>
 </nav>

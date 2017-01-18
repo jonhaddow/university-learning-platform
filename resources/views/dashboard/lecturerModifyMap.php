@@ -14,7 +14,7 @@
     <script src="https://cdn.jsdelivr.net/sweetalert2/6.2.4/sweetalert2.min.js"
             integrity="sha256-Dww+oU6TBUA0Bq5awJQddFloLpNKK913ixC7UxIWzw4=" crossorigin="anonymous"></script>
     <!-- My Script -->
-    <script type="text/javascript" src="/js/lecturerModifyScript.js"></script>
+    <script type="text/javascript" src="/custom-js/lecturerModifyScript.js"></script>
 </head>
 <body>
 
@@ -22,14 +22,14 @@
     <div class="container-fluid">
         <ul class="nav navbar-nav">
             <li>
-                <a href="<?php echo $dashboard ?>">View Student Feedback</a>
+                <a href="<?php echo DASHBOARD ?>">View Student Feedback</a>
             </li>
             <li class="active">
                 <a href="#">Modify Map</a>
             </li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?php echo $logoff ?>">Log Off</a></li>
+            <li><a href="<?php echo LOGOFF ?>">Log Off</a></li>
         </ul>
     </div>
 </nav>

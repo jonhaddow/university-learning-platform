@@ -16,7 +16,7 @@
             integrity="sha256-sLYUdmo3eloR4ytzZ+7OJsswEB3fuvUGehbzGBOoy+8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.5.0/bootstrap-slider.min.js"></script>
     <!-- My Script -->
-    <script type="text/javascript" src="/js/lecturerViewScript.js"></script>
+    <script type="text/javascript" src="/custom-js/lecturerViewScript.js"></script>
 </head>
 <body>
 
@@ -24,10 +24,10 @@
     <div class="container-fluid">
         <ul class="nav navbar-nav">
             <li class="active"><a href="#">View Student Feedback</a></li>
-            <li><a href="<?php echo $modify_map ?>">Modify Map</a></li>
+            <li><a href="<?php echo MODIFY_MAP ?>">Modify Map</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?php echo $logoff ?>">Log Off</a></li>
+            <li><a href="<?php echo LOGIN ?>">Log Off</a></li>
         </ul>
     </div>
 </nav>

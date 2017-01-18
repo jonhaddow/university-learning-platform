@@ -7,7 +7,7 @@
 	<!-- My style -->
 	<link rel="stylesheet" href="/css/login.css">
 	<!-- My Script -->
-	<script src="/js/login.js"></script>
+	<script src="/custom-js/login.js"></script>
 </head>
 
 <body>
@@ -25,7 +25,7 @@
 			</div>
 			<div hidden id="errorMsg" class="error">Login details are incorrect</div>
 			<button class="btn btn-default" type="submit" id="btnLogin">Sign in</button>
-			or <a id="register" href="<?php echo $register_page ?>">Register</a>
+			or <a id="register" href="<?php echo REGISTER ?>">Register</a>
 		</form>
 	</div>
 </div>

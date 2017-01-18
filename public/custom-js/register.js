@@ -1,6 +1,6 @@
-$(document).ready(function () {
-
-    $("#formRegister").submit(function () {
+$(function () {
+    $("#formRegister").submit(function (e) {
+        e.preventDefault();
 
         var error = $(".error");
         var usernameFormGroup = $("#formGroupUsername");
@@ -45,7 +45,7 @@ $(document).ready(function () {
         if (!(password == passwordVerify)) {
             passwordFormGroup2.addClass("has-error has-feedback");
             passwordFormGroup.addClass("has-error has-feedback");
-            error.append("Password's don't match!");
+            error.append("Passwords do not match");
             validinput = false;
         }
 
@@ -54,7 +54,6 @@ $(document).ready(function () {
             // Send username and password to server to be registered.
             $.ajax({
                 type: "POST",
-                async: false,
                 url: config.API_LOCATION + "register/register.php",
                 data: {user: username, pass: password, role: role}
             }).done(function (data) {
@@ -81,9 +80,8 @@ $(document).ready(function () {
                         break;
                 }
             });
+        } else {
+            return false;
         }
-
-        // Stop html handling submission.
-        return false;
     });
 });

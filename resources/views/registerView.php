@@ -5,9 +5,9 @@
 	<?php require_once COMMON_RESOURCES . "/headers.php"; ?>
 	<title>Registration</title>
 	<!-- My style -->
-	<link rel="stylesheet" href="../css/register.css">
+	<link rel="stylesheet" href="/css/register.css">
 	<!-- My Script -->
-	<script src="../js/register.js"></script>
+	<script src="/custom-js/register.js"></script>
 </head>
 <body>
 <div class="container">
@@ -31,7 +31,7 @@
 			</div>
 			<div class="error"></div>
 			<button type="submit" class="btn btn-default">Submit</button>
-			Already registered? <a href="<?php echo $login_page ?>">Sign in.</a>
+			Already registered? <a href="<?php echo LOGIN ?>">Sign in.</a>
 		</form>
 	</div>
 </div>
