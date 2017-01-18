@@ -1,51 +1,58 @@
-$(function() {
-    $("#formLogin").submit(function() {
+$(function () {
+    $("#formLogin").submit(function (e) {
+        e.preventDefault();
+
+        var userFormGroup = $("#formGroupUsername");
+        var passFormGroup = $("#formGroupPassword");
+
 
         // remove errors
-        $("#formGroupUsername").removeClass("has-error has-feedback");
-        $("#formGroupPassword").removeClass("has-error has-feedback");
+        userFormGroup.removeClass("has-error has-feedback");
+        passFormGroup.removeClass("has-error has-feedback");
 
         // get input fields
         var username = $("#inputUsername").val();
         var password = $("#inputPassword").val();
 
+        var valid = true;
+
         // If username or password fields are empty, send error.
         if (username === "") {
-            $("#formGroupUsername").addClass("has-error has-feedback");
+            userFormGroup.addClass("has-error has-feedback");
+            valid = false;
         }
         if (password === "") {
-            $("#formGroupPassword").addClass("has-error has-feedback");
+            passFormGroup.addClass("has-error has-feedback");
+            valid = false;
         }
 
-        var refreshPage = false;
-        // if login details have been entered...
-        if (!(username === "" || password === "")) {
-            // Submit login details
-            $.ajax({
-                type: "POST",
-                async: false,
-                url: config.API_LOCATION + "login/login.php",
-                data: { user: username, pass: password }
-            }).done(function(data) {
-                var jsonObj = JSON.parse(data);
-                switch (jsonObj.status) {
-                    case "success":
-                        // If successful, refresh page (user should be redirected by server).
-                        refreshPage = true;
-                        break;
-                    case "fail":
-                        // If unsucessful, clear textboxes and show errorMsg.
-                        $("#inputUsername").val("");
-                        $("#inputPassword").val("");
-                        $("#errorMsg").show();
-                        break;
-                    default:
-                        alert("Connection error. Please try again.");
-                        break;
-                }
-            });
+        if (!valid) {
+            return;
         }
 
-        return refreshPage;
+        // Submit login details
+        $.ajax({
+            url: config.API_LOCATION + "login/login.php",
+            type: "POST",
+            data: $("#formLogin").serialize()
+        }).done(function (data) {
+            var jsonObj = JSON.parse(data);
+            switch (jsonObj.status) {
+                case "success":
+                    // If successful, refresh page (user should be redirected by server).
+                    location.reload();
+                    break;
+                case "fail":
+                    // If unsucessful, clear textboxes and show errorMsg.
+                    $("#inputUsername").val("");
+                    $("#inputPassword").val("");
+                    $("#errorMsg").show();
+                    break;
+                default:
+                    alert("Connection error. Please try again.");
+                    break;
+            }
+        });
+
     });
 });

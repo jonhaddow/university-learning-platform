@@ -5,9 +5,9 @@
 	<?php require_once COMMON_RESOURCES . "/headers.php"; ?>
 	<title>Login</title>
 	<!-- My style -->
-	<link rel="stylesheet" href="../css/login.css">
+	<link rel="stylesheet" href="/css/login.css">
 	<!-- My Script -->
-	<script src="<?php echo $domain_name ?>/js/login.js"></script>
+	<script src="/js/login.js"></script>
 </head>
 
 <body>
