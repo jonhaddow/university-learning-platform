@@ -1,12 +1,13 @@
 <?php
 
-//if ($_SESSION["role"] != 1) {
-//	exit();
-//}
+if ($_SESSION["role"] != 1) {
+	exit();
+}
 
 $sql = $db_conn->prepare("
-	SELECT UserId, TopicId, Mark
-	FROM feedback
+	SELECT TopicId, AVG(Mark) AS Mark 
+	FROM `feedback` 
+	GROUP BY TopicId
 ");
 
 if ($sql->execute()) {

@@ -22,8 +22,7 @@ function updateMap(studentId) {
 
     // get all topic data as an jsonObj using php script
     $.ajax({
-        url: config.API_LOCATION + "view-map/get-map-data.php",
-        async: false
+        url: config.API_LOCATION + "view-map/get-map-data.php"
     }).done(function (data) {
         const jsonObj = JSON.parse(data);
         if (jsonObj.status === "error") {
@@ -35,126 +34,90 @@ function updateMap(studentId) {
     });
 }
 
-function  getNodeColour(studentId) {
-    if (studentId) {
-        ajaxOptions = {
-            url: config.API_LOCATION + "get-feedback/get-students-mark.php",
-            data: {
-                "sId": studentId,
-                "tId": id
-            },
-            async: false
-        };
-    } else {
-        ajaxOptions = {
-            url: config.API_LOCATION + "get-feedback/get-average.php",
-            data: {"topicId": id},
-            async: false
-        };
-    }
-    $.ajax(ajaxOptions).done(function (result) {
-        var colour;
-        if (result >= 4) {
-            colour = "#6C9A33";
-        } else if (result >= 2) {
-            colour = "#AA9739";
-        } else if (result >= 0) {
-            colour = "#AA6239";
-        } else {
-            colour = "#6C9A33";
-        }
-        topicDataset.push({
-            id: id,
-            label: stringDivider(name),
-            description: description,
-            color: colour,
-            font: "20px arial white",
-            mark: result
-        });
-    });
-}
-
 function setupNetwork(studentId) {
 
     // add topics to dataset
     const topicDataset = [];
-
-    // add topics to dataset
-    for (i = 0; i < topics.length; i++) {
-        (function () {
-            var id = topics[i].TopicId;
-            var name = topics[i].Name;
-            var description = topics[i].Description;
-            var ajaxOptions = {};
-            if (studentId) {
-                ajaxOptions = {
-                    url: config.API_LOCATION + "get-feedback/get-students-mark.php",
-                    data: {
-                        "sId": studentId,
-                        "tId": id
-                    },
-                    async: false
-                };
-            } else {
-                ajaxOptions = {
-                    url: config.API_LOCATION + "get-feedback/get-average.php",
-                    data: {"topicId": id},
-                    async: false
-                };
-            }
-            $.ajax(ajaxOptions).done(function (result) {
-                var colour;
-                if (result >= 4) {
-                    colour = "#6C9A33";
-                } else if (result >= 2) {
-                    colour = "#AA9739";
-                } else if (result >= 0) {
-                    colour = "#AA6239";
-                } else {
-                    colour = "#6C9A33";
-                }
-                topicDataset.push({
-                    id: id,
-                    label: stringDivider(name),
-                    description: description,
-                    color: colour,
-                    font: "20px arial white",
-                    mark: result
-                });
+    if (topics) {
+        for (var i = 0; i < topics.length; i++) {
+            topicDataset.push({
+                id: topics[i].TopicId,
+                label: stringDivider(topics[i].Name),
+                description: topics[i].Description,
+                font: "20px arial white",
+                color: "#6C9A33"
             });
-        })();
+        }
     }
 
+    var ajaxOptions = {};
+    if (studentId) {
+        ajaxOptions = {
+            url: config.API_LOCATION + "get-feedback/get-student-feedback.php",
+            data: {
+                "studentId": studentId
+            }
+        };
+    } else {
+        ajaxOptions = {
+            url: config.API_LOCATION + "get-feedback/get-feedback-average.php"
+        };
+    }
+    $.ajax(ajaxOptions).done(function (result) {
+        var jsonResult = JSON.parse(result);
+        for (i = 0; i<jsonResult.length; i++) {
+            var topicId = jsonResult[i].TopicId;
+            var mark = jsonResult[i].Mark;
+            var colour;
+            if (mark >= 4) {
+                colour = "#6C9A33";
+            } else if (mark >= 2) {
+                colour = "#AA9739";
+            } else if (mark >= 0) {
+                colour = "#AA6239";
+            } else {
+                colour = "#6C9A33";
+            }
+            for (var j = 0; j<topicDataset.length; j++) {
+                if (topicDataset[j].id === topicId){
+                    topicDataset[j].color = colour;
+                    topicDataset[j].mark = mark;
+                }
+            }
+        }
 
-    // add dependencies into dataset
-    const dependencyDataset = [];
-    for (var i = 0; i < dependencies.length; i++) {
-        dependencyDataset.push({
-            from: dependencies[i].ParentId,
-            to: dependencies[i].ChildId
+        // add dependencies into dataset
+        const dependencyDataset = [];
+        if (dependencies) {
+            for (i = 0; i < dependencies.length; i++) {
+                dependencyDataset.push({
+                    from: dependencies[i].ParentId,
+                    to: dependencies[i].ChildId
+                });
+            }
+        }
+
+        nodes = new vis.DataSet(topicDataset);
+        edges = new vis.DataSet(dependencyDataset);
+
+        // provide the data in the vis format
+        const data = {
+            nodes: nodes,
+            edges: edges
+        };
+
+        // get the container div
+        const container = document.getElementById("visHolder");
+        // initialize the network!
+        network = new vis.Network(container, data, networkOptions);
+
+        // listener when canvas is resized
+        network.on("resize", function () {
+            network.redraw();
         });
-    }
 
-    nodes = new vis.DataSet(topicDataset);
-    edges = new vis.DataSet(dependencyDataset);
-
-    // provide the data in the vis format
-    const data = {
-        nodes: nodes,
-        edges: edges
-    };
-
-    // get the container div
-    const container = document.getElementById("visHolder");
-    // initialize the network!
-    network = new vis.Network(container, data, networkOptions);
-
-    // listener when canvas is resized
-    network.on("resize", function () {
-        network.redraw();
+        setOnClickListeners(studentId);
     });
-
-    setOnClickListeners(studentId);
 
 }
 
