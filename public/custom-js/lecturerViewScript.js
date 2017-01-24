@@ -1,8 +1,6 @@
-var averageScore;
-
 $(function () {
 
-    updateGUI(null);
+    updateMap(null);
 
     $("#studentsMenu").chosen({width: "100%"}).change(function () {
         $("#selectedTopic").text("Please select a topic.");
@@ -12,20 +10,15 @@ $(function () {
         });
         var sId = $(this).val();
         if (sId >= 0) {
-            updateGUI(sId);
+            updateMap(sId);
         } else {
-            updateGUI(null);
+            updateMap(null);
         }
     });
 });
 
-function updateGUI(studentId) {
-    initializeNetwork(studentId);
-    setOnClickListeners(studentId);
-}
-
-// This function initializes the network and sets interaction listeners
-function initializeNetwork(studentId) {
+// This function gets map data
+function updateMap(studentId) {
 
     // get all topic data as an jsonObj using php script
     $.ajax({
@@ -38,7 +31,50 @@ function initializeNetwork(studentId) {
         }
         topics = jsonObj.topics;
         dependencies = jsonObj.dependencies;
+        setupNetwork(studentId);
     });
+}
+
+function  getNodeColour(studentId) {
+    if (studentId) {
+        ajaxOptions = {
+            url: config.API_LOCATION + "get-feedback/get-students-mark.php",
+            data: {
+                "sId": studentId,
+                "tId": id
+            },
+            async: false
+        };
+    } else {
+        ajaxOptions = {
+            url: config.API_LOCATION + "get-feedback/get-average.php",
+            data: {"topicId": id},
+            async: false
+        };
+    }
+    $.ajax(ajaxOptions).done(function (result) {
+        var colour;
+        if (result >= 4) {
+            colour = "#6C9A33";
+        } else if (result >= 2) {
+            colour = "#AA9739";
+        } else if (result >= 0) {
+            colour = "#AA6239";
+        } else {
+            colour = "#6C9A33";
+        }
+        topicDataset.push({
+            id: id,
+            label: stringDivider(name),
+            description: description,
+            color: colour,
+            font: "20px arial white",
+            mark: result
+        });
+    });
+}
+
+function setupNetwork(studentId) {
 
     // add topics to dataset
     const topicDataset = [];
@@ -89,6 +125,7 @@ function initializeNetwork(studentId) {
         })();
     }
 
+
     // add dependencies into dataset
     const dependencyDataset = [];
     for (var i = 0; i < dependencies.length; i++) {
@@ -116,6 +153,8 @@ function initializeNetwork(studentId) {
     network.on("resize", function () {
         network.redraw();
     });
+
+    setOnClickListeners(studentId);
 
 }
 

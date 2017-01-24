@@ -1,6 +1,6 @@
 <?php
 
-if ($role != 0) {exit();}
+if ($_SESSION["role"] != 0) {exit();}
 
 $userId = $_SESSION["userId"];
 $topicId = $_GET["topicId"];

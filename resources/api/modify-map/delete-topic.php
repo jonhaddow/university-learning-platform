@@ -1,6 +1,6 @@
 <?php
 
-if ($role != 1) {exit();}
+if ($_SESSION["role"] != 1) {exit();}
 
 // get topic name
 $topicName = $_POST["topic"];

@@ -1,6 +1,6 @@
 <?php
 
-if ($role != 1) {exit();}
+if ($_SESSION["role"] != 1) {exit();}
 
 // Sql to get all students names and ids
 $sql = "SELECT UserId, Username FROM users WHERE Role = 0";
