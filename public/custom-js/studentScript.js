@@ -1,8 +1,6 @@
-var topics;
-var dependencies;
 var slider;
 
-$("document").ready(function () {
+$(function () {
 
     initializeNetwork();
 
@@ -22,7 +20,7 @@ function setOnClickListeners() {
         $("#selectedTopicControls").show();
         $("#completed").hide();
 
-        var feedback = parseInt(getFeedback(topicId));
+        getFeedback(topicId);
 
         // focus on selected node
         network.focus(nodeIds[0], {

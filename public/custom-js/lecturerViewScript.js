@@ -1,7 +1,8 @@
 $(function () {
 
-    updateMap(null);
+    initializeNetwork(null);
 
+    // event listener for dropdown filter.
     $("#studentsMenu").chosen({width: "100%"}).change(function () {
         $("#selectedTopic").text("Please select a topic.");
         $("#selectedTopicInfo").hide();
@@ -10,29 +11,12 @@ $(function () {
         });
         var sId = $(this).val();
         if (sId >= 0) {
-            updateMap(sId);
+            initializeNetwork(sId);
         } else {
-            updateMap(null);
+            initializeNetwork(null);
         }
     });
 });
-
-// This function gets map data
-function updateMap(studentId) {
-
-    // get all topic data as an jsonObj using php script
-    $.ajax({
-        url: config.API_LOCATION + "view-map/get-map-data.php"
-    }).done(function (data) {
-        const jsonObj = JSON.parse(data);
-        if (jsonObj.status === "error") {
-            alert("Can't connect to database");
-        }
-        topics = jsonObj.topics;
-        dependencies = jsonObj.dependencies;
-        setupNetwork(studentId);
-    });
-}
 
 function setupNetwork(studentId) {
 
@@ -50,9 +34,8 @@ function setupNetwork(studentId) {
         }
     }
 
-    var ajaxOptions = {};
     if (studentId) {
-        ajaxOptions = {
+        var ajaxOptions = {
             url: config.API_LOCATION + "get-feedback/get-student-feedback.php",
             data: {
                 "studentId": studentId
@@ -65,7 +48,7 @@ function setupNetwork(studentId) {
     }
     $.ajax(ajaxOptions).done(function (result) {
         var jsonResult = JSON.parse(result);
-        for (i = 0; i<jsonResult.length; i++) {
+        for (i = 0; i < jsonResult.length; i++) {
             var topicId = jsonResult[i].TopicId;
             var mark = jsonResult[i].Mark;
             var colour;
@@ -78,43 +61,15 @@ function setupNetwork(studentId) {
             } else {
                 colour = "#6C9A33";
             }
-            for (var j = 0; j<topicDataset.length; j++) {
-                if (topicDataset[j].id === topicId){
+            for (var j = 0; j < topicDataset.length; j++) {
+                if (topicDataset[j].id === topicId) {
                     topicDataset[j].color = colour;
                     topicDataset[j].mark = mark;
                 }
             }
         }
 
-        // add dependencies into dataset
-        const dependencyDataset = [];
-        if (dependencies) {
-            for (i = 0; i < dependencies.length; i++) {
-                dependencyDataset.push({
-                    from: dependencies[i].ParentId,
-                    to: dependencies[i].ChildId
-                });
-            }
-        }
-
-        nodes = new vis.DataSet(topicDataset);
-        edges = new vis.DataSet(dependencyDataset);
-
-        // provide the data in the vis format
-        const data = {
-            nodes: nodes,
-            edges: edges
-        };
-
-        // get the container div
-        const container = document.getElementById("visHolder");
-        // initialize the network!
-        network = new vis.Network(container, data, networkOptions);
-
-        // listener when canvas is resized
-        network.on("resize", function () {
-            network.redraw();
-        });
+        drawNetwork(topicDataset, addDependenciesToMap());
 
         setOnClickListeners(studentId);
     });

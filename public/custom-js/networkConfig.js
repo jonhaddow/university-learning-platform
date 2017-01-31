@@ -2,7 +2,7 @@
 var networkOptions = {
     layout: {
         hierarchical: {
-            sortMethod: 'directed',
+            sortMethod: 'directed'
         }
     },
     nodes: {
@@ -14,7 +14,7 @@ var networkOptions = {
             highlight: {
                 background: "#46FF2E",
                 border: "#BF58B0"
-            },
+            }
         },
         shape: "box",
         labelHighlightBold: false,
@@ -39,7 +39,7 @@ var networkOptions = {
         zoomView: false,
         hover: false,
         hoverConnectedEdges: false,
-        selectConnectedEdges: false,
+        selectConnectedEdges: false
     },
     physics: {
         enabled: true,

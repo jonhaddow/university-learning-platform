@@ -1,6 +1,8 @@
-$("document").ready(function () {
+$(function () {
 
-    updateUI();
+    networkOptions.edges.selectionWidth = 1;
+    networkOptions.edges.color.highlight = "#ff0007";
+    initializeNetwork();
 
     $("#selectedTopicForm").submit(function (e) {
         var errorDiv = $("#selectedTopicError");
@@ -23,7 +25,7 @@ $("document").ready(function () {
                     errorDiv.text(obj.data);
                 } else {
                     // re-initializeNetwork();
-                    updateUI();
+                    initializeNetwork();
                     $("#noSelectedTopic").show();
                     $("#selectedTopicForm").hide();
                 }
@@ -43,7 +45,7 @@ $("document").ready(function () {
         }).done(function () {
 
             // re-initializeNetwork();
-            updateUI();
+            initializeNetwork();
 
             $("#selectedTopic").text("Please select a topic.");
             $("#selectedTopicInfo").hide();
@@ -58,7 +60,7 @@ $("document").ready(function () {
             data: $("#deleteEdgeForm").serialize(),
             type: "POST"
         }).done(function () {
-            updateUI();
+            initializeNetwork();
             $("#selectedEdgeInfo").hide();
         });
 
@@ -81,7 +83,7 @@ $("document").ready(function () {
             // check response
             switch (jsonResponse.status) {
                 case "success":
-                    updateUI();
+                    initializeNetwork();
                     break;
                 case "fail":
                     // check if failed due to length or duplication
@@ -125,7 +127,7 @@ $("document").ready(function () {
             switch (jsonResponse.status) {
                 case "success":
                     // re-initializeNetwork();
-                    updateUI();
+                    initializeNetwork();
 
                     $("#inputParent").val("");
                     $("#inputChild").val("");
@@ -141,12 +143,6 @@ $("document").ready(function () {
         return false;
     });
 });
-
-function updateUI() {
-    networkOptions.edges.selectionWidth = 1;
-    networkOptions.edges.color.highlight = "#ff0007";
-    initializeNetwork();
-}
 
 function setOnClickListeners() {
 
@@ -210,7 +206,6 @@ function setOnClickListeners() {
         }
 
     });
-
 
     populateDependencyMenu();
 }
