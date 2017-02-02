@@ -22,6 +22,16 @@ function setOnClickListeners() {
 
         getFeedback(topicId);
 
+        $("#giveFeedbackButton").click(function () {
+            if ($(this).text() !== "Give Feedback") {
+                hideSlider();
+                sendMark(0, topicId);
+            } else {
+                showSlider(3, topicId);
+                sendMark(3, topicId);
+            }
+        });
+
         // focus on selected node
         network.focus(nodeIds[0], {
             scale: 1.5,
@@ -42,26 +52,21 @@ function setOnClickListeners() {
                 animation: true
             });
         }
-        slider.off("slideStop");
+        if (slider) {
+            slider.off("slideStop");
+        }
+        $("#giveFeedbackButton").unbind();
     });
 }
 
 function sendMark(mark, topicId) {
 
     if (mark == 0) {
-        $.ajax({
-            url: config.API_LOCATION + "send-feedback/delete-mark.php",
-            type: "POST",
-            data: {"topicId": topicId}
-        }).done(function () {
+        $.post(config.API_LOCATION + "send-feedback/delete-mark.php", {topicId: topicId}, function () {
             $("#completed").hide();
-        })
+        });
     } else {
-        $.ajax({
-            url: config.API_LOCATION + "send-feedback/add-mark.php",
-            type: "POST",
-            data: {"mark": mark, "topicId": topicId}
-        }).done(function () {
+        $.post(config.API_LOCATION + "send-feedback/add-mark.php", {mark: mark, topicId: topicId}, function () {
             // Show "completed" message
             $("#completed").show();
         });
@@ -70,21 +75,34 @@ function sendMark(mark, topicId) {
 
 
 function getFeedback(topicId) {
-    $.ajax({
-        url: config.API_LOCATION + "send-feedback/get-mark.php?topicId=" + topicId
-    }).done(function (data) {
+    $.get(config.API_LOCATION + "send-feedback/get-mark.php", {topicId: topicId}, function (data) {
         var json = JSON.parse(data);
         var result = json.data.mark;
-
-        slider = $("#myslider").slider({
-            reversed: true,
-            orientation: "vertical",
-            tooltip: "hide"
-        }).on("slideStop", function (eventObj) {
-            sendMark(eventObj.value, topicId);
-        });
-
-        slider.slider("setValue", result);
-
+        if (result === 0) {
+            hideSlider();
+        } else {
+            showSlider(result, topicId);
+        }
     });
+}
+
+function hideSlider() {
+    $("#giveFeedbackButton").text("Give Feedback");
+    $("#feedbackSlider").hide();
+}
+
+function showSlider(result, topicId) {
+
+    $("#giveFeedbackButton").text("Remove Feedback");
+    $("#feedbackSlider").show();
+
+    slider = $("#myslider").slider({
+        reversed: true,
+        orientation: "vertical",
+        tooltip: "hide"
+    }).on("slideStop", function (eventObj) {
+        sendMark(eventObj.value, topicId);
+    });
+
+    slider.slider("setValue", result);
 }

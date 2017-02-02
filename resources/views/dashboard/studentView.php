@@ -40,14 +40,16 @@
                 </div>
                 <div id="selectedTopicDescription"></div>
                 <div id="selectedTopicControls" hidden>
-                    <div id="topicInfo"></div>
-                    <div class="feedback-slider">
-                        <label for="myslider">Feedback:</label>
-                        <input id="myslider" type="text"
-                               data-slider-ticks="[1, 2, 3, 4, 5]"
-                               data-slider-ticks-labels='["Do not understand", "", "", "", "Fully understand"]'/>
+                    <button id="giveFeedbackButton" class="btn btn-primary" type="button"></button>
+                    <div id="feedbackSlider">
+                        <div class="feedback-slider">
+                            <label for="myslider">Feedback:</label>
+                            <input id="myslider" type="text"
+                                   data-slider-ticks="[1, 2, 3, 4, 5]"
+                                   data-slider-ticks-labels='["Do not understand", "", "", "", "Fully understand"]'/>
+                        </div>
+                        <div id="completed">Feedback Sent!</div>
                     </div>
-                    <div id="completed">Feedback Sent!</div>
                 </div>
             </div>
         </div>

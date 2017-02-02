@@ -35,5 +35,6 @@
     </orderEntry>
     <orderEntry type="library" name="sweetalert2" level="application" />
     <orderEntry type="library" name="chosen.jquery" level="application" />
+    <orderEntry type="library" name="bootstrap-toggle" level="application" />
   </component>
 </module>
