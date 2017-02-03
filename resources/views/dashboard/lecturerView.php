@@ -15,6 +15,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.jquery.min.js"
             integrity="sha256-sLYUdmo3eloR4ytzZ+7OJsswEB3fuvUGehbzGBOoy+8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.5.0/bootstrap-slider.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <!-- My Script -->
     <script type="text/javascript" src="/custom-js/lecturerViewScript.js"></script>
 </head>
@@ -62,6 +63,9 @@
                 <h3>Highlighted Topic:</h3>
                 <div id="selectedTopic">
                     Please select a topic.
+                </div>
+                <div id="chartSpace">
+                    <canvas id="myChart" width="400" height="400"></canvas>
                 </div>
                 <div id="selectedTopicInfo" class="feedback-slider" hidden>
                     <label for="myslider">Average feedback score:</label>
