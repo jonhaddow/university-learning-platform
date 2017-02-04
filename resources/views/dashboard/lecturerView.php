@@ -11,6 +11,7 @@
           integrity="sha256-QD+eN1fgrT9dm2vaE+NAAznRdtWd1JqM0xP2wkgjTSQ=" crossorigin="anonymous"/>
     <!-- My style -->
     <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/lecturer-dashboard.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.jquery.min.js"
             integrity="sha256-sLYUdmo3eloR4ytzZ+7OJsswEB3fuvUGehbzGBOoy+8=" crossorigin="anonymous"></script>
@@ -64,18 +65,23 @@
                 <div id="selectedTopic">
                     Please select a topic.
                 </div>
-                <div id="chartSpace">
-                    <canvas id="myChart" width="400" height="400"></canvas>
-                </div>
+
                 <div id="selectedTopicInfo" class="feedback-slider" hidden>
-                    <label for="myslider">Average feedback score:</label>
-                    <input id="myslider" type="text"
-                           data-slider-ticks="[1, 5]"
-                           data-slider-ticks-labels='["Do not understand", "Fully understand"]'/>
+                    <div id="chartSpace">
+                        <canvas id="myChart" width="400" height="400"></canvas>
+                    </div>
+                    <div id="sliderSpace">
+                        <label class="displayBlock" for="myslider">Score:</label>
+                        <input id="myslider" type="text"
+                               data-slider-ticks="[1, 5]"
+                               data-slider-ticks-labels='["Do not understand", "Fully understand"]'/>
+                    </div>
+                    <div id="noFeedback">No Feedback Given</div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 </body>
 </html>

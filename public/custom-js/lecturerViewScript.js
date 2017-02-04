@@ -1,3 +1,20 @@
+var barChart;
+
+var lightColors = [
+    '#FFB2AA',
+    '#FFD1AA',
+    '#FFE3AA',
+    '#FFF6AA',
+    '#DCF1A1'
+];
+var darkColors = [
+    '#AA4439',
+    '#AA6C39',
+    '#AA8439',
+    '#AA9E39',
+    '#84A136'
+];
+
 $(function () {
 
     initializeNetwork(null);
@@ -29,7 +46,7 @@ function setupNetwork(studentId) {
                 label: stringDivider(topics[i].Name),
                 description: topics[i].Description,
                 font: "20px arial white",
-                color: "#6C9A33"
+                color: "#888"
             });
         }
     }
@@ -51,19 +68,9 @@ function setupNetwork(studentId) {
         for (i = 0; i < jsonResult.length; i++) {
             var topicId = jsonResult[i].TopicId;
             var mark = jsonResult[i].Mark;
-            var colour;
-            if (mark >= 4) {
-                colour = "#6C9A33";
-            } else if (mark >= 2) {
-                colour = "#AA9739";
-            } else if (mark >= 0) {
-                colour = "#AA6239";
-            } else {
-                colour = "#6C9A33";
-            }
             for (var j = 0; j < topicDataset.length; j++) {
                 if (topicDataset[j].id === topicId) {
-                    topicDataset[j].color = colour;
+                    topicDataset[j].color = darkColors[Math.round(mark) - 1];
                     topicDataset[j].mark = mark;
                 }
             }
@@ -85,23 +92,7 @@ function setOnClickListeners(studentId) {
         var nodeObj = nodes.get(nodeId);
         $("#selectedTopic").text(nodeObj.label);
         $("#selectedTopicInfo").show();
-        var slider = $("#myslider").slider({
-            orientation: "vertical",
-            reversed: true,
-            tooltip: "hide",
-            step: "1.0",
-            enabled: false
-        });
 
-        if (studentId) {
-            if (nodeObj.mark == 0) {
-                slider.slider("setValue", 1);
-            } else {
-                slider.slider("setValue", nodeObj.mark);
-            }
-        } else {
-            slider.slider("setValue", nodeObj.mark);
-        }
 
         // focus on selected node
         network.focus(nodeId, {
@@ -109,7 +100,22 @@ function setOnClickListeners(studentId) {
             animation: true
         });
 
-        buildChart(nodeId);
+        if (!nodeObj.mark) {
+            $("#noFeedback").show();
+            $("#sliderSpace").hide();
+            $("#chartSpace").hide();
+        } else {
+            $("#noFeedback").hide();
+            $("#sliderSpace").show();
+            if (!studentId) {
+                buildChart(nodeId);
+                $("#chartSpace").show();
+            } else {
+                $("#chartSpace").hide();
+            }
+            drawSlider(nodeObj.mark);
+
+        }
     });
 
     // listener when node is deselected
@@ -123,6 +129,10 @@ function setOnClickListeners(studentId) {
             network.fit({
                 animation: true
             });
+
+            if (barChart !== undefined) {
+                barChart.clear();
+            }
         }
     });
 }
@@ -141,42 +151,71 @@ function buildChart(topicId) {
             feedbackCounter[resultObj[i].Mark - 1]++;
         }
 
+        if (barChart !== undefined) {
+            // clear previous instance of chart data
+            barChart.destroy();
+        }
+
         var ctx = $("#myChart");
-        var myChart = new Chart(ctx, {
+        barChart = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: ["1", "2", "3", "4", "5"],
                 datasets: [{
-                    label: '# of Votes',
+                    label: "Student Feedback",
                     data: feedbackCounter,
-                    backgroundColor: [
-                        'rgba(255, 99, 132, 0.2)',
-                        'rgba(54, 162, 235, 0.2)',
-                        'rgba(255, 206, 86, 0.2)',
-                        'rgba(75, 192, 192, 0.2)',
-                        'rgba(153, 102, 255, 0.2)',
-                        'rgba(255, 159, 64, 0.2)'
-                    ],
-                    borderColor: [
-                        'rgba(255,99,132,1)',
-                        'rgba(54, 162, 235, 1)',
-                        'rgba(255, 206, 86, 1)',
-                        'rgba(75, 192, 192, 1)',
-                        'rgba(153, 102, 255, 1)',
-                        'rgba(255, 159, 64, 1)'
-                    ],
+                    backgroundColor: lightColors,
+                    borderColor: darkColors,
                     borderWidth: 1
                 }]
             },
             options: {
+                legend: {
+                    labels: {
+                        boxWidth: 0
+                    }
+                },
+                tooltips: {
+                    callbacks: {
+                        title: function (tooltipItems, data) {
+                            return null;
+                        },
+                        label: function (tooltipItems, data) {
+                            return "No. of votes: " + tooltipItems.yLabel;
+                        }
+                    },
+                    displayColors: false
+                },
                 scales: {
                     yAxes: [{
                         ticks: {
                             beginAtZero: true
+                        },
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Number of votes'
+                        }
+                    }],
+                    xAxes: [{
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Feedback Given'
                         }
                     }]
                 }
             }
         });
     });
+}
+
+function drawSlider(mark) {
+    var slider = $("#myslider").slider({
+        orientation: "vertical",
+        reversed: true,
+        step: "1.0",
+        enabled: false,
+        tooltip_position: "left",
+        tooltip: "always"
+    });
+    slider.slider("setValue", mark);
 }

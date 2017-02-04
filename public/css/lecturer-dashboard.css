@@ -1,0 +1,17 @@
+#sliderSpace {
+    margin-left: 20px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.displayBlock {
+    display: block;
+    margin-bottom: 20px;
+}
+
+#noFeedback {
+    margin-top: 20px;
+    text-align: center;
+    font: large italic;
+    color: #999;
+}

@@ -32,6 +32,7 @@ body {
     height: 90vh;
     border: 8px solid #aaa;
     border-left: 0;
+    overflow:scroll;
 }
 
 #currentTopic {
@@ -40,7 +41,10 @@ body {
 
 #noSelectedTopic, #selectedTopic {
     font-size: large;
+    font-weight: bold;
+    text-align: center;
     color: var(--text-colour);
+    margin-top: 20px;
     margin-bottom: 10px;
 }
 
