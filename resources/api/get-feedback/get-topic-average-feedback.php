@@ -1,8 +1,8 @@
 <?php
 
-//if ($_SESSION["role"] != 1) {
-//	exit();
-//}
+if ($_SESSION["role"] != 1) {
+	exit();
+}
 
 $sql = $db_conn->prepare("
 	SELECT TopicId, AVG(Mark) AS Mark 

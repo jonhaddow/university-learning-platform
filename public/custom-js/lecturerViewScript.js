@@ -102,18 +102,23 @@ function setOnClickListeners(studentId) {
 
         if (!nodeObj.mark) {
             $("#noFeedback").show();
-            $("#sliderSpace").hide();
+            $("#averageScoreSliderSpace").hide();
             $("#chartSpace").hide();
+            $("#feedbackCountSliderSpace").hide();
         } else {
             $("#noFeedback").hide();
-            $("#sliderSpace").show();
+            $("#averageScoreSliderSpace").show();
             if (!studentId) {
                 buildChart(nodeId);
+                // drawFeedbackCountSlider();
                 $("#chartSpace").show();
+                $("#feedbackCountSliderSpace").show();
             } else {
                 $("#chartSpace").hide();
+                $("#feedbackCountSliderSpace").hide();
+
             }
-            drawSlider(nodeObj.mark);
+            drawAverageScoreSlider(nodeObj.mark);
 
         }
     });
@@ -205,11 +210,19 @@ function buildChart(topicId) {
                 }
             }
         });
+
+
+        // Calculate percentage of students given feedback and display on progress bar.
+        var noOfFeedbackGiven = resultObj.length;
+        var studentCount = $("#studentCount").text();
+        var percentage = Math.round((noOfFeedbackGiven/studentCount) * 100);
+        $("#feedbackCountSlider").css("width", percentage + "%").text(percentage + "%");
     });
 }
 
-function drawSlider(mark) {
-    var slider = $("#myslider").slider({
+
+function drawAverageScoreSlider(mark) {
+    var slider = $("#averageScoreSlider").slider({
         orientation: "vertical",
         reversed: true,
         step: "1.0",

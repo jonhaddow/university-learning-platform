@@ -55,6 +55,7 @@
 						}
 						?>
                     </select>
+                    <div hidden id="studentCount"><?php echo count($students)?></div>
                 </div>
             </div>
             <div id="visHolder" class="row"></div>
@@ -66,13 +67,22 @@
                     Please select a topic.
                 </div>
 
-                <div id="selectedTopicInfo" class="feedback-slider" hidden>
+                <div id="selectedTopicInfo" class="feedback-section" hidden>
                     <div id="chartSpace">
                         <canvas id="myChart" width="400" height="400"></canvas>
                     </div>
-                    <div id="sliderSpace">
-                        <label class="displayBlock" for="myslider">Score:</label>
-                        <input id="myslider" type="text"
+                    <div id="feedbackCountSliderSpace">
+                        <label>Percentage of feedback:</label>
+                        <div class="progress">
+                            <div id="feedbackCountSlider" class="progress-bar progress-bar-info" role="progressbar"
+                                 aria-valuemin="0" aria-valuemax="100">
+                                70%
+                            </div>
+                        </div>
+                    </div>
+                    <div id="averageScoreSliderSpace">
+                        <label class="displayBlock" for="averageScoreSlider">Score:</label>
+                        <input id="averageScoreSlider" type="text"
                                data-slider-ticks="[1, 5]"
                                data-slider-ticks-labels='["Do not understand", "Fully understand"]'/>
                     </div>

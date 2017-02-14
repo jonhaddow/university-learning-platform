@@ -48,19 +48,19 @@ body {
     margin-bottom: 10px;
 }
 
-.round.in-selection {
+#averageScoreSliderSpace .round.in-selection {
     background: #cbcbcb;
 }
 
-.slider-selection.tick-slider-selection {
+#averageScoreSliderSpace .slider-selection.tick-slider-selection {
     background: #cbcbcb;
 }
 
-.slider-track-high {
+#averageScoreSliderSpace .slider-track-high {
     background: #7e99ff;
 }
 
-.round {
+#averageScoreSliderSpace .round {
     background: #7e99ff;
 }
 
@@ -68,11 +68,11 @@ body {
     background: lightgreen;
 }
 
-.feedback-slider {
+.feedback-section {
     padding-bottom: 3em;
 }
 
-.feedback-slider > label {
+.feedback-section > label {
     margin-bottom: 20px;
     display: block;
 }

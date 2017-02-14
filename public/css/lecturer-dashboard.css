@@ -1,7 +1,11 @@
-#sliderSpace {
+#averageScoreSliderSpace {
     margin-left: 20px;
     margin-top: 20px;
     display: inline-block;
+}
+
+#feedbackCountSliderSpace {
+    margin-top: 40px;
 }
 
 .displayBlock {
