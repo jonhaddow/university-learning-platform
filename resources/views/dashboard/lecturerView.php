@@ -42,12 +42,10 @@
                     <h1><b>Programming 1:</b><br> Module Topics</h1>
                 </div>
                 <div class="col-sm-6">
-                    <h3>View:</h3>
-                    <label hidden for="studentsMenu">
-                        Select a student from the list
+                    <label class="filtering-label" for="studentsMenu">
+                        Filter
                     </label>
-                    <select id="studentsMenu" class="chosen-select">
-                        <option value="-1">All Students</option>
+                    <select id="studentsMenu" multiple class="chosen-select">
 						<?php
 						for ($i = 0; $i < count($students); $i++) {
 							echo "<option value='" . $students[$i]['UserId'] . "'>" . $students[$i]['Username'] .

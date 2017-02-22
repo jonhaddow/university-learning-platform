@@ -4,12 +4,14 @@ if ($_SESSION["role"] != 1) {
 	exit();
 }
 
+$students = $_GET["studentId"];
+
+$sIds = implode(',', $students);
 $sql = $db_conn->prepare("
-	SELECT TopicId, Mark
-	FROM feedback
-	WHERE UserId = :studentid
+	SELECT TopicId, AVG(Mark) AS Mark
+	FROM (SELECT TopicId, Mark FROM feedback WHERE UserId IN ($sIds)) AS T1
+	GROUP BY TopicId
 ");
-$sql->bindParam(":studentid", $_GET["studentId"]);
 
 if ($sql->execute()) {
 	$results = $sql->fetchAll(PDO::FETCH_ASSOC);

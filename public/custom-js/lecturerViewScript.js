@@ -26,12 +26,8 @@ $(function () {
         network.fit({
             animation: true
         });
-        var sId = $(this).val();
-        if (sId >= 0) {
-            initializeNetwork(sId);
-        } else {
-            initializeNetwork(null);
-        }
+        // Send array of student ids (null if none selected)
+        initializeNetwork($(this).val());
     });
 });
 
@@ -108,16 +104,16 @@ function setOnClickListeners(studentId) {
         } else {
             $("#noFeedback").hide();
             $("#averageScoreSliderSpace").show();
-            if (!studentId) {
-                buildChart(nodeId);
-                // drawFeedbackCountSlider();
-                $("#chartSpace").show();
-                $("#feedbackCountSliderSpace").show();
-            } else {
+
+            if (studentId && studentId.length == 1) {
                 $("#chartSpace").hide();
                 $("#feedbackCountSliderSpace").hide();
-
+            } else {
+                buildChart(nodeId, studentId);
+                $("#chartSpace").show();
+                $("#feedbackCountSliderSpace").show();
             }
+
             drawAverageScoreSlider(nodeObj.mark);
 
         }
@@ -142,9 +138,9 @@ function setOnClickListeners(studentId) {
     });
 }
 
-function buildChart(topicId) {
+function buildChart(topicId, studentId) {
 
-    $.get(config.API_LOCATION + "get-feedback/get-all-topic-feedback.php", {topicId: topicId}, function (result) {
+    $.get(config.API_LOCATION + "get-feedback/get-all-topic-feedback.php", {topicId: topicId, studentId: studentId}, function (result) {
         var resultObj = JSON.parse(result);
         if (resultObj.status === "fail") {
             alert("Connection Error");
@@ -215,7 +211,7 @@ function buildChart(topicId) {
         // Calculate percentage of students given feedback and display on progress bar.
         var noOfFeedbackGiven = resultObj.length;
         var studentCount = $("#studentCount").text();
-        var percentage = Math.round((noOfFeedbackGiven/studentCount) * 100);
+        var percentage = Math.round((noOfFeedbackGiven / studentCount) * 100);
         $("#feedbackCountSlider").css("width", percentage + "%").text(percentage + "%");
     });
 }

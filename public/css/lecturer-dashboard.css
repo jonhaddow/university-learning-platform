@@ -8,6 +8,10 @@
     margin-top: 40px;
 }
 
+.filtering-label {
+    padding-top: 20px;
+}
+
 .displayBlock {
     display: block;
     margin-bottom: 20px;
