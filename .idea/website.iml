@@ -13,11 +13,9 @@
       <library name="PHP">
         <CLASSES>
           <root url="file://$USER_HOME$" />
-          <root url="file:///usr/share/php" />
         </CLASSES>
         <SOURCES>
           <root url="file://$USER_HOME$" />
-          <root url="file:///usr/share/php" />
         </SOURCES>
       </library>
     </orderEntry>

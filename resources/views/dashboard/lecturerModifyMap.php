@@ -1,18 +1,24 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<?php
-	require_once COMMON_RESOURCES . "/headers.php";
-	require_once VIEWS . "/dashboard/dashboardHeaders.php";
-	?>
+    <?php
+    require_once COMMON_RESOURCES . "/headers.php";
+    require_once VIEWS . "/dashboard/dashboardHeaders.php";
+    ?>
     <!-- Sweet Alert -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.2.4/sweetalert2.min.css"
           integrity="sha256-+Ri3Pm294y8V+Wp8KAUxGSsVQuqqUt1J5wqKeUWDQB0=" crossorigin="anonymous">
+    <!-- Chosen-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.min.css"
+          integrity="sha256-QD+eN1fgrT9dm2vaE+NAAznRdtWd1JqM0xP2wkgjTSQ=" crossorigin="anonymous"/>
     <!-- My style -->
     <link rel="stylesheet" href="/css/dashboard.css">
     <!-- Sweet Alert-->
     <script src="https://cdn.jsdelivr.net/sweetalert2/6.2.4/sweetalert2.min.js"
             integrity="sha256-Dww+oU6TBUA0Bq5awJQddFloLpNKK913ixC7UxIWzw4=" crossorigin="anonymous"></script>
+    <!-- Chosen -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.jquery.min.js"
+            integrity="sha256-sLYUdmo3eloR4ytzZ+7OJsswEB3fuvUGehbzGBOoy+8=" crossorigin="anonymous"></script>
     <!-- My Script -->
     <script type="text/javascript" src="/custom-js/lecturerModifyScript.js"></script>
 </head>
@@ -39,8 +45,8 @@
         <div id="mainContent" class="col-md-9">
             <div class="row">
                 <div class="col-sm-9">
-                <h1><b>Programming 1:</b><br> Module Topics</h1>
-            </div>
+                    <h1><b>Programming 1:</b><br> Module Topics</h1>
+                </div>
                 <div class="col-sm-3" id="selectedEdgeInfo" hidden>
                     <form id="deleteEdgeForm">
                         <input type="hidden" id="selectedEdgeTo" name="child">
@@ -49,7 +55,7 @@
                     </form>
                 </div>
             </div>
-            <div id="visHolder"class="row"></div>
+            <div id="visHolder" class="row"></div>
         </div>
         <div id="sideNav" class="col-md-3">
             <div id="currentTopic">
@@ -62,11 +68,12 @@
                         <input type="hidden" id="selectedTopicId" name="id"/>
                         <div class="form-group">
                             <label for="selectedTopicName">Topic Name</label>
-                            <input class="form-control" type="text" id="selectedTopicName" name="name" />
+                            <input class="form-control" type="text" id="selectedTopicName" name="name"/>
                         </div>
                         <div class="form-group">
                             <label for="selectedTopicDescription">Topic Description</label>
-                            <textarea class="form-control" type="text" id="selectedTopicDescription" name="description"></textarea>
+                            <textarea class="form-control" type="text" id="selectedTopicDescription"
+                                      name="description"></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary" id="editTopicButton">Edit Topic</button>
                         <button type="button" id="deleteTopicButton" class="btn btn-danger">Delete Topic</button>
@@ -89,12 +96,13 @@
                 <form id="newDependencyForm">
                     <div class="form-header"> ADD A NEW DEPENDENCY</div>
                     <div class="form-group">
-                        <label for="parentDropdownMenuSelect">Parent Dependency</label><select
-                                id="parentDropdownMenuSelect" class="form-control dropdown"></select>
+                        <label for="parentDropdownMenuSelect">Parent Dependency</label>
+                        <select id="parentDropdownMenuSelect" class="chosen-select"></select>
                     </div>
                     <div class="form-group">
-                        <label for="childDropdownMenuSelect">Child Dependency</label><select
-                                id="childDropdownMenuSelect" class="form-control dropdown"></select>
+                        <label for="childDropdownMenuSelect">Child Dependency</label>
+                        <select id="childDropdownMenuSelect" class="chosen-select">
+                        </select>
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
                     <div hidden id="dependencyError" class="error"></div>

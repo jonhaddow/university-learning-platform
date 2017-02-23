@@ -46,9 +46,8 @@ $(function () {
 
             // re-initializeNetwork();
             initializeNetwork();
-
-            $("#selectedTopic").text("Please select a topic.");
-            $("#selectedTopicInfo").hide();
+            $("#noSelectedTopic").show();
+            $("#selectedTopicForm").hide();
 
         });
     });
@@ -215,7 +214,6 @@ function populateDependencyMenu() {
     // Clear current items in menus
     $('.dropdown').children().remove();
 
-
     // populate with topic names
     if (topics) {
         for (var i = 0; i < topics.length; i++) {
@@ -223,5 +221,9 @@ function populateDependencyMenu() {
             $("#childDropdownMenuSelect").append("<option value='" + topics[i].TopicId + "'>" + topics[i].Name + "</option>");
         }
     }
+
+    $("#parentDropdownMenuSelect").chosen({width: "100%"});
+    $("#childDropdownMenuSelect").chosen({width: "100%"});
+
 
 }
