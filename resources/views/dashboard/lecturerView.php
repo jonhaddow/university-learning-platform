@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<?php
-	require_once COMMON_RESOURCES . "/headers.php";
-	require_once VIEWS . "/dashboard/dashboardHeaders.php";
-	?>
+    <?php
+    require_once COMMON_RESOURCES . "/headers.php";
+    require_once VIEWS . "/dashboard/dashboardHeaders.php";
+    ?>
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.5.0/css/bootstrap-slider.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.min.css"
@@ -37,23 +37,44 @@
 <div class="container">
     <div class="row">
         <div id="mainContent" class="col-sm-9">
-            <div class="row">
-                <div class="col-sm-6">
-                    <h1><b>Programming 1:</b><br> Module Topics</h1>
+            <div id="topPanel">
+                <h1><b>Programming 1:</b><br> Module Topics</h1>
+                <button class="btn" id="addFilterBtn">Show Filters</button>
+
+            </div>
+            <div id="filterOptions" hidden class="row">
+                <div class="col-sm-4 filterOption text-center">
+                    <button id="nameFilterBtn" type="button" class="btn btn-default filter-btn">Filter by Name
+                    </button>
+                    <div id="nameFilterHidden" hidden>
+                        <div class="containerForChosen">
+                            <select id="studentsMenu" multiple class="chosen-select">
+                                <?php
+                                for ($i = 0; $i < count($students); $i++) {
+                                    echo "<option value='" . $students[$i]['UserId'] . "'>" . $students[$i]['Username'] .
+                                        "</option>";
+                                }
+                                ?>
+                            </select>
+                        </div>
+                        <div hidden id="studentCount"><?php echo count($students) ?></div>
+                    </div>
                 </div>
-                <div class="col-sm-6">
-                    <label class="filtering-label" for="studentsMenu">
-                        Filter
-                    </label>
-                    <select id="studentsMenu" multiple class="chosen-select">
-						<?php
-						for ($i = 0; $i < count($students); $i++) {
-							echo "<option value='" . $students[$i]['UserId'] . "'>" . $students[$i]['Username'] .
-								"</option>";
-						}
-						?>
-                    </select>
-                    <div hidden id="studentCount"><?php echo count($students)?></div>
+                <div class="col-sm-4 filterOption text-center">
+                    <button id="disabilityFilterBtn" type="button" class="btn btn-default filter-btn">Filter by Disability</button>
+                    <div id="disabilityFilterHidden" hidden>
+                        <div class="containerForChosen">
+                            <select id="disabilityMenu" class="chosen-select">
+                                <option></option>
+                                <option value="false">No Disability</option>
+                                <option value="true">Disability</option>
+                            </select>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-4 filterOption text-center">
+                    <button type="button" class="btn btn-default filter-btn">Filter by Grade</button>
                 </div>
             </div>
             <div id="visHolder" class="row"></div>

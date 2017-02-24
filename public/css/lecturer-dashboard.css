@@ -23,3 +23,57 @@
     font: large italic;
     color: #999;
 }
+
+#mainContent {
+    border: 8px solid #aaa;
+    height: 90vh;
+    padding: 0;
+}
+
+#topPanel {
+    background: #6ec4ff;
+    padding: 15px;
+    color: white;
+}
+
+#mainContent h1 {
+    display: inline;
+}
+
+#addFilterBtn {
+    float: right;
+    color: black;
+    border-radius: 24px;
+}
+
+#addFilterBtn:focus {
+    outline: 0;
+}
+
+.filter-btn {
+    border-radius: 20px;
+    outline: 0;
+}
+
+.filter-btn:active:focus, .filter-btn:focus {
+    outline: 0;
+}
+
+
+
+.containerForChosen {
+    margin: 15px 0 15px 0;
+}
+
+#filterOptions {
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    margin: 0;
+    background-color: #6ec4ff;
+    padding: 15px;
+}
+
+.filterOption {
+    margin: auto;
+}

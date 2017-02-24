@@ -22,6 +22,7 @@ body {
 #mainContent {
     border: 8px solid #aaa;
     height: 90vh;
+    padding: 15px;
 }
 
 #visHolder {

@@ -19,6 +19,15 @@ $(function () {
 
     initializeNetwork(null);
 
+    $("#addFilterBtn").click(function () {
+        $("#filterOptions").slideToggle();
+        if ($(this).text() === "Hide Filters") {
+            $(this).text("Show Filters");
+        } else {
+            $(this).text("Hide Filters");
+        }
+    });
+
     // event listener for dropdown filter.
     $("#studentsMenu").chosen({width: "100%"}).change(function () {
         $("#selectedTopic").text("Please select a topic.");
@@ -28,6 +37,48 @@ $(function () {
         });
         // Send array of student ids (null if none selected)
         initializeNetwork($(this).val());
+    });
+    $("#disabilityMenu").chosen({width: "100%"}).change(function () {
+        $("#selectedTopic").text("Please select a topic.");
+        $("#selectedTopicInfo").hide();
+        network.fit({
+            animation: true
+        });
+        // Send array of student ids (null if none selected)
+        initializeNetwork($(this).val()); //todo initialise network with disability as a parameter
+    });
+
+    $("#nameFilterBtn").click(function () {
+        var filter = $("#nameFilterHidden");
+        var nameDropDown = $("#studentsMenu");
+        if (filter.is(":visible")) {
+            nameDropDown.val("");
+        }
+        filter.slideToggle();
+        nameDropDown.trigger('chosen:updated');
+        initializeNetwork(nameDropDown.val());
+    });
+
+    $("#disabilityFilterBtn").click(function() {
+
+        var filter = $("#disabilityFilterHidden");
+        var nameDropDown = $("#disabilityMenu");
+        if (filter.is(":visible")) {
+            nameDropDown.val("");
+        }
+        filter.slideToggle();
+        nameDropDown.trigger('chosen:updated');
+        initializeNetwork($("#studentsMenu").val());
+    });
+
+
+    $(".filter-btn").click(function(){
+        var class2Change = "btn-success";
+        if ($(this).hasClass(class2Change)) {
+            $(this).removeClass(class2Change);
+        } else {
+            $(this).addClass(class2Change);
+        }
     });
 });
 
@@ -140,7 +191,10 @@ function setOnClickListeners(studentId) {
 
 function buildChart(topicId, studentId) {
 
-    $.get(config.API_LOCATION + "get-feedback/get-all-topic-feedback.php", {topicId: topicId, studentId: studentId}, function (result) {
+    $.get(config.API_LOCATION + "get-feedback/get-all-topic-feedback.php", {
+        topicId: topicId,
+        studentId: studentId
+    }, function (result) {
         var resultObj = JSON.parse(result);
         if (resultObj.status === "fail") {
             alert("Connection Error");
