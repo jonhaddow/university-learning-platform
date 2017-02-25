@@ -17,7 +17,7 @@ var darkColors = [
 
 $(function () {
 
-    initializeNetwork(null);
+    initializeNetwork(getFilters());
 
     $("#addFilterBtn").click(function () {
         $("#filterOptions").slideToggle();
@@ -32,47 +32,39 @@ $(function () {
     $("#studentsMenu").chosen({width: "100%"}).change(function () {
         $("#selectedTopic").text("Please select a topic.");
         $("#selectedTopicInfo").hide();
-        network.fit({
-            animation: true
-        });
-        // Send array of student ids (null if none selected)
-        initializeNetwork($(this).val());
+        initializeNetwork(getFilters());
     });
     $("#disabilityMenu").chosen({width: "100%"}).change(function () {
         $("#selectedTopic").text("Please select a topic.");
         $("#selectedTopicInfo").hide();
-        network.fit({
-            animation: true
-        });
-        // Send array of student ids (null if none selected)
-        initializeNetwork($(this).val()); //todo initialise network with disability as a parameter
+        initializeNetwork(getFilters());
     });
 
     $("#nameFilterBtn").click(function () {
         var filter = $("#nameFilterHidden");
-        var nameDropDown = $("#studentsMenu");
+        var dropDown = $("#studentsMenu");
         if (filter.is(":visible")) {
-            nameDropDown.val("");
+            dropDown.val("");
         }
         filter.slideToggle();
-        nameDropDown.trigger('chosen:updated');
-        initializeNetwork(nameDropDown.val());
+        dropDown.trigger('chosen:updated');
+        initializeNetwork(getFilters());
     });
 
-    $("#disabilityFilterBtn").click(function() {
+    $("#disabilityFilterBtn").click(function () {
 
         var filter = $("#disabilityFilterHidden");
-        var nameDropDown = $("#disabilityMenu");
+        var dropdown = $("#disabilityMenu");
         if (filter.is(":visible")) {
-            nameDropDown.val("");
+            dropdown.val("");
         }
         filter.slideToggle();
-        nameDropDown.trigger('chosen:updated');
-        initializeNetwork($("#studentsMenu").val());
+        dropdown.trigger('chosen:updated');
+        initializeNetwork(getFilters());
     });
 
 
-    $(".filter-btn").click(function(){
+    $(".filter-btn").click(function () {
         var class2Change = "btn-success";
         if ($(this).hasClass(class2Change)) {
             $(this).removeClass(class2Change);
@@ -82,7 +74,26 @@ $(function () {
     });
 });
 
-function setupNetwork(studentId) {
+function getFilters() {
+
+    var disabilityFilterValue = $("#disabilityMenu").val();// True/false - does student have disability?
+    if (disabilityFilterValue === "") {
+        disabilityFilterValue = null;
+    }
+
+    var gradeFilter;
+    var gradeFilterValues = null; // object containing two values (max/min)
+
+    return {
+        nameFilter: $("#studentsMenu").val(),
+        disabilityFilter: disabilityFilterValue,
+        gradeFilter: gradeFilterValues
+    };
+}
+
+function setupNetwork(filters) {
+
+    console.log(filters); //todo remove
 
     // add topics to dataset
     const topicDataset = [];
@@ -98,39 +109,44 @@ function setupNetwork(studentId) {
         }
     }
 
-    if (studentId) {
-        var ajaxOptions = {
-            url: config.API_LOCATION + "get-feedback/get-topic-student-feedback.php",
-            data: {
-                "studentId": studentId
-            }
-        };
-    } else {
-        ajaxOptions = {
-            url: config.API_LOCATION + "get-feedback/get-topic-average-feedback.php"
-        };
-    }
+    ajaxOptions = {
+        url: config.API_LOCATION + "get-feedback/get-topic-average-feedback.php",
+        data: {
+            "nameFilter": filters.nameFilter,
+            "disabilityFilter": filters.disabilityFilter,
+            "gradeFilter": filters.gradeFilter
+        }
+    };
     $.ajax(ajaxOptions).done(function (result) {
-        var jsonResult = JSON.parse(result);
-        for (i = 0; i < jsonResult.length; i++) {
-            var topicId = jsonResult[i].TopicId;
-            var mark = jsonResult[i].Mark;
-            for (var j = 0; j < topicDataset.length; j++) {
-                if (topicDataset[j].id === topicId) {
-                    topicDataset[j].color = darkColors[Math.round(mark) - 1];
-                    topicDataset[j].mark = mark;
+
+        if (result === "no-students") {
+            $("#noStudentToShow").show();
+            $("#visHolder").text("");
+        } else {
+            $("#noStudentToShow").hide();
+
+
+            var jsonResult = JSON.parse(result);
+            for (i = 0; i < jsonResult.length; i++) {
+                var topicId = jsonResult[i].TopicId;
+                var mark = jsonResult[i].Mark;
+                for (var j = 0; j < topicDataset.length; j++) {
+                    if (topicDataset[j].id === topicId) {
+                        topicDataset[j].color = darkColors[Math.round(mark) - 1];
+                        topicDataset[j].mark = mark;
+                    }
                 }
             }
+
+            drawNetwork(topicDataset, addDependenciesToMap());
+
+            setOnClickListeners(filters);
         }
-
-        drawNetwork(topicDataset, addDependenciesToMap());
-
-        setOnClickListeners(studentId);
     });
 
 }
 
-function setOnClickListeners(studentId) {
+function setOnClickListeners(filters) {
     // listener when node is selected
     network.on("selectNode", function (selectedNode) {
 
@@ -156,11 +172,11 @@ function setOnClickListeners(studentId) {
             $("#noFeedback").hide();
             $("#averageScoreSliderSpace").show();
 
-            if (studentId && studentId.length == 1) {
+            if (filters && filters.length == 1) {
                 $("#chartSpace").hide();
                 $("#feedbackCountSliderSpace").hide();
             } else {
-                buildChart(nodeId, studentId);
+                buildChart(nodeId, filters);
                 $("#chartSpace").show();
                 $("#feedbackCountSliderSpace").show();
             }
@@ -189,11 +205,11 @@ function setOnClickListeners(studentId) {
     });
 }
 
-function buildChart(topicId, studentId) {
+function buildChart(topicId, filters) {
 
     $.get(config.API_LOCATION + "get-feedback/get-all-topic-feedback.php", {
         topicId: topicId,
-        studentId: studentId
+        studentId: filters
     }, function (result) {
         var resultObj = JSON.parse(result);
         if (resultObj.status === "fail") {

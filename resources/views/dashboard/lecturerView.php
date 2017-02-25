@@ -66,8 +66,8 @@
                         <div class="containerForChosen">
                             <select id="disabilityMenu" class="chosen-select">
                                 <option></option>
-                                <option value="false">No Disability</option>
-                                <option value="true">Disability</option>
+                                <option value="0">No Disability</option>
+                                <option value="1">Disability</option>
                             </select>
                         </div>
 
@@ -77,6 +77,10 @@
                     <button type="button" class="btn btn-default filter-btn">Filter by Grade</button>
                 </div>
             </div>
+            <div id="noStudentToShow" class="text-center" hidden>
+                <div id="noStudentToShowText">
+                    No students to Show
+                </div></div>
             <div id="visHolder" class="row"></div>
         </div>
         <div id="sideNav" class="col-sm-3">
