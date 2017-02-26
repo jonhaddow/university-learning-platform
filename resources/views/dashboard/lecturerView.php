@@ -44,11 +44,10 @@
             </div>
             <div id="filterOptions" hidden class="row">
                 <div class="col-sm-4 filterOption text-center">
-                    <button id="nameFilterBtn" type="button" class="btn btn-default filter-btn">Filter by Name
-                    </button>
-                    <div id="nameFilterHidden" hidden>
+                    <button type="button" class="btn btn-default filter-btn">Filter by Name</button>
+                    <div class="filter-container" hidden>
                         <div class="containerForChosen">
-                            <select id="studentsMenu" multiple class="chosen-select">
+                            <select id="studentsMenu" multiple class="chosen-select choser">
                                 <?php
                                 for ($i = 0; $i < count($students); $i++) {
                                     echo "<option value='" . $students[$i]['UserId'] . "'>" . $students[$i]['Username'] .
@@ -61,8 +60,21 @@
                     </div>
                 </div>
                 <div class="col-sm-4 filterOption text-center">
-                    <button id="disabilityFilterBtn" type="button" class="btn btn-default filter-btn">Filter by Disability</button>
-                    <div id="disabilityFilterHidden" hidden>
+                    <button type="button" class="btn btn-default filter-btn">Filter by Disability</button>
+                    <div class="filter-container" hidden>
+                        <div class="containerForChosen">
+                            <select id="disabilityMenu" class="chosen-select choser">
+                                <option></option>
+                                <option value="0">No Disability</option>
+                                <option value="1">Disability</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4 filterOption text-center">
+                    <button id="gradeFilterBtn" type="button" class="btn btn-default filter-btn">Filter by Grade
+                    </button>
+                    <div id="gradeFilterHidden" hidden>
                         <div class="containerForChosen">
                             <select id="disabilityMenu" class="chosen-select">
                                 <option></option>
@@ -70,17 +82,15 @@
                                 <option value="1">Disability</option>
                             </select>
                         </div>
-
                     </div>
-                </div>
-                <div class="col-sm-4 filterOption text-center">
-                    <button type="button" class="btn btn-default filter-btn">Filter by Grade</button>
                 </div>
             </div>
             <div id="noStudentToShow" class="text-center" hidden>
                 <div id="noStudentToShowText">
                     No students to Show
-                </div></div>
+                </div>
+            </div>
+            <div id="numberStudentsShowing"></div>
             <div id="visHolder" class="row"></div>
         </div>
         <div id="sideNav" class="col-sm-3">

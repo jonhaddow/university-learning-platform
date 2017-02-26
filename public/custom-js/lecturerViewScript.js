@@ -17,7 +17,7 @@ var darkColors = [
 
 $(function () {
 
-    initializeNetwork(getFilters());
+    getFilters();
 
     $("#addFilterBtn").click(function () {
         $("#filterOptions").slideToggle();
@@ -28,72 +28,43 @@ $(function () {
         }
     });
 
-    // event listener for dropdown filter.
-    $("#studentsMenu").chosen({width: "100%"}).change(function () {
+    // event listener for all dropdown filters
+    $(".choser").chosen({width: "100%"}).change(function () {
         $("#selectedTopic").text("Please select a topic.");
         $("#selectedTopicInfo").hide();
-        initializeNetwork(getFilters());
+        getFilters();
     });
-    $("#disabilityMenu").chosen({width: "100%"}).change(function () {
-        $("#selectedTopic").text("Please select a topic.");
-        $("#selectedTopicInfo").hide();
-        initializeNetwork(getFilters());
-    });
-
-    $("#nameFilterBtn").click(function () {
-        var filter = $("#nameFilterHidden");
-        var dropDown = $("#studentsMenu");
-        if (filter.is(":visible")) {
-            dropDown.val("");
-        }
-        filter.slideToggle();
-        dropDown.trigger('chosen:updated');
-        initializeNetwork(getFilters());
-    });
-
-    $("#disabilityFilterBtn").click(function () {
-
-        var filter = $("#disabilityFilterHidden");
-        var dropdown = $("#disabilityMenu");
-        if (filter.is(":visible")) {
-            dropdown.val("");
-        }
-        filter.slideToggle();
-        dropdown.trigger('chosen:updated');
-        initializeNetwork(getFilters());
-    });
-
 
     $(".filter-btn").click(function () {
+        var filter = $(this).siblings(".filter-container");
+        var dropDown = filter.find(".choser");
+        filter.slideToggle();
         var class2Change = "btn-success";
         if ($(this).hasClass(class2Change)) {
+            dropDown.val("");
             $(this).removeClass(class2Change);
+            getFilters();
         } else {
             $(this).addClass(class2Change);
+            dropDown.trigger('chosen:updated');
         }
     });
 });
 
 function getFilters() {
-
-    var disabilityFilterValue = $("#disabilityMenu").val();// True/false - does student have disability?
-    if (disabilityFilterValue === "") {
-        disabilityFilterValue = null;
-    }
-
-    var gradeFilter;
-    var gradeFilterValues = null; // object containing two values (max/min)
-
-    return {
-        nameFilter: $("#studentsMenu").val(),
-        disabilityFilter: disabilityFilterValue,
-        gradeFilter: gradeFilterValues
-    };
+    $.get(config.API_LOCATION + "get-feedback/filter-students.php", {
+            nameFilter: $("#studentsMenu").val(),
+            disabilityFilter: $("#disabilityMenu").val(),
+            gradeFilter: null
+        }, function (result) {
+            initializeNetwork(JSON.parse(result));
+        }
+    );
 }
 
-function setupNetwork(filters) {
+function setupNetwork(studentIds) {
 
-    console.log(filters); //todo remove
+    console.log(studentIds); //todo remove
 
     // add topics to dataset
     const topicDataset = [];
@@ -109,22 +80,18 @@ function setupNetwork(filters) {
         }
     }
 
-    ajaxOptions = {
-        url: config.API_LOCATION + "get-feedback/get-topic-average-feedback.php",
-        data: {
-            "nameFilter": filters.nameFilter,
-            "disabilityFilter": filters.disabilityFilter,
-            "gradeFilter": filters.gradeFilter
-        }
-    };
-    $.ajax(ajaxOptions).done(function (result) {
+    $.get(config.API_LOCATION + "get-feedback/get-topic-average-feedback.php", {
+        "studentIds": studentIds
+    }, function (result) {
+        console.log(result);
 
         if (result === "no-students") {
             $("#noStudentToShow").show();
-            $("#visHolder").text("");
+            $("#numberStudentsShowing").hide();
+            $("#visHolder").hide();
         } else {
             $("#noStudentToShow").hide();
-
+            $("#visHolder").show();
 
             var jsonResult = JSON.parse(result);
             for (i = 0; i < jsonResult.length; i++) {
@@ -138,15 +105,17 @@ function setupNetwork(filters) {
                 }
             }
 
+            $("#numberStudentsShowing").text("Showing " + studentIds.length + "/" + $("#studentCount").text() + " students").show();
+
             drawNetwork(topicDataset, addDependenciesToMap());
 
-            setOnClickListeners(filters);
+            setOnClickListeners(studentIds);
         }
     });
 
 }
 
-function setOnClickListeners(filters) {
+function setOnClickListeners(studentIds) {
     // listener when node is selected
     network.on("selectNode", function (selectedNode) {
 
@@ -172,11 +141,11 @@ function setOnClickListeners(filters) {
             $("#noFeedback").hide();
             $("#averageScoreSliderSpace").show();
 
-            if (filters && filters.length == 1) {
+            if (studentIds && studentIds.length == 1) {
                 $("#chartSpace").hide();
                 $("#feedbackCountSliderSpace").hide();
             } else {
-                buildChart(nodeId, filters);
+                buildChart(nodeId, studentIds);
                 $("#chartSpace").show();
                 $("#feedbackCountSliderSpace").show();
             }
@@ -205,11 +174,11 @@ function setOnClickListeners(filters) {
     });
 }
 
-function buildChart(topicId, filters) {
+function buildChart(topicId, studentIds) {
 
     $.get(config.API_LOCATION + "get-feedback/get-all-topic-feedback.php", {
         topicId: topicId,
-        studentId: filters
+        studentId: studentIds
     }, function (result) {
         var resultObj = JSON.parse(result);
         if (resultObj.status === "fail") {

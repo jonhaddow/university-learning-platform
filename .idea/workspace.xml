@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23a5a197-9e22-4376-b93d-58598c5ede59" name="Default" comment="Lecturers can select a student from a dropdown.">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/dashboard.css" afterPath="$PROJECT_DIR$/public/css/dashboard.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/resources/api/get-feedback/filter-students.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/lecturer-dashboard.css" afterPath="$PROJECT_DIR$/public/css/lecturer-dashboard.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/custom-js/dashboardGlobal.js" afterPath="$PROJECT_DIR$/public/custom-js/dashboardGlobal.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/custom-js/lecturerViewScript.js" afterPath="$PROJECT_DIR$/public/custom-js/lecturerViewScript.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/api/get-feedback/get-topic-average-feedback.php" afterPath="$PROJECT_DIR$/resources/api/get-feedback/get-topic-average-feedback.php" />
@@ -75,102 +77,88 @@
     <favorites_list name="website" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.583442">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="lecturerViewScript.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/public/custom-js/lecturerViewScript.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-135">
-                  <caret line="81" column="5" lean-forward="false" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="get-topic-average-feedback.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/resources/api/get-feedback/get-topic-average-feedback.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="184">
-                  <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
-                  <folding>
-                    <marker date="1488058610836" expanded="true" signature="235:274" ph="SELECT UserI... users" />
-                    <marker date="1488058610836" expanded="true" signature="568:627" ph="SELECT Topic... feedback" />
-                    <marker date="1488058610836" expanded="true" signature="568:1428" ph="SELECT Topic... feedback" />
-                    <marker date="1488058610836" expanded="true" signature="837:877" ph="SELECT UserI... users" />
-                    <marker date="1488058610836" expanded="true" signature="837:934" ph="SELECT UserI... users" />
-                    <marker date="1488058610836" expanded="true" signature="837:941" ph="SELECT UserI... users" />
-                    <marker date="1488058610836" expanded="true" signature="1202:1290" ph="SELECT UserI... users" />
-                    <marker date="1488058610836" expanded="true" signature="1552:1690" ph="SELECT Topic... TopicId" />
-                    <marker date="1488058610836" expanded="true" signature="1601:1653" ph="SELECT Topic... feedback" />
-                    <marker date="1488058610836" expanded="true" signature="1601:1662" ph="SELECT Topic... feedback" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="dashboard.css" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/css/dashboard.css">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="390">
-                  <caret line="32" column="16" lean-forward="false" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="get-all-students.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/resources/api/get-feedback/get-all-students.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="210">
-                  <caret line="14" column="46" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="14" selection-end-column="46" />
-                  <folding>
-                    <marker date="1487865868830" expanded="true" signature="98:147" ph="SELECT UserI... users" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="lecturerView.php" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/resources/views/dashboard/lecturerView.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="260">
-                  <caret line="80" column="44" lean-forward="false" selection-start-line="80" selection-start-column="25" selection-end-line="80" selection-end-column="44" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="dashboardGlobal.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/public/custom-js/dashboardGlobal.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="300">
-                  <caret line="23" column="9" lean-forward="false" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf>
-          <file leaf-file-name="get-topic-student-feedback.php" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/resources/api/get-feedback/get-topic-student-feedback.php">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="165">
-                  <caret line="11" column="45" lean-forward="false" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
-                  <folding>
-                    <marker date="1487865868830" expanded="true" signature="143:267" ph="SELECT Topic... TopicId" />
-                    <marker date="1487865868830" expanded="true" signature="184:242" ph="SELECT Topic... feedback" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="lecturerViewScript.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/public/custom-js/lecturerViewScript.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="26" column="41" lean-forward="false" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="get-all-topic-feedback.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/api/get-feedback/get-all-topic-feedback.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+              <folding>
+                <marker date="1487865868830" expanded="true" signature="163:239" ph="SELECT Mark feedback" />
+                <marker date="1487865868830" expanded="true" signature="332:386" ph="SELECT Mark feedback" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="get-topic-average-feedback.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/api/get-feedback/get-topic-average-feedback.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding>
+                <marker date="1488130599885" expanded="true" signature="213:351" ph="SELECT Topic... TopicId" />
+                <marker date="1488130599885" expanded="true" signature="262:323" ph="SELECT Topic... feedback" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="filter-students.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/api/get-feedback/filter-students.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="750">
+              <caret line="50" column="27" lean-forward="false" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
+              <folding>
+                <marker date="1488128469616" expanded="true" signature="235:274" ph="SELECT UserI... users" />
+                <marker date="1488128469616" expanded="true" signature="572:635" ph="SELECT UserI... users" />
+                <marker date="1488128469616" expanded="true" signature="912:1013" ph="SELECT UserI... users" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lecturerView.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/dashboard/lecturerView.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="403">
+              <caret line="92" column="43" lean-forward="false" selection-start-line="92" selection-start-column="43" selection-end-line="92" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lecturer-dashboard.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/css/lecturer-dashboard.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="799">
+              <caret line="75" column="17" lean-forward="true" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="dashboardGlobal.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/custom-js/dashboardGlobal.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="37" lean-forward="false" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -198,7 +186,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/public/js/networkConfig.js" />
         <option value="$PROJECT_DIR$/public/js/dashboardGlobal.js" />
         <option value="$PROJECT_DIR$/public/js/lecturerViewScript.js" />
         <option value="$PROJECT_DIR$/public/js/studentScript.js" />
@@ -240,15 +227,16 @@
         <option value="$USER_HOME$/.PhpStorm2016.3/phpstorm64.vmoptions" />
         <option value="$PROJECT_DIR$/resources/api/get-feedback/get-topic-student-feedback.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/2974bf57-5bcd-4db3-93aa-c2fa0bc4a0f8/console.sql" />
-        <option value="$PROJECT_DIR$/resources/api/get-feedback/get-all-topic-feedback.php" />
         <option value="$PROJECT_DIR$/public/custom-js/lecturerModifyScript.js" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/lecturerModifyMap.php" />
-        <option value="$PROJECT_DIR$/public/css/lecturer-dashboard.css" />
-        <option value="$PROJECT_DIR$/public/custom-js/dashboardGlobal.js" />
-        <option value="$PROJECT_DIR$/resources/views/dashboard/lecturerView.php" />
         <option value="$PROJECT_DIR$/public/css/dashboard.css" />
-        <option value="$PROJECT_DIR$/resources/api/get-feedback/get-topic-average-feedback.php" />
+        <option value="$PROJECT_DIR$/resources/api/get-feedback/get-all-topic-feedback.php" />
+        <option value="$PROJECT_DIR$/resources/api/get-feedback/filter-students.php" />
+        <option value="$PROJECT_DIR$/public/custom-js/dashboardGlobal.js" />
+        <option value="$PROJECT_DIR$/public/css/lecturer-dashboard.css" />
         <option value="$PROJECT_DIR$/public/custom-js/lecturerViewScript.js" />
+        <option value="$PROJECT_DIR$/resources/views/dashboard/lecturerView.php" />
+        <option value="$PROJECT_DIR$/resources/api/get-feedback/get-topic-average-feedback.php" />
       </list>
     </option>
   </component>
@@ -325,6 +313,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -483,8 +473,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -537,6 +525,9 @@
     </configuration>
     <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
       <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBuiltInWebServerConfigurationType" factoryName="PHP Built-in Web Server">
       <method />
     </configuration>
     <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
@@ -641,6 +632,7 @@
       <workItem from="1487959056312" duration="65000" />
       <workItem from="1487965406052" duration="11694000" />
       <workItem from="1488039062343" duration="13527000" />
+      <workItem from="1488122234160" duration="8850000" />
     </task>
     <task id="LOCAL-00001" summary="Lecturers can select a student from a dropdown.">
       <created>1483198605993</created>
@@ -653,7 +645,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="310148000" />
+    <option name="totallyTimeSpent" value="318998000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -668,27 +660,27 @@
     <frame x="61" y="24" width="1859" height="1056" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15388858" sideWeight="0.4958159" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1555433" sideWeight="0.4958159" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985386" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25096524" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2498618" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15035932" sideWeight="0.5041841" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32983193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32983193" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32983193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -741,7 +733,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/api/view-map/find-all-dependencies.php" />
     <entry file="file://$PROJECT_DIR$/resources/views/dashboard/globalHeader.php" />
     <entry file="file://$PROJECT_DIR$/public/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
@@ -925,13 +916,6 @@
     <entry file="file://$USER_HOME$/.PhpStorm2016.3/phpstorm64.vmoptions" />
     <entry file="dbDummy://dbtable:/7b9c85a9/2974bf57-5bcd-4db3-93aa-c2fa0bc4a0f8/test.feedback" />
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/2974bf57-5bcd-4db3-93aa-c2fa0bc4a0f8/console.sql" />
-    <entry file="file://$PROJECT_DIR$/resources/api/get-feedback/get-all-topic-feedback.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="31" lean-forward="true" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/72ea4b99-2e43-427d-9303-6dd61aedbb5a/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -990,18 +974,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/lecturer-dashboard.css">
+    <entry file="file://$PROJECT_DIR$/public/css/dashboard.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/custom-js/dashboardGlobal.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="23" column="9" lean-forward="false" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+        <state relative-caret-position="480">
+          <caret line="32" column="16" lean-forward="false" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -1019,53 +995,76 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/api/get-feedback/get-all-students.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="46" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="14" selection-end-column="46" />
+        <state relative-caret-position="30">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="4" selection-end-column="1" />
           <folding>
             <marker date="1487865868830" expanded="true" signature="98:147" ph="SELECT UserI... users" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/dashboard.css">
+    <entry file="file://$PROJECT_DIR$/resources/api/get-feedback/get-all-topic-feedback.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="32" column="16" lean-forward="false" selection-start-line="32" selection-start-column="16" selection-end-line="32" selection-end-column="16" />
+        <state relative-caret-position="60">
+          <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+          <folding>
+            <marker date="1487865868830" expanded="true" signature="163:239" ph="SELECT Mark feedback" />
+            <marker date="1487865868830" expanded="true" signature="332:386" ph="SELECT Mark feedback" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/api/get-feedback/filter-students.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="50" column="27" lean-forward="false" selection-start-line="50" selection-start-column="27" selection-end-line="50" selection-end-column="27" />
+          <folding>
+            <marker date="1488128469616" expanded="true" signature="235:274" ph="SELECT UserI... users" />
+            <marker date="1488128469616" expanded="true" signature="572:635" ph="SELECT UserI... users" />
+            <marker date="1488128469616" expanded="true" signature="912:1013" ph="SELECT UserI... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/custom-js/dashboardGlobal.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="37" lean-forward="false" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/lecturerView.php">
+    <entry file="file://$PROJECT_DIR$/public/css/lecturer-dashboard.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="80" column="44" lean-forward="false" selection-start-line="80" selection-start-column="25" selection-end-line="80" selection-end-column="44" />
+        <state relative-caret-position="799">
+          <caret line="75" column="17" lean-forward="true" selection-start-line="75" selection-start-column="17" selection-end-line="75" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/api/get-feedback/get-topic-average-feedback.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="25" column="1" lean-forward="true" selection-start-line="25" selection-start-column="1" selection-end-line="25" selection-end-column="1" />
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
-            <marker date="1488058610836" expanded="true" signature="235:274" ph="SELECT UserI... users" />
-            <marker date="1488058610836" expanded="true" signature="568:627" ph="SELECT Topic... feedback" />
-            <marker date="1488058610836" expanded="true" signature="568:1428" ph="SELECT Topic... feedback" />
-            <marker date="1488058610836" expanded="true" signature="837:877" ph="SELECT UserI... users" />
-            <marker date="1488058610836" expanded="true" signature="837:934" ph="SELECT UserI... users" />
-            <marker date="1488058610836" expanded="true" signature="837:941" ph="SELECT UserI... users" />
-            <marker date="1488058610836" expanded="true" signature="1202:1290" ph="SELECT UserI... users" />
-            <marker date="1488058610836" expanded="true" signature="1552:1690" ph="SELECT Topic... TopicId" />
-            <marker date="1488058610836" expanded="true" signature="1601:1653" ph="SELECT Topic... feedback" />
-            <marker date="1488058610836" expanded="true" signature="1601:1662" ph="SELECT Topic... feedback" />
+            <marker date="1488130599885" expanded="true" signature="213:351" ph="SELECT Topic... TopicId" />
+            <marker date="1488130599885" expanded="true" signature="262:323" ph="SELECT Topic... feedback" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/lecturerView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="92" column="43" lean-forward="false" selection-start-line="92" selection-start-column="43" selection-end-line="92" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/custom-js/lecturerViewScript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-135">
-          <caret line="81" column="5" lean-forward="false" selection-start-line="81" selection-start-column="5" selection-end-line="81" selection-end-column="5" />
+        <state relative-caret-position="30">
+          <caret line="26" column="41" lean-forward="false" selection-start-line="26" selection-start-column="41" selection-end-line="26" selection-end-column="41" />
           <folding />
         </state>
       </provider>

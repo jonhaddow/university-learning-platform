@@ -5,7 +5,7 @@ var nodes;
 var edges;
 
 // This function initializes the network and sets interaction listeners
-function initializeNetwork(filters) {
+function initializeNetwork(studentIds) {
 
     $.get(config.API_LOCATION + "view-map/get-map-data.php", function (result) {
         const jsonObj = JSON.parse(result);
@@ -17,7 +17,7 @@ function initializeNetwork(filters) {
 
         // if this network is filtered for an individual network, setup network separately.
         if (typeof setupNetwork === "function") {
-            setupNetwork(filters);
+            setupNetwork(studentIds);
         } else {
             drawNetwork(addTopicsToMap(),addDependenciesToMap());
             setOnClickListeners();
