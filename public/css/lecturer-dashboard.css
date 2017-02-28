@@ -25,9 +25,13 @@
 }
 
 #mainContent {
-    border: 8px solid #aaa;
+    border-right: 2px solid #d8d8d8;
     height: 90vh;
     padding: 0;
+}
+
+#gradeFilterSliderSpace {
+    margin-top: 35px;
 }
 
 #topPanel {
@@ -43,16 +47,24 @@
 #addFilterBtn {
     float: right;
     color: black;
-    border-radius: 24px;
+    border-radius: 20px;
 }
 
 #addFilterBtn:focus {
     outline: 0;
 }
 
-.filter-btn {
+.filter-btn, #gradeFilterBtn {
     border-radius: 20px;
     outline: 0;
+}
+
+.gradeFilterLabel {
+    color: white;
+}
+
+#gradeFilterSliderSpace .slider-selection {
+    background: #baa04e;
 }
 
 .filter-btn:active:focus, .filter-btn:focus {

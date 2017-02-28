@@ -34,7 +34,7 @@
     </div>
 </nav>
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div id="mainContent" class="col-sm-9">
             <div id="topPanel">
@@ -72,15 +72,13 @@
                     </div>
                 </div>
                 <div class="col-sm-4 filterOption text-center">
-                    <button id="gradeFilterBtn" type="button" class="btn btn-default filter-btn">Filter by Grade
+                    <button id="gradeFilterBtn" type="button" class="btn btn-default ">Filter by Grade
                     </button>
-                    <div id="gradeFilterHidden" hidden>
-                        <div class="containerForChosen">
-                            <select id="disabilityMenu" class="chosen-select">
-                                <option></option>
-                                <option value="0">No Disability</option>
-                                <option value="1">Disability</option>
-                            </select>
+                    <div class="filter-container" hidden>
+                        <div id="gradeFilterSliderSpace">
+                            <label class="gradeFilterLabel">0</label>
+                            <input id="gradeFilterSlider" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="10" data-slider-value="[30,70]"/>
+                            <label class="gradeFilterLabel">100</label>
                         </div>
                     </div>
                 </div>

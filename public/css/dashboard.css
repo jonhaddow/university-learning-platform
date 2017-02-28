@@ -20,7 +20,6 @@ body {
 }
 
 #mainContent {
-    border: 8px solid #aaa;
     height: 90vh;
     padding: 15px;
 }
@@ -42,9 +41,7 @@ body {
 
 #sideNav {
     height: 90vh;
-    border: 8px solid #aaa;
     border-left: 0;
-    overflow:scroll;
 }
 
 #currentTopic {

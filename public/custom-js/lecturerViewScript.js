@@ -1,5 +1,6 @@
 var barChart;
-
+var gradeFilterSlider;
+var filterOnClass = "btn-success";
 var lightColors = [
     '#FFB2AA',
     '#FFD1AA',
@@ -39,23 +40,46 @@ $(function () {
         var filter = $(this).siblings(".filter-container");
         var dropDown = filter.find(".choser");
         filter.slideToggle();
-        var class2Change = "btn-success";
-        if ($(this).hasClass(class2Change)) {
+        if ($(this).hasClass(filterOnClass)) {
             dropDown.val("");
-            $(this).removeClass(class2Change);
+            $(this).removeClass(filterOnClass);
             getFilters();
         } else {
-            $(this).addClass(class2Change);
+            $(this).addClass(filterOnClass);
             dropDown.trigger('chosen:updated');
+        }
+    });
+
+    $("#gradeFilterBtn").click(function() {
+        var filter = $(this).siblings(".filter-container");
+        filter.slideToggle();
+        if ($(this).hasClass(filterOnClass)) {
+            $(this).removeClass(filterOnClass);
+            gradeFilterSlider = null;
+            getFilters();
+        } else {
+            $(this).addClass(filterOnClass);
+            gradeFilterSlider = $("#gradeFilterSlider").slider({
+                tooltip: "always"
+            }).on("slideStop", function (eventObj) {
+                getFilters();
+            });
+            getFilters();
         }
     });
 });
 
 function getFilters() {
+    if (gradeFilterSlider == null) {
+        var gradeFilter = null;
+    } else {
+        gradeFilter = gradeFilterSlider.slider("getValue");
+    }
+
     $.get(config.API_LOCATION + "get-feedback/filter-students.php", {
             nameFilter: $("#studentsMenu").val(),
             disabilityFilter: $("#disabilityMenu").val(),
-            gradeFilter: null
+            gradeFilter: gradeFilter
         }, function (result) {
             initializeNetwork(JSON.parse(result));
         }
@@ -63,8 +87,6 @@ function getFilters() {
 }
 
 function setupNetwork(studentIds) {
-
-    console.log(studentIds); //todo remove
 
     // add topics to dataset
     const topicDataset = [];
@@ -83,8 +105,6 @@ function setupNetwork(studentIds) {
     $.get(config.API_LOCATION + "get-feedback/get-topic-average-feedback.php", {
         "studentIds": studentIds
     }, function (result) {
-        console.log(result);
-
         if (result === "no-students") {
             $("#noStudentToShow").show();
             $("#numberStudentsShowing").hide();

@@ -37,15 +37,16 @@ if ($disabilityFilter != NULL) {
     $students = $sql->fetchAll(PDO::FETCH_COLUMN, 0);
 }
 
-if ($gradeFilter != NULL) { // todo Grade filter
-//    $inQuery = implode(',', $students);
-//    $sql = $db_conn->prepare(
-//        "SELECT UserId FROM users
-//        WHERE UserId IN (" . $inQuery . ") AND Grade = :grade"
-//    );
-//    $sql->bindParam(":grade", $gradeFilter);
-//    $sql->execute();
-//    $students = $sql->fetchAll(PDO::FETCH_COLUMN,0);
+if ($gradeFilter != NULL) {
+    $inQuery = implode(',', $students);
+    $sql = $db_conn->prepare(
+        "SELECT UserId FROM users
+        WHERE UserId IN (" . $inQuery . ") AND Grade >= :min AND Grade <= :max"
+    );
+    $sql->bindParam(":min", $gradeFilter[0]);
+    $sql->bindParam(":max", $gradeFilter[1]);
+    $sql->execute();
+    $students = $sql->fetchAll(PDO::FETCH_COLUMN, 0);
 }
 
 die(json_encode($students));
