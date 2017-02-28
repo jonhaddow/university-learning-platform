@@ -4,17 +4,28 @@
     display: inline-block;
 }
 
+#averageScoreSliderSpace .round.in-selection {
+    background: #cbcbcb;
+}
+
+#averageScoreSliderSpace .slider-selection.tick-slider-selection {
+    background: #cbcbcb;
+}
+
+#averageScoreSliderSpace .slider-track-high {
+    background: #7e99ff;
+}
+
+#averageScoreSliderSpace .round {
+    background: #7e99ff;
+}
+
 #feedbackCountSliderSpace {
     margin-top: 40px;
 }
 
 .filtering-label {
     padding-top: 20px;
-}
-
-.displayBlock {
-    display: block;
-    margin-bottom: 20px;
 }
 
 #noFeedback {
@@ -24,20 +35,8 @@
     color: #999;
 }
 
-#mainContent {
-    border-right: 2px solid #d8d8d8;
-    height: 90vh;
-    padding: 0;
-}
-
 #gradeFilterSliderSpace {
     margin-top: 35px;
-}
-
-#topPanel {
-    background: #6ec4ff;
-    padding: 15px;
-    color: white;
 }
 
 #mainContent h1 {
@@ -71,24 +70,15 @@
     outline: 0;
 }
 
-
-
 .containerForChosen {
     margin: 15px 0 15px 0;
 }
 
 #filterOptions {
-    width: 100%;
-    margin: 0;
-    background-color: #6ec4ff;
     padding: 15px;
-}
-
-.filterOption {
-    margin: auto;
 }
 
 #numberStudentsShowing {
     padding: 15px;
-    color: rgba(0, 0, 0, 0.5);
+    color: #6d6d6d;
 }

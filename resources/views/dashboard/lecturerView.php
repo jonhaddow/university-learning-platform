@@ -37,48 +37,48 @@
 <div class="container-fluid">
     <div class="row">
         <div id="mainContent" class="col-sm-9">
-            <div id="topPanel">
+            <div class="row" id="topPanel">
                 <h1><b>Programming 1:</b><br> Module Topics</h1>
                 <button class="btn" id="addFilterBtn">Show Filters</button>
-
-            </div>
-            <div id="filterOptions" hidden class="row">
-                <div class="col-sm-4 filterOption text-center">
-                    <button type="button" class="btn btn-default filter-btn">Filter by Name</button>
-                    <div class="filter-container" hidden>
-                        <div class="containerForChosen">
-                            <select id="studentsMenu" multiple class="chosen-select choser">
-                                <?php
-                                for ($i = 0; $i < count($students); $i++) {
-                                    echo "<option value='" . $students[$i]['UserId'] . "'>" . $students[$i]['Username'] .
-                                        "</option>";
-                                }
-                                ?>
-                            </select>
-                        </div>
-                        <div hidden id="studentCount"><?php echo count($students) ?></div>
-                    </div>
-                </div>
-                <div class="col-sm-4 filterOption text-center">
-                    <button type="button" class="btn btn-default filter-btn">Filter by Disability</button>
-                    <div class="filter-container" hidden>
-                        <div class="containerForChosen">
-                            <select id="disabilityMenu" class="chosen-select choser">
-                                <option></option>
-                                <option value="0">No Disability</option>
-                                <option value="1">Disability</option>
-                            </select>
+                <div id="filterOptions" hidden class="row">
+                    <div class="col-sm-4 text-center">
+                        <button type="button" class="btn btn-default filter-btn">Filter by Name</button>
+                        <div class="filter-container" hidden>
+                            <div class="containerForChosen">
+                                <select id="studentsMenu" multiple class="chosen-select choser">
+                                    <?php
+                                    for ($i = 0; $i < count($students); $i++) {
+                                        echo "<option value='" . $students[$i]['UserId'] . "'>" . $students[$i]['Username'] .
+                                            "</option>";
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            <div hidden id="studentCount"><?php echo count($students) ?></div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-4 filterOption text-center">
-                    <button id="gradeFilterBtn" type="button" class="btn btn-default ">Filter by Grade
-                    </button>
-                    <div class="filter-container" hidden>
-                        <div id="gradeFilterSliderSpace">
-                            <label class="gradeFilterLabel">0</label>
-                            <input id="gradeFilterSlider" type="text" class="span2" value="" data-slider-min="0" data-slider-max="100" data-slider-step="10" data-slider-value="[30,70]"/>
-                            <label class="gradeFilterLabel">100</label>
+                    <div class="col-sm-4 filterOption text-center">
+                        <button type="button" class="btn btn-default filter-btn">Filter by Disability</button>
+                        <div class="filter-container" hidden>
+                            <div class="containerForChosen">
+                                <select id="disabilityMenu" class="chosen-select choser">
+                                    <option></option>
+                                    <option value="0">No Disability</option>
+                                    <option value="1">Disability</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 filterOption text-center">
+                        <button id="gradeFilterBtn" type="button" class="btn btn-default ">Filter by Grade
+                        </button>
+                        <div class="filter-container" hidden>
+                            <div id="gradeFilterSliderSpace">
+                                <label class="gradeFilterLabel">0</label>
+                                <input id="gradeFilterSlider" type="text" class="span2" value="" data-slider-min="0"
+                                       data-slider-max="100" data-slider-step="10" data-slider-value="[30,70]"/>
+                                <label class="gradeFilterLabel">100</label>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -112,7 +112,7 @@
                         </div>
                     </div>
                     <div id="averageScoreSliderSpace">
-                        <label class="displayBlock" for="averageScoreSlider">Score:</label>
+                        <label class="sliderLabel" for="averageScoreSlider">Score:</label>
                         <input id="averageScoreSlider" type="text"
                                data-slider-ticks="[1, 5]"
                                data-slider-ticks-labels='["Do not understand", "Fully understand"]'/>

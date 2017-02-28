@@ -24,13 +24,13 @@
         </ul>
     </div>
 </nav>
-<div class="container">
-    <div class="row">
+<div class="container-fluid">
+    <div class="row" >
         <div id="mainContent" class="col-md-9">
-            <div>
+            <div id="topPanel" class="row">
                 <h1><b>Programming 1:</b> Module Topics</h1>
             </div>
-            <div id="visHolder"></div>
+            <div id="visHolder"class="row"></div>
         </div>
         <div id="sideNav" class="col-md-3">
             <div id="currentTopic">
@@ -43,7 +43,7 @@
                     <button id="giveFeedbackButton" class="btn btn-primary" type="button"></button>
                     <div id="feedbackSlider">
                         <div class="feedback-slider">
-                            <label for="myslider">Feedback:</label>
+                            <label class="sliderLabel" for="myslider">Feedback:</label>
                             <input id="myslider" type="text"
                                    data-slider-ticks="[1, 2, 3, 4, 5]"
                                    data-slider-ticks-labels='["Do not understand", "", "", "", "Fully understand"]'/>

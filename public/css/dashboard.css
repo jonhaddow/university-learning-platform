@@ -12,7 +12,7 @@ p, div {
 }
 
 body {
-    padding-top: 70px;
+    padding-top: 50px;
 }
 
 :root {
@@ -20,16 +20,22 @@ body {
 }
 
 #mainContent {
-    height: 90vh;
+    height: 80vh;
+}
+
+#topPanel {
+    background: #6ec4ff;
     padding: 15px;
+    color: white;
 }
 
 #visHolder {
-    height: 80%;
+    height: 90%;
 }
+
 #noStudentToShow {
     position: relative;
-    height: 80%;
+    height: 100%;
 
 }
 #noStudentToShowText {
@@ -48,6 +54,11 @@ body {
     height: 30%;
 }
 
+.sliderLabel {
+    display: block;
+    margin-bottom: 20px;
+}
+
 #noSelectedTopic, #selectedTopic {
     font-size: large;
     font-weight: bold;
@@ -55,26 +66,6 @@ body {
     color: var(--text-colour);
     margin-top: 20px;
     margin-bottom: 10px;
-}
-
-#averageScoreSliderSpace .round.in-selection {
-    background: #cbcbcb;
-}
-
-#averageScoreSliderSpace .slider-selection.tick-slider-selection {
-    background: #cbcbcb;
-}
-
-#averageScoreSliderSpace .slider-track-high {
-    background: #7e99ff;
-}
-
-#averageScoreSliderSpace .round {
-    background: #7e99ff;
-}
-
-.slider-handle {
-    background: lightgreen;
 }
 
 .feedback-section {
@@ -110,8 +101,4 @@ body {
     margin-top: 1em;
     margin-bottom: 1.5em;
     width: 15em;
-}
-
-#completed {
-    color: #09ff28;
 }

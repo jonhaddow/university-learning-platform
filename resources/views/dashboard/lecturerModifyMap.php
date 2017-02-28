@@ -13,6 +13,7 @@
           integrity="sha256-QD+eN1fgrT9dm2vaE+NAAznRdtWd1JqM0xP2wkgjTSQ=" crossorigin="anonymous"/>
     <!-- My style -->
     <link rel="stylesheet" href="/css/dashboard.css">
+    <link rel="stylesheet" href="/css/lecturer-dashboard.css">
     <!-- Sweet Alert-->
     <script src="https://cdn.jsdelivr.net/sweetalert2/6.2.4/sweetalert2.min.js"
             integrity="sha256-Dww+oU6TBUA0Bq5awJQddFloLpNKK913ixC7UxIWzw4=" crossorigin="anonymous"></script>
@@ -40,10 +41,10 @@
     </div>
 </nav>
 
-<div class="container">
+<div class="container-fluid">
     <div class="row">
         <div id="mainContent" class="col-md-9">
-            <div class="row">
+            <div class="row" id="topPanel">
                 <div class="col-sm-9">
                     <h1><b>Programming 1:</b><br> Module Topics</h1>
                 </div>
