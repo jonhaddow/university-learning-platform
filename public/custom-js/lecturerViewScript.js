@@ -270,7 +270,7 @@ function buildChart(topicId, studentIds) {
         // Calculate percentage of students given feedback and display on progress bar.
         var noOfFeedbackGiven = resultObj.length;
         var studentCount = $("#studentCount").text();
-        var percentage = Math.round((noOfFeedbackGiven / studentCount) * 100);
+        var percentage = Math.round((noOfFeedbackGiven / studentIds.length) * 100);
         $("#feedbackCountSlider").css("width", percentage + "%").text(percentage + "%");
     });
 }
