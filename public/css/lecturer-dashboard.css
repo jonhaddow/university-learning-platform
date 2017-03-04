@@ -79,6 +79,8 @@
 }
 
 #numberStudentsShowing {
-    padding: 15px;
+    position: absolute;
+    z-index: 2;
+    padding: 120px 15px 15px 15px;
     color: #6d6d6d;
 }

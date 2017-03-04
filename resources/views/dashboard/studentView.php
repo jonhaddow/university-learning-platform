@@ -55,5 +55,9 @@
         </div>
     </div>
 </div>
+
+<div id="footer">
+    &copy; Jonathan Haddow 2017
+</div>
 </body>
 </html>

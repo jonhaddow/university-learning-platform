@@ -54,14 +54,14 @@ $(function () {
 
     $("#deleteEdgeForm").submit(function (e) {
 
-        $.ajax({
-            url: config.API_LOCATION + "modify-map/delete-dependency.php",
-            data: $("#deleteEdgeForm").serialize(),
-            type: "POST"
-        }).done(function () {
-            initializeNetwork();
-            $("#selectedEdgeInfo").hide();
-        });
+        $.post(config.API_LOCATION + "modify-map/delete-dependency.php", $("#deleteEdgeForm").serialize(),
+            function (result) {
+                if (JSON.parse(result).status == "error") {
+                    alert("Error connecting to database.");
+                }
+                initializeNetwork();
+                $("#selectedEdgeInfo").hide();
+            });
 
         e.preventDefault();
     });
@@ -155,14 +155,14 @@ function setOnClickListeners() {
         $("#noSelectedTopic").hide();
 
         // Show form and fill in topic details
-        $("#selectedTopicForm").show();
+        $("#selectedTopicForm").fadeIn();
         $("#selectedTopicId").val(nodeObj.id);
         $("#selectedTopicName").val(nodeObj.label);
         $("#selectedTopicDescription").val(nodeObj.description);
 
         // focus on selected node
         network.focus(selectedNodeId, {
-            scale: 1.5,
+            scale: 0.8,
             animation: true
         });
     });
@@ -173,8 +173,8 @@ function setOnClickListeners() {
         // get node names connected to edge
         const edgeIds = selectedEdge.edges;
         const edgeObj = edges.get(edgeIds[0]);
-        const fromValue = nodes.get(edgeObj.from).label;
-        const toValue = nodes.get(edgeObj.to).label;
+        const fromValue = nodes.get(edgeObj.from).id;
+        const toValue = nodes.get(edgeObj.to).id;
 
         $("#selectedEdgeTo").val(toValue);
         $("#selectedEdgeFrom").val(fromValue);
@@ -190,9 +190,6 @@ function setOnClickListeners() {
         if (nodeIds.length === 0) {
             $("#noSelectedTopic").show();
             $("#selectedTopicForm").hide();
-            network.fit({
-                animation: true
-            });
         }
     });
 
@@ -214,16 +211,18 @@ function populateDependencyMenu() {
     // Clear current items in menus
     $('.dropdown').children().remove();
 
+    var parent = $("#parentDropdownMenuSelect");
+    var child = $("#childDropdownMenuSelect");
+
     // populate with topic names
     if (topics) {
         for (var i = 0; i < topics.length; i++) {
-            $("#parentDropdownMenuSelect").append("<option value='" + topics[i].TopicId + "'>" + topics[i].Name + "</option>");
-            $("#childDropdownMenuSelect").append("<option value='" + topics[i].TopicId + "'>" + topics[i].Name + "</option>");
+            parent.append("<option value='" + topics[i].TopicId + "'>" + topics[i].Name + "</option>");
+            child.append("<option value='" + topics[i].TopicId + "'>" + topics[i].Name + "</option>");
         }
     }
 
-    $("#parentDropdownMenuSelect").chosen({width: "100%"});
-    $("#childDropdownMenuSelect").chosen({width: "100%"});
-
+    parent.chosen({width: "100%"}).trigger("chosen:updated");
+    child.chosen({width: "100%"}).trigger("chosen:updated");
 
 }

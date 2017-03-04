@@ -19,7 +19,7 @@ function initializeNetwork(studentIds) {
         if (typeof setupNetwork === "function") {
             setupNetwork(studentIds);
         } else {
-            drawNetwork(addTopicsToMap(),addDependenciesToMap());
+            drawNetwork(addTopicsToMap(), addDependenciesToMap());
             setOnClickListeners();
         }
     });
@@ -69,6 +69,7 @@ function drawNetwork(topicsDataset, dependenciesDataset) {
 
     // get the container div
     const container = document.getElementById("visHolder");
+
     // initialize the network!
     network = new vis.Network(container, data, networkOptions);
 
@@ -76,12 +77,20 @@ function drawNetwork(topicsDataset, dependenciesDataset) {
     network.on("resize", function () {
         network.redraw();
     });
+
+    setTimeout(function () {
+        network.focus(topicsDataset[0].id, {
+            scale: 0.8,
+            animation: true,
+            offset: {x:0, y: -100}
+        });
+    }, 500);
 }
 
 // This function wraps a long string around a set character limit.
 function stringDivider(str) {
     var width = 18;
-    var spaceReplacer = "\n";
+    var spaceReplacer = " \n";
     if (str.length > width) {
         var p = width;
         for (; p > 0 && str[p] != ' '; p--) {

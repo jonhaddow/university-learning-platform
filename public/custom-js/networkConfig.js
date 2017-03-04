@@ -35,11 +35,13 @@ var networkOptions = {
     },
     interaction: {
         dragNodes: false,
-        dragView: false,
+        dragView: true,
         zoomView: false,
         hover: false,
         hoverConnectedEdges: false,
-        selectConnectedEdges: false
+        selectConnectedEdges: false,
+        navigationButtons: false,
+        keyboard: false
     },
     physics: {
         enabled: true,

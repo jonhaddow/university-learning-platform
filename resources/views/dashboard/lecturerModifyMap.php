@@ -98,11 +98,11 @@
                     <div class="form-header"> ADD A NEW DEPENDENCY</div>
                     <div class="form-group">
                         <label for="parentDropdownMenuSelect">Parent Dependency</label>
-                        <select id="parentDropdownMenuSelect" class="chosen-select"></select>
+                        <select id="parentDropdownMenuSelect" class="chosen-select dropdown"></select>
                     </div>
                     <div class="form-group">
                         <label for="childDropdownMenuSelect">Child Dependency</label>
-                        <select id="childDropdownMenuSelect" class="chosen-select">
+                        <select id="childDropdownMenuSelect" class="chosen-select dropdown">
                         </select>
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
@@ -111,6 +111,10 @@
             </div>
         </div>
     </div>
+</div>
+
+<div id="footer">
+    &copy; Jonathan Haddow 2017
 </div>
 </body>
 </html>

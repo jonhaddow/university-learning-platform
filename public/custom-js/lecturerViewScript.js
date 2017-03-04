@@ -148,7 +148,7 @@ function setOnClickListeners(studentIds) {
 
         // focus on selected node
         network.focus(nodeId, {
-            scale: 1.5,
+            scale: 0.8,
             animation: true
         });
 
@@ -183,9 +183,6 @@ function setOnClickListeners(studentIds) {
         if (nodeIds.length === 0) {
             $("#selectedTopic").text("Please select a topic.");
             $("#selectedTopicInfo").hide();
-            network.fit({
-                animation: true
-            });
 
             if (barChart !== undefined) {
                 barChart.clear();

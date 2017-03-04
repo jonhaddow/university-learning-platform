@@ -12,8 +12,8 @@ function setOnClickListeners() {
     network.on("selectNode", function (selectedNode) {
 
         // get node label
-        var nodeIds = selectedNode.nodes;
-        var nodeObj = nodes.get(nodeIds[0]);
+        var nodeId = (selectedNode.nodes)[0];
+        var nodeObj = nodes.get(nodeId);
         var topicId = nodeObj.id;
         $("#selectedTopic").text(nodeObj.label);
         $("#selectedTopicDescription").text(nodeObj.description).show();
@@ -33,8 +33,8 @@ function setOnClickListeners() {
         });
 
         // focus on selected node
-        network.focus(nodeIds[0], {
-            scale: 1.5,
+        network.focus(nodeId, {
+            scale: 0.8,
             animation: true
         });
     });
@@ -48,9 +48,6 @@ function setOnClickListeners() {
             $("#selectedTopic").text("Please select a topic.");
             $("#selectedTopicDescription").hide();
             $("#selectedTopicControls").hide();
-            network.fit({
-                animation: true
-            });
         }
         if (slider) {
             slider.off("slideStop");
