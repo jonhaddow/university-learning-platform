@@ -77,14 +77,6 @@ function drawNetwork(topicsDataset, dependenciesDataset) {
     network.on("resize", function () {
         network.redraw();
     });
-
-    setTimeout(function () {
-        network.focus(topicsDataset[0].id, {
-            scale: 0.8,
-            animation: true,
-            offset: {x:0, y: -100}
-        });
-    }, 500);
 }
 
 // This function wraps a long string around a set character limit.

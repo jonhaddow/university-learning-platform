@@ -32,11 +32,6 @@ function setOnClickListeners() {
             }
         });
 
-        // focus on selected node
-        network.focus(nodeId, {
-            scale: 0.8,
-            animation: true
-        });
     });
 
     // listener when node is deselected

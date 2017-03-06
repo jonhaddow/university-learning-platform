@@ -38,8 +38,9 @@
     <div class="row">
         <div id="mainContent" class="col-sm-9">
             <div class="row" id="topPanel">
-                <h1><b>Programming 1:</b><br> Module Topics</h1>
-                <button class="btn" id="addFilterBtn">Show Filters</button>
+                <h1><b>CS101:</b> Java Programming</h1>
+                <button class="btn" id="showFilters">Show Filters <span class="glyphicon glyphicon-chevron-down"></span></button>
+                <button class="btn" id="hideFilters">Hide Filters <span class="glyphicon glyphicon-chevron-up"></span></button>
                 <div id="filterOptions" hidden class="row">
                     <div class="col-sm-4 text-center">
                         <button type="button" class="btn btn-default filter-btn">Filter by Name</button>
@@ -82,13 +83,14 @@
                         </div>
                     </div>
                 </div>
+                <div id="numberStudentsShowing"></div>
             </div>
             <div id="noStudentToShow" class="text-center" hidden>
                 <div id="noStudentToShowText">
                     No students to Show
                 </div>
             </div>
-            <div id="numberStudentsShowing"></div>
+
             <div id="visHolder" class="row"></div>
         </div>
         <div id="sideNav" class="col-sm-3">

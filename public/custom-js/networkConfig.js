@@ -2,7 +2,9 @@
 var networkOptions = {
     layout: {
         hierarchical: {
-            sortMethod: 'directed'
+            enabled: true,
+            levelSeparation: 90,
+            "sortMethod": "directed"
         }
     },
     nodes: {
@@ -35,7 +37,7 @@ var networkOptions = {
     },
     interaction: {
         dragNodes: false,
-        dragView: true,
+        dragView: false,
         zoomView: false,
         hover: false,
         hoverConnectedEdges: false,
@@ -46,7 +48,7 @@ var networkOptions = {
     physics: {
         enabled: true,
         hierarchicalRepulsion: {
-            nodeDistance: 165
+            nodeDistance: 130
         },
         solver: 'hierarchicalRepulsion'
     }

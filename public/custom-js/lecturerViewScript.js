@@ -20,13 +20,16 @@ $(function () {
 
     getFilters();
 
-    $("#addFilterBtn").click(function () {
+    $("#showFilters").click(function () {
         $("#filterOptions").slideToggle();
-        if ($(this).text() === "Hide Filters") {
-            $(this).text("Show Filters");
-        } else {
-            $(this).text("Hide Filters");
-        }
+        $(this).hide();
+        $("#hideFilters").show();
+    });
+
+    $("#hideFilters").click(function () {
+        $("#filterOptions").slideToggle();
+        $(this).hide();
+        $("#showFilters").show();
     });
 
     // event listener for all dropdown filters
@@ -50,7 +53,7 @@ $(function () {
         }
     });
 
-    $("#gradeFilterBtn").click(function() {
+    $("#gradeFilterBtn").click(function () {
         var filter = $(this).siblings(".filter-container");
         filter.slideToggle();
         if ($(this).hasClass(filterOnClass)) {
@@ -97,7 +100,14 @@ function setupNetwork(studentIds) {
                 label: stringDivider(topics[i].Name),
                 description: topics[i].Description,
                 font: "20px arial white",
-                color: "#888"
+                color: {
+                    background: "#888",
+                    border: "#777",
+                    highlight: {
+                        background: "#888",
+                        border: "#17a3ff"
+                    }
+                }
             });
         }
     }
@@ -119,7 +129,15 @@ function setupNetwork(studentIds) {
                 var mark = jsonResult[i].Mark;
                 for (var j = 0; j < topicDataset.length; j++) {
                     if (topicDataset[j].id === topicId) {
-                        topicDataset[j].color = darkColors[Math.round(mark) - 1];
+                        var color = darkColors[Math.round(mark) - 1];
+                        topicDataset[j].color = {
+                            background: color,
+                            border: color,
+                            highlight: {
+                                background: color,
+                                border: "#17a3ff"
+                            }
+                        };
                         topicDataset[j].mark = mark;
                     }
                 }
@@ -139,18 +157,13 @@ function setOnClickListeners(studentIds) {
     // listener when node is selected
     network.on("selectNode", function (selectedNode) {
 
+        hideFilterPanel();
+
         // get node label
         var nodeId = selectedNode.nodes[0];
         var nodeObj = nodes.get(nodeId);
         $("#selectedTopic").text(nodeObj.label);
         $("#selectedTopicInfo").show();
-
-
-        // focus on selected node
-        network.focus(nodeId, {
-            scale: 0.8,
-            animation: true
-        });
 
         if (!nodeObj.mark) {
             $("#noFeedback").show();
@@ -178,6 +191,8 @@ function setOnClickListeners(studentIds) {
     // listener when node is deselected
     network.on("deselectNode", function (selectedNode) {
 
+        hideFilterPanel();
+
         // if no other node has been selected, zoom out.
         var nodeIds = selectedNode.nodes;
         if (nodeIds.length === 0) {
@@ -189,6 +204,10 @@ function setOnClickListeners(studentIds) {
             }
         }
     });
+}
+
+function hideFilterPanel() {
+    $("#filterOptions").slideUp();
 }
 
 function buildChart(topicId, studentIds) {

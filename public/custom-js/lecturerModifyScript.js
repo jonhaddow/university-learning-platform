@@ -160,11 +160,6 @@ function setOnClickListeners() {
         $("#selectedTopicName").val(nodeObj.label);
         $("#selectedTopicDescription").val(nodeObj.description);
 
-        // focus on selected node
-        network.focus(selectedNodeId, {
-            scale: 0.8,
-            animation: true
-        });
     });
 
     // listener when edge is selected
@@ -188,8 +183,9 @@ function setOnClickListeners() {
         // if no other node has been selected, zoom out.
         const nodeIds = selectedNode.nodes;
         if (nodeIds.length === 0) {
-            $("#noSelectedTopic").show();
-            $("#selectedTopicForm").hide();
+            $("#selectedTopicForm").fadeOut(function () {
+                $("#noSelectedTopic").fadeIn();
+            });
         }
     });
 
