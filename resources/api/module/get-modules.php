@@ -1,6 +1,6 @@
 <?php
 
-if ($_SESSION["role"] != 0) {
+if ($_SESSION["role"] < 0) {
     exit();
 }
 

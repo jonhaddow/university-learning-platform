@@ -4,10 +4,47 @@ var network;
 var nodes;
 var edges;
 
+function createNewModule() {
+    swal({
+        title: 'Create new module',
+        html: '<label>Module Code: </label>' +
+        '<input id="moduleCode" class="swal2-input">' +
+        '<label>Module Name: </label>' +
+        '<input id="moduleName" class="swal2-input">',
+        showCancelButton: true,
+        confirmButtonText: 'Create',
+        showLoaderOnConfirm: true,
+        preConfirm: function () {
+            return new Promise(function (resolve, reject) {
+                $.post(config.API_LOCATION + "module/add-module.php", {
+                    moduleCode: $("#moduleCode").val(),
+                    moduleName: $("#moduleName").val()
+                }, function (result) {
+                    var success = JSON.parse(result).status;
+                    if (success === "error") {
+                        reject("Module Code already exists");
+                    } else {
+                        resolve("Yay!");
+                    }
+                });
+
+            })
+        },
+        allowOutsideClick: false
+    }).then(function (input) {
+        swal({
+            type: 'success',
+            title: 'New module added!',
+            html: input
+        })
+    })
+}
+
 // This function initializes the network and sets interaction listeners
 function initializeNetwork(studentIds) {
 
-    $.get(config.API_LOCATION + "view-map/get-map-data.php", function (result) {
+    var moduleCode = $("#moduleCode").text();
+    $.get(config.API_LOCATION + "view-map/get-map-data.php", {moduleCode: moduleCode}, function (result) {
         const jsonObj = JSON.parse(result);
         if (jsonObj.status === "error") {
             alert("Can't connect to database");

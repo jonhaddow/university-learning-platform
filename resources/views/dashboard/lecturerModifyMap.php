@@ -28,12 +28,22 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <ul class="nav navbar-nav">
-            <li>
-                <a href="<?php echo DASHBOARD ?>">View Student Feedback</a>
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                   aria-expanded="false">Module <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <?php foreach ($modules as $module) {
+                        if ($module["Code"] == $current_module["Code"]) {
+                            echo "<li class='active'><a href='" . LECTURER_VIEW . "/" . $module["Code"] . "'>" . $module["Code"] . "</a></li>";
+                        } else {
+                            echo "<li><a href='" . LECTURER_VIEW . "/" . $module["Code"] . "'>" . $module["Code"] . "</a></li>";
+                        }
+                    } ?>
+                    <li><a id="createModule" href="">New module...</a></li>
+                </ul>
             </li>
-            <li class="active">
-                <a href="#">Modify Map</a>
-            </li>
+            <li><a href="<?php echo LECTURER_VIEW . "/" . $current_module["Code"] ?>">View Student Feedback</a></li>
+            <li class="active"><a href="#">Modify Map</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="<?php echo LOGOFF ?>">Log Off</a></li>
@@ -46,7 +56,7 @@
         <div id="mainContent" class="col-md-9">
             <div class="row" id="topPanel">
                 <div class="col-sm-9">
-                    <h1><b>Programming 1:</b><br> Module Topics</h1>
+                    <h1><b><?php echo $current_module["Code"] . ":</b> " . $current_module["Name"] ?></h1>
                 </div>
                 <div class="col-sm-3" id="selectedEdgeInfo" hidden>
                     <form id="deleteEdgeForm">
@@ -56,6 +66,7 @@
                     </form>
                 </div>
             </div>
+            <div hidden id="moduleCode"><?php echo $current_module["Code"]; ?></div>
             <div id="visHolder" class="row"></div>
         </div>
         <div id="sideNav" class="col-md-3">
@@ -98,11 +109,11 @@
                     <div class="form-header"> ADD A NEW DEPENDENCY</div>
                     <div class="form-group">
                         <label for="parentDropdownMenuSelect">Parent Dependency</label>
-                        <select id="parentDropdownMenuSelect" class="chosen-select dropdown"></select>
+                        <select id="parentDropdownMenuSelect" class="chosen-select topicDropdown"></select>
                     </div>
                     <div class="form-group">
                         <label for="childDropdownMenuSelect">Child Dependency</label>
-                        <select id="childDropdownMenuSelect" class="chosen-select dropdown">
+                        <select id="childDropdownMenuSelect" class="chosen-select topicDropdown">
                         </select>
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>

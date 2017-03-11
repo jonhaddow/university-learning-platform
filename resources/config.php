@@ -6,7 +6,9 @@ define("LOGIN", DOMAIN_NAME . "/login");
 define("REGISTER", DOMAIN_NAME . "/register");
 define("DASHBOARD", DOMAIN_NAME . "/dashboard");
 define("LOGOFF", DOMAIN_NAME . "/logoff");
-define("MODIFY_MAP", DASHBOARD . "/modify-map");
+define("MODIFY_MAP", DASHBOARD . "/lecturerModifyMap");
+define("LECTURER_VIEW", DASHBOARD . "/lecturerView");
+define("STUDENT_VIEW", DASHBOARD . "/studentView");
 
 // Path to resources
 define("RESOURCES", dirname(__FILE__));

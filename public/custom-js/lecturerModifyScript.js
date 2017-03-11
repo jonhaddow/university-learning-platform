@@ -4,6 +4,11 @@ $(function () {
     networkOptions.edges.color.highlight = "#ff0007";
     initializeNetwork();
 
+    $("#createModule").click(function(e) {
+        e.preventDefault();
+        createNewModule()
+    });
+
     $("#selectedTopicForm").submit(function (e) {
         var errorDiv = $("#selectedTopicError");
         errorDiv.hide();
@@ -75,7 +80,10 @@ $(function () {
         $.ajax({
             type: "POST",
             url: config.API_LOCATION + "modify-map/add-topic.php",
-            data: {topicName: $("#inputNewTopic").val()}
+            data: {
+                topicName: $("#inputNewTopic").val(),
+                moduleCode: $("#moduleCode").text()
+            }
         }).done(function (data) {
 
             const jsonResponse = JSON.parse(data);
@@ -205,7 +213,7 @@ function setOnClickListeners() {
 function populateDependencyMenu() {
 
     // Clear current items in menus
-    $('.dropdown').children().remove();
+    $('.topicDropdown').children().remove();
 
     var parent = $("#parentDropdownMenuSelect");
     var child = $("#childDropdownMenuSelect");

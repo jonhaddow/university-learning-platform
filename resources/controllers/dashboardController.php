@@ -1,29 +1,54 @@
 <?php
-
 if ($authenticated) {
-	$role = $_SESSION["role"];
-	if ($role == 0) { // If role is student...
-        require_once API . "/module/get-modules.php";
-
-        if (isset($routes[1])) {
-            $module_code = $routes[1];
-            require_once VIEWS . "/dashboard/studentView.php";
-        } else {
-            header("location: " . DASHBOARD . "/" . $modules[0]["Code"]);
+    $role = $_SESSION["role"];
+    require_once API . "/module/get-modules.php";
+    if ($role == 0) { // If role is student...
+        if (isset($routes[2])) {
+            $module_code = $routes[2];
+            foreach ($modules as $module) {
+                if ($module["Code"] == $module_code) {
+                    $current_module = $module;
+                }
+            }
+            if (isset($current_module)) {
+                require_once VIEWS . "/".$routes[0]."/".$routes[1].".php";
+                die();
+            }
         }
 
-	} else if ($role == 1) { // Else if role is lecturer...
+        header("location: " . STUDENT_VIEW . "/" . $modules[0]["Code"]);
+    } else if ($role == 1) { // Else if role is lecturer...
+        if (isset($routes[2])) {
+            // Get current module
+            $module_code = $routes[2];
+            foreach ($modules as $module) {
+                if ($module["Code"] == $module_code) {
+                    $current_module = $module;
+                }
+            }
 
-		if (count($routes) > 1 && $routes[1] == "modify-map") {
-			require_once VIEWS . "/dashboard/lecturerModifyMap.php";
-		} else {
-			require_once API . "/get-feedback/get-all-students.php";
-			require_once VIEWS . "/dashboard/lecturerView.php";
-		}
-	}
+            // if module exists
+            if (isset($current_module)) {
+                require_once API . "/get-feedback/get-all-students.php";
+                require_once VIEWS . "/".$routes[0]."/".$routes[1].".php";
+                die();
+            } else {
+                header("location: " . DASHBOARD . "/" . $routes[1] . "/" . $modules[0]["Code"]);
+            }
+        } else {
+            if (isset($routes[1])) {
+                header("location: " . DASHBOARD . "/" . $routes[1] . "/" . $modules[0]["Code"]);
+            } else {
+                header("location: " . LECTURER_VIEW . "/" . $modules[0]["Code"]);
+            }
+            die();
+        }
+
+
+    }
 } else {
-	header("location: " . LOGIN);
-	exit();
+    header("location: " . LOGIN);
+    exit();
 }
 
 

@@ -5,6 +5,9 @@
     require_once COMMON_RESOURCES . "/headers.php";
     require_once VIEWS . "/dashboard/dashboardHeaders.php";
     ?>
+    <!-- Sweet Alert -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/sweetalert2/6.2.4/sweetalert2.min.css"
+          integrity="sha256-+Ri3Pm294y8V+Wp8KAUxGSsVQuqqUt1J5wqKeUWDQB0=" crossorigin="anonymous">
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.5.0/css/bootstrap-slider.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.min.css"
@@ -13,6 +16,9 @@
     <link rel="stylesheet" href="/css/dashboard.css">
     <link rel="stylesheet" href="/css/lecturer-dashboard.css">
 
+    <!-- Sweet Alert-->
+    <script src="https://cdn.jsdelivr.net/sweetalert2/6.2.4/sweetalert2.min.js"
+            integrity="sha256-Dww+oU6TBUA0Bq5awJQddFloLpNKK913ixC7UxIWzw4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/chosen/1.6.2/chosen.jquery.min.js"
             integrity="sha256-sLYUdmo3eloR4ytzZ+7OJsswEB3fuvUGehbzGBOoy+8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-slider/9.5.0/bootstrap-slider.min.js"></script>
@@ -25,8 +31,22 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <ul class="nav navbar-nav">
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Module <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <?php foreach ($modules as $module) {
+                        if ($module["Code"] == $current_module["Code"]) {
+                            echo "<li class='active'><a href='" . LECTURER_VIEW . "/" . $module["Code"] . "'>" . $module["Code"] . "</a></li>";
+                        } else {
+                            echo "<li><a href='". LECTURER_VIEW . "/" . $module["Code"] . "'>" . $module["Code"] . "</a></li>";
+                        }
+                    } ?>
+                    <li><a id="createModule" href="">New module...</a></li>
+                </ul>
+            </li>
             <li class="active"><a href="#">View Student Feedback</a></li>
-            <li><a href="<?php echo MODIFY_MAP ?>">Modify Map</a></li>
+            <li><a href="<?php echo MODIFY_MAP . "/" . $current_module["Code"]?>">Modify Map</a></li>
+
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="<?php echo LOGOFF ?>">Log Off</a></li>
@@ -38,7 +58,7 @@
     <div class="row">
         <div id="mainContent" class="col-sm-9">
             <div class="row" id="topPanel">
-                <h1><b>CS101:</b> Java Programming</h1>
+                <h1><b><?php echo $current_module["Code"] . ":</b> " . $current_module["Name"] ?></h1>
                 <button class="btn" id="showFilters">Show Filters <span class="glyphicon glyphicon-chevron-down"></span></button>
                 <button class="btn" id="hideFilters">Hide Filters <span class="glyphicon glyphicon-chevron-up"></span></button>
                 <div id="filterOptions" hidden class="row">
@@ -90,7 +110,7 @@
                     No students to Show
                 </div>
             </div>
-
+            <div hidden id="moduleCode" ><?php echo $current_module["Code"];?></div>
             <div id="visHolder" class="row"></div>
         </div>
         <div id="sideNav" class="col-sm-3">

@@ -3,10 +3,11 @@
 if (!($_SESSION["role"] >= 0)) {exit();}
 
 // Get all topics
-$sql = "SELECT * FROM topics";
+$sql = "SELECT * FROM topics WHERE ModuleCode = :code";
 
 // Execute statement
 $stmt = $db_conn->prepare($sql);
+$stmt->bindParam("code", $_GET["moduleCode"]);
 if (!$stmt->execute()) {
 	$json_response["status"] = "error";
 	exit(json_encode($json_response));

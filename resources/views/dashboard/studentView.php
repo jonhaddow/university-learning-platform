@@ -18,10 +18,10 @@
     <div class="container-fluid">
             <ul class="nav navbar-nav">
                 <?php foreach ($modules as $module) {
-                    if ($module["Code"] == $module_code) {
-                        echo "<li class='active'><a href='/dashboard/" . $module["Code"] . "'>" . $module["Code"] . "</a></li>";
+                    if ($module["Code"] == $current_module["Code"]) {
+                        echo "<li class='active'><a href='" . STUDENT_VIEW . "/" . $module["Code"] . "'>" . $module["Code"] . "</a></li>";
                     } else {
-                        echo "<li><a href='/dashboard/" . $module["Code"] . "'>" . $module["Code"] . "</a></li>";
+                        echo "<li><a href='". STUDENT_VIEW . "/" . $module["Code"] . "'>" . $module["Code"] . "</a></li>";
                     }
                 } ?>
             </ul>
@@ -34,15 +34,16 @@
     <div class="row">
         <div id="mainContent" class="col-md-9">
             <div id="topPanel" class="row">
-                <h1><b>Programming 1:</b> Module Topics</h1>
+                <h1><b><?php echo $current_module["Code"] . ":</b> " . $current_module["Name"] ?></h1>
             </div>
+            <div hidden id="moduleCode" ><?php echo $current_module["Code"];?></div>
             <div id="visHolder" class="row"></div>
         </div>
         <div id="sideNav" class="col-md-3">
             <div id="currentTopic">
                 <h3>Highlighted Topic:</h3>
                 <div id="selectedTopic">
-                    Please select a topic. <?php echo $module_code; ?>
+                    Please select a topic.
                 </div>
                 <div id="selectedTopicDescription"></div>
                 <div id="selectedTopicControls" hidden>
