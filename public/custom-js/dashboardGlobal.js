@@ -7,22 +7,27 @@ var edges;
 function createNewModule() {
     swal({
         title: 'Create new module',
-        html: '<label>Module Code: </label>' +
-        '<input id="moduleCode" class="swal2-input">' +
+        html: '' +
+        '<label>Module Code: </label>' +
+        '<input id="newModuleCode" class="swal2-input">' +
         '<label>Module Name: </label>' +
-        '<input id="moduleName" class="swal2-input">',
+        '<input id="newModuleName" class="swal2-input">',
         showCancelButton: true,
         confirmButtonText: 'Create',
         showLoaderOnConfirm: true,
         preConfirm: function () {
             return new Promise(function (resolve, reject) {
                 $.post(config.API_LOCATION + "module/add-module.php", {
-                    moduleCode: $("#moduleCode").val(),
-                    moduleName: $("#moduleName").val()
+                    moduleCode: $("#newModuleCode").val(),
+                    moduleName: $("#newModuleName").val()
                 }, function (result) {
-                    var success = JSON.parse(result).status;
-                    if (success === "error") {
-                        reject("Module Code already exists");
+                    var jsonResult = JSON.parse(result);
+                    if (jsonResult.status === "error") {
+                        if (jsonResult.message === "length") {
+                            reject("Please enter the Module code and name");
+                        } else {
+                            reject("Module Code already exists");
+                        }
                     } else {
                         resolve("Yay!");
                     }
@@ -36,7 +41,9 @@ function createNewModule() {
             type: 'success',
             title: 'New module added!',
             html: input
-        })
+        }).then(function() {
+            location.reload();
+        });
     })
 }
 
