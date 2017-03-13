@@ -1,8 +1,17 @@
 <?php
 
-if ($_SESSION["role"] != 1) {
-    exit();
+if ($_SESSION["role"] == 0) {
+    // user is student; Show only their results
+
+    $students = [$_SESSION["userId"]];
+
+    die(json_encode($students));
+
+} else if ($_SESSION["role"] != 1) {
+    die();
 }
+
+
 
 $nameFilter = $_GET["nameFilter"];
 $disabilityFilter = $_GET["disabilityFilter"];

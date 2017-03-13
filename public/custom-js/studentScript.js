@@ -2,9 +2,73 @@ var slider;
 
 $(function () {
 
-    initializeNetwork();
-
+    filterStudents();
 });
+
+function filterStudents() {
+    $.post(config.API_LOCATION + "get-feedback/filter-students.php", function (result) {
+        initializeNetwork(JSON.parse(result));
+    });
+}
+
+function setupNetwork(studentId) {
+    // add topics to dataset
+    const topicDataset = [];
+    if (topics) {
+        for (var i = 0; i < topics.length; i++) {
+            topicDataset.push({
+                id: topics[i].TopicId,
+                label: stringDivider(topics[i].Name),
+                description: topics[i].Description,
+                font: "20px arial white",
+                color: {
+                    background: "#888",
+                    border: "#777",
+                    highlight: {
+                        background: "#888",
+                        border: "#17a3ff"
+                    }
+                }
+            });
+        }
+    }
+
+    $.get(config.API_LOCATION + "get-feedback/get-topic-average-feedback.php", {
+        "studentIds": studentId
+    }, function (result) {
+        if (result === "no-students") {
+            $("#noStudentToShow").show();
+            $("#numberStudentsShowing").hide();
+            $("#visHolder").hide();
+        } else {
+            $("#noStudentToShow").hide();
+            $("#visHolder").show();
+            var jsonResult = JSON.parse(result);
+            for (i = 0; i < jsonResult.length; i++) {
+                var topicId = jsonResult[i].TopicId;
+                var mark = jsonResult[i].Mark;
+                for (var j = 0; j < topicDataset.length; j++) {
+                    if (topicDataset[j].id === topicId) {
+                        var color = darkColors[Math.round(mark) - 1];
+                        topicDataset[j].color = {
+                            background: color,
+                            border: color,
+                            highlight: {
+                                background: color,
+                                border: "#17a3ff"
+                            }
+                        };
+                        topicDataset[j].mark = mark;
+                    }
+                }
+            }
+
+            drawNetwork(topicDataset, addDependenciesToMap());
+
+            setOnClickListeners(studentId);
+        }
+    });
+}
 
 function setOnClickListeners() {
 
@@ -61,8 +125,10 @@ function sendMark(mark, topicId) {
         $.post(config.API_LOCATION + "send-feedback/add-mark.php", {mark: mark, topicId: topicId}, function () {
             // Show "completed" message
             $("#completed").show();
+            filterStudents();
         });
     }
+
 }
 
 

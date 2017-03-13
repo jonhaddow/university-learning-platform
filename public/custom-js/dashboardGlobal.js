@@ -3,6 +3,20 @@ var dependencies = [];
 var network;
 var nodes;
 var edges;
+var lightColors = [
+    '#FFB2AA',
+    '#FFD1AA',
+    '#FFE3AA',
+    '#FFF6AA',
+    '#DCF1A1'
+];
+var darkColors = [
+    '#AA4439',
+    '#AA6C39',
+    '#AA8439',
+    '#AA9E39',
+    '#84A136'
+];
 
 function createNewModule() {
     swal({
@@ -59,7 +73,7 @@ function initializeNetwork(studentIds) {
         topics = jsonObj.topics;
         dependencies = jsonObj.dependencies;
 
-        // if this network is filtered for an individual network, setup network separately.
+        // if this network is filtered for an specific group, setup network separately.
         if (typeof setupNetwork === "function") {
             setupNetwork(studentIds);
         } else {

@@ -1,20 +1,7 @@
 var barChart;
 var gradeFilterSlider;
 var filterOnClass = "btn-success";
-var lightColors = [
-    '#FFB2AA',
-    '#FFD1AA',
-    '#FFE3AA',
-    '#FFF6AA',
-    '#DCF1A1'
-];
-var darkColors = [
-    '#AA4439',
-    '#AA6C39',
-    '#AA8439',
-    '#AA9E39',
-    '#84A136'
-];
+
 
 $(function () {
 
