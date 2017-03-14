@@ -43,7 +43,7 @@
     display: inline;
 }
 
-#showFilters, #hideFilters{
+#showFilters, #hideFilters {
     float: right;
     color: black;
     border-radius: 20px;
@@ -92,6 +92,32 @@
     border-bottom-left-radius: 10px;
 }
 
-#createModule {
-     color: #07bf01 !important;
+#createModule:focus {
+    text-decoration: none;
+    outline: none;
+}
+
+#modulePanel {
+    border-right: solid black 1px;
+    background-color: #303E4D;
+    padding: 0;
+    height: 93vh;
+}
+
+#modulePanel a, #modulePanel div {
+    display: block;
+    color: darkgrey;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+#modulePanel .active {
+    background-color: #568ebc;
+    color: white;
+}
+
+#modulePanel a:hover {
+    background: #58565b;
+    text-decoration: solid;
 }

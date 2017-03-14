@@ -28,20 +28,6 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
         <ul class="nav navbar-nav">
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                   aria-expanded="false">Module <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <?php foreach ($modules as $module) {
-                        if ($module["Code"] == $current_module["Code"]) {
-                            echo "<li class='active'><a href='" . LECTURER_VIEW . "/" . $module["Code"] . "'>" . $module["Code"] . "</a></li>";
-                        } else {
-                            echo "<li><a href='" . LECTURER_VIEW . "/" . $module["Code"] . "'>" . $module["Code"] . "</a></li>";
-                        }
-                    } ?>
-                    <li><a id="createModule" href="">New module...</a></li>
-                </ul>
-            </li>
             <li><a href="<?php echo LECTURER_VIEW . "/" . $current_module["Code"] ?>">View Student Feedback</a></li>
             <li class="active"><a href="#">Modify Map</a></li>
         </ul>
@@ -53,7 +39,17 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div id="mainContent" class="col-md-9">
+        <div id="modulePanel" class="col-sm-1">
+            <?php foreach ($modules as $module) {
+                if ($module["Code"] == $current_module["Code"]) {
+                    echo "<div class='active'>" . $module["Code"] . "</div>";
+                } else {
+                    echo "<a class='' href='". LECTURER_VIEW . "/" . $module["Code"] . "'>" . $module["Code"] . "</a>";
+                }
+            } ?>
+            <a id="createModule" href=""><span class="glyphicon glyphicon-plus"></span> <b>New module</b></a>
+        </div>
+        <div id="mainContent" class="col-sm-8">
             <div class="row" id="topPanel">
                 <div class="col-sm-9">
                     <h1><b><?php echo $current_module["Code"] . ":</b> " . $current_module["Name"] ?></h1>
