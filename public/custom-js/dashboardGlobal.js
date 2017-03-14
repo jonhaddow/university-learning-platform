@@ -18,6 +18,72 @@ var darkColors = [
     '#84A136'
 ];
 
+$(function() {
+
+    $("#editModuleButton").click(function() {
+        swal({
+            title: 'Edit module',
+            html: '' +
+            '<label>Module Code: </label>' +
+            '<input id="newModuleCode" class="swal2-input" value="'+$("#moduleCode").text()+'">' +
+            '<label>Module Name: </label>' +
+            '<input id="newModuleName" class="swal2-input" value="'+$("#moduleName").text()+'">',
+            showCloseButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Edit',
+            cancelButtonText: 'Delete',
+            cancelButtonColor: '#e50b19',
+            showLoaderOnConfirm: true,
+            preConfirm: function () {
+                return new Promise(function (resolve, reject) {
+                    $.post(config.API_LOCATION + "module/edit-module.php", {
+                        oldModuleCode: $("#moduleCode").text(),
+                        moduleCode: $("#newModuleCode").val(),
+                        moduleName: $("#newModuleName").val()
+                    }, function (result) {
+                        var jsonResult = JSON.parse(result);
+                        if (jsonResult.status === "error") {
+                            if (jsonResult.message === "length") {
+                                reject("Please enter the Module code and name");
+                            } else {
+                                reject("Module Code already exists");
+                            }
+                        } else {
+                            resolve();
+                        }
+                    });
+                })
+            },
+            allowOutsideClick: false
+        }).then(function () {
+            swal({
+                type: 'success',
+                title: 'Module Updated'
+            }).then(function() {
+                location.reload();
+            });
+        }, function(dismiss) {
+            if (dismiss === "cancel") {
+                $.post(config.API_LOCATION + "module/delete-module.php", {
+                    moduleCode: $("#moduleCode").text()
+                }, function() {
+                    swal({
+                        title: 'Module Deleted',
+                        type: 'error'
+                    }).then(function() {
+                        location.reload();
+                    });
+                });
+            }
+        });
+    });
+
+    $("#createModule").click(function(e) {
+        e.preventDefault();
+        createNewModule()
+    });
+});
+
 function createNewModule() {
     swal({
         title: 'Create new module',
@@ -43,22 +109,21 @@ function createNewModule() {
                             reject("Module Code already exists");
                         }
                     } else {
-                        resolve("Yay!");
+                        resolve();
                     }
                 });
 
             })
         },
         allowOutsideClick: false
-    }).then(function (input) {
+    }).then(function () {
         swal({
             type: 'success',
-            title: 'New module added!',
-            html: input
+            title: 'New module added!'
         }).then(function() {
             location.reload();
         });
-    })
+    });
 }
 
 // This function initializes the network and sets interaction listeners

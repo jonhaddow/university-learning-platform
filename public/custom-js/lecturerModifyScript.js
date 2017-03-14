@@ -4,11 +4,6 @@ $(function () {
     networkOptions.edges.color.highlight = "#ff0007";
     initializeNetwork();
 
-    $("#createModule").click(function(e) {
-        e.preventDefault();
-        createNewModule()
-    });
-
     $("#selectedTopicForm").submit(function (e) {
         var errorDiv = $("#selectedTopicError");
         errorDiv.hide();

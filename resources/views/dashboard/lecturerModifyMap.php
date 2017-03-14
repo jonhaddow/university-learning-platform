@@ -57,16 +57,18 @@
             <div class="row" id="topPanel">
                 <div class="col-sm-9">
                     <h1><b><?php echo $current_module["Code"] . ":</b> " . $current_module["Name"] ?></h1>
+                    <div id="editModuleButton" class="btn">Edit <span class="glyphicon glyphicon-edit"></span></div>
                 </div>
                 <div class="col-sm-3" id="selectedEdgeInfo" hidden>
                     <form id="deleteEdgeForm">
                         <input type="hidden" id="selectedEdgeTo" name="child">
                         <input type="hidden" id="selectedEdgeFrom" name="parent">
-                        <button id="deleteEdgeButton" class="btn btn-danger">Delete Edge</button>
+                        <button id="deleteEdgeButton" class="btn btn-danger">Delete Edge <span class="glyphicon glyphicon-trash"></span></button>
                     </form>
                 </div>
             </div>
             <div hidden id="moduleCode"><?php echo $current_module["Code"]; ?></div>
+            <div hidden id="moduleName"><?php echo $current_module["Name"];?></div>
             <div id="visHolder" class="row"></div>
         </div>
         <div id="sideNav" class="col-md-3">

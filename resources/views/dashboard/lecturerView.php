@@ -59,6 +59,7 @@
         <div id="mainContent" class="col-sm-9">
             <div class="row" id="topPanel">
                 <h1><b><?php echo $current_module["Code"] . ":</b> " . $current_module["Name"] ?></h1>
+                <div id="editModuleButton" class="btn">Edit <span class="glyphicon glyphicon-edit"></span></div>
                 <button class="btn" id="showFilters">Show Filters <span class="glyphicon glyphicon-chevron-down"></span></button>
                 <button class="btn" id="hideFilters">Hide Filters <span class="glyphicon glyphicon-chevron-up"></span></button>
                 <div id="filterOptions" hidden class="row">
@@ -110,7 +111,8 @@
                     No students to Show
                 </div>
             </div>
-            <div hidden id="moduleCode" ><?php echo $current_module["Code"];?></div>
+            <div hidden id="moduleCode"><?php echo $current_module["Code"];?></div>
+            <div hidden id="moduleName"><?php echo $current_module["Name"];?></div>
             <div id="visHolder" class="row"></div>
         </div>
         <div id="sideNav" class="col-sm-3">

@@ -5,11 +5,6 @@ var filterOnClass = "btn-success";
 
 $(function () {
 
-    $("#createModule").click(function(e) {
-        e.preventDefault();
-        createNewModule()
-    });
-
     getFilters();
 
     $("#showFilters").click(function () {
