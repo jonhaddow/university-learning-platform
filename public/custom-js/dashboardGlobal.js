@@ -127,7 +127,7 @@ function createNewModule() {
 }
 
 // This function initializes the network and sets interaction listeners
-function initializeNetwork(studentIds) {
+function initializeNetwork(studentIds, selectedTopicId) {
 
     var moduleCode = $("#moduleCode").text();
     $.get(config.API_LOCATION + "view-map/get-map-data.php", {moduleCode: moduleCode}, function (result) {
@@ -140,7 +140,7 @@ function initializeNetwork(studentIds) {
 
         // if this network is filtered for an specific group, setup network separately.
         if (typeof setupNetwork === "function") {
-            setupNetwork(studentIds);
+            setupNetwork(studentIds, selectedTopicId);
         } else {
             drawNetwork(addTopicsToMap(), addDependenciesToMap());
             setOnClickListeners();

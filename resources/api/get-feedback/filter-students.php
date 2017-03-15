@@ -10,10 +10,9 @@ if ($_SESSION["role"] == 0) {
 } else if ($_SESSION["role"] != 1) {
     die();
 }
-
-
-
-$nameFilter = $_GET["nameFilter"];
+if (isset($_GET["nameFilter"])) {
+    $nameFilter = $_GET["nameFilter"];
+}
 $disabilityFilter = $_GET["disabilityFilter"];
 $gradeFilter = $_GET["gradeFilter"];
 
@@ -23,7 +22,7 @@ $stmt->execute();
 $students = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
 
 // If a name filter exists...
-if ($nameFilter != NULL) {
+if (isset($nameFilter)) {
 
     // filter out all names that aren't in the filter
     $inQueryList = implode(',', array_fill(0, count($nameFilter), '?'));
