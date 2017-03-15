@@ -5,13 +5,14 @@ $(function () {
     filterStudents();
 });
 
-function filterStudents() {
+function filterStudents(selectedTopicId) {
     $.post(config.API_LOCATION + "get-feedback/filter-students.php", function (result) {
-        initializeNetwork(JSON.parse(result));
+        initializeNetwork(JSON.parse(result),selectedTopicId);
     });
 }
 
-function setupNetwork(studentId) {
+function setupNetwork(studentId, selectedTopicId) {
+
     // add topics to dataset
     const topicDataset = [];
     if (topics) {
@@ -65,12 +66,12 @@ function setupNetwork(studentId) {
 
             drawNetwork(topicDataset, addDependenciesToMap());
 
-            setOnClickListeners(studentId);
+            setOnClickListeners(selectedTopicId);
         }
     });
 }
 
-function setOnClickListeners() {
+function setOnClickListeners(selectedTopicId) {
 
     // listener when node is selected
     network.on("selectNode", function (selectedNode) {
@@ -108,11 +109,13 @@ function setOnClickListeners() {
             $("#selectedTopicDescription").hide();
             $("#selectedTopicControls").hide();
         }
-        if (slider) {
-            slider.off("slideStop");
-        }
         $("#giveFeedbackButton").unbind();
     });
+
+
+    if (selectedTopicId) {
+        network.selectNodes([selectedTopicId]);
+    }
 }
 
 function sendMark(mark, topicId) {
@@ -120,12 +123,13 @@ function sendMark(mark, topicId) {
     if (mark == 0) {
         $.post(config.API_LOCATION + "send-feedback/delete-mark.php", {topicId: topicId}, function () {
             $("#completed").hide();
+            filterStudents(topicId);
         });
     } else {
         $.post(config.API_LOCATION + "send-feedback/add-mark.php", {mark: mark, topicId: topicId}, function () {
             // Show "completed" message
             $("#completed").show();
-            filterStudents();
+            filterStudents(topicId);
         });
     }
 
@@ -150,6 +154,10 @@ function hideSlider() {
 }
 
 function showSlider(result, topicId) {
+
+    if (slider) {
+        slider.off("slideStop");
+    }
 
     $("#giveFeedbackButton").text("Remove Feedback");
     $("#feedbackSlider").show();
