@@ -169,10 +169,17 @@ function addDependenciesToMap() {
     const dependencyDataset = [];
     if (dependencies) {
         for (var i = 0; i < dependencies.length; i++) {
-            dependencyDataset.push({
+            if (dependencies[i].Taught == "0") {
+                var dashLines = {
+                    dashes: true
+                };
+            } else {
+                dashLines = {};
+            }
+            dependencyDataset.push(Object.assign({
                 from: dependencies[i].ParentId,
                 to: dependencies[i].ChildId
-            });
+            }, dashLines));
         }
     }
     return dependencyDataset;

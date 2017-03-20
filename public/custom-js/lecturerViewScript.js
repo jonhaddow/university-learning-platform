@@ -78,23 +78,32 @@ function getFilters() {
 
 function setupNetwork(studentIds) {
 
-    // add topics to dataset
     const topicDataset = [];
+
+    // add topics to dataset
     if (topics) {
         for (var i = 0; i < topics.length; i++) {
+            if (topics[i].Taught === "1") {
+                var color = "#888";
+                var shape = "box";
+            } else {
+                color = "#7ac2ff";
+                shape = "ellipse";
+            }
             topicDataset.push({
                 id: topics[i].TopicId,
                 label: stringDivider(topics[i].Name),
                 description: topics[i].Description,
                 font: "20px arial white",
                 color: {
-                    background: "#888",
+                    background: color,
                     border: "#777",
                     highlight: {
-                        background: "#888",
+                        background: color,
                         border: "#17a3ff"
                     }
-                }
+                },
+                shape: shape
             });
         }
     }

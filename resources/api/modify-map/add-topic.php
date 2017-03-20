@@ -15,13 +15,22 @@ if (strlen($topic_name) > 30) {
 
 // Send SQL query to insert new node
 $sql = "
-    INSERT INTO topics(Name, ModuleCode) VALUES (:topicName, :moduleCode)
+    INSERT INTO topics(Name, ModuleCode, Taught) VALUES (:topicName, :moduleCode, :taught)
 ";
 
 // Execute statement
 $stmt = $db_conn->prepare($sql);
 $stmt->bindParam(":topicName", $topic_name);
 $stmt->bindParam(":moduleCode", $_POST["moduleCode"]);
+
+$taught = $_POST["taught"];
+if ($taught == "true") {
+    $taught_send = 1;
+}else {
+    $taught_send = 0;
+}
+$stmt->bindParam(":taught", $taught_send);
+
 try {
     if ($stmt->execute()) {
         $json_response["status"] = "success";

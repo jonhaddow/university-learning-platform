@@ -18,7 +18,7 @@ $topics = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $json_response["topics"] = $topics;
 
 // Get all dependencies
-$sql = "SELECT ParentId, ChildId FROM dependencies";
+$sql = "SELECT * FROM dependencies";
 
 // Execute statement
 $stmt = $db_conn->prepare($sql);

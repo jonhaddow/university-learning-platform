@@ -14,9 +14,18 @@
     <script type="text/javascript" src="/custom-js/studentScript.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
-            <ul class="nav navbar-nav">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-menubuilder">
+            <ul class="nav navbar-nav navbar-left">
                 <?php foreach ($modules as $module) {
                     if ($module["Code"] == $current_module["Code"]) {
                         echo "<li class='active'><a href='" . STUDENT_VIEW . "/" . $module["Code"] . "'>" . $module["Code"] . "</a></li>";
@@ -25,11 +34,13 @@
                     }
                 } ?>
             </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?php echo LOGOFF ?>">Log Off</a></li>
-        </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="<?php echo LOGOFF ?>">Log Off</a></li>
+            </ul>
+        </div>
     </div>
-</nav>
+</div>
+
 <div class="container-fluid">
     <div class="row">
         <div id="mainContent" class="col-md-9">

@@ -106,7 +106,7 @@
 
 #modulePanel a, #modulePanel div {
     display: block;
-    color: darkgrey;
+    color: #a9a9a9;
     padding: 10px;
     text-align: center;
     width: 100%;
@@ -118,6 +118,7 @@
 }
 
 #modulePanel a:hover {
-    background: #58565b;
+    background: #303E4D;
+    color: white;
     text-decoration: solid;
 }

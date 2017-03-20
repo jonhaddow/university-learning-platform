@@ -77,7 +77,8 @@ $(function () {
             url: config.API_LOCATION + "modify-map/add-topic.php",
             data: {
                 topicName: $("#inputNewTopic").val(),
-                moduleCode: $("#moduleCode").text()
+                moduleCode: $("#moduleCode").text(),
+                taught: $("#taughtCheckbox").is(":checked")
             }
         }).done(function (data) {
 

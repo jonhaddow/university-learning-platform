@@ -14,6 +14,8 @@
     <!-- My style -->
     <link rel="stylesheet" href="/css/dashboard.css">
     <link rel="stylesheet" href="/css/lecturer-dashboard.css">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
     <!-- Sweet Alert-->
     <script src="https://cdn.jsdelivr.net/sweetalert2/6.2.4/sweetalert2.min.js"
             integrity="sha256-Dww+oU6TBUA0Bq5awJQddFloLpNKK913ixC7UxIWzw4=" crossorigin="anonymous"></script>
@@ -25,17 +27,27 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
-        <ul class="nav navbar-nav">
-            <li><a href="<?php echo LECTURER_VIEW . "/" . $current_module["Code"] ?>">View Student Feedback</a></li>
-            <li class="active"><a href="#">Modify Map</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?php echo LOGOFF ?>">Log Off</a></li>
-        </ul>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-menubuilder">
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="<?php echo LECTURER_VIEW . "/" . $current_module["Code"] ?>">View Student Feedback</a></li>
+                <li class="active"><a href="#">Modify Map</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="<?php echo LOGOFF ?>">Log Off</a></li>
+            </ul>
+        </div>
     </div>
-</nav>
+</div>
 
 <div class="container-fluid">
     <div class="row">
@@ -98,6 +110,9 @@
                     <div class="form-group">
                         <label for="inputNewTopic">New topic:</label>
                         <input id="inputNewTopic" class="form-control" type="text">
+                    </div>
+                    <div class="form-group">
+                        <input id="taughtCheckbox" type="checkbox" checked data-toggle="toggle" data-on="Taught" data-off="Not Taught">
                     </div>
                     <button type="submit" class="btn btn-default">Submit</button>
                     <div hidden id="topicError" class="error"></div>

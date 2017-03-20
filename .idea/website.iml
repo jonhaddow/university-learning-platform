@@ -41,5 +41,6 @@
     <orderEntry type="library" name="Chart" level="application" />
     <orderEntry type="library" name="sweetalert2" level="application" />
     <orderEntry type="library" name="vis" level="application" />
+    <orderEntry type="library" name="bootstrap-toggle" level="application" />
   </component>
 </module>

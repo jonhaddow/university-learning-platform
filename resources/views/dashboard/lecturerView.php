@@ -28,17 +28,27 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container-fluid">
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="#">View Student Feedback</a></li>
-            <li><a href="<?php echo MODIFY_MAP . "/" . $current_module["Code"]?>">Modify Map</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="<?php echo LOGOFF ?>">Log Off</a></li>
-        </ul>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-menubuilder">
+            <ul class="nav navbar-nav navbar-left">
+                <li class="active"><a href="#">View Student Feedback</a></li>
+                <li><a href="<?php echo MODIFY_MAP . "/" . $current_module["Code"] ?>">Modify Map</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="<?php echo LOGOFF ?>">Log Off</a></li>
+            </ul>
+        </div>
     </div>
-</nav>
+</div>
 
 <div class="container-fluid">
     <div class="row">
@@ -47,7 +57,7 @@
                 if ($module["Code"] == $current_module["Code"]) {
                     echo "<div class='active'>" . $module["Code"] . "</div>";
                 } else {
-                    echo "<a class='' href='". LECTURER_VIEW . "/" . $module["Code"] . "'>" . $module["Code"] . "</a>";
+                    echo "<a class='' href='" . LECTURER_VIEW . "/" . $module["Code"] . "'>" . $module["Code"] . "</a>";
                 }
             } ?>
             <a id="createModule" href=""><span class="glyphicon glyphicon-plus"></span> <b>New module</b></a>
@@ -56,8 +66,10 @@
             <div class="row" id="topPanel">
                 <h1><b><?php echo $current_module["Code"] . ":</b> " . $current_module["Name"] ?></h1>
                 <div id="editModuleButton" class="btn">Edit <span class="glyphicon glyphicon-edit"></span></div>
-                <button class="btn" id="showFilters">Show Filters <span class="glyphicon glyphicon-chevron-down"></span></button>
-                <button class="btn" id="hideFilters">Hide Filters <span class="glyphicon glyphicon-chevron-up"></span></button>
+                <button class="btn" id="showFilters">Show Filters <span class="glyphicon glyphicon-chevron-down"></span>
+                </button>
+                <button class="btn" id="hideFilters">Hide Filters <span class="glyphicon glyphicon-chevron-up"></span>
+                </button>
                 <div id="filterOptions" hidden class="row">
                     <div class="col-sm-4 text-center">
                         <button type="button" class="btn btn-default filter-btn">Filter by Name</button>
@@ -107,8 +119,8 @@
                     No students to Show
                 </div>
             </div>
-            <div hidden id="moduleCode"><?php echo $current_module["Code"];?></div>
-            <div hidden id="moduleName"><?php echo $current_module["Name"];?></div>
+            <div hidden id="moduleCode"><?php echo $current_module["Code"]; ?></div>
+            <div hidden id="moduleName"><?php echo $current_module["Name"]; ?></div>
             <div id="visHolder" class="row"></div>
         </div>
         <div id="sideNav" class="col-sm-3">
