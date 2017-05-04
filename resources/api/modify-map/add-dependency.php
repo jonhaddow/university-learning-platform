@@ -54,29 +54,40 @@ function checkParents($parentId)
 {
     global $db_conn;
     global $newChildId;
+
+    // Check that parent dependencies of parentid given.
     $sql = "
 		SELECT ParentId
 		FROM dependencies
 		WHERE ChildId = :parentId
 	";
+
+
     $stmt = $db_conn->prepare($sql);
     $stmt->bindParam(":parentId", $parentId);
     $stmt->execute();
 
+    // If no parents exist, then return out of the function.
     if ($stmt->rowCount() == 0) {
         return;
     }
 
-    // check if any parents are equal to the child given.
+    // Go through list of parents
     $response = $stmt->fetchAll(PDO::FETCH_ASSOC);
     foreach ($response as $item) {
+
+        // check if any parents are equal to the new child dependency.
         if ($newChildId == $item["ParentId"]) {
-            // Found a Loop!
+
+            // If so, a loop is found! Return error message to user.
             $json_response["status"] = "fail";
             $json_response["data"] = "Cannot create a closed loop of dependencies.";
+
             echo json_encode($json_response);
             die();
         } else {
+
+            // call the same function recursively to check the parent's parent.
             checkParents($item["ParentId"]);
         }
     }

@@ -17,7 +17,7 @@ define("CONTROLLERS", RESOURCES . "/controllers");
 define("COMMON_RESOURCES", VIEWS . "/common");
 define("API", RESOURCES . "/api");
 
-// Db config
+// Database configurations
 $server = 'localhost';
 $user = 'root';
 $pass = '';

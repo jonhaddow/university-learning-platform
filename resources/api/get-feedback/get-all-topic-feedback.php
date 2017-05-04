@@ -6,8 +6,11 @@ if ($_SESSION["role"] != 1) {
 
 $students = $_GET["studentId"];
 
+// If list of students are submitted, split it up.
 if ($students) {
 	$sIds = implode(',', $students);
+
+	// Get all feedback from the list of students about this particular topic.
 	$sql = $db_conn->prepare("
 		SELECT Mark
 		FROM feedback
@@ -15,6 +18,7 @@ if ($students) {
 	");
 	$sql->bindParam(":topicid", $_GET["topicId"]);
 } else {
+    // Get all feedback about this particular topic.
 	$sql = $db_conn->prepare("
 		SELECT Mark
 		FROM feedback

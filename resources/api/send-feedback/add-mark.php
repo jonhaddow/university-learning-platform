@@ -6,7 +6,6 @@ $userId = $_SESSION["userId"];
 $mark = $_POST["mark"];
 $topicId = $_POST["topicId"];
 
-
 // Validate input
 $valid = true;
 if ($mark < 1 || $mark > 5) {

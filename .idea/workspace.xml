@@ -2,17 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23a5a197-9e22-4376-b93d-58598c5ede59" name="Default" comment="Lecturers can select a student from a dropdown.">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/databaseBackup/test.sql" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/website.iml" afterPath="$PROJECT_DIR$/.idea/website.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/lecturer-dashboard.css" afterPath="$PROJECT_DIR$/public/css/lecturer-dashboard.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/custom-js/dashboardGlobal.js" afterPath="$PROJECT_DIR$/public/custom-js/dashboardGlobal.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/custom-js/jsConfig.js" afterPath="$PROJECT_DIR$/public/custom-js/jsConfig.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/custom-js/lecturerModifyScript.js" afterPath="$PROJECT_DIR$/public/custom-js/lecturerModifyScript.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/custom-js/lecturerViewScript.js" afterPath="$PROJECT_DIR$/public/custom-js/lecturerViewScript.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/custom-js/login.js" afterPath="$PROJECT_DIR$/public/custom-js/login.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/custom-js/register.js" afterPath="$PROJECT_DIR$/public/custom-js/register.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/custom-js/studentScript.js" afterPath="$PROJECT_DIR$/public/custom-js/studentScript.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/api/get-feedback/filter-students.php" afterPath="$PROJECT_DIR$/resources/api/get-feedback/filter-students.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/api/get-feedback/get-all-topic-feedback.php" afterPath="$PROJECT_DIR$/resources/api/get-feedback/get-all-topic-feedback.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/api/get-feedback/get-topic-average-feedback.php" afterPath="$PROJECT_DIR$/resources/api/get-feedback/get-topic-average-feedback.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/api/login/login.php" afterPath="$PROJECT_DIR$/resources/api/login/login.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/api/modify-map/add-dependency.php" afterPath="$PROJECT_DIR$/resources/api/modify-map/add-dependency.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/api/modify-map/add-topic.php" afterPath="$PROJECT_DIR$/resources/api/modify-map/add-topic.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/api/view-map/get-map-data.php" afterPath="$PROJECT_DIR$/resources/api/view-map/get-map-data.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/dashboard/lecturerModifyMap.php" afterPath="$PROJECT_DIR$/resources/views/dashboard/lecturerModifyMap.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/dashboard/lecturerView.php" afterPath="$PROJECT_DIR$/resources/views/dashboard/lecturerView.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/dashboard/studentView.php" afterPath="$PROJECT_DIR$/resources/views/dashboard/studentView.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/api/modify-map/delete-dependency.php" afterPath="$PROJECT_DIR$/resources/api/modify-map/delete-dependency.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/api/modify-map/delete-topic.php" afterPath="$PROJECT_DIR$/resources/api/modify-map/delete-topic.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/api/module/add-module.php" afterPath="$PROJECT_DIR$/resources/api/module/add-module.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/api/module/delete-module.php" afterPath="$PROJECT_DIR$/resources/api/module/delete-module.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/api/module/edit-module.php" afterPath="$PROJECT_DIR$/resources/api/module/edit-module.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/api/send-feedback/add-mark.php" afterPath="$PROJECT_DIR$/resources/api/send-feedback/add-mark.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/api/send-feedback/delete-mark.php" afterPath="$PROJECT_DIR$/resources/api/send-feedback/delete-mark.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/config.php" afterPath="$PROJECT_DIR$/resources/config.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/controllers/apiController.php" afterPath="$PROJECT_DIR$/resources/controllers/apiController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/controllers/dashboardController.php" afterPath="$PROJECT_DIR$/resources/controllers/dashboardController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/controllers/logoffController.php" afterPath="$PROJECT_DIR$/resources/controllers/logoffController.php" />
     </list>
     <ignored path=".idea/" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -99,37 +115,27 @@
     <favorites_list name="website" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="dashboardGlobal.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/custom-js/dashboardGlobal.js">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="delete-mark.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/api/send-feedback/delete-mark.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="762">
-              <caret line="178" column="50" lean-forward="true" selection-start-line="178" selection-start-column="50" selection-end-line="178" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="lecturerViewScript.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/custom-js/lecturerViewScript.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="795">
-              <caret line="158" column="29" lean-forward="false" selection-start-line="158" selection-start-column="29" selection-end-line="158" selection-end-column="29" />
+            <state relative-caret-position="-9">
+              <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding>
-                <marker date="1490038832862" expanded="true" signature="2239:4637" ph="{...}" />
-                <marker date="1490038832862" expanded="true" signature="2317:3127" ph="{...}" />
-                <marker date="1490038832862" expanded="true" signature="2367:3121" ph="{...}" />
+                <marker date="1493907737083" expanded="true" signature="154:222" ph="DELETE FROM " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="networkConfig.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/custom-js/networkConfig.js">
+      <file leaf-file-name="get-mark.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/api/send-feedback/get-mark.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="54" column="2" lean-forward="false" selection-start-line="54" selection-start-column="2" selection-end-line="54" selection-end-column="2" />
-              <folding />
+            <state relative-caret-position="-9">
+              <caret line="11" column="26" lean-forward="false" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+              <folding>
+                <marker date="1491752155051" expanded="true" signature="162:249" ph="SELECT Mark feedback" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -137,78 +143,85 @@
       <file leaf-file-name="get-map-data.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/api/view-map/get-map-data.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
+            <state relative-caret-position="-9">
               <caret line="20" column="16" lean-forward="false" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
               <folding>
-                <marker date="1490040008439" expanded="true" signature="75:120" ph="SELECT * FRO... topics" />
-                <marker date="1490040008439" expanded="true" signature="461:487" ph="SELECT * FRO... dependencies" />
+                <marker date="1491752155051" expanded="true" signature="75:120" ph="SELECT * FRO... topics" />
+                <marker date="1491752155051" expanded="true" signature="461:487" ph="SELECT * FRO... dependencies" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="jsConfig.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/custom-js/jsConfig.js">
+      <file leaf-file-name="apiController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/controllers/apiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
+            <state relative-caret-position="-9">
+              <caret line="3" column="7" lean-forward="false" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lecturerView.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/dashboard/lecturerView.php">
+      <file leaf-file-name="dashboardController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/controllers/dashboardController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+            <state relative-caret-position="-9">
+              <caret line="22" column="59" lean-forward="false" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lecturerModifyMap.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/dashboard/lecturerModifyMap.php">
+      <file leaf-file-name="loginController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/controllers/loginController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="98" column="30" lean-forward="false" selection-start-line="98" selection-start-column="30" selection-end-line="98" selection-end-column="30" />
+            <state relative-caret-position="-9">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lecturerModifyScript.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/custom-js/lecturerModifyScript.js">
+      <file leaf-file-name="logoffController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/controllers/logoffController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="107" column="0" lean-forward="true" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
+            <state relative-caret-position="-9">
+              <caret line="1" column="49" lean-forward="false" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add-dependency.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/api/modify-map/add-dependency.php">
+      <file leaf-file-name="registerController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/controllers/registerController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="693">
-              <caret line="96" column="37" lean-forward="false" selection-start-line="96" selection-start-column="37" selection-end-line="96" selection-end-column="37" />
-              <folding>
-                <marker date="1490039871203" expanded="true" signature="304:373" ph="SELECT Topic... topics" />
-                <marker date="1490039871203" expanded="true" signature="1335:1398" ph="SELECT Paren... dependencies" />
-                <marker date="1490039871203" expanded="true" signature="2192:2285" ph="INSERT INTO dependencies... " />
-              </folding>
+            <state relative-caret-position="-9">
+              <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add-topic.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/api/modify-map/add-topic.php">
+      <file leaf-file-name="config.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/config.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-              <folding>
-                <marker date="1490036672729" expanded="true" signature="365:451" ph="INSERT INTO topics... " />
-              </folding>
+            <state relative-caret-position="468">
+              <caret line="26" column="66" lean-forward="true" selection-start-line="26" selection-start-column="66" selection-end-line="26" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="612">
+                <caret line="23" column="311" lean-forward="true" selection-start-line="23" selection-start-column="311" selection-end-line="23" selection-end-column="311" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -237,6 +250,8 @@
       <find>dropdown</find>
       <find>ale</find>
       <find>studentsMenu</find>
+      <find>feedbackCount</find>
+      <find>taught</find>
     </findStrings>
     <replaceStrings>
       <replace>var</replace>
@@ -248,18 +263,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/resources/controllers/logoffController.php" />
-        <option value="$PROJECT_DIR$/resources/controllers/registerController.php" />
-        <option value="$PROJECT_DIR$/public/index.php" />
-        <option value="$PROJECT_DIR$/resources/api/register/register.php" />
-        <option value="$PROJECT_DIR$/public/js/register.js" />
-        <option value="$PROJECT_DIR$/resources/api/get-feedback/GetFeedback.php" />
-        <option value="$PROJECT_DIR$/resources/controllers/apiController.php" />
-        <option value="$PROJECT_DIR$/resources/api/get-feedback/get-students-mark.php" />
         <option value="$PROJECT_DIR$/resources/api/get-feedback/get-average.php" />
-        <option value="$PROJECT_DIR$/resources/api/modify-map/delete-topic.php" />
-        <option value="$PROJECT_DIR$/resources/api/send-feedback/add-mark.php" />
-        <option value="$PROJECT_DIR$/resources/api/send-feedback/delete-mark.php" />
         <option value="$PROJECT_DIR$/resources/api/send-feedback/get-mark.php" />
         <option value="$PROJECT_DIR$/resources/api/get-feedback/getStudentFeedback.php" />
         <option value="$PROJECT_DIR$/resources/api/get-feedback/getFeedbackAverage.php" />
@@ -269,21 +273,11 @@
         <option value="$USER_HOME$/.PhpStorm2016.3/phpstorm64.vmoptions" />
         <option value="$PROJECT_DIR$/resources/api/get-feedback/get-topic-student-feedback.php" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/2974bf57-5bcd-4db3-93aa-c2fa0bc4a0f8/console.sql" />
-        <option value="$PROJECT_DIR$/resources/api/get-feedback/get-all-topic-feedback.php" />
         <option value="$PROJECT_DIR$/public/css/student-dashboard.css" />
         <option value="$PROJECT_DIR$/resources/api/modify-map/edit-topic.php" />
-        <option value="$PROJECT_DIR$/resources/api/modify-map/delete-dependency.php" />
         <option value="$PROJECT_DIR$/resources/api/module/get-modules.php" />
-        <option value="$PROJECT_DIR$/resources/config.php" />
-        <option value="$PROJECT_DIR$/resources/controllers/dashboardController.php" />
         <option value="dbtable:/7b9c85a9/72ea4b99-2e43-427d-9303-6dd61aedbb5a/test.modules" />
-        <option value="$PROJECT_DIR$/resources/api/module/add-module.php" />
-        <option value="$PROJECT_DIR$/resources/api/get-feedback/get-topic-average-feedback.php" />
-        <option value="$PROJECT_DIR$/resources/api/module/edit-module.php" />
-        <option value="$PROJECT_DIR$/resources/api/module/delete-module.php" />
-        <option value="$PROJECT_DIR$/public/custom-js/studentScript.js" />
         <option value="$PROJECT_DIR$/public/css/login.css" />
-        <option value="$PROJECT_DIR$/resources/api/get-feedback/filter-students.php" />
         <option value="$PROJECT_DIR$/bower.json" />
         <option value="$PROJECT_DIR$/public/css/dashboard.css" />
         <option value="$PROJECT_DIR$/public/css/lecturer-dashboard.css" />
@@ -291,14 +285,35 @@
         <option value="$PROJECT_DIR$/resources/views/common/headers.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/lecturerView.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/studentView.php" />
-        <option value="$PROJECT_DIR$/public/custom-js/lecturerModifyScript.js" />
         <option value="$PROJECT_DIR$/resources/api/modify-map/add-topic.php" />
         <option value="$PROJECT_DIR$/resources/views/dashboard/lecturerModifyMap.php" />
         <option value="$PROJECT_DIR$/public/custom-js/networkConfig.js" />
-        <option value="$PROJECT_DIR$/public/custom-js/lecturerViewScript.js" />
-        <option value="$PROJECT_DIR$/resources/api/modify-map/add-dependency.php" />
         <option value="$PROJECT_DIR$/resources/api/view-map/get-map-data.php" />
+        <option value="$PROJECT_DIR$/resources/api/modify-map/delete-dependency.php" />
+        <option value="$PROJECT_DIR$/resources/api/modify-map/add-dependency.php" />
+        <option value="$PROJECT_DIR$/PHPUnitTests/filterStudentsTest.php" />
+        <option value="$PROJECT_DIR$/resources/api/login/login.php" />
+        <option value="$PROJECT_DIR$/resources/api/modify-map/delete-topic.php" />
+        <option value="$PROJECT_DIR$/resources/api/get-feedback/filter-students.php" />
         <option value="$PROJECT_DIR$/public/custom-js/dashboardGlobal.js" />
+        <option value="$PROJECT_DIR$/public/custom-js/jsConfig.js" />
+        <option value="$PROJECT_DIR$/public/custom-js/lecturerModifyScript.js" />
+        <option value="$PROJECT_DIR$/public/custom-js/lecturerViewScript.js" />
+        <option value="$PROJECT_DIR$/public/custom-js/login.js" />
+        <option value="$PROJECT_DIR$/public/custom-js/register.js" />
+        <option value="$PROJECT_DIR$/public/custom-js/studentScript.js" />
+        <option value="$PROJECT_DIR$/resources/api/get-feedback/get-all-topic-feedback.php" />
+        <option value="$PROJECT_DIR$/resources/api/get-feedback/get-topic-average-feedback.php" />
+        <option value="$PROJECT_DIR$/resources/api/module/add-module.php" />
+        <option value="$PROJECT_DIR$/resources/api/module/delete-module.php" />
+        <option value="$PROJECT_DIR$/resources/api/module/edit-module.php" />
+        <option value="$PROJECT_DIR$/resources/api/send-feedback/add-mark.php" />
+        <option value="$PROJECT_DIR$/resources/api/send-feedback/delete-mark.php" />
+        <option value="$PROJECT_DIR$/resources/controllers/apiController.php" />
+        <option value="$PROJECT_DIR$/resources/controllers/dashboardController.php" />
+        <option value="$PROJECT_DIR$/resources/controllers/logoffController.php" />
+        <option value="$PROJECT_DIR$/resources/config.php" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -324,13 +339,14 @@
       <path value="$PROJECT_DIR$/resources/views/common" />
       <path value="." />
       <path value="/usr/share/php" />
+      <path value="/usr/bin" />
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="47" />
-    <option name="y" value="24" />
-    <option name="width" value="1873" />
-    <option name="height" value="1056" />
+    <option name="x" value="43" />
+    <option name="y" value="27" />
+    <option name="width" value="1877" />
+    <option name="height" value="1053" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -375,6 +391,25 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DB Consoles" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyRootNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="72ea4b99-2e43-427d-9303-6dd61aedbb5a" />
+              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyPsiNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -415,51 +450,7 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="htdocs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="htdocs" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="dashboard" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="htdocs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="htdocs" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -502,6 +493,54 @@
               <option name="myItemId" value="api" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="send-feedback" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="register" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="module" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -522,6 +561,50 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="modify-map" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="login" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="htdocs" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="api" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="get-feedback" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -567,41 +650,18 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="public" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
+              <option name="myItemId" value="databaseBackup" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" />
-              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="DB Consoles" />
-              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyRootNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="72ea4b99-2e43-427d-9303-6dd61aedbb5a" />
-              <option name="myItemType" value="com.intellij.ide.scratch.ScratchProjectViewPane$MyPsiNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="/usr/bin" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
     <property name="settings.editor.splitter.proportion" value="0.22526935" />
     <property name="two.files.diff.last.used.file" value="$PROJECT_DIR$/Project/my-style.css" />
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
@@ -613,12 +673,6 @@
     <property name="database.data.extractors.current" value="Tab-separated (TSV)" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/public/css" />
-      <recent name="$PROJECT_DIR$/resources/views/dashboard" />
-      <recent name="$PROJECT_DIR$/public/api" />
-      <recent name="$PROJECT_DIR$/Project/Dashboard" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/public/third-party-css" />
       <recent name="$PROJECT_DIR$/resources/api/get-feedback" />
@@ -626,9 +680,42 @@
       <recent name="$PROJECT_DIR$/resources/views" />
       <recent name="$PROJECT_DIR$/resources/controllers" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/public/css" />
+      <recent name="$PROJECT_DIR$/resources/views/dashboard" />
+      <recent name="$PROJECT_DIR$/public/api" />
+      <recent name="$PROJECT_DIR$/Project/Dashboard" />
+    </key>
   </component>
-  <component name="RunManager" selected="JavaScript Debug.index.php">
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="PHPUnit.filterStudentsTest">
     <configuration default="false" name="index.php" type="JavascriptDebugType" factoryName="JavaScript Debug" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/website/Project/Register/index.php">
+      <method />
+    </configuration>
+    <configuration default="false" name="filterStudentsTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="filterStudentsTest" file="$PROJECT_DIR$/PHPUnitTests/filterStudentsTest.php" scope="Class" />
+      <method />
+    </configuration>
+    <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
@@ -690,12 +777,14 @@
       <recursive>false</recursive>
       <method />
     </configuration>
-    <list size="1">
+    <list size="2">
       <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.php" />
+      <item index="1" class="java.lang.String" itemvalue="PHPUnit.filterStudentsTest" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="JavaScript Debug.index.php" />
+      <list size="2">
+        <item index="0" class="java.lang.String" itemvalue="PHPUnit.filterStudentsTest" />
+        <item index="1" class="java.lang.String" itemvalue="JavaScript Debug.index.php" />
       </list>
     </recent_temporary>
   </component>
@@ -777,6 +866,16 @@
       <workItem from="1489571498255" duration="11977000" />
       <workItem from="1489656422924" duration="1561000" />
       <workItem from="1490027057481" duration="9689000" />
+      <workItem from="1492537683401" duration="8353000" />
+      <workItem from="1492587858250" duration="1728000" />
+      <workItem from="1492705362615" duration="3581000" />
+      <workItem from="1493047259423" duration="3732000" />
+      <workItem from="1493147351979" duration="2524000" />
+      <workItem from="1493198495389" duration="5498000" />
+      <workItem from="1493284381472" duration="4716000" />
+      <workItem from="1493815217319" duration="2448000" />
+      <workItem from="1493824247595" duration="5726000" />
+      <workItem from="1493897508917" duration="9412000" />
     </task>
     <task id="LOCAL-00001" summary="Lecturers can select a student from a dropdown.">
       <created>1483198605993</created>
@@ -788,8 +887,34 @@
     <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="TestHistory">
+    <history-entry file="filterStudentsTest - 2017.04.27 at 11h 20m 41s.xml">
+      <configuration name="filterStudentsTest" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="filterStudentsTest - 2017.04.27 at 11h 23m 36s.xml">
+      <configuration name="filterStudentsTest" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="filterStudentsTest - 2017.04.27 at 11h 24m 06s.xml">
+      <configuration name="filterStudentsTest" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="filterStudentsTest - 2017.04.27 at 11h 24m 25s.xml">
+      <configuration name="filterStudentsTest" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="filterStudentsTest - 2017.04.27 at 11h 24m 36s.xml">
+      <configuration name="filterStudentsTest" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="filterStudentsTest - 2017.04.27 at 11h 29m 35s.xml">
+      <configuration name="filterStudentsTest" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="filterStudentsTest - 2017.04.27 at 11h 31m 15s.xml">
+      <configuration name="filterStudentsTest" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+    <history-entry file="filterStudentsTest - 2017.04.27 at 11h 32m 07s.xml">
+      <configuration name="filterStudentsTest" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
+  </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="422855000" />
+    <option name="totallyTimeSpent" value="470573000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -801,30 +926,29 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="47" y="24" width="1873" height="1056" extended-state="6" />
-    <editor active="false" />
+    <frame x="43" y="27" width="1877" height="1053" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19561644" sideWeight="0.4958159" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29939792" sideWeight="0.4958159" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32985386" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24986301" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32810867" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32968238" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2498618" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.15035932" sideWeight="0.5041841" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32983193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32983193" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32983193" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3274918" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -874,245 +998,64 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="3" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/api/send-feedback/get-mark.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/7b9c85a9/2974bf57-5bcd-4db3-93aa-c2fa0bc4a0f8/test.topics" />
-    <entry file="file://$USER_HOME$/.PhpStorm2016.3/phpstorm64.vmoptions" />
-    <entry file="dbDummy://dbtable:/7b9c85a9/2974bf57-5bcd-4db3-93aa-c2fa0bc4a0f8/test.feedback" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/2974bf57-5bcd-4db3-93aa-c2fa0bc4a0f8/console.sql" />
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/72ea4b99-2e43-427d-9303-6dd61aedbb5a/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/api/register/register.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="35" column="30" lean-forward="false" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/api/send-feedback/add-mark.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-240">
-          <caret line="2" column="21" lean-forward="false" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/api/get-feedback/get-topic-student-feedback.php" />
-    <entry file="file://$PROJECT_DIR$/resources/api/get-feedback/get-all-topic-feedback.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="1" lean-forward="false" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/student-dashboard.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="20" lean-forward="false" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/api/modify-map/edit-topic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="20" lean-forward="false" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/api/modify-map/delete-dependency.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/7b9c85a9/72ea4b99-2e43-427d-9303-6dd61aedbb5a/test.users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/api/get-feedback/get-all-students.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="46" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="14" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/config.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="8" lean-forward="false" selection-start-line="8" selection-start-column="8" selection-end-line="8" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/7b9c85a9/72ea4b99-2e43-427d-9303-6dd61aedbb5a/test.topics">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/controllers/apiController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/api/module/get-modules.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="23" lean-forward="false" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/api/login/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="33" lean-forward="false" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/api/get-feedback/get-topic-average-feedback.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="23" lean-forward="false" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/7b9c85a9/72ea4b99-2e43-427d-9303-6dd61aedbb5a/test.modules">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/api/module/delete-module.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="26" lean-forward="false" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/api/module/edit-module.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="40" column="26" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="40" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/api/module/add-module.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/controllers/dashboardController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="42" lean-forward="false" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="1" lean-forward="false" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/custom-js/studentScript.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="118" column="1" lean-forward="false" selection-start-line="118" selection-start-column="1" selection-end-line="118" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/custom-js/login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/login.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="8" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="dbDummy://dbtable:/7b9c85a9/72ea4b99-2e43-427d-9303-6dd61aedbb5a/test.modules" />
     <entry file="file://$PROJECT_DIR$/resources/views/loginView.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/api/get-feedback/filter-students.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="25" lean-forward="false" selection-start-line="24" selection-start-column="25" selection-end-line="24" selection-end-column="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/bower.json" />
     <entry file="file://$PROJECT_DIR$/public/libs/bootswatch-dist/css/bootstrap.min.css" />
     <entry file="file://$PROJECT_DIR$/public/libs/bootswatch-dist/css/bootstrap.css" />
-    <entry file="file://$PROJECT_DIR$/public/css/dashboard.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/dashboard/dashboardHeaders.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
           <caret line="3" column="37" lean-forward="false" selection-start-line="3" selection-start-column="37" selection-end-line="3" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/css/bootstrap-navbar.css" />
+    <entry file="file://$PROJECT_DIR$/resources/views/common/headers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/lecturerModifyMap.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1764">
+          <caret line="98" column="30" lean-forward="false" selection-start-line="98" selection-start-column="30" selection-end-line="98" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/studentView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1188">
+          <caret line="66" column="64" lean-forward="false" selection-start-line="66" selection-start-column="64" selection-end-line="66" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PHPUnitTests/filterStudentsTest.php" />
+    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/lecturerView.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" column="76" lean-forward="false" selection-start-line="24" selection-start-column="76" selection-end-line="24" selection-end-column="76" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/css/bootstrap-navbar.css">
+    <entry file="file://$PROJECT_DIR$/public/css/dashboard.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1455">
-          <caret line="97" column="1" lean-forward="false" selection-start-line="97" selection-start-column="1" selection-end-line="97" selection-end-column="1" />
+        <state relative-caret-position="60">
+          <caret line="4" column="8" lean-forward="false" selection-start-line="4" selection-start-column="8" selection-end-line="4" selection-end-column="8" />
           <folding />
         </state>
       </provider>
@@ -1125,111 +1068,362 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/common/headers.php">
+    <entry file="file://$PROJECT_DIR$/public/css/login.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+        <state relative-caret-position="108">
+          <caret line="6" column="8" lean-forward="true" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/studentView.php">
+    <entry file="file://$PROJECT_DIR$/public/custom-js/dashboardGlobal.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/api/modify-map/add-topic.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-          <folding>
-            <marker date="1490036672729" expanded="true" signature="365:451" ph="INSERT INTO topics... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/lecturerView.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="51" column="0" lean-forward="false" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/dashboard/lecturerModifyMap.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="98" column="30" lean-forward="false" selection-start-line="98" selection-start-column="30" selection-end-line="98" selection-end-column="30" />
+        <state relative-caret-position="4734">
+          <caret line="263" column="15" lean-forward="true" selection-start-line="263" selection-start-column="15" selection-end-line="263" selection-end-column="15" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/custom-js/jsConfig.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/custom-js/networkConfig.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="54" column="2" lean-forward="false" selection-start-line="54" selection-start-column="2" selection-end-line="54" selection-end-column="2" />
+        <state relative-caret-position="90">
+          <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/custom-js/lecturerViewScript.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="158" column="29" lean-forward="false" selection-start-line="158" selection-start-column="29" selection-end-line="158" selection-end-column="29" />
+        <state relative-caret-position="558">
+          <caret line="322" column="51" lean-forward="false" selection-start-line="322" selection-start-column="51" selection-end-line="322" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/custom-js/lecturerModifyScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="752">
+          <caret line="247" column="60" lean-forward="false" selection-start-line="247" selection-start-column="60" selection-end-line="247" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/custom-js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="716">
+          <caret line="55" column="11" lean-forward="false" selection-start-line="55" selection-start-column="11" selection-end-line="55" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/custom-js/register.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-778">
+          <caret line="2" column="29" lean-forward="false" selection-start-line="2" selection-start-column="29" selection-end-line="2" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/custom-js/networkConfig.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="15" column="20" lean-forward="false" selection-start-line="15" selection-start-column="20" selection-end-line="15" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/custom-js/studentScript.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="14">
+          <caret line="165" column="0" lean-forward="true" selection-start-line="165" selection-start-column="0" selection-end-line="165" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/.htaccess">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="5" column="46" lean-forward="false" selection-start-line="5" selection-start-column="46" selection-end-line="5" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/api/get-feedback/filter-students.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="22" lean-forward="false" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
           <folding>
-            <marker date="1490038832862" expanded="true" signature="2239:4637" ph="{...}" />
-            <marker date="1490038832862" expanded="true" signature="2317:3127" ph="{...}" />
-            <marker date="1490038832862" expanded="true" signature="2367:3121" ph="{...}" />
+            <marker date="1493830155633" expanded="true" signature="459:498" ph="SELECT UserI... users" />
+            <marker date="1493830155633" expanded="true" signature="795:858" ph="SELECT UserI... users" />
+            <marker date="1493830155633" expanded="true" signature="1170:1271" ph="SELECT UserI... users" />
+            <marker date="1493830155633" expanded="true" signature="1550:1653" ph="SELECT UserI... users" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/api/get-feedback/get-all-students.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="22" lean-forward="true" selection-start-line="7" selection-start-column="22" selection-end-line="7" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/api/get-feedback/get-all-topic-feedback.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="540">
+          <caret line="30" column="30" lean-forward="false" selection-start-line="30" selection-start-column="30" selection-end-line="30" selection-end-column="30" />
+          <folding>
+            <marker date="1493907161604" expanded="true" signature="291:367" ph="SELECT Mark feedback" />
+            <marker date="1493907161604" expanded="true" signature="513:567" ph="SELECT Mark feedback" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/api/get-feedback/get-topic-average-feedback.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="23" column="3" lean-forward="false" selection-start-line="23" selection-start-column="3" selection-end-line="23" selection-end-column="3" />
+          <folding>
+            <marker date="1493907161616" expanded="true" signature="377:515" ph="SELECT Topic... TopicId" />
+            <marker date="1493907161616" expanded="true" signature="426:487" ph="SELECT Topic... feedback" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/api/login/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="23" lean-forward="false" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <folding>
+            <marker date="1493815520996" expanded="true" signature="376:422" ph="SELECT * FRO... users" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/api/modify-map/add-dependency.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="96" column="37" lean-forward="false" selection-start-line="96" selection-start-column="37" selection-end-line="96" selection-end-column="37" />
+        <state relative-caret-position="-913">
+          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding>
-            <marker date="1490039871203" expanded="true" signature="304:373" ph="SELECT Topic... topics" />
-            <marker date="1490039871203" expanded="true" signature="1335:1398" ph="SELECT Paren... dependencies" />
-            <marker date="1490039871203" expanded="true" signature="2192:2285" ph="INSERT INTO dependencies... " />
+            <marker date="1492542373267" expanded="true" signature="304:373" ph="SELECT Topic... topics" />
+            <marker date="1492542373267" expanded="true" signature="1393:1456" ph="SELECT Paren... dependencies" />
+            <marker date="1492542373267" expanded="true" signature="2484:2577" ph="INSERT INTO dependencies... " />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/custom-js/lecturerModifyScript.js">
+    <entry file="file://$PROJECT_DIR$/resources/api/modify-map/add-topic.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="107" column="0" lean-forward="true" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="347">
+          <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+          <folding>
+            <marker date="1491752155051" expanded="true" signature="365:451" ph="INSERT INTO topics... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/api/modify-map/delete-dependency.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding>
+            <marker date="1492541817759" expanded="true" signature="173:255" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/api/modify-map/delete-topic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-751">
+          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+          <folding>
+            <marker date="1493824971270" expanded="true" signature="141:195" ph="SELECT Topic... topics" />
+            <marker date="1493824971270" expanded="true" signature="611:669" ph="SELECT Paren... dependencies" />
+            <marker date="1493824971270" expanded="true" signature="611:677" ph="SELECT Paren... dependencies" />
+            <marker date="1493824971270" expanded="true" signature="960:1005" ph="DELETE FROM " />
+            <marker date="1493824971270" expanded="true" signature="960:1013" ph="DELETE FROM " />
+            <marker date="1493824971270" expanded="true" signature="1153:1219" ph="SELECT Child... dependencies" />
+            <marker date="1493824971270" expanded="true" signature="1500:1546" ph="DELETE FROM " />
+            <marker date="1493824971270" expanded="true" signature="1500:1554" ph="DELETE FROM " />
+            <marker date="1493824971270" expanded="true" signature="1811:1895" ph="INSERT INTO dependencies... " />
+            <marker date="1493824971270" expanded="true" signature="2127:2165" ph="DELETE FROM " />
+            <marker date="1493824971270" expanded="true" signature="2127:2173" ph="DELETE FROM " />
+            <marker date="1493824971270" expanded="true" signature="2298:2338" ph="DELETE FROM " />
+            <marker date="1493824971270" expanded="true" signature="2298:2345" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/api/modify-map/edit-topic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="22" column="20" lean-forward="false" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
+          <folding>
+            <marker date="1491752155051" expanded="true" signature="412:505" ph="UPDATE topic... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/api/module/add-module.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <marker date="1493907161644" expanded="true" signature="407:460" ph="INSERT INTO modules... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/api/module/delete-module.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="36" lean-forward="false" selection-start-line="9" selection-start-column="36" selection-end-line="9" selection-end-column="36" />
+          <folding>
+            <marker date="1493907161632" expanded="true" signature="176:214" ph="DELETE FROM " />
+            <marker date="1493907161632" expanded="true" signature="329:372" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/api/module/edit-module.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="32" column="1" lean-forward="false" selection-start-line="32" selection-start-column="1" selection-end-line="32" selection-end-column="1" />
+          <folding>
+            <marker date="1493907268468" expanded="true" signature="410:477" ph="UPDATE modul... " />
+            <marker date="1493907268468" expanded="true" signature="946:1010" ph="UPDATE topic... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/api/module/get-modules.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="23" lean-forward="false" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
+          <folding>
+            <marker date="1491752155051" expanded="true" signature="100:121" ph="SELECT * FRO... modules" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/api/register/register.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-157">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1491752155051" expanded="true" signature="173:219" ph="SELECT * FRO... users" />
+            <marker date="1491752155051" expanded="true" signature="922:1010" ph="INSERT INTO users... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/api/send-feedback/add-mark.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-481">
+          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding>
+            <marker date="1493907737055" expanded="true" signature="284:377" ph="SELECT Feedb... feedback" />
+            <marker date="1493907737055" expanded="true" signature="641:722" ph="INSERT INTO feedback... " />
+            <marker date="1493907737055" expanded="true" signature="1145:1214" ph="UPDATE feedb... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/api/send-feedback/delete-mark.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <marker date="1493907737083" expanded="true" signature="154:222" ph="DELETE FROM " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/api/send-feedback/get-mark.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="11" column="26" lean-forward="false" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+          <folding>
+            <marker date="1491752155051" expanded="true" signature="162:249" ph="SELECT Mark feedback" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/api/view-map/get-map-data.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
+        <state relative-caret-position="-9">
           <caret line="20" column="16" lean-forward="false" selection-start-line="20" selection-start-column="16" selection-end-line="20" selection-end-column="16" />
           <folding>
-            <marker date="1490040008439" expanded="true" signature="75:120" ph="SELECT * FRO... topics" />
-            <marker date="1490040008439" expanded="true" signature="461:487" ph="SELECT * FRO... dependencies" />
+            <marker date="1491752155051" expanded="true" signature="75:120" ph="SELECT * FRO... topics" />
+            <marker date="1491752155051" expanded="true" signature="461:487" ph="SELECT * FRO... dependencies" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/custom-js/dashboardGlobal.js">
+    <entry file="file://$PROJECT_DIR$/resources/controllers/apiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="762">
-          <caret line="178" column="50" lean-forward="true" selection-start-line="178" selection-start-column="50" selection-end-line="178" selection-end-column="50" />
+        <state relative-caret-position="-9">
+          <caret line="3" column="7" lean-forward="false" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/controllers/dashboardController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="22" column="59" lean-forward="false" selection-start-line="22" selection-start-column="59" selection-end-line="22" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/controllers/loginController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/controllers/logoffController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="1" column="49" lean-forward="false" selection-start-line="1" selection-start-column="49" selection-end-line="1" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/controllers/registerController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-9">
+          <caret line="5" column="11" lean-forward="false" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="612">
+            <caret line="23" column="311" lean-forward="true" selection-start-line="23" selection-start-column="311" selection-end-line="23" selection-end-column="311" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="26" column="66" lean-forward="true" selection-start-line="26" selection-start-column="66" selection-end-line="26" selection-end-column="66" />
           <folding />
         </state>
       </provider>

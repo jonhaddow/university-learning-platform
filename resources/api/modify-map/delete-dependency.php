@@ -5,7 +5,7 @@ if ($_SESSION["role"] != 1) {exit();}
 // get parent and child ids
 $dependency_ids = array($_POST["parent"], $_POST["child"]);
 
-// find any parent dependencies
+// remove the dependency
 $sql = "
     DELETE
     FROM dependencies

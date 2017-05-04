@@ -5,6 +5,7 @@ if ($_SESSION["role"] != 0) {exit();}
 $userId = $_SESSION["userId"];
 $topicId = $_POST["topicId"];
 
+// Delete mark from feedback table.
 $sql = "
 	DELETE FROM feedback
 	WHERE TopicId = :topicid

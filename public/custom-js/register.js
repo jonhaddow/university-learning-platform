@@ -1,4 +1,6 @@
 $(function () {
+
+    // When a user registers.
     $("#formRegister").submit(function (e) {
         e.preventDefault();
 

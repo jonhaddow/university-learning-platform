@@ -1,3 +1,4 @@
+// Global config object
 var config = {
     PARENT_FOLDER: "/",
     API_LOCATION: "/api/",

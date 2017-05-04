@@ -1,12 +1,13 @@
 $(function () {
+
+    // When a user logs in.
     $("#formLogin").submit(function (e) {
         e.preventDefault();
 
         var userFormGroup = $("#formGroupUsername");
         var passFormGroup = $("#formGroupPassword");
 
-
-        // remove errors
+        // remove previous validation errors
         userFormGroup.removeClass("has-error has-feedback");
         passFormGroup.removeClass("has-error has-feedback");
 
@@ -53,6 +54,5 @@ $(function () {
                     break;
             }
         });
-
     });
 });

@@ -13,24 +13,18 @@
       <library name="PHP">
         <CLASSES>
           <root url="file://$USER_HOME$" />
+          <root url="file:///usr/bin" />
+          <root url="file:///usr/share/php" />
         </CLASSES>
         <SOURCES>
           <root url="file://$USER_HOME$" />
+          <root url="file:///usr/bin" />
+          <root url="file:///usr/share/php" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="library" name="jquery-ui" level="application" />
     <orderEntry type="library" name="bootstrap-slider" level="application" />
-    <orderEntry type="module-library">
-      <library name="PHP Runtime">
-        <CLASSES>
-          <root url="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard" />
-        </CLASSES>
-        <SOURCES>
-          <root url="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard" />
-        </SOURCES>
-      </library>
-    </orderEntry>
     <orderEntry type="library" name="sweetalert2" level="application" />
     <orderEntry type="library" name="chosen.jquery" level="application" />
     <orderEntry type="library" name="Chart" level="application" />
@@ -42,5 +36,15 @@
     <orderEntry type="library" name="sweetalert2" level="application" />
     <orderEntry type="library" name="vis" level="application" />
     <orderEntry type="library" name="bootstrap-toggle" level="application" />
+    <orderEntry type="module-library">
+      <library name="PHARS">
+        <CLASSES>
+          <root url="phar:///usr/bin/phar.phar/" />
+        </CLASSES>
+        <SOURCES>
+          <root url="phar:///usr/bin/phar.phar/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>

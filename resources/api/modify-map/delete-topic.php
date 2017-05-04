@@ -1,6 +1,8 @@
 <?php
 
-if ($_SESSION["role"] != 1) {exit();}
+if ($_SESSION["role"] != 1) {
+    exit();
+}
 
 // get topic name
 $topicName = $_POST["topic"];
@@ -9,7 +11,7 @@ $topicName = $_POST["topic"];
 $sql = "
     SELECT TopicId
     FROM topics
-    WHERE  Name = :topic
+    WHERE Name = :topic
 ";
 $stmt = $db_conn->prepare($sql);
 $stmt->bindParam(":topic", $topicName);
@@ -19,22 +21,18 @@ $exists = $stmt->rowCount();
 if ($exists == 0) {
     $json_response["status"] = "fail";
     $json_response["data"] = "The topic given does not exist";
-    echo json_encode($json_response);
-    die();
+    exit(json_encode($json_response));
 }
+$topicId = $response[0]["TopicId"];
 
 // find any parent dependencies
 $sql = "
     SELECT ParentId
     FROM dependencies
-    WHERE ChildId = (
-        SELECT TopicId
-        FROM topics
-        WHERE Name = :topicName
-    )
+    WHERE ChildId = :topicId
 ";
 $stmt = $db_conn->prepare($sql);
-$stmt->bindParam(":topicName", $topicName);
+$stmt->bindParam(":topicId", $topicId);
 $stmt->execute();
 $response = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $parents = array();
@@ -45,28 +43,20 @@ foreach ($response as $parent) {
 // Delete all parent dependencies
 $sql = "
     DELETE FROM dependencies
-    WHERE ChildId = (
-        SELECT TopicId
-        FROM topics
-        WHERE Name = :topic
-    )
+    WHERE ChildId = :topicId
 ";
 $stmt = $db_conn->prepare($sql);
-$stmt->bindParam(":topic", $topicName);
+$stmt->bindParam(":topicId", $topicId);
 $stmt->execute();
 
 // find any child dependencies
 $sql = "
     SELECT ChildId
     FROM dependencies
-    WHERE ParentId = (
-        SELECT TopicId
-        FROM topics
-        WHERE Name = :topicName
-    )
+    WHERE ParentId = :topicId
 ";
 $stmt = $db_conn->prepare($sql);
-$stmt->bindParam(":topicName", $topicName);
+$stmt->bindParam(":topicId", $topicId);
 $stmt->execute();
 $response = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $children = array();
@@ -77,14 +67,10 @@ foreach ($response as $child) {
 // Delete all child dependencies
 $sql = "
     DELETE FROM dependencies
-    WHERE ParentId = (
-        SELECT TopicId
-        FROM topics
-        WHERE Name = :topic
-    )
+    WHERE ParentId = :topicId
 ";
 $stmt = $db_conn->prepare($sql);
-$stmt->bindParam(":topic", $topicName);
+$stmt->bindParam(":topicId", $topicId);
 $stmt->execute();
 
 // Create a new dependency between all parents and all children
@@ -104,39 +90,21 @@ foreach ($parents as $parent) {
 // Delete all feedback related to topic
 $sql = "
 	DELETE FROM feedback
-	WHERE feedback.TopicId = (
-        SELECT topics.TopicId
-        FROM topics
-        WHERE topics.Name = :topic
-    )
+	WHERE TopicId = :topicId
 ";
 $stmt = $db_conn->prepare($sql);
-$stmt->bindParam(":topic", $topicName);
-if ($stmt->execute()) {
-	$json_response["status"] = "success";
-	$json_response["data"] = "null";
-} else {
-	$json_response["status"] = "error";
-	$json_response["message"] = "Unable to communicate with the database";
-	echo json_encode($json_response);
-	die();
-}
+$stmt->bindParam(":topicId", $topicId);
+$stmt->execute();
 
 // Delete topic
 $sql = "
     DELETE FROM topics
-    WHERE Name = :topicName
+    WHERE TopicId = :topicId
 ";
 $stmt = $db_conn->prepare($sql);
-$stmt->bindParam(":topicName", $topicName);
-if ($stmt->execute()) {
-    $json_response["status"] = "success";
-    $json_response["data"] = "null";
-} else {
-    $json_response["status"] = "error";
-    $json_response["message"] = "Unable to communicate with the database";
-	echo json_encode($json_response);
-	die();
-}
+$stmt->bindParam(":topicId", $topicId);
+$stmt->execute();
+$json_response["status"] = "success";
+$json_response["data"] = "null";
 
-echo json_encode($json_response);
+exit(json_encode($json_response));

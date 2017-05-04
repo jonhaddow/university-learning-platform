@@ -2,16 +2,23 @@ $(function () {
 
     networkOptions.edges.selectionWidth = 1;
     networkOptions.edges.color.highlight = "#ff0007";
+
+    // Call initialise network from dashboardGlobal.js
     initializeNetwork();
 
+    // If a topic form is editted...
     $("#selectedTopicForm").submit(function (e) {
         var errorDiv = $("#selectedTopicError");
         errorDiv.hide();
 
         var newName = $("#selectedTopicName").val();
+
+        // Validate input (client-side)
         if (newName === '') {
             alert("Title can't be empty");
         } else {
+
+            // Send request to edit topic.
             $.ajax({
                 url: config.API_LOCATION + "modify-map/edit-topic.php",
                 data: $("#selectedTopicForm").serialize(),
@@ -24,18 +31,23 @@ $(function () {
                     errorDiv.show();
                     errorDiv.text(obj.data);
                 } else {
-                    // re-initializeNetwork();
+
+                    // if successful, re-initializeNetwork();
                     initializeNetwork();
                     $("#noSelectedTopic").show();
                     $("#selectedTopicForm").hide();
                 }
             });
         }
+
+        // prevent default form submission.
         e.preventDefault();
     });
 
+    // If delete topic button is clicked...
     $("#deleteTopicButton").click(function () {
 
+        // Send request to delete the topic.
         $.ajax({
             url: config.API_LOCATION + "modify-map/delete-topic.php",
             data: {
@@ -52,13 +64,17 @@ $(function () {
         });
     });
 
+    // If delete dependency is clicked.
     $("#deleteEdgeForm").submit(function (e) {
 
+        // Send request to delete dependency.
         $.post(config.API_LOCATION + "modify-map/delete-dependency.php", $("#deleteEdgeForm").serialize(),
             function (result) {
                 if (JSON.parse(result).status == "error") {
                     alert("Error connecting to database.");
                 }
+
+                // re-initialise network
                 initializeNetwork();
                 $("#selectedEdgeInfo").hide();
             });
@@ -66,6 +82,7 @@ $(function () {
         e.preventDefault();
     });
 
+    // If new topic button is clicked.
     $("#newTopicForm").submit(function () {
 
         var errorDiv = $("#topicError");
@@ -104,11 +121,13 @@ $(function () {
 
     });
 
+    // If new dependency button is clicked.
     $("#newDependencyForm").submit(function () {
 
         const parent = $('#parentDropdownMenuSelect').find(":selected").text();
         const child = $('#childDropdownMenuSelect').find(":selected").text();
 
+        // Validate (client-side)
         if (parent === child) {
             $("#dependencyError").show().text("A topic cannot be dependent on itself.");
             return false;
@@ -116,6 +135,7 @@ $(function () {
             $("#dependencyError").hide();
         }
 
+        // Send request to add new dependency
         $.ajax({
             type: "POST",
             url: config.API_LOCATION + "modify-map/add-dependency.php",
@@ -147,6 +167,7 @@ $(function () {
     });
 });
 
+// Function to initialise on click listeners for graph objects.
 function setOnClickListeners() {
 
     // listener when node is selected
@@ -206,6 +227,7 @@ function setOnClickListeners() {
     populateDependencyMenu();
 }
 
+// Function to update the list of dependency in the dependency form.
 function populateDependencyMenu() {
 
     // Clear current items in menus
@@ -224,5 +246,4 @@ function populateDependencyMenu() {
 
     parent.chosen({width: "100%"}).trigger("chosen:updated");
     child.chosen({width: "100%"}).trigger("chosen:updated");
-
 }

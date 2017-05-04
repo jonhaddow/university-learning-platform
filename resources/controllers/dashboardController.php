@@ -1,8 +1,11 @@
 <?php
+
+// Check that user is authenticated
 if ($authenticated) {
     $role = $_SESSION["role"];
     require_once API . "/module/get-modules.php";
     if ($role == 0) { // If role is student...
+        // Look at URL, and route to correct page.
         if (isset($routes[2])) {
             $module_code = $routes[2];
             foreach ($modules as $module) {

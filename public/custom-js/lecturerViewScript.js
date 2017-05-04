@@ -5,14 +5,17 @@ var filterOnClass = "btn-success";
 
 $(function () {
 
+    // initialise network with current filters.
     getFilters();
 
+    // When show filters is clicked, slide open filter options.
     $("#showFilters").click(function () {
         $("#filterOptions").slideToggle();
         $(this).hide();
         $("#hideFilters").show();
     });
 
+    // When hide filters is clicked, hide filter options
     $("#hideFilters").click(function () {
         $("#filterOptions").slideToggle();
         $(this).hide();
@@ -23,9 +26,12 @@ $(function () {
     $(".choser").chosen({width: "100%"}).change(function () {
         $("#selectedTopic").text("Please select a topic.");
         $("#selectedTopicInfo").hide();
+
+        // initialise network with filter options.
         getFilters();
     });
 
+    // if filter option is selected, slide option menu down.
     $(".filter-btn").click(function () {
         var filter = $(this).siblings(".filter-container");
         var dropDown = filter.find(".choser");
@@ -40,6 +46,7 @@ $(function () {
         }
     });
 
+    // on click listener for the grade filter.
     $("#gradeFilterBtn").click(function () {
         var filter = $(this).siblings(".filter-container");
         filter.slideToggle();
@@ -59,6 +66,7 @@ $(function () {
     });
 });
 
+// Function to collect all the applied filters AND initialise network.
 function getFilters() {
     if (gradeFilterSlider == null) {
         var gradeFilter = null;
@@ -66,16 +74,20 @@ function getFilters() {
         gradeFilter = gradeFilterSlider.slider("getValue");
     }
 
+    // request to filter with filter criteria.
     $.get(config.API_LOCATION + "get-feedback/filter-students.php", {
             nameFilter: $("#studentsMenu").val(),
             disabilityFilter: $("#disabilityMenu").val(),
             gradeFilter: gradeFilter
         }, function (result) {
+
+            // call initialise network in dashboardGlobal.js with list of filtered students.
             initializeNetwork(JSON.parse(result));
         }
     );
 }
 
+// Function to setup network showing the feedback marks for only the students highlighted.
 function setupNetwork(studentIds) {
 
     const topicDataset = [];
@@ -83,6 +95,8 @@ function setupNetwork(studentIds) {
     // add topics to dataset
     if (topics) {
         for (var i = 0; i < topics.length; i++) {
+
+            // if topic is untaught, make it a circle.
             if (topics[i].Taught === "1") {
                 var color = "#888";
                 var shape = "box";
@@ -108,9 +122,12 @@ function setupNetwork(studentIds) {
         }
     }
 
+    // Send request to get average feedback scores from the list of filtered students.
     $.get(config.API_LOCATION + "get-feedback/get-topic-average-feedback.php", {
         "studentIds": studentIds
     }, function (result) {
+
+        // If results are returned, no students were present in the list.
         if (result === "no-students") {
             $("#noStudentToShow").show();
             $("#numberStudentsShowing").hide();
@@ -119,12 +136,21 @@ function setupNetwork(studentIds) {
             $("#noStudentToShow").hide();
             $("#visHolder").show();
 
-            var jsonResult = JSON.parse(result);
-            for (i = 0; i < jsonResult.length; i++) {
-                var topicId = jsonResult[i].TopicId;
-                var mark = jsonResult[i].Mark;
+            // Go through each average score.
+            var averageScores = JSON.parse(result);
+            for (i = 0; i < averageScores.length; i++) {
+
+                // Get properties from score.
+                var topicId = averageScores[i].TopicId;
+                var mark = averageScores[i].Mark;
+
+                // Go through each topic in dataset
                 for (var j = 0; j < topicDataset.length; j++) {
+
+                    // If the score's topicId matches the topic...
                     if (topicDataset[j].id === topicId) {
+
+                        // Set the colour to match the score.
                         var color = darkColors[Math.round(mark) - 1];
                         topicDataset[j].color = {
                             background: color,
@@ -139,17 +165,18 @@ function setupNetwork(studentIds) {
                 }
             }
 
+            // Display the number of students filtered in the top left of graph.
             $("#numberStudentsShowing").text("Showing " + studentIds.length + "/" + $("#studentCount").text() + " students").show();
 
             drawNetwork(topicDataset, addDependenciesToMap());
-
             setOnClickListeners(studentIds);
         }
     });
-
 }
 
+// Function to set all on click listeners within the graph.
 function setOnClickListeners(studentIds) {
+
     // listener when node is selected
     network.on("selectNode", function (selectedNode) {
 
@@ -206,8 +233,11 @@ function hideFilterPanel() {
     $("#filterOptions").slideUp();
 }
 
+// Function that builds the bar chart showing student feedback.
 function buildChart(topicId, studentIds) {
 
+    // Ajax request to get all topic feedback
+    // from the selected topic and the list of students given.
     $.get(config.API_LOCATION + "get-feedback/get-all-topic-feedback.php", {
         topicId: topicId,
         studentId: studentIds
@@ -218,8 +248,10 @@ function buildChart(topicId, studentIds) {
             return;
         }
 
+        // initialise the feedback counter array
         var feedbackCounter = [0, 0, 0, 0, 0];
         for (var i = 0; i < resultObj.length; i++) {
+            // for each mark, increment the corresponding array.
             feedbackCounter[resultObj[i].Mark - 1]++;
         }
 
@@ -228,6 +260,7 @@ function buildChart(topicId, studentIds) {
             barChart.destroy();
         }
 
+        // Initialise a new chart instance.
         var ctx = $("#myChart");
         barChart = new Chart(ctx, {
             type: 'bar',
@@ -287,7 +320,7 @@ function buildChart(topicId, studentIds) {
     });
 }
 
-
+// Function showing average student feedback score.
 function drawAverageScoreSlider(mark) {
     var slider = $("#averageScoreSlider").slider({
         orientation: "vertical",

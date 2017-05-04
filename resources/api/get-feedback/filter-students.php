@@ -1,22 +1,21 @@
 <?php
 
 if ($_SESSION["role"] == 0) {
-    // user is student; Show only their results
-
+    // user is a student; Show only their results
     $students = [$_SESSION["userId"]];
-
     die(json_encode($students));
-
 } else if ($_SESSION["role"] != 1) {
     die();
 }
+
+// check name filter is set
 if (isset($_GET["nameFilter"])) {
     $nameFilter = $_GET["nameFilter"];
 }
 $disabilityFilter = $_GET["disabilityFilter"];
 $gradeFilter = $_GET["gradeFilter"];
 
-// get all student Ids in $students
+// get all student Ids in system.
 $stmt = $db_conn->prepare("SELECT UserId FROM users WHERE Role = 0");
 $stmt->execute();
 $students = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
@@ -33,7 +32,7 @@ if (isset($nameFilter)) {
     $sql->execute($nameFilter);
     $students = $sql->fetchAll(PDO::FETCH_COLUMN, 0);
 }
-
+// If a disability filter exists...
 if ($disabilityFilter != NULL) {
     $inQueryList = implode(',', $students);
     $sql = $db_conn->prepare(
@@ -44,7 +43,7 @@ if ($disabilityFilter != NULL) {
     $sql->execute();
     $students = $sql->fetchAll(PDO::FETCH_COLUMN, 0);
 }
-
+// If a grade filter exists...
 if ($gradeFilter != NULL) {
     $inQuery = implode(',', $students);
     $sql = $db_conn->prepare(
@@ -58,3 +57,4 @@ if ($gradeFilter != NULL) {
 }
 
 die(json_encode($students));
+
