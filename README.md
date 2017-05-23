@@ -22,3 +22,7 @@ Start the Xampp server and check that it runs in a browser.
 ### Database
 
 To set-up the database, go to ```localhost/phpmyadmin``` in a browser. Within this interface create a database called "test". Then select "Import" and import the ```test.sql``` file in this project's ```databaseBackup/``` directory. This should populate your database with the correct tables and some test data.
+
+### Seeded data
+
+The database will be seeded with test data. To log in as a student, use username "student1", "student2", ... with "password" as the password. To log in as a lecturer, use username "lecturer1", "lecturer2", ... with "password" as the password.
